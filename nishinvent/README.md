@@ -1,4 +1,4 @@
-
+########## 1 
 ```
 npx create-next-app@latest nishinvent
 npx shadcn@latest init 
@@ -21,7 +21,7 @@ npx shadcn@latest add button card input form table dialog
 
 ```
 
-
+######### 2
 ``` How To Add shadcn components
 nishantsaxena@Nishants-MacBook-Pro nishinvent % npx shadcn@latest add button card input form table dialog
 
@@ -66,6 +66,7 @@ index 5ec9ff6..7b657a9 100644
      "@eslint/eslintrc": "^3"
 ```
 
+#########3 
 
 ```
 Add lucid react components : 
@@ -95,3 +96,22 @@ fit perfectly with shadcn/ui and Tailwind.
 
 
 ```
+##############4 
+
+```
+1) nano postcss.config.mjs
+
+const config = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+
+export default config;
+
+2)  npx storybook@latest init
+3) npm run story book
+```
+
+
