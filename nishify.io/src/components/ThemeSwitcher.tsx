@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button'
 const themes = [
   { label: 'Amberland (Light)', theme: 'amberland', mode: 'light' },
   { label: 'Amberland (Dark)', theme: 'amberland', mode: 'dark' },
+  { label: 'Emeraldline (Light)', theme: 'emeraldline', mode: 'light' },
+  { label: 'Emeraldline (Dark)', theme: 'emeraldline', mode: 'dark' },
   { label: 'Default (Light)', theme: 'default', mode: 'light' },
   { label: 'Default (Dark)', theme: 'default', mode: 'dark' },
 ]
@@ -30,6 +32,7 @@ export function ThemeSwitcher() {
 
     document.body.classList.remove(
       'theme-amberland',
+      'theme-emeraldline',
       'theme-default',
       'light',
       'dark'
