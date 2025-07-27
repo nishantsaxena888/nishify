@@ -1,32 +1,29 @@
 'use client'
 
-// import { Button } from '@/components/ui/button'
-// import { Card } from '@/components/ui/card'
-// import ProductForm from './form-demo'
-// import ProductTable from './table-demo'
+import { Button } from '@/components/ui/button'
+import { ModeToggle } from '@/components/mode-toggle'
+import ProductForm from './form-demo'
 
 export default function PlaygroundPage() {
   return (
-    <div className="p-6 space-y-6">
-      <h1 className="text-xl font-bold">🧪 Component Playground</h1>
+    <div className="min-h-screen bg-background text-foreground p-6">
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="text-2xl font-bold">🧪 Playground</h1>
+        <ModeToggle />
+      </div>
 
-      <section>
-        <h2 className="text-lg font-semibold mb-2">Button Variants</h2>
+      <section className="space-y-4">
+        <h2 className="text-lg font-semibold mb-2">Buttons</h2>
         <div className="flex gap-2">
-          {/* <Button variant="default">Default</Button>
+          <Button variant="default">Default</Button>
           <Button variant="destructive">Destructive</Button>
-          <Button variant="outline">Outline</Button>*/}
-        </div> 
+          <Button variant="outline">Outline</Button>
+        </div>
       </section>
 
-      <section>
-        <h2 className="text-lg font-semibold mt-6 mb-2">Form Preview</h2>
-        {/* <ProductForm /> */}
-      </section>
-
-      <section>
-        <h2 className="text-lg font-semibold mt-6 mb-2">Table Preview</h2>
-        {/* <ProductTable /> */}
+      <section className="mt-10 space-y-4">
+        <h2 className="text-lg font-semibold mb-2">Form</h2>
+        <ProductForm />
       </section>
     </div>
   )
