@@ -1,3 +1,4 @@
+```
 $ Nonpx create-next-app@latest nishify.io 
 ✔ Would you like to use TypeScript? … No / Yes
 ✔ Would you like to use ESLint? … No / Yes
@@ -30,4 +31,5 @@ origin	https://github.com/nishantsaxena888/nishify.git (push)
 git remote set-url origin git@github.com:nishantsaxena888/nishify.git
 > Idea : TOC main FAQ 
 >> move all this to TOC
+```
 
