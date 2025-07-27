@@ -96,22 +96,13 @@ fit perfectly with shadcn/ui and Tailwind.
 
 
 ```
-##############4 
+############## 4 
 
 ```
-1) nano postcss.config.mjs
 
-const config = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-};
+npx storybook@latest init --builder vite
 
-export default config;
-
-2)  npx storybook@latest init
-3) npm run story book
+npm run storybook
 ```
 
 
