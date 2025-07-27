@@ -42,3 +42,21 @@ ls src/components/ui
 ```
 
 
+```
+✅ 1. ThemeProvider (from next-themes)
+Yeh dark / light mode ke liye hai.
+It works via <html class="dark"> or <html class="light">
+<ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+
+✅ 2. ThemeSwitcher (your own)
+Yeh brand theme ke liye hai — jaise amberland, emeraldline, etc.
+Iska kaam hai data-theme="amberland" ya class theme-amberland lagana.
+But: this is separate from light/dark theme.
+✅ ✅ Final Goal
+💡 Light/Dark via next-themes
+🎨 Branded Themes via your own ThemeSwitcher
+🍪 Persistent theme using localStorage/cookie
+🔁 Fully integrated without conflict
+
+```
+

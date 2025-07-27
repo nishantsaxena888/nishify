@@ -1,5 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "./theme.common.css";
+
+/* Order matters */
+@import "./theme.amberland.css";
 @import "./theme.light.css";
 @import "./theme.dark.css";
+@import "./theme.common.css"; /* This must come LAST */
