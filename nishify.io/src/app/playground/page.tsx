@@ -154,10 +154,9 @@ export default function PlaygroundPage() {
   return (
     <div className="min-h-screen bg-background text-foreground pb-6">
       <SidebarComponent>
-        <div className="flex items-center justify-between mb-6 z-[1] sticky p-6 top-0 bg-background">
+        <div className="flex items-center justify-between mb-6 z-[1] p-6 top-0 ">
           <h1 className="text-2xl font-bold">🧪 Playground</h1>
           <ModeToggle />
-          <ThemeSwitcher />
         </div>
         <div className="px-6">
           <div className="bg-background text-foreground p-4">

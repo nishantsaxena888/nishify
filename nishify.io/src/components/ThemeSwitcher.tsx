@@ -4,6 +4,16 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { Palette } from "lucide-react";
 
 const themes = [
   { label: "Amberland (Light)", theme: "amberland", mode: "light" },
@@ -62,16 +72,34 @@ export function ThemeSwitcher() {
   };
 
   return (
-    <div className="flex flex-wrap gap-2">
-      {themes.map(({ label, theme: t, mode: m }) => (
-        <Button
-          key={`${t}-${m}`}
-          variant={theme === t && mode === m ? "default" : "outline"}
-          onClick={() => handleClick(t, m as "light" | "dark")}
-        >
-          {label}
-        </Button>
-      ))}
-    </div>
+    <>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline">
+            <Palette />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-56" align="start">
+          <DropdownMenuLabel className="font-bold">
+            Change Theme
+          </DropdownMenuLabel>
+          <DropdownMenuSeparator />
+
+          <DropdownMenuGroup className="space-y-1">
+            {themes.map(({ label, theme: t, mode: m }) => (
+              <DropdownMenuItem asChild key={`${t}-${m}`}>
+                <Button
+                  variant={theme === t && mode === m ? "default" : "ghost"}
+                  onClick={() => handleClick(t, m as "light" | "dark")}
+                  className="w-full justify-start "
+                >
+                  {label}
+                </Button>
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </>
   );
 }

@@ -17,10 +17,12 @@ import {
 } from "@/components/ui/sidebar";
 import React from "react";
 
-export const SidebarComponent = ({
+export const DashboardTemplate = ({
   children,
+  name,
 }: {
   children: React.ReactNode;
+  name: string;
 }) => {
   return (
     <SidebarProvider>
@@ -33,7 +35,7 @@ export const SidebarComponent = ({
               orientation="vertical"
               className="mr-2 data-[orientation=vertical]:h-4"
             />
-            <h1 className="text-2xl font-bold">🧪 Playground</h1>
+            <h1 className="text-2xl font-bold capitalize">🧪 {name}</h1>
           </div>
           <div className="flex justify-end gap-2">
             <ModeToggle />
@@ -52,7 +54,7 @@ export const SidebarComponent = ({
               </BreadcrumbItem>
               <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>
-                <BreadcrumbPage>button.tsx</BreadcrumbPage>
+                <BreadcrumbPage>{name}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
