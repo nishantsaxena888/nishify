@@ -1,25 +1,35 @@
 import os
-from infra.pioneer_wholesale_inc.entities import entities
+import importlib.util
 from datetime import datetime
 import json
 import pandas as pd
+import sys
 
 LOG = True
 
-# Define key directories
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-ROOT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))  # Ensures nishify is the root
+# ✅ Accept client name as argument
+if len(sys.argv) < 2:
+    raise ValueError("Client name must be passed as an argument. Usage: python code_generator.py <client_name>")
 
-MODEL_OUTPUT_DIR = os.path.join(ROOT_DIR, "backend/models")
-MOCK_OUTPUT_DIR = os.path.join(ROOT_DIR, "nishify.io/src/lib/api/mock")
-TESTDATA_OUTPUT_DIR = os.path.join(ROOT_DIR, "backend/test_data")
+CLIENT_NAME = sys.argv[1]
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR))
+
+MODEL_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/clients/{CLIENT_NAME}/models")
+MOCK_OUTPUT_DIR = os.path.join(ROOT_DIR, f"nishify.io/src/lib/api/mock/{CLIENT_NAME}")
+TESTDATA_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/clients/{CLIENT_NAME}/test_data")
 EXCEL_OUTPUT_FILE = os.path.join(TESTDATA_OUTPUT_DIR, "test_data.xlsx")
 
+# 🔁 Dynamic import of entities.py from client folder
+ENTITIES_PATH = os.path.join(ROOT_DIR, f"infra/{CLIENT_NAME}/entities.py")
+spec = importlib.util.spec_from_file_location("entities", ENTITIES_PATH)
+entities_module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(entities_module)
+entities = entities_module.entities
 
 def log(msg):
     if LOG:
         print(msg)
-
 
 def type_map(field_type):
     return {
@@ -29,7 +39,6 @@ def type_map(field_type):
         "bool": "Boolean",
         "datetime": "DateTime",
     }.get(field_type, "String")
-
 
 def generate_models():
     os.makedirs(MODEL_OUTPUT_DIR, exist_ok=True)
@@ -65,7 +74,6 @@ def generate_models():
             f.write(model_code)
         log(f"✅ Generated model for {entity} at {model_path}")
 
-
 def generate_mock_data():
     os.makedirs(MOCK_OUTPUT_DIR, exist_ok=True)
 
@@ -86,7 +94,6 @@ def generate_mock_data():
             f.write("\n".join(lines))
         log(f"✅ Generated mock for {entity} at {mock_path}")
 
-
 def generate_test_data():
     os.makedirs(TESTDATA_OUTPUT_DIR, exist_ok=True)
 
@@ -96,7 +103,6 @@ def generate_test_data():
         with open(json_path, "w") as f:
             json.dump(data, f, indent=2)
         log(f"✅ Generated test data for {entity} at {json_path}")
-
 
 def generate_excel_dump():
     all_dfs = []
@@ -111,15 +117,13 @@ def generate_excel_dump():
             df.to_excel(writer, sheet_name=name, index=False)
     log(f"✅ Excel dump generated at {EXCEL_OUTPUT_FILE}")
 
-
 def reset_client_code():
-    log("🚀 Starting code generation for client configuration")
+    log(f"🚀 Starting code generation for client: {CLIENT_NAME}")
     generate_models()
     generate_mock_data()
     generate_test_data()
     generate_excel_dump()
     log("🎉 Code generation completed")
-
 
 if __name__ == "__main__":
     reset_client_code()
