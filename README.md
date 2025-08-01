@@ -1,4 +1,17 @@
 ```
+python3 -m venv .venv 
+source .venv/bin/activate 
+pip install -r requirements.txt 
+cd nishify.io 
+npm install 
+npm run dev 
+
+```
+
+
+
+
+```
 $ Nonpx create-next-app@latest nishify.io 
 ✔ Would you like to use TypeScript? … No / Yes
 ✔ Would you like to use ESLint? … No / Yes
