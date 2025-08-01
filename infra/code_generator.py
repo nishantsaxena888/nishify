@@ -13,7 +13,7 @@ if len(sys.argv) < 2:
 
 CLIENT_NAME = sys.argv[1]
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-ROOT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR))
+ROOT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
 
 MODEL_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/clients/{CLIENT_NAME}/models")
 MOCK_OUTPUT_DIR = os.path.join(ROOT_DIR, f"nishify.io/src/lib/api/mock/{CLIENT_NAME}")
@@ -21,7 +21,7 @@ TESTDATA_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/clients/{CLIENT_NAME}/tes
 EXCEL_OUTPUT_FILE = os.path.join(TESTDATA_OUTPUT_DIR, "test_data.xlsx")
 
 # 🔁 Dynamic import of entities.py from client folder
-ENTITIES_PATH = os.path.join(ROOT_DIR, f"infra/{CLIENT_NAME}/entities.py")
+ENTITIES_PATH = os.path.join(SCRIPT_DIR, f"{CLIENT_NAME}/entities.py")
 spec = importlib.util.spec_from_file_location("entities", ENTITIES_PATH)
 entities_module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(entities_module)
