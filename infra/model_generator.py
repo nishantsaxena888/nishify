@@ -4,23 +4,24 @@ from datetime import datetime
 import json
 import pandas as pd
 
+LOG = True
+
 # Define key directories
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
-MODEL_OUTPUT_DIR = os.path.join(BASE_DIR, "backend/models")
-MOCK_OUTPUT_DIR = os.path.join(BASE_DIR, "nishify.io/src/mocks")
-TESTDATA_OUTPUT_DIR = os.path.join(BASE_DIR, "backend/test_data")
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))  # Ensures nishify is the root
+
+MODEL_OUTPUT_DIR = os.path.join(ROOT_DIR, "backend/models")
+MOCK_OUTPUT_DIR = os.path.join(ROOT_DIR, "nishify.io/src/lib/api/mock")
+TESTDATA_OUTPUT_DIR = os.path.join(ROOT_DIR, "backend/test_data")
 EXCEL_OUTPUT_FILE = os.path.join(TESTDATA_OUTPUT_DIR, "test_data.xlsx")
 
+
+def log(msg):
+    if LOG:
+        print(msg)
+
+
 def type_map(field_type):
-    """
-    Map simplified field types to SQLAlchemy types.
-
-    Args:
-        field_type (str): The field type (e.g., 'int', 'str', etc.)
-
-    Returns:
-        str: SQLAlchemy type as string
-    """
     return {
         "int": "Integer",
         "str": "String",
@@ -29,15 +30,8 @@ def type_map(field_type):
         "datetime": "DateTime",
     }.get(field_type, "String")
 
-def generate_models():
-    """
-    Generate SQLAlchemy model files for each entity.
-    Fields are derived from the `entities` config.
 
-    Example:
-        id = Column(Integer, primary_key=True)
-        name = Column(String, nullable=False)
-    """
+def generate_models():
     os.makedirs(MODEL_OUTPUT_DIR, exist_ok=True)
 
     for entity, config in entities.items():
@@ -62,25 +56,17 @@ def generate_models():
                 opts.append("default=datetime.utcnow")
             if field_conf.get("foreign_key"):
                 opts.append(f"ForeignKey('{field_conf['foreign_key']}')")
-            line = f"    {field_name} = Column({sql_type}, {', '.join(opts)})"
+            line = f"    {field_name} = Column({sql_type}{', ' + ', '.join(opts) if opts else ''})"
             lines.append(line)
 
         model_code = "\n".join(lines)
-        with open(os.path.join(MODEL_OUTPUT_DIR, f"{entity}.py"), "w") as f:
+        model_path = os.path.join(MODEL_OUTPUT_DIR, f"{entity}.py")
+        with open(model_path, "w") as f:
             f.write(model_code)
-        print(f"✅ Generated model for {entity}")
+        log(f"✅ Generated model for {entity} at {model_path}")
+
 
 def generate_mock_data():
-    """
-    Generate mock API handlers in TypeScript for frontend mocking.
-
-    Each entity will have:
-      - options(): returns list of fields
-      - get(): returns sample data array
-      - getOne(id): returns first sample row
-      - post(payload): adds a random ID
-      - update(payload): returns payload as is
-    """
     os.makedirs(MOCK_OUTPUT_DIR, exist_ok=True)
 
     for entity, config in entities.items():
@@ -95,32 +81,24 @@ def generate_mock_data():
 
         lines = [f"export const {entity} = {{"] + [f"  {k}: {v}," for k, v in handlers.items()] + ["};"]
 
-        with open(os.path.join(MOCK_OUTPUT_DIR, f"{entity}.ts"), "w") as f:
+        mock_path = os.path.join(MOCK_OUTPUT_DIR, f"{entity}.ts")
+        with open(mock_path, "w") as f:
             f.write("\n".join(lines))
-        print(f"✅ Generated mock for {entity}")
+        log(f"✅ Generated mock for {entity} at {mock_path}")
+
 
 def generate_test_data():
-    """
-    Generate static test data for backend unit tests.
-
-    Output:
-      backend/test_data/<entity>.json
-    """
     os.makedirs(TESTDATA_OUTPUT_DIR, exist_ok=True)
 
     for entity, config in entities.items():
         data = config.get("sample_data", [])
-        with open(os.path.join(TESTDATA_OUTPUT_DIR, f"{entity}.json"), "w") as f:
+        json_path = os.path.join(TESTDATA_OUTPUT_DIR, f"{entity}.json")
+        with open(json_path, "w") as f:
             json.dump(data, f, indent=2)
-        print(f"✅ Generated test data for {entity}")
+        log(f"✅ Generated test data for {entity} at {json_path}")
+
 
 def generate_excel_dump():
-    """
-    Create a multi-sheet Excel file where each sheet is one entity's sample data.
-
-    Output:
-      backend/test_data/test_data.xlsx
-    """
     all_dfs = []
     for entity, config in entities.items():
         data = config.get("sample_data", [])
@@ -131,20 +109,17 @@ def generate_excel_dump():
     with pd.ExcelWriter(EXCEL_OUTPUT_FILE, engine="xlsxwriter") as writer:
         for name, df in all_dfs:
             df.to_excel(writer, sheet_name=name, index=False)
-    print(f"✅ Excel dump generated at {EXCEL_OUTPUT_FILE}")
+    log(f"✅ Excel dump generated at {EXCEL_OUTPUT_FILE}")
+
 
 def reset_client_code():
-    """
-    Master function to regenerate all components for a client:
-      - SQLAlchemy models
-      - Frontend mocks
-      - Backend test JSON
-      - Excel data snapshot
-    """
+    log("🚀 Starting code generation for client configuration")
     generate_models()
     generate_mock_data()
     generate_test_data()
     generate_excel_dump()
+    log("🎉 Code generation completed")
+
 
 if __name__ == "__main__":
     reset_client_code()
