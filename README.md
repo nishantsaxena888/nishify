@@ -1,4 +1,9 @@
 ```
+python -m infra.code_generator pioneer_wholesale_inc
+
+
+
+
 python3 -m venv .venv 
 source .venv/bin/activate 
 pip install -r requirements.txt 
@@ -6,9 +11,25 @@ cd nishify.io
 npm install 
 npm run dev 
 
+nishify/
+├── infra/
+│   ├── code_generator.py
+│   └── pioneer_wholesale_inc/
+│       └── entities.py
+│   └── shareaplace/
+│       └── entities.py
+├── backend/
+│   └── clients/
+│       └── pioneer_wholesale_inc/
+│           ├── models/
+│           └── test_data/
+├── nishify.io/
+│   └── src/lib/api/mock/
+│       └── pioneer_wholesale_inc/
+│           ├── customer.ts
+│           ├── invoice.ts
+
 ```
-
-
 
 
 ```
