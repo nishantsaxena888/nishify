@@ -18,6 +18,8 @@ CLIENTS_DIR = os.path.join(ROOT_DIR, "clients")
 CLIENT_DIR = os.path.join(CLIENTS_DIR, CLIENT_NAME)
 ENTITIES_PATH = os.path.join(CLIENT_DIR, "entities.py")
 CONFIG_PATH = os.path.join(CLIENT_DIR, "config.json")
+PAGES_OUTPUT_DIR = os.path.join(ROOT_DIR, f"nishify.io/clients/{CLIENT_NAME}")
+
 
 # 🚨 If missing, show list of clients or scaffold new one
 if not os.path.exists(ENTITIES_PATH):
@@ -168,6 +170,17 @@ def generate_excel_dump():
             df.to_excel(writer, sheet_name=name, index=False)
     log(f"✅ Excel dump generated at {EXCEL_OUTPUT_FILE}")
 
+def generate_pages_config():
+    os.makedirs(PAGES_OUTPUT_DIR, exist_ok=True)
+
+    for filename in os.listdir(CLIENT_DIR):
+        if filename.endswith(".json"):
+            source_path = os.path.join(CLIENT_DIR, filename)
+            dest_path = os.path.join(PAGES_OUTPUT_DIR, filename)
+            with open(source_path, 'r') as src, open(dest_path, 'w') as dest:
+                dest.write(src.read())
+            log(f"✅ Copied {filename} to frontend: {dest_path}")
+
 def reset_client_code():
     log(f"🚀 Starting code generation for client: {CLIENT_NAME}")
     log(f"📁 Using config: {client_config}")
@@ -175,7 +188,9 @@ def reset_client_code():
     generate_mock_data()
     generate_test_data()
     generate_excel_dump()
+    generate_pages_config()
     log("🎉 Code generation completed")
+
 
 if __name__ == "__main__":
     reset_client_code()

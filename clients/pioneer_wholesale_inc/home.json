@@ -1,0 +1,14 @@
+{
+  "home": {
+    "sections": [
+      {
+        "type": "hero-banner",
+        "title": "Welcome to Pioneer Wholesale Inc"
+      },
+      {
+        "type": "feature-list",
+        "features": ["Fast Delivery", "Bulk Pricing", "Quality Assurance"]
+      }
+    ]
+  }
+}

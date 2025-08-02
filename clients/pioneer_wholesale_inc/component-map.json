@@ -1,0 +1,5 @@
+{
+  "hero-banner": "@/components/dynamic/hero-banner",
+  "feature-list": "@/components/dynamic/feature-list",
+  "login-form": "@/components/auth-component/login"
+}
