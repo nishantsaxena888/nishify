@@ -1,3 +1,17 @@
+
+entities = {
+    "product": {
+        "fields": {
+            "id": {"type": "int", "primary_key": True},
+            "name": {"type": "str", "required": True},
+            "price": {"type": "float"},
+            "in_stock": {"type": "bool"}
+        },
+        "sample_data": [
+            {"id": 1, "name": "Sample Product", "price": 9.99, "in_stock": True}
+        ]
+    }
+}
 entities = {
     "customer": {
         "fields": {

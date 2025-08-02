@@ -13,7 +13,59 @@ if len(sys.argv) < 2:
 
 CLIENT_NAME = sys.argv[1]
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-ROOT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))  # Treat nishify/ as root
+ROOT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))  # nishify root
+CLIENTS_DIR = os.path.join(ROOT_DIR, "clients")
+CLIENT_DIR = os.path.join(CLIENTS_DIR, CLIENT_NAME)
+ENTITIES_PATH = os.path.join(CLIENT_DIR, "entities.py")
+CONFIG_PATH = os.path.join(CLIENT_DIR, "config.json")
+
+# 🚨 If missing, show list of clients or scaffold new one
+if not os.path.exists(ENTITIES_PATH):
+    print(f"❌ Client '{CLIENT_NAME}' not found at {ENTITIES_PATH}\n")
+    print("📁 Available clients:")
+    for folder in os.listdir(CLIENTS_DIR):
+        if os.path.isdir(os.path.join(CLIENTS_DIR, folder)):
+            print(f"- {folder}")
+    scaffold = input(f"\nWould you like to scaffold a new client '{CLIENT_NAME}'? (y/n): ").strip().lower()
+    if scaffold == 'y':
+        os.makedirs(CLIENT_DIR, exist_ok=True)
+        with open(ENTITIES_PATH, 'w') as f:
+            f.write("""
+entities = {
+    "product": {
+        "fields": {
+            "id": {"type": "int", "primary_key": True},
+            "name": {"type": "str", "required": True},
+            "price": {"type": "float"},
+            "in_stock": {"type": "bool"}
+        },
+        "sample_data": [
+            {"id": 1, "name": "Sample Product", "price": 9.99, "in_stock": True}
+        ]
+    }
+}
+""")
+        with open(CONFIG_PATH, 'w') as f:
+            json.dump({
+                "env": {
+                    "dev_url": "http://localhost:8000/api",
+                    "prod_url": "https://api.example.com"
+                },
+                "use_mock": True,
+                "theme": "default",
+                "auth_mode": "none"
+            }, f, indent=2)
+        print(f"✅ Scaffolded new client at {CLIENT_DIR}. Now re-run the script.")
+        sys.exit(0)
+    else:
+        print("❌ Aborting.")
+        sys.exit(1)
+
+# Load config.json per client (optional settings)
+client_config = {}
+if os.path.exists(CONFIG_PATH):
+    with open(CONFIG_PATH, 'r') as f:
+        client_config = json.load(f)
 
 MODEL_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/clients/{CLIENT_NAME}/models")
 MOCK_OUTPUT_DIR = os.path.join(ROOT_DIR, f"nishify.io/src/lib/api/mock/{CLIENT_NAME}")
@@ -21,7 +73,6 @@ TESTDATA_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/clients/{CLIENT_NAME}/tes
 EXCEL_OUTPUT_FILE = os.path.join(TESTDATA_OUTPUT_DIR, "test_data.xlsx")
 
 # 🔁 Dynamic import of entities.py from client folder
-ENTITIES_PATH = os.path.join(SCRIPT_DIR, f"{CLIENT_NAME}/entities.py")
 spec = importlib.util.spec_from_file_location("entities", ENTITIES_PATH)
 entities_module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(entities_module)
@@ -119,6 +170,7 @@ def generate_excel_dump():
 
 def reset_client_code():
     log(f"🚀 Starting code generation for client: {CLIENT_NAME}")
+    log(f"📁 Using config: {client_config}")
     generate_models()
     generate_mock_data()
     generate_test_data()
