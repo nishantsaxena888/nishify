@@ -1,0 +1,70 @@
+{
+  "title": "Create New Account",
+  "description": "Register to start managing inventory.",
+  "submitText": "Register",
+  "redirect": {
+    "label": "Already have an account?",
+    "linkText": "Login",
+    "href": "/auth/login"
+  },
+  "fields": [
+    {
+      "id": "first_name",
+      "type": "text",
+      "label": "First Name",
+      "placeholder": "John",
+      "name": "first_name",
+      "required": true
+    },
+    {
+      "id": "last_name",
+      "type": "text",
+      "label": "Last Name",
+      "placeholder": "Doe",
+      "name": "last_name",
+      "required": true
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email",
+      "placeholder": "john@example.com",
+      "name": "email",
+      "required": true
+    },
+    {
+      "id": "password",
+      "type": "password",
+      "label": "Password",
+      "placeholder": "Choose a secure password",
+      "name": "password",
+      "required": true
+    },
+    {
+      "id": "role",
+      "type": "dropdown",
+      "label": "User Role",
+      "placeholder": "Select role",
+      "name": "role",
+      "required": true,
+      "list": [
+        { "label": "Admin", "value": "admin" },
+        { "label": "Manager", "value": "manager" },
+        { "label": "Viewer", "value": "viewer" }
+      ]
+    },
+    {
+      "id": "interests",
+      "type": "multi-select-dropdown",
+      "label": "Areas of Interest",
+      "placeholder": "Select all that apply",
+      "name": "interests",
+      "list": [
+        { "label": "Inventory", "value": "inventory" },
+        { "label": "Analytics", "value": "analytics" },
+        { "label": "Finance", "value": "finance" },
+        { "label": "Integrations", "value": "integrations" }
+      ]
+    }
+  ]
+}

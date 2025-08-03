@@ -1,14 +1,35 @@
 {
-  "home": {
-    "sections": [
-      {
-        "type": "hero-banner",
-        "title": "Welcome to Pioneer Wholesale Inc"
-      },
-      {
-        "type": "feature-list",
-        "features": ["Fast Delivery", "Bulk Pricing", "Quality Assurance"]
+  "layout": "default",
+  "sections": [
+    {
+      "type": "hero-banner",
+      "title": "Welcome to Pioneer Wholesale",
+      "subtitle": "Your trusted B2B inventory partner",
+      "cta": {
+        "text": "Login",
+        "link": "/auth/login"
       }
-    ]
-  }
+    },
+    {
+      "type": "feature-list",
+      "title": "Why Choose Us",
+      "items": [
+        "Bulk discounts on all items",
+        "Real-time inventory tracking",
+        "Seamless accounting integration"
+      ]
+    },
+    {
+      "type": "login-form",
+      "form": "form-login.json"
+    },
+    {
+      "type": "register-form",
+      "form": "form-register.json"
+    },
+    {
+      "type": "forgot-password-form",
+      "form": "form-forgot-password.json"
+    }
+  ]
 }

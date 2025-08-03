@@ -1,0 +1,30 @@
+{
+  "title": "Login to your account",
+  "description": "Enter your email and password to access the dashboard.",
+  "submitText": "Login",
+  "redirect": {
+    "label": "Don't have an account?",
+    "linkText": "Register",
+    "href": "/auth/register"
+  },
+  "fields": [
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email Address",
+      "placeholder": "you@example.com",
+      "name": "email",
+      "autoComplete": "email",
+      "required": true
+    },
+    {
+      "id": "password",
+      "type": "password",
+      "label": "Password",
+      "placeholder": "Enter your password",
+      "name": "password",
+      "autoComplete": "current-password",
+      "required": true
+    }
+  ]
+}

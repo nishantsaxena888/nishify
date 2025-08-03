@@ -2,13 +2,17 @@
 
 import dynamic from 'next/dynamic'
 
-// 👇 Directly define your component map (can be generated later if needed)
+// ✅ Client-independent DynamicFormRenderer
+const DynamicFormRenderer = dynamic(() => import('@/components/dynamic/dynamic-form'), {
+  ssr: false,
+})
+
 export const componentMap: Record<string, any> = {
   'hero-banner': dynamic(() => import('@/components/dynamic/hero-banner')),
   'feature-list': dynamic(() => import('@/components/dynamic/feature-list')),
-  'login-form': dynamic(() => import('@/components/dynamic/login-form'), {
-    ssr: false
-  }),
+  'login-form': DynamicFormRenderer,
+  'register-form': DynamicFormRenderer,
+  'forgot-password-form': DynamicFormRenderer,
 }
 
 export function getDynamicComponent(type: string) {

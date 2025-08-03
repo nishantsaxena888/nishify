@@ -4,6 +4,7 @@ from datetime import datetime
 import json
 import pandas as pd
 import sys
+import shutil
 
 LOG = True
 
@@ -18,7 +19,7 @@ CLIENTS_DIR = os.path.join(ROOT_DIR, "clients")
 CLIENT_DIR = os.path.join(CLIENTS_DIR, CLIENT_NAME)
 ENTITIES_PATH = os.path.join(CLIENT_DIR, "entities.py")
 CONFIG_PATH = os.path.join(CLIENT_DIR, "config.json")
-PAGES_OUTPUT_DIR = os.path.join(ROOT_DIR, f"nishify.io/clients/{CLIENT_NAME}")
+PAGES_OUTPUT_DIR = os.path.join(ROOT_DIR, f"nishify.io/src/clients/{CLIENT_NAME}")
 
 
 # 🚨 If missing, show list of clients or scaffold new one
@@ -170,16 +171,24 @@ def generate_excel_dump():
             df.to_excel(writer, sheet_name=name, index=False)
     log(f"✅ Excel dump generated at {EXCEL_OUTPUT_FILE}")
 
+
+
 def generate_pages_config():
     os.makedirs(PAGES_OUTPUT_DIR, exist_ok=True)
 
-    for filename in os.listdir(CLIENT_DIR):
-        if filename.endswith(".json"):
-            source_path = os.path.join(CLIENT_DIR, filename)
-            dest_path = os.path.join(PAGES_OUTPUT_DIR, filename)
-            with open(source_path, 'r') as src, open(dest_path, 'w') as dest:
-                dest.write(src.read())
-            log(f"✅ Copied {filename} to frontend: {dest_path}")
+    for root, dirs, files in os.walk(CLIENT_DIR):
+        for file in files:
+            src_file = os.path.join(root, file)
+
+            # Preserve folder structure in destination
+            relative_path = os.path.relpath(src_file, CLIENT_DIR)
+            dest_file = os.path.join(PAGES_OUTPUT_DIR, relative_path)
+
+            os.makedirs(os.path.dirname(dest_file), exist_ok=True)
+            shutil.copy2(src_file, dest_file)
+
+            # ✅ Print full absolute path
+            log(f"✅ Copied {relative_path} to frontend at {os.path.abspath(dest_file)}")
 
 def reset_client_code():
     log(f"🚀 Starting code generation for client: {CLIENT_NAME}")

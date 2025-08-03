@@ -21,7 +21,15 @@
     },
     {
       "type": "login-form",
-      "redirect": "/dashboard/main"
+      "form": "form-login.json"
+    },
+    {
+      "type": "register-form",
+      "form": "form-register.json"
+    },
+    {
+      "type": "forgot-password-form",
+      "form": "form-forgot-password.json"
     }
   ]
 }
