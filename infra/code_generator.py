@@ -13,9 +13,6 @@ if len(sys.argv) < 2:
     raise ValueError("Usage: python code_generator.py <client_name> [mock]")
 
 CLIENT_NAME = sys.argv[1]
-IS_MOCK = len(sys.argv) > 2 and sys.argv[2].lower() == "mock"
-
-
 CLIENT_NAME = sys.argv[1]
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))  # nishify root
@@ -272,10 +269,9 @@ def reset_client_code():
     log(f"🚀 Starting code generation for client: {CLIENT_NAME}")
     log(f"📁 Using config: {client_config}")
     generate_models()
-    if IS_MOCK:
-        generate_mock_data()
-        generate_test_data()
-        generate_excel_dump()
+    generate_mock_data()
+    generate_test_data()
+    generate_excel_dump()
     generate_pages_config()
     generate_test_cases_from_mock(entities, TESTS_OUTPUT_DIR)
     log("🎉 Code generation completed")

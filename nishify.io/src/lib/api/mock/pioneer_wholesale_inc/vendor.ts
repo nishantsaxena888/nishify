@@ -1,7 +1,7 @@
 export const vendor = {
   options: () => ['id', 'name', 'address', 'email', 'phone', 'contact_person'],
-  get: () => [{'id': 1, 'name': 'Coca-Cola Co.', 'phone': '1234567890'}],
-  getOne: (id) => [{'id': 1, 'name': 'Coca-Cola Co.', 'phone': '1234567890'}][0],
+  get: () => [{'address': 'structure', 'contact_person': 'somebody', 'email': 'relate', 'id': 1361, 'name': 'ago', 'phone': 'follow'}, {'address': 'term', 'contact_person': 'ago', 'email': 'lay', 'id': 9261, 'name': 'it', 'phone': 'imagine'}, {'address': 'apply', 'contact_person': 'close', 'email': 'great', 'id': 2744, 'name': 'bag', 'phone': 'mouth'}, {'address': 'career', 'contact_person': 'represent', 'email': 'have', 'id': 409, 'name': 'message', 'phone': 'if'}, {'address': 'worry', 'contact_person': 'a', 'email': 'me', 'id': 8919, 'name': 'push', 'phone': 'throughout'}],
+  getOne: (id) => [{'address': 'structure', 'contact_person': 'somebody', 'email': 'relate', 'id': 1361, 'name': 'ago', 'phone': 'follow'}, {'address': 'term', 'contact_person': 'ago', 'email': 'lay', 'id': 9261, 'name': 'it', 'phone': 'imagine'}, {'address': 'apply', 'contact_person': 'close', 'email': 'great', 'id': 2744, 'name': 'bag', 'phone': 'mouth'}, {'address': 'career', 'contact_person': 'represent', 'email': 'have', 'id': 409, 'name': 'message', 'phone': 'if'}, {'address': 'worry', 'contact_person': 'a', 'email': 'me', 'id': 8919, 'name': 'push', 'phone': 'throughout'}][0],
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };

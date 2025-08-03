@@ -1,7 +1,7 @@
 export const customer = {
   options: () => ['id', 'name', 'address', 'email', 'phone', 'salesperson_id', 'credit_limit'],
-  get: () => [{'id': 1, 'name': 'Big Retailer Inc', 'phone': '9999999999'}],
-  getOne: (id) => [{'id': 1, 'name': 'Big Retailer Inc', 'phone': '9999999999'}][0],
+  get: () => [{'address': 'figure', 'credit_limit': 8066.23, 'email': 'white', 'id': 3506, 'name': 'tree', 'phone': 'such', 'salesperson_id': 2125}, {'address': 'way', 'credit_limit': 734.96, 'email': 'surface', 'id': 9100, 'name': 'group', 'phone': 'budget', 'salesperson_id': 5013}, {'address': 'have', 'credit_limit': 1409.71, 'email': 'talk', 'id': 7496, 'name': 'care', 'phone': 'child', 'salesperson_id': 4647}, {'address': 'blue', 'credit_limit': 8347.16, 'email': 'finally', 'id': 924, 'name': 'call', 'phone': 'car', 'salesperson_id': 5758}, {'address': 'movement', 'credit_limit': 114.15, 'email': 'measure', 'id': 4063, 'name': 'grow', 'phone': 'democratic', 'salesperson_id': 727}],
+  getOne: (id) => [{'address': 'figure', 'credit_limit': 8066.23, 'email': 'white', 'id': 3506, 'name': 'tree', 'phone': 'such', 'salesperson_id': 2125}, {'address': 'way', 'credit_limit': 734.96, 'email': 'surface', 'id': 9100, 'name': 'group', 'phone': 'budget', 'salesperson_id': 5013}, {'address': 'have', 'credit_limit': 1409.71, 'email': 'talk', 'id': 7496, 'name': 'care', 'phone': 'child', 'salesperson_id': 4647}, {'address': 'blue', 'credit_limit': 8347.16, 'email': 'finally', 'id': 924, 'name': 'call', 'phone': 'car', 'salesperson_id': 5758}, {'address': 'movement', 'credit_limit': 114.15, 'email': 'measure', 'id': 4063, 'name': 'grow', 'phone': 'democratic', 'salesperson_id': 727}][0],
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };
