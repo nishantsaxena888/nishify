@@ -4,7 +4,7 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_item_category():
-    payload = {'description': 'know', 'id': 4779, 'name': 'miss'}
+    payload = {'description': 'road', 'id': 9179, 'name': 'address'}
 
     response = client.post("/api/item_category", json=payload)
     assert response.status_code == 200

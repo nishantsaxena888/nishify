@@ -4,7 +4,7 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_tax_group():
-    payload = {'id': 562, 'name': 'certainly', 'tax_percent': 17.53}
+    payload = {'id': 735, 'name': 'win', 'tax_percent': 8669.77}
 
     response = client.post("/api/tax_group", json=payload)
     assert response.status_code == 200

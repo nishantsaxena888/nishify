@@ -39,8 +39,10 @@ def generate_default_value(field_type):
         return faker.word()
     elif field_type == "bool":
         return random.choice([True, False])
+    elif field_type == "datetime":
+        return faker.date_time_this_year().isoformat()
     elif field_type == "date":
-        return str(faker.date_this_year())
+        return faker.date_this_year().isoformat()
     return None
 
 entities_data = {}
@@ -50,10 +52,17 @@ for entity_name, config in entities_config.items():
     for _ in range(5):
         row = {}
         for field_name, field_config in fields.items():
-            if "faker" in field_config:
+            field_type = field_config.get("type")
+            required = field_config.get("required", True)
+
+            # 30% chance to skip non-required fields
+            if not required and random.random() < 0.3:
+                value = None
+            elif "faker" in field_config:
                 value = generate_faker_value(field_config["faker"])
             else:
-                value = generate_default_value(field_config.get("type"))
+                value = generate_default_value(field_type)
+
             row[field_name] = value
         rows.append(row)
     entities_data[entity_name] = {"sample_data": rows}
