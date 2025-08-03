@@ -12,5 +12,7 @@ xlsxwriter==3.2.5
 python-jose==3.5.0
 passlib==1.7.4
 alembic==1.16.4
-pytest
-httpx
+pytest==8.4.1
+httpx==0.28.1
+Faker==37.5.3
+
