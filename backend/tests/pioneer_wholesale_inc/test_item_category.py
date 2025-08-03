@@ -5,9 +5,9 @@ client = TestClient(app)
 
 def test_create_item_category():
     payload = {
-    "id": 3192,
-    "name": "stand",
-    "description": "person"
+    "description": "important",
+    "id": 6839,
+    "name": "throw"
 }
     response = client.post("/api/item_category", json=payload)
     assert response.status_code == 200

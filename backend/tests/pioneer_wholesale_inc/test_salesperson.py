@@ -5,10 +5,10 @@ client = TestClient(app)
 
 def test_create_salesperson():
     payload = {
-    "id": 917,
-    "name": "would",
-    "email": "site",
-    "phone": "room"
+    "email": "degree",
+    "id": 5753,
+    "name": "job",
+    "phone": "continue"
 }
     response = client.post("/api/salesperson", json=payload)
     assert response.status_code == 200

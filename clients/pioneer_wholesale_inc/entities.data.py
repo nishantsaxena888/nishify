@@ -1,564 +1,350 @@
-true,false,null=True, False,None
-
-entities_data = {
-  "item_category": {
-    "sample_data": [
-      {
-        "id": 3192,
-        "name": "stand",
-        "description": "person"
-      },
-      {
-        "id": 4932,
-        "name": "ability",
-        "description": "hotel"
-      },
-      {
-        "id": 3283,
-        "name": "mention",
-        "description": "modern"
-      },
-      {
-        "id": 1439,
-        "name": "up",
-        "description": "hard"
-      },
-      {
-        "id": 8501,
-        "name": "wear",
-        "description": "send"
-      }
-    ]
-  },
-  "secondary_category": {
-    "sample_data": [
-      {
-        "id": 4101,
-        "name": "wall",
-        "description": "choice"
-      },
-      {
-        "id": 9446,
-        "name": "technology",
-        "description": "or"
-      },
-      {
-        "id": 3253,
-        "name": "church",
-        "description": "sound"
-      },
-      {
-        "id": 642,
-        "name": "choose",
-        "description": "relate"
-      },
-      {
-        "id": 5392,
-        "name": "her",
-        "description": "where"
-      }
-    ]
-  },
-  "vendor": {
-    "sample_data": [
-      {
-        "id": 3062,
-        "name": "spring",
-        "address": "beat",
-        "email": "understand",
-        "phone": "responsibility",
-        "contact_person": "black"
-      },
-      {
-        "id": 3186,
-        "name": "affect",
-        "address": "report",
-        "email": "some",
-        "phone": "discussion",
-        "contact_person": "inside"
-      },
-      {
-        "id": 2400,
-        "name": "value",
-        "address": "painting",
-        "email": "fill",
-        "phone": "western",
-        "contact_person": "movie"
-      },
-      {
-        "id": 6612,
-        "name": "sea",
-        "address": "radio",
-        "email": "center",
-        "phone": "watch",
-        "contact_person": "difference"
-      },
-      {
-        "id": 9192,
-        "name": "model",
-        "address": "dream",
-        "email": "significant",
-        "phone": "beautiful",
-        "contact_person": "hundred"
-      }
-    ]
-  },
-  "item": {
-    "sample_data": [
-      {
-        "id": 6112,
-        "item_code": "last",
-        "name": "experience",
-        "category_id": 6580,
-        "secondary_category_id": 1479,
-        "vendor_id": 7254,
-        "tax_group_id": 6528,
-        "price_group_id": 6211,
-        "cash_discount_group_id": 8511,
-        "upc_code": "thus",
-        "unit": "pass",
-        "price": 6901.22,
-        "description": "field",
-        "active": true
-      },
-      {
-        "id": 2768,
-        "item_code": "thus",
-        "name": "close",
-        "category_id": 5709,
-        "secondary_category_id": 3782,
-        "vendor_id": 5666,
-        "tax_group_id": 5983,
-        "price_group_id": 2578,
-        "cash_discount_group_id": 2480,
-        "upc_code": "real",
-        "unit": "meeting",
-        "price": 5450.89,
-        "description": "should",
-        "active": true
-      },
-      {
-        "id": 4180,
-        "item_code": "structure",
-        "name": "itself",
-        "category_id": 7164,
-        "secondary_category_id": 9002,
-        "vendor_id": 1622,
-        "tax_group_id": 3774,
-        "price_group_id": 966,
-        "cash_discount_group_id": 5113,
-        "upc_code": "very",
-        "unit": "arrive",
-        "price": 188.28,
-        "description": "community",
-        "active": false
-      },
-      {
-        "id": 7258,
-        "item_code": "significant",
-        "name": "thus",
-        "category_id": 5286,
-        "secondary_category_id": 7964,
-        "vendor_id": 3696,
-        "tax_group_id": 1898,
-        "price_group_id": 6292,
-        "cash_discount_group_id": 5171,
-        "upc_code": "food",
-        "unit": "beat",
-        "price": 4738.2,
-        "description": "buy",
-        "active": true
-      },
-      {
-        "id": 319,
-        "item_code": "team",
-        "name": "tax",
-        "category_id": 7558,
-        "secondary_category_id": 4428,
-        "vendor_id": 9940,
-        "tax_group_id": 1014,
-        "price_group_id": 2106,
-        "cash_discount_group_id": 1010,
-        "upc_code": "message",
-        "unit": "white",
-        "price": 4204.07,
-        "description": "week",
-        "active": true
-      }
-    ]
-  },
-  "tax_group": {
-    "sample_data": [
-      {
-        "id": 629,
-        "name": "sport",
-        "tax_percent": 2965.93
-      },
-      {
-        "id": 9240,
-        "name": "speak",
-        "tax_percent": 7931.21
-      },
-      {
-        "id": 2376,
-        "name": "method",
-        "tax_percent": 3762.96
-      },
-      {
-        "id": 1286,
-        "name": "clear",
-        "tax_percent": 358.28
-      },
-      {
-        "id": 8795,
-        "name": "wear",
-        "tax_percent": 3752.34
-      }
-    ]
-  },
-  "cash_discount_group": {
-    "sample_data": [
-      {
-        "id": 3278,
-        "name": "price",
-        "discount_percent": 4509.15,
-        "terms": "send"
-      },
-      {
-        "id": 9083,
-        "name": "class",
-        "discount_percent": 758.0,
-        "terms": "me"
-      },
-      {
-        "id": 3034,
-        "name": "significant",
-        "discount_percent": 6546.26,
-        "terms": "laugh"
-      },
-      {
-        "id": 277,
-        "name": "economic",
-        "discount_percent": 4616.51,
-        "terms": "energy"
-      },
-      {
-        "id": 9530,
-        "name": "eight",
-        "discount_percent": 6766.03,
-        "terms": "easy"
-      }
-    ]
-  },
-  "price_group": {
-    "sample_data": [
-      {
-        "id": 1409,
-        "name": "customer",
-        "markup_percent": 4344.04
-      },
-      {
-        "id": 7951,
-        "name": "attorney",
-        "markup_percent": 5924.76
-      },
-      {
-        "id": 1812,
-        "name": "reality",
-        "markup_percent": 5441.01
-      },
-      {
-        "id": 3496,
-        "name": "account",
-        "markup_percent": 389.49
-      },
-      {
-        "id": 9455,
-        "name": "game",
-        "markup_percent": 8281.54
-      }
-    ]
-  },
-  "inventory_location": {
-    "sample_data": [
-      {
-        "id": 9674,
-        "name": "bad",
-        "address": "because"
-      },
-      {
-        "id": 699,
-        "name": "term",
-        "address": "win"
-      },
-      {
-        "id": 5975,
-        "name": "hotel",
-        "address": "pass"
-      },
-      {
-        "id": 9460,
-        "name": "Mr",
-        "address": "in"
-      },
-      {
-        "id": 59,
-        "name": "large",
-        "address": "grow"
-      }
-    ]
-  },
-  "inventory": {
-    "sample_data": [
-      {
-        "id": 4414,
-        "item_id": 3233,
-        "location_id": 7892,
-        "quantity": 2628
-      },
-      {
-        "id": 5253,
-        "item_id": 7560,
-        "location_id": 7426,
-        "quantity": 6688
-      },
-      {
-        "id": 7059,
-        "item_id": 858,
-        "location_id": 6384,
-        "quantity": 4665
-      },
-      {
-        "id": 2429,
-        "item_id": 2162,
-        "location_id": 2383,
-        "quantity": 4706
-      },
-      {
-        "id": 7041,
-        "item_id": 8445,
-        "location_id": 894,
-        "quantity": 4964
-      }
-    ]
-  },
-  "salesperson": {
-    "sample_data": [
-      {
-        "id": 917,
-        "name": "would",
-        "email": "site",
-        "phone": "room"
-      },
-      {
-        "id": 5650,
-        "name": "maybe",
-        "email": "break",
-        "phone": "not"
-      },
-      {
-        "id": 6651,
-        "name": "box",
-        "email": "best",
-        "phone": "challenge"
-      },
-      {
-        "id": 2066,
-        "name": "yeah",
-        "email": "star",
-        "phone": "few"
-      },
-      {
-        "id": 6032,
-        "name": "focus",
-        "email": "yard",
-        "phone": "new"
-      }
-    ]
-  },
-  "customer": {
-    "sample_data": [
-      {
-        "id": 4013,
-        "name": "final",
-        "address": "character",
-        "email": "plan",
-        "phone": "material",
-        "salesperson_id": 467,
-        "credit_limit": 74.61
-      },
-      {
-        "id": 6578,
-        "name": "which",
-        "address": "fly",
-        "email": "someone",
-        "phone": "apply",
-        "salesperson_id": 5202,
-        "credit_limit": 8338.2
-      },
-      {
-        "id": 2801,
-        "name": "alone",
-        "address": "in",
-        "email": "process",
-        "phone": "material",
-        "salesperson_id": 5805,
-        "credit_limit": 3755.98
-      },
-      {
-        "id": 5059,
-        "name": "occur",
-        "address": "role",
-        "email": "table",
-        "phone": "training",
-        "salesperson_id": 3366,
-        "credit_limit": 4868.83
-      },
-      {
-        "id": 3047,
-        "name": "identify",
-        "address": "raise",
-        "email": "player",
-        "phone": "light",
-        "salesperson_id": 1324,
-        "credit_limit": 8578.11
-      }
-    ]
-  },
-  "purchase_order": {
-    "sample_data": [
-      {
-        "id": 1713,
-        "vendor_id": 8861,
-        "date": null,
-        "status": "government"
-      },
-      {
-        "id": 9637,
-        "vendor_id": 8002,
-        "date": null,
-        "status": "past"
-      },
-      {
-        "id": 4778,
-        "vendor_id": 759,
-        "date": null,
-        "status": "race"
-      },
-      {
-        "id": 647,
-        "vendor_id": 6524,
-        "date": null,
-        "status": "produce"
-      },
-      {
-        "id": 4658,
-        "vendor_id": 1459,
-        "date": null,
-        "status": "pull"
-      }
-    ]
-  },
-  "purchase_order_item": {
-    "sample_data": [
-      {
-        "po_id": 5128,
-        "item_id": 8026,
-        "quantity": 4226,
-        "unit_price": 663.15
-      },
-      {
-        "po_id": 1662,
-        "item_id": 4528,
-        "quantity": 4404,
-        "unit_price": 6709.0
-      },
-      {
-        "po_id": 8091,
-        "item_id": 8567,
-        "quantity": 4228,
-        "unit_price": 1187.67
-      },
-      {
-        "po_id": 1393,
-        "item_id": 2101,
-        "quantity": 262,
-        "unit_price": 5756.59
-      },
-      {
-        "po_id": 3128,
-        "item_id": 1230,
-        "quantity": 9008,
-        "unit_price": 4583.26
-      }
-    ]
-  },
-  "invoice": {
-    "sample_data": [
-      {
-        "id": 4409,
-        "customer_id": 1846,
-        "date": null,
-        "status": "represent"
-      },
-      {
-        "id": 9895,
-        "customer_id": 4926,
-        "date": null,
-        "status": "worker"
-      },
-      {
-        "id": 3487,
-        "customer_id": 1171,
-        "date": null,
-        "status": "indeed"
-      },
-      {
-        "id": 818,
-        "customer_id": 2825,
-        "date": null,
-        "status": "open"
-      },
-      {
-        "id": 5919,
-        "customer_id": 5334,
-        "date": null,
-        "status": "us"
-      }
-    ]
-  },
-  "invoice_item": {
-    "sample_data": [
-      {
-        "invoice_id": 6206,
-        "item_id": 9844,
-        "quantity": 1692,
-        "price": 1624.39
-      },
-      {
-        "invoice_id": 4181,
-        "item_id": 2135,
-        "quantity": 230,
-        "price": 9457.78
-      },
-      {
-        "invoice_id": 7779,
-        "item_id": 599,
-        "quantity": 4047,
-        "price": 2300.64
-      },
-      {
-        "invoice_id": 1519,
-        "item_id": 3267,
-        "quantity": 8250,
-        "price": 2613.75
-      },
-      {
-        "invoice_id": 7450,
-        "item_id": 7414,
-        "quantity": 8599,
-        "price": 5062.22
-      }
-    ]
-  }
-}
+entities_data = { 'cash_discount_group': { 'sample_data': [ { 'discount_percent': 6001.89,
+                                              'id': 7396,
+                                              'name': 'everybody',
+                                              'terms': 'last'},
+                                            { 'discount_percent': 2412.37,
+                                              'id': 1567,
+                                              'name': 'identify',
+                                              'terms': 'talk'},
+                                            { 'discount_percent': 2522.64,
+                                              'id': 2483,
+                                              'name': 'market',
+                                              'terms': 'central'},
+                                            { 'discount_percent': 3623.68,
+                                              'id': 1885,
+                                              'name': 'mission',
+                                              'terms': 'push'},
+                                            { 'discount_percent': 8165.44,
+                                              'id': 2279,
+                                              'name': 'service',
+                                              'terms': 'consumer'}]},
+  'customer': { 'sample_data': [ { 'address': 'single',
+                                   'credit_limit': 6292.36,
+                                   'email': 'even',
+                                   'id': 5100,
+                                   'name': 'manage',
+                                   'phone': 'bill',
+                                   'salesperson_id': 8039},
+                                 { 'address': 'truth',
+                                   'credit_limit': 7805.02,
+                                   'email': 'leave',
+                                   'id': 9402,
+                                   'name': 'each',
+                                   'phone': 'require',
+                                   'salesperson_id': 9638},
+                                 { 'address': 'report',
+                                   'credit_limit': 8012.47,
+                                   'email': 'top',
+                                   'id': 1895,
+                                   'name': 'argue',
+                                   'phone': 'address',
+                                   'salesperson_id': 7488},
+                                 { 'address': 'hotel',
+                                   'credit_limit': 247.24,
+                                   'email': 'late',
+                                   'id': 2289,
+                                   'name': 'year',
+                                   'phone': 'fund',
+                                   'salesperson_id': 4674},
+                                 { 'address': 'seven',
+                                   'credit_limit': 2447.88,
+                                   'email': 'man',
+                                   'id': 3494,
+                                   'name': 'usually',
+                                   'phone': 'whether',
+                                   'salesperson_id': 2723}]},
+  'inventory': { 'sample_data': [ { 'id': 2283,
+                                    'item_id': 4362,
+                                    'location_id': 4385,
+                                    'quantity': 6660},
+                                  { 'id': 6205,
+                                    'item_id': 736,
+                                    'location_id': 981,
+                                    'quantity': 4733},
+                                  { 'id': 7555,
+                                    'item_id': 3577,
+                                    'location_id': 107,
+                                    'quantity': 6011},
+                                  { 'id': 4836,
+                                    'item_id': 8289,
+                                    'location_id': 5572,
+                                    'quantity': 6579},
+                                  { 'id': 115,
+                                    'item_id': 9191,
+                                    'location_id': 8486,
+                                    'quantity': 1965}]},
+  'inventory_location': { 'sample_data': [ { 'address': 'teacher',
+                                             'id': 3646,
+                                             'name': 'seven'},
+                                           { 'address': 'project',
+                                             'id': 340,
+                                             'name': 'store'},
+                                           { 'address': 'send',
+                                             'id': 6174,
+                                             'name': 'energy'},
+                                           { 'address': 'product',
+                                             'id': 3078,
+                                             'name': 'sort'},
+                                           { 'address': 'pick',
+                                             'id': 4500,
+                                             'name': 'keep'}]},
+  'invoice': { 'sample_data': [ { 'customer_id': 8549,
+                                  'date': None,
+                                  'id': 278,
+                                  'status': 'language'},
+                                { 'customer_id': 1206,
+                                  'date': None,
+                                  'id': 7976,
+                                  'status': 'interesting'},
+                                { 'customer_id': 1516,
+                                  'date': None,
+                                  'id': 191,
+                                  'status': 'executive'},
+                                { 'customer_id': 3606,
+                                  'date': None,
+                                  'id': 4606,
+                                  'status': 'eat'},
+                                { 'customer_id': 1587,
+                                  'date': None,
+                                  'id': 6455,
+                                  'status': 'serious'}]},
+  'invoice_item': { 'sample_data': [ { 'invoice_id': 1396,
+                                       'item_id': 8243,
+                                       'price': 4566.21,
+                                       'quantity': 2713},
+                                     { 'invoice_id': 1893,
+                                       'item_id': 463,
+                                       'price': 80.4,
+                                       'quantity': 6224},
+                                     { 'invoice_id': 9576,
+                                       'item_id': 1106,
+                                       'price': 5586.99,
+                                       'quantity': 1587},
+                                     { 'invoice_id': 582,
+                                       'item_id': 5729,
+                                       'price': 119.89,
+                                       'quantity': 5395},
+                                     { 'invoice_id': 5708,
+                                       'item_id': 1257,
+                                       'price': 4990.3,
+                                       'quantity': 3817}]},
+  'item': { 'sample_data': [ { 'active': False,
+                               'cash_discount_group_id': 8013,
+                               'category_id': 2884,
+                               'description': 'increase',
+                               'id': 5559,
+                               'item_code': 'each',
+                               'name': 'only',
+                               'price': 2046.71,
+                               'price_group_id': 6962,
+                               'secondary_category_id': 6398,
+                               'tax_group_id': 7961,
+                               'unit': 'history',
+                               'upc_code': 'interesting',
+                               'vendor_id': 6100},
+                             { 'active': False,
+                               'cash_discount_group_id': 9444,
+                               'category_id': 1614,
+                               'description': 'listen',
+                               'id': 6413,
+                               'item_code': 'maintain',
+                               'name': 'unit',
+                               'price': 234.25,
+                               'price_group_id': 5248,
+                               'secondary_category_id': 4137,
+                               'tax_group_id': 2599,
+                               'unit': 'art',
+                               'upc_code': 'pull',
+                               'vendor_id': 3826},
+                             { 'active': True,
+                               'cash_discount_group_id': 1716,
+                               'category_id': 7821,
+                               'description': 'similar',
+                               'id': 6605,
+                               'item_code': 'adult',
+                               'name': 'figure',
+                               'price': 8890.97,
+                               'price_group_id': 1022,
+                               'secondary_category_id': 3534,
+                               'tax_group_id': 7301,
+                               'unit': 'son',
+                               'upc_code': 'model',
+                               'vendor_id': 3878},
+                             { 'active': False,
+                               'cash_discount_group_id': 8064,
+                               'category_id': 7229,
+                               'description': 'mention',
+                               'id': 8081,
+                               'item_code': 'who',
+                               'name': 'stand',
+                               'price': 7993.91,
+                               'price_group_id': 6625,
+                               'secondary_category_id': 3550,
+                               'tax_group_id': 60,
+                               'unit': 'ball',
+                               'upc_code': 'free',
+                               'vendor_id': 2464},
+                             { 'active': True,
+                               'cash_discount_group_id': 65,
+                               'category_id': 3211,
+                               'description': 'half',
+                               'id': 5114,
+                               'item_code': 'message',
+                               'name': 'point',
+                               'price': 3044.1,
+                               'price_group_id': 2536,
+                               'secondary_category_id': 5788,
+                               'tax_group_id': 1985,
+                               'unit': 'everybody',
+                               'upc_code': 'politics',
+                               'vendor_id': 2360}]},
+  'item_category': { 'sample_data': [ { 'description': 'important',
+                                        'id': 6839,
+                                        'name': 'throw'},
+                                      { 'description': 'suffer',
+                                        'id': 2986,
+                                        'name': 'answer'},
+                                      { 'description': 'deal',
+                                        'id': 1662,
+                                        'name': 'everyone'},
+                                      { 'description': 'ability',
+                                        'id': 4241,
+                                        'name': 'while'},
+                                      { 'description': 'security',
+                                        'id': 2515,
+                                        'name': 'hundred'}]},
+  'price_group': { 'sample_data': [ { 'id': 9372,
+                                      'markup_percent': 6831.0,
+                                      'name': 'business'},
+                                    { 'id': 9890,
+                                      'markup_percent': 3842.41,
+                                      'name': 'nor'},
+                                    { 'id': 796,
+                                      'markup_percent': 4277.25,
+                                      'name': 'station'},
+                                    { 'id': 6930,
+                                      'markup_percent': 2664.42,
+                                      'name': 'who'},
+                                    { 'id': 4603,
+                                      'markup_percent': 7114.97,
+                                      'name': 'difficult'}]},
+  'purchase_order': { 'sample_data': [ { 'date': None,
+                                         'id': 3873,
+                                         'status': 'bad',
+                                         'vendor_id': 2924},
+                                       { 'date': None,
+                                         'id': 2140,
+                                         'status': 'eat',
+                                         'vendor_id': 8606},
+                                       { 'date': None,
+                                         'id': 3253,
+                                         'status': 'always',
+                                         'vendor_id': 5754},
+                                       { 'date': None,
+                                         'id': 8516,
+                                         'status': 'just',
+                                         'vendor_id': 2952},
+                                       { 'date': None,
+                                         'id': 7633,
+                                         'status': 'pattern',
+                                         'vendor_id': 9469}]},
+  'purchase_order_item': { 'sample_data': [ { 'item_id': 5797,
+                                              'po_id': 7740,
+                                              'quantity': 7925,
+                                              'unit_price': 8681.2},
+                                            { 'item_id': 3953,
+                                              'po_id': 4556,
+                                              'quantity': 7326,
+                                              'unit_price': 6349.98},
+                                            { 'item_id': 9221,
+                                              'po_id': 4350,
+                                              'quantity': 5320,
+                                              'unit_price': 4938.4},
+                                            { 'item_id': 9354,
+                                              'po_id': 9173,
+                                              'quantity': 2831,
+                                              'unit_price': 9415.01},
+                                            { 'item_id': 6612,
+                                              'po_id': 611,
+                                              'quantity': 1256,
+                                              'unit_price': 6112.9}]},
+  'salesperson': { 'sample_data': [ { 'email': 'degree',
+                                      'id': 5753,
+                                      'name': 'job',
+                                      'phone': 'continue'},
+                                    { 'email': 'energy',
+                                      'id': 4392,
+                                      'name': 'listen',
+                                      'phone': 'parent'},
+                                    { 'email': 'green',
+                                      'id': 1378,
+                                      'name': 'recently',
+                                      'phone': 'doctor'},
+                                    { 'email': 'everybody',
+                                      'id': 8678,
+                                      'name': 'wait',
+                                      'phone': 'along'},
+                                    { 'email': 'above',
+                                      'id': 6897,
+                                      'name': 'officer',
+                                      'phone': 'at'}]},
+  'secondary_category': { 'sample_data': [ { 'description': 'score',
+                                             'id': 1969,
+                                             'name': 'oil'},
+                                           { 'description': 'hard',
+                                             'id': 8876,
+                                             'name': 'after'},
+                                           { 'description': 'he',
+                                             'id': 4691,
+                                             'name': 'black'},
+                                           { 'description': 'area',
+                                             'id': 3198,
+                                             'name': 'radio'},
+                                           { 'description': 'discussion',
+                                             'id': 4300,
+                                             'name': 'wish'}]},
+  'tax_group': { 'sample_data': [ { 'id': 6891,
+                                    'name': 'far',
+                                    'tax_percent': 1671.97},
+                                  { 'id': 6441,
+                                    'name': 'result',
+                                    'tax_percent': 292.2},
+                                  { 'id': 2357,
+                                    'name': 'however',
+                                    'tax_percent': 9159.24},
+                                  { 'id': 6221,
+                                    'name': 'great',
+                                    'tax_percent': 9661.1},
+                                  { 'id': 6924,
+                                    'name': 'either',
+                                    'tax_percent': 870.0}]},
+  'vendor': { 'sample_data': [ { 'address': 'tonight',
+                                 'contact_person': 'card',
+                                 'email': 'look',
+                                 'id': 1076,
+                                 'name': 'response',
+                                 'phone': 'president'},
+                               { 'address': 'southern',
+                                 'contact_person': 'attorney',
+                                 'email': 'change',
+                                 'id': 1300,
+                                 'name': 'participant',
+                                 'phone': 'least'},
+                               { 'address': 'lay',
+                                 'contact_person': 'moment',
+                                 'email': 'section',
+                                 'id': 8174,
+                                 'name': 'want',
+                                 'phone': 'manage'},
+                               { 'address': 'save',
+                                 'contact_person': 'light',
+                                 'email': 'despite',
+                                 'id': 7886,
+                                 'name': 'mouth',
+                                 'phone': 'clear'},
+                               { 'address': 'development',
+                                 'contact_person': 'often',
+                                 'email': 'different',
+                                 'id': 290,
+                                 'name': 'safe',
+                                 'phone': 'rock'}]}}

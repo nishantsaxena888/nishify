@@ -5,9 +5,9 @@ client = TestClient(app)
 
 def test_create_price_group():
     payload = {
-    "id": 1409,
-    "name": "customer",
-    "markup_percent": 4344.04
+    "id": 9372,
+    "markup_percent": 6831.0,
+    "name": "business"
 }
     response = client.post("/api/price_group", json=payload)
     assert response.status_code == 200

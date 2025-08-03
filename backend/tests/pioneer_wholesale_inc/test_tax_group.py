@@ -5,9 +5,9 @@ client = TestClient(app)
 
 def test_create_tax_group():
     payload = {
-    "id": 629,
-    "name": "sport",
-    "tax_percent": 2965.93
+    "id": 6891,
+    "name": "far",
+    "tax_percent": 1671.97
 }
     response = client.post("/api/tax_group", json=payload)
     assert response.status_code == 200

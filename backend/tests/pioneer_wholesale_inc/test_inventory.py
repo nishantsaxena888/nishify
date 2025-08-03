@@ -5,10 +5,10 @@ client = TestClient(app)
 
 def test_create_inventory():
     payload = {
-    "id": 4414,
-    "item_id": 3233,
-    "location_id": 7892,
-    "quantity": 2628
+    "id": 2283,
+    "item_id": 4362,
+    "location_id": 4385,
+    "quantity": 6660
 }
     response = client.post("/api/inventory", json=payload)
     assert response.status_code == 200

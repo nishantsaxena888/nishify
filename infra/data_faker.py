@@ -1,10 +1,9 @@
-# data_faker.py
 import os
 import sys
 import random
 import importlib.util
 from faker import Faker
-import json
+import pprint  
 
 faker = Faker()
 
@@ -60,8 +59,10 @@ for entity_name, config in entities_config.items():
     entities_data[entity_name] = {"sample_data": rows}
 
 
+
 with open(ENTITIES_DATA_PATH, "w") as f:
     f.write("entities_data = ")
-    json.dump(entities_data, f, indent=2)
+    f.write(pprint.pformat(entities_data, indent=2))
+
 
 print(f"✅ Created: {ENTITIES_DATA_PATH}")

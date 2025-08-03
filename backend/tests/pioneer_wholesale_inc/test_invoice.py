@@ -5,10 +5,10 @@ client = TestClient(app)
 
 def test_create_invoice():
     payload = {
-    "id": 4409,
-    "customer_id": 1846,
+    "customer_id": 8549,
     "date": null,
-    "status": "represent"
+    "id": 278,
+    "status": "language"
 }
     response = client.post("/api/invoice", json=payload)
     assert response.status_code == 200

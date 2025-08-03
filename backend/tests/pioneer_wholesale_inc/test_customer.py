@@ -5,13 +5,13 @@ client = TestClient(app)
 
 def test_create_customer():
     payload = {
-    "id": 4013,
-    "name": "final",
-    "address": "character",
-    "email": "plan",
-    "phone": "material",
-    "salesperson_id": 467,
-    "credit_limit": 74.61
+    "address": "single",
+    "credit_limit": 6292.36,
+    "email": "even",
+    "id": 5100,
+    "name": "manage",
+    "phone": "bill",
+    "salesperson_id": 8039
 }
     response = client.post("/api/customer", json=payload)
     assert response.status_code == 200
