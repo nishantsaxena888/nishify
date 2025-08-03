@@ -7,7 +7,6 @@ import sys
 import shutil
 
 LOG = True
-
 # ✅ Accept client name as argument
 # ✅ Accept client name as argument (and optional 'mock' flag)
 if len(sys.argv) < 2:
@@ -82,10 +81,29 @@ TESTDATA_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/clients/{CLIENT_NAME}/tes
 EXCEL_OUTPUT_FILE = os.path.join(TESTDATA_OUTPUT_DIR, "test_data.xlsx")
 
 # 🔁 Dynamic import of entities.py from client folder
-spec = importlib.util.spec_from_file_location("entities", ENTITIES_PATH)
-entities_module = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(entities_module)
+# 🔁 Load entities.py
+spec_entities = importlib.util.spec_from_file_location("entities", ENTITIES_PATH)
+entities_module = importlib.util.module_from_spec(spec_entities)
+spec_entities.loader.exec_module(entities_module)
 entities = entities_module.entities
+
+# 🔁 Load entities.data.py
+ENTITIES_DATA_PATH = os.path.join(CLIENT_DIR, "entities.data.py")
+if os.path.exists(ENTITIES_DATA_PATH):
+    spec_data = importlib.util.spec_from_file_location("entities_data", ENTITIES_DATA_PATH)
+    data_module = importlib.util.module_from_spec(spec_data)
+    spec_data.loader.exec_module(data_module)
+    data_entities = data_module.entities_data
+
+    # 🔁 Merge sample_data from entities.data.py into entities
+    for key, value in data_entities.items():
+        if key in entities:
+            entities[key]["sample_data"] = value.get("sample_data", [])
+        else:
+            print(f"⚠️ {key} found in entities.data.py but not in entities.py — skipping.")
+else:
+    print("⚠️ entities.data.py not found — proceeding without sample data.")
+
 
 def log(msg):
     if LOG:

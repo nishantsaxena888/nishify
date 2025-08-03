@@ -5,9 +5,9 @@ client = TestClient(app)
 
 def test_create_secondary_category():
     payload = {
-    "id": 1,
-    "name": "Energy Drinks",
-    "description": "Boost, Red Bull"
+    "id": 4101,
+    "name": "wall",
+    "description": "choice"
 }
     response = client.post("/api/secondary_category", json=payload)
     assert response.status_code == 200

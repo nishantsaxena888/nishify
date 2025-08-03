@@ -2,11 +2,13 @@
 python -m infra.data_faker pioneer_wholesale_inc
 python -m infra.code_generator pioneer_wholesale_inc
 
-PYTHONPATH=.  pytest backend/tests/pioneer_wholesale_inc
 
 PYTHONPATH=. alembic revision --autogenerate -m "initial schema"
 
 PYTHONPATH=. alembic upgrade head
+
+PYTHONPATH=.  pytest backend/tests/pioneer_wholesale_inc
+
 
 
 

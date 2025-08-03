@@ -5,10 +5,10 @@ client = TestClient(app)
 
 def test_create_cash_discount_group():
     payload = {
-    "id": 1,
-    "name": "5% Net 15",
-    "discount_percent": 5.0,
-    "terms": "Net 15 days"
+    "id": 3278,
+    "name": "price",
+    "discount_percent": 4509.15,
+    "terms": "send"
 }
     response = client.post("/api/cash_discount_group", json=payload)
     assert response.status_code == 200

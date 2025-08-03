@@ -5,8 +5,9 @@ client = TestClient(app)
 
 def test_create_inventory_location():
     payload = {
-    "id": 1,
-    "name": "Warehouse A"
+    "id": 9674,
+    "name": "bad",
+    "address": "because"
 }
     response = client.post("/api/inventory_location", json=payload)
     assert response.status_code == 200

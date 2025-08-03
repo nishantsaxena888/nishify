@@ -5,10 +5,10 @@ client = TestClient(app)
 
 def test_create_purchase_order():
     payload = {
-    "id": 1,
-    "vendor_id": 1,
-    "date": "2024-07-01T10:00:00",
-    "status": "Submitted"
+    "id": 1713,
+    "vendor_id": 8861,
+    "date": null,
+    "status": "government"
 }
     response = client.post("/api/purchase_order", json=payload)
     assert response.status_code == 200

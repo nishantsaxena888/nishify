@@ -5,9 +5,12 @@ client = TestClient(app)
 
 def test_create_vendor():
     payload = {
-    "id": 1,
-    "name": "Coca-Cola Co.",
-    "phone": "1234567890"
+    "id": 3062,
+    "name": "spring",
+    "address": "beat",
+    "email": "understand",
+    "phone": "responsibility",
+    "contact_person": "black"
 }
     response = client.post("/api/vendor", json=payload)
     assert response.status_code == 200
