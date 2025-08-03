@@ -4,20 +4,20 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_item():
-    payload = {   'active': False,
-    'cash_discount_group_id': 8216,
-    'category_id': 1295,
-    'description': 'card',
-    'id': 6066,
-    'item_code': 'reflect',
-    'name': 'either',
-    'price': 6025.4,
-    'price_group_id': 6825,
-    'secondary_category_id': 5715,
-    'tax_group_id': 6712,
-    'unit': 'arm',
-    'upc_code': 'card',
-    'vendor_id': 9766}
+    payload = {   'active': True,
+    'cash_discount_group_id': 5344,
+    'category_id': 802,
+    'description': 'new',
+    'id': 5413,
+    'item_code': 'finally',
+    'name': 'machine',
+    'price': 3834.98,
+    'price_group_id': 733,
+    'secondary_category_id': 3813,
+    'tax_group_id': 4405,
+    'unit': 'suggest',
+    'upc_code': 'pattern',
+    'vendor_id': 3292}
 
     response = client.post("/api/item", json=payload)
     assert response.status_code == 200

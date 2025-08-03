@@ -34,25 +34,21 @@ if not os.path.exists(ENTITIES_PATH):
     for folder in os.listdir(CLIENTS_DIR):
         if os.path.isdir(os.path.join(CLIENTS_DIR, folder)):
             print(f"- {folder}")
+
     scaffold = input(f"\nWould you like to scaffold a new client '{CLIENT_NAME}'? (y/n): ").strip().lower()
     if scaffold == 'y':
         os.makedirs(CLIENT_DIR, exist_ok=True)
+
+        # Create empty entities.py
         with open(ENTITIES_PATH, 'w') as f:
-            f.write("""
-entities = {
-    "product": {
-        "fields": {
-            "id": {"type": "int", "primary_key": True},
-            "name": {"type": "str", "required": True},
-            "price": {"type": "float"},
-            "in_stock": {"type": "bool"}
-        },
-        "sample_data": [
-            {"id": 1, "name": "Sample Product", "price": 9.99, "in_stock": True}
-        ]
-    }
-}
-""")
+            f.write("entities = {}\n")
+
+        # Create empty entities.data.py
+        ENTITIES_DATA_PATH = os.path.join(CLIENT_DIR, "entities.data.py")
+        with open(ENTITIES_DATA_PATH, 'w') as f:
+            f.write("entities_data = {}\n")
+
+        # Create config.json
         with open(CONFIG_PATH, 'w') as f:
             json.dump({
                 "env": {
@@ -63,11 +59,13 @@ entities = {
                 "theme": "default",
                 "auth_mode": "none"
             }, f, indent=2)
+
         print(f"✅ Scaffolded new client at {CLIENT_DIR}. Now re-run the script.")
         sys.exit(0)
     else:
         print("❌ Aborting.")
         sys.exit(1)
+
 
 # Load config.json per client (optional settings)
 client_config = {}

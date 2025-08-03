@@ -4,7 +4,7 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_price_group():
-    payload = {'id': 3470, 'markup_percent': 9267.63, 'name': 'act'}
+    payload = {'id': 4770, 'markup_percent': 1513.34, 'name': 'full'}
 
     response = client.post("/api/price_group", json=payload)
     assert response.status_code == 200
