@@ -4,12 +4,8 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_purchase_order():
-    payload = {
-    "date": null,
-    "id": 3873,
-    "status": "bad",
-    "vendor_id": 2924
-}
+    payload = {'date': None, 'id': 2583, 'status': 'media', 'vendor_id': 6443}
+
     response = client.post("/api/purchase_order", json=payload)
     assert response.status_code == 200
     assert response.json().get("success") == True

@@ -5,7 +5,7 @@ import json
 import pandas as pd
 import sys
 import shutil
-
+import pprint
 LOG = True
 # ✅ Accept client name as argument
 # ✅ Accept client name as argument (and optional 'mock' flag)
@@ -247,7 +247,8 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_{entity_name}():
-    payload = {json.dumps(test_data, indent=4)}
+    payload = {pprint.pformat(test_data, indent=4)}
+
     response = client.post("/api/{entity_name}", json=payload)
     assert response.status_code == 200
     assert response.json().get("success") == True

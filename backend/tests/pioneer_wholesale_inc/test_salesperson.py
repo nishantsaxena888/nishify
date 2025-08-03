@@ -4,12 +4,8 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_salesperson():
-    payload = {
-    "email": "degree",
-    "id": 5753,
-    "name": "job",
-    "phone": "continue"
-}
+    payload = {'email': 'wonder', 'id': 9194, 'name': 'appear', 'phone': 'manage'}
+
     response = client.post("/api/salesperson", json=payload)
     assert response.status_code == 200
     assert response.json().get("success") == True

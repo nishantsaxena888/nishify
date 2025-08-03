@@ -4,12 +4,8 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_cash_discount_group():
-    payload = {
-    "discount_percent": 6001.89,
-    "id": 7396,
-    "name": "everybody",
-    "terms": "last"
-}
+    payload = {'discount_percent': 7821.5, 'id': 4991, 'name': 'stuff', 'terms': 'beautiful'}
+
     response = client.post("/api/cash_discount_group", json=payload)
     assert response.status_code == 200
     assert response.json().get("success") == True

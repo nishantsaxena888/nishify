@@ -4,12 +4,8 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_inventory():
-    payload = {
-    "id": 2283,
-    "item_id": 4362,
-    "location_id": 4385,
-    "quantity": 6660
-}
+    payload = {'id': 8084, 'item_id': 7647, 'location_id': 9957, 'quantity': 7738}
+
     response = client.post("/api/inventory", json=payload)
     assert response.status_code == 200
     assert response.json().get("success") == True

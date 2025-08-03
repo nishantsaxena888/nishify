@@ -4,12 +4,8 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_invoice_item():
-    payload = {
-    "invoice_id": 1396,
-    "item_id": 8243,
-    "price": 4566.21,
-    "quantity": 2713
-}
+    payload = {'invoice_id': 9450, 'item_id': 3294, 'price': 5865.34, 'quantity': 116}
+
     response = client.post("/api/invoice_item", json=payload)
     assert response.status_code == 200
     assert response.json().get("success") == True
