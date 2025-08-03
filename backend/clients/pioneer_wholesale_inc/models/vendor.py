@@ -8,3 +8,7 @@ class Vendor(Base):
     __tablename__ = 'vendor'
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
+    address = Column(String)
+    email = Column(String)
+    phone = Column(String)
+    contact_person = Column(String)

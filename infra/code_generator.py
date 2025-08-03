@@ -20,6 +20,7 @@ CLIENT_DIR = os.path.join(CLIENTS_DIR, CLIENT_NAME)
 ENTITIES_PATH = os.path.join(CLIENT_DIR, "entities.py")
 CONFIG_PATH = os.path.join(CLIENT_DIR, "config.json")
 PAGES_OUTPUT_DIR = os.path.join(ROOT_DIR, f"nishify.io/src/clients/{CLIENT_NAME}")
+TESTS_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/tests/{CLIENT_NAME}")
 
 
 # 🚨 If missing, show list of clients or scaffold new one
@@ -190,6 +191,48 @@ def generate_pages_config():
             # ✅ Print full absolute path
             log(f"✅ Copied {relative_path} to frontend at {os.path.abspath(dest_file)}")
 
+def generate_test_cases_from_mock(entities, test_dir):
+    os.makedirs(test_dir, exist_ok=True)
+
+    for entity_name, config in entities.items():
+        if not config.get("fields") or not config.get("sample_data"):
+            print(f"⚠️ Skipping test generation for {entity_name} (no fields or mock data)")
+            continue
+
+        test_data_list = config.get("sample_data", [])
+        if not test_data_list:
+            print(f"⚠️ No sample data for {entity_name}")
+            continue
+        test_data = test_data_list[0]
+
+        test_code = f'''from fastapi.testclient import TestClient
+from backend.main import app
+
+client = TestClient(app)
+
+def test_create_{entity_name}():
+    payload = {json.dumps(test_data, indent=4)}
+    response = client.post("/api/{entity_name}", json=payload)
+    assert response.status_code == 200
+    assert response.json().get("success") == True
+
+def test_list_{entity_name}():
+    response = client.get("/api/{entity_name}")
+    assert response.status_code == 200
+    assert isinstance(response.json(), list)
+
+def test_{entity_name}_options():
+    response = client.get("/api/{entity_name}/options")
+    assert response.status_code == 200
+    assert isinstance(response.json(), list)
+'''
+
+        test_file = os.path.join(test_dir, f"test_{entity_name}.py")
+        with open(test_file, "w") as f:
+            f.write(test_code)
+
+        print(f"✅ Test case generated for {entity_name} at {test_file}")
+
 def reset_client_code():
     log(f"🚀 Starting code generation for client: {CLIENT_NAME}")
     log(f"📁 Using config: {client_config}")
@@ -198,6 +241,7 @@ def reset_client_code():
     generate_test_data()
     generate_excel_dump()
     generate_pages_config()
+    generate_test_cases_from_mock(entities, TESTS_OUTPUT_DIR)
     log("🎉 Code generation completed")
 
 

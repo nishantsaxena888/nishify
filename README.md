@@ -1,6 +1,8 @@
 ```
 python -m infra.code_generator pioneer_wholesale_inc
 
+PYTHONPATH=.  pytest backend/tests/pioneer_wholesale_inc
+
 
 
 

@@ -9,3 +9,4 @@ class Invoice(Base):
     id = Column(Integer, primary_key=True)
     customer_id = Column(Integer, ForeignKey('customer.id'))
     date = Column(DateTime)
+    status = Column(String)

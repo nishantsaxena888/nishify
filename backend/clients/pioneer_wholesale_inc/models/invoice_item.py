@@ -9,3 +9,4 @@ class Invoice_item(Base):
     invoice_id = Column(Integer, ForeignKey('invoice.id'))
     item_id = Column(Integer, ForeignKey('item.id'))
     quantity = Column(Integer)
+    price = Column(Float)

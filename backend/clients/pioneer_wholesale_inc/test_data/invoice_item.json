@@ -2,11 +2,7 @@
   {
     "invoice_id": 1,
     "item_id": 1,
-    "quantity": 2
-  },
-  {
-    "invoice_id": 1,
-    "item_id": 2,
-    "quantity": 3
+    "quantity": 5,
+    "price": 1.25
   }
 ]
