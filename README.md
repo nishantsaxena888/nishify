@@ -4,6 +4,10 @@ python -m infra.code_generator pioneer_wholesale_inc
 PYTHONPATH=.  pytest backend/tests/pioneer_wholesale_inc
 
 
+PYTHONPATH=. alembic revision --autogenerate -m "initial schema"
+
+PYTHONPATH=. alembic upgrade head
+
 
 
 python3 -m venv .venv 

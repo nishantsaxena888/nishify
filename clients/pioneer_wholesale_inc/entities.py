@@ -68,7 +68,7 @@ entities = {
                 "relation_type": "many-to-one"
             },
             "upc_code": {"type": "str"},
-            "unit": {"type": "str"},  # e.g., Bottle, Pack, Each
+            "unit": {"type": "str"},
             "price": {"type": "float"},
             "description": {"type": "str"},
             "active": {"type": "bool", "default": True}
@@ -175,7 +175,7 @@ entities = {
                 "relation_type": "many-to-one"
             },
             "date": {"type": "datetime"},
-            "status": {"type": "str"},  # Draft, Submitted, Received
+            "status": {"type": "str"},
         },
         "sample_data": [
             {"id": 1, "vendor_id": 1, "date": "2024-07-01T10:00:00", "status": "Submitted"}
@@ -186,12 +186,14 @@ entities = {
             "po_id": {
                 "type": "int",
                 "foreign_key": "purchase_order.id",
-                "relation_type": "many-to-one"
+                "relation_type": "many-to-one",
+                "primary_key": True
             },
             "item_id": {
                 "type": "int",
                 "foreign_key": "item.id",
-                "relation_type": "many-to-one"
+                "relation_type": "many-to-one",
+                "primary_key": True
             },
             "quantity": {"type": "int"},
             "unit_price": {"type": "float"},
@@ -209,7 +211,7 @@ entities = {
                 "relation_type": "many-to-one"
             },
             "date": {"type": "datetime"},
-            "status": {"type": "str"},  # Draft, Finalized
+            "status": {"type": "str"},
         },
         "sample_data": [
             {"id": 1, "customer_id": 1, "date": "2024-08-01T09:00:00", "status": "Draft"}
@@ -220,12 +222,14 @@ entities = {
             "invoice_id": {
                 "type": "int",
                 "foreign_key": "invoice.id",
-                "relation_type": "many-to-one"
+                "relation_type": "many-to-one",
+                "primary_key": True
             },
             "item_id": {
                 "type": "int",
                 "foreign_key": "item.id",
-                "relation_type": "many-to-one"
+                "relation_type": "many-to-one",
+                "primary_key": True
             },
             "quantity": {"type": "int"},
             "price": {"type": "float"},

@@ -9,8 +9,13 @@ import shutil
 LOG = True
 
 # ✅ Accept client name as argument
+# ✅ Accept client name as argument (and optional 'mock' flag)
 if len(sys.argv) < 2:
-    raise ValueError("Client name must be passed as an argument. Usage: python code_generator.py <client_name>")
+    raise ValueError("Usage: python code_generator.py <client_name> [mock]")
+
+CLIENT_NAME = sys.argv[1]
+IS_MOCK = len(sys.argv) > 2 and sys.argv[2].lower() == "mock"
+
 
 CLIENT_NAME = sys.argv[1]
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -100,11 +105,17 @@ def generate_models():
 
     for entity, config in entities.items():
         fields = config["fields"]
+
+        # ✅ Skip models with no primary key
+        has_primary_key = any(field_conf.get("primary_key") for field_conf in fields.values())
+        if not has_primary_key:
+            log(f"⚠️ Skipping model for {entity} (no primary key found)")
+            continue
+
         lines = [
             "from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey",
-            "from sqlalchemy.ext.declarative import declarative_base",
             "from datetime import datetime",
-            "\nBase = declarative_base()",
+            "\nfrom backend.utils.db_base import Base",
             f"\nclass {entity.capitalize()}(Base):",
             f"    __tablename__ = '{entity}'",
         ]
@@ -112,15 +123,22 @@ def generate_models():
         for field_name, field_conf in fields.items():
             sql_type = type_map(field_conf["type"])
             opts = []
-            if field_conf.get("primary_key"):
-                opts.append("primary_key=True")
-            if field_conf.get("required"):
-                opts.append("nullable=False")
-            if field_conf.get("auto_now"):
-                opts.append("default=datetime.utcnow")
+            args = [sql_type]
             if field_conf.get("foreign_key"):
-                opts.append(f"ForeignKey('{field_conf['foreign_key']}')")
-            line = f"    {field_name} = Column({sql_type}{', ' + ', '.join(opts) if opts else ''})"
+                args.append(f"ForeignKey('{field_conf['foreign_key']}')")
+
+            kwargs = []
+            if field_conf.get("primary_key"):
+                kwargs.append("primary_key=True")
+            if field_conf.get("required"):
+                kwargs.append("nullable=False")
+            if field_conf.get("auto_now"):
+                kwargs.append("default=datetime.utcnow")
+
+            all_args = args + kwargs
+            line = f"    {field_name} = Column({', '.join(all_args)})"
+                        
+            
             lines.append(line)
 
         model_code = "\n".join(lines)
@@ -237,9 +255,10 @@ def reset_client_code():
     log(f"🚀 Starting code generation for client: {CLIENT_NAME}")
     log(f"📁 Using config: {client_config}")
     generate_models()
-    generate_mock_data()
-    generate_test_data()
-    generate_excel_dump()
+    if IS_MOCK:
+        generate_mock_data()
+        generate_test_data()
+        generate_excel_dump()
     generate_pages_config()
     generate_test_cases_from_mock(entities, TESTS_OUTPUT_DIR)
     log("🎉 Code generation completed")

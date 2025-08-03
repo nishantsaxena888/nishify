@@ -1,8 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 
-Base = declarative_base()
+from backend.utils.db_base import Base
 
 class Item_category(Base):
     __tablename__ = 'item_category'
