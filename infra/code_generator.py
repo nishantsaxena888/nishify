@@ -271,6 +271,21 @@ def test_{entity_name}_options():
 
         print(f"✅ Test case generated for {entity_name} at {test_file}")
 
+def copy_entity_files():
+    client_dir = os.path.join(CLIENTS_DIR, CLIENT_NAME)
+    backend_client_dir = os.path.join(ROOT_DIR, "backend", "clients", CLIENT_NAME)
+
+    os.makedirs(backend_client_dir, exist_ok=True)
+
+    for fname in ["entities.py", "elastic_entities.py"]:
+        src = os.path.join(client_dir, fname)
+        dst = os.path.join(backend_client_dir, fname)
+        if os.path.exists(src):
+            shutil.copyfile(src, dst)
+            print(f"✅ Copied {fname} to backend client folder.")
+        else:
+            print(f"⚠️  {fname} not found in client folder.")
+
 def reset_client_code():
     log(f"🚀 Starting code generation for client: {CLIENT_NAME}")
     log(f"📁 Using config: {client_config}")
@@ -280,6 +295,7 @@ def reset_client_code():
     generate_excel_dump()
     generate_pages_config()
     generate_test_cases_from_mock(entities, TESTS_OUTPUT_DIR)
+    copy_entity_files()
     log("🎉 Code generation completed")
 
 
