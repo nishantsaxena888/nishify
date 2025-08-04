@@ -1,21 +1,52 @@
-from fastapi.testclient import TestClient
-from backend.main import app
+import httpx
+from datetime import datetime, timedelta
 
-client = TestClient(app)
+BASE_URL = "http://localhost:8000/cash_discount_group"
 
-def test_create_cash_discount_group():
-    payload = {'discount_percent': 633.18, 'id': 2252, 'name': 'to', 'terms': 'travel'}
-
-    response = client.post("/api/cash_discount_group", json=payload)
+def test_create():
+    payload = {
+    "discount_percent": 633.18,
+    "id": 2252,
+    "name": "to",
+    "terms": "travel"
+}
+    response = httpx.post(BASE_URL, json=payload)
     assert response.status_code == 200
-    assert response.json().get("success") == True
+    assert response.json().get('success')
 
-def test_list_cash_discount_group():
-    response = client.get("/api/cash_discount_group")
+def test_get_one():
+    response = httpx.get(f"{BASE_URL}/2252")
     assert response.status_code == 200
-    assert isinstance(response.json(), list)
 
-def test_cash_discount_group_options():
-    response = client.get("/api/cash_discount_group/options")
+def test_update():
+    payload = {
+    "discount_percent": 633.18,
+    "id": 2252,
+    "name": "to",
+    "terms": "travel"
+}
+    payload['id'] = 2252
+    response = httpx.put(f"{BASE_URL}/2252", json=payload)
     assert response.status_code == 200
-    assert isinstance(response.json(), list)
+
+def test_delete():
+    response = httpx.delete(f"{BASE_URL}/2252")
+    assert response.status_code == 200
+
+def test_options():
+    response = httpx.get(f"{BASE_URL}/options")
+    assert response.status_code == 200
+
+def test_list_eq():
+    response = httpx.get(f"{BASE_URL}?discount_percent=633.18")
+    assert response.status_code == 200
+    response = httpx.get(f"{BASE_URL}?id=2252")
+    assert response.status_code == 200
+    response = httpx.get(f"{BASE_URL}?name=to")
+    assert response.status_code == 200
+    response = httpx.get(f"{BASE_URL}?terms=travel")
+    assert response.status_code == 200
+
+def test_range_gt_lt():
+    response = httpx.get(f"{BASE_URL}?discount_percent__gt=632.18&discount_percent__lt=634.18")
+    assert response.status_code == 200

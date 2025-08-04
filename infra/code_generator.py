@@ -1,6 +1,7 @@
 import os
 import importlib.util
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
+import re
 import json
 import pandas as pd
 import sys
@@ -272,6 +273,113 @@ def copy_entity_files():
         else:
             print(f"⚠️  {fname} not found in client folder.")
 
+
+def generate_search_tests():
+    from_entities_path = os.path.join(CLIENT_DIR, "entities.py")
+    from_data_path = os.path.join(CLIENT_DIR, "entities.data.py")
+    from_elastic_path = os.path.join(CLIENT_DIR, "elastic_entities.py")
+
+    def import_config(path):
+        if not os.path.exists(path):
+            return {}
+        spec = importlib.util.spec_from_file_location("mod", path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return getattr(module, "entities", None) or getattr(module, "entities_data", None) or {}
+
+    entities_cfg = import_config(from_entities_path)
+    entities_data = import_config(from_data_path)
+    elastic_entities_cfg = import_config(from_elastic_path)
+
+    os.makedirs(TESTS_OUTPUT_DIR, exist_ok=True)
+
+    for entity, config in entities_cfg.items():
+        fields = config["fields"]
+        data = entities_data.get(entity, {}).get("sample_data", [])
+        if not data:
+            print(f"⚠️ No data for {entity}, skipping test.")
+            continue
+
+        is_indexed = entity in elastic_entities_cfg
+        search_fields = elastic_entities_cfg.get(entity, {}).get("searchable_fields", []) if is_indexed else []
+
+        sample = data[0]
+        pk_field = next((k for k, v in fields.items() if v.get("primary_key")), "id")
+        pk_val = sample.get(pk_field, 1)
+
+        lines = [
+            "import httpx",
+            "from datetime import datetime, timedelta",
+            "",
+            f'BASE_URL = "http://localhost:8000/{entity}"',
+            "",
+            f"def test_create():",
+            f"    payload = {json.dumps(sample, indent=4, default=default_serializer)}",
+            f"    response = httpx.post(BASE_URL, json=payload)",
+            f"    assert response.status_code == 200",
+            f"    assert response.json().get('success')",
+            "",
+            f"def test_get_one():",
+            f"    response = httpx.get(f\"{{BASE_URL}}/{pk_val}\")",
+            f"    assert response.status_code == 200",
+            "",
+            f"def test_update():",
+            f"    payload = {json.dumps(sample, indent=4, default=default_serializer)}",
+            f"    payload['{pk_field}'] = {pk_val}",
+            f"    response = httpx.put(f\"{{BASE_URL}}/{pk_val}\", json=payload)",
+            f"    assert response.status_code == 200",
+            "",
+            f"def test_delete():",
+            f"    response = httpx.delete(f\"{{BASE_URL}}/{pk_val}\")",
+            f"    assert response.status_code == 200",
+            "",
+            f"def test_options():",
+            f"    response = httpx.get(f\"{{BASE_URL}}/options\")",
+            f"    assert response.status_code == 200",
+            "",
+            "def test_list_eq():"
+        ]
+
+        for k, v in sample.items():
+            if isinstance(v, (str, int, float, bool)):
+                lines.append(f"    response = httpx.get(f\"{{BASE_URL}}?{k}={v}\")")
+                lines.append("    assert response.status_code == 200")
+
+        for k, v in sample.items():
+            if isinstance(v, (int, float)):
+                lines += [
+                    "",
+                    f"def test_range_gt_lt():",
+                    f"    response = httpx.get(f\"{{BASE_URL}}?{k}__gt={v - 1}&{k}__lt={v + 1}\")",
+                    f"    assert response.status_code == 200"
+                ]
+                break
+            elif "date" in k.lower() and isinstance(v, str):
+                lines += [
+                    "",
+                    f"def test_date_filter():",
+                    f"    start = datetime.now() - timedelta(days=30)",
+                    f"    end = datetime.now() + timedelta(days=30)",
+                    f"    response = httpx.get(f\"{{BASE_URL}}?{k}__gt={{start.isoformat()}}&{k}__lt={{end.isoformat()}}\")",
+                    f"    assert response.status_code == 200"
+                ]
+                break
+
+        if is_indexed and search_fields:
+            keyword = str(sample.get(search_fields[0], "test"))
+            lines += [
+                "",
+                f"def test_search():",
+                f"    response = httpx.get(f\"{{BASE_URL}}?query={keyword}\")",
+                f"    assert response.status_code == 200"
+            ]
+
+        test_file = os.path.join(TESTS_OUTPUT_DIR, f"test_{entity}.py")
+        with open(test_file, "w") as f:
+            f.write("\n".join(lines))
+
+        print(f"✅ Search test created: {test_file}")
+
 def reset_client_code():
     log(f"🚀 Starting code generation for client: {CLIENT_NAME}")
     log(f"📁 Using config: {client_config}")
@@ -282,6 +390,7 @@ def reset_client_code():
     generate_pages_config()
     generate_test_cases_from_mock(entities, TESTS_OUTPUT_DIR)
     copy_entity_files()
+    generate_search_tests()
     log("🎉 Code generation completed")
 
 if __name__ == "__main__":
