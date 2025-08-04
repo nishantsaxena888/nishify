@@ -1,9 +1,11 @@
 from fastapi import APIRouter, HTTPException, Query, Depends, Request
-from sqlalchemy import select, insert, update, delete
+from sqlalchemy import select, insert, update, delete, func, and_
 from sqlalchemy.orm import Session
 from backend.utils.db import get_db
 from backend.utils.model_loader import get_model_class
 from backend.utils.pydantic_model import create_pydantic_model
+from backend.utils.pagination import apply_pagination, paginated_response
+from backend.utils.filtering import parse_filter_expression
 from typing import Optional
 
 def generate_entity_router(client_name: str):
@@ -17,14 +19,36 @@ def generate_entity_router(client_name: str):
     @router.get("/{entity}")
     def list_entities(
         entity: str,
+        request: Request,
+        page: int = Query(1, ge=1),
+        size: int = Query(20, le=100),
         db: Session = Depends(get_db),
-        skip: int = 0,
-        limit: int = 50,
-        search: Optional[str] = None
     ):
         model = get_model_class(client_name, entity)
-        stmt = select(model).offset(skip).limit(limit)
-        return db.execute(stmt).scalars().all()
+        raw_query_params = dict(request.query_params)
+        raw_query_params.pop("page", None)
+        raw_query_params.pop("size", None)
+
+        filters = []
+        for field, value in raw_query_params.items():
+            expr = parse_filter_expression(field, value, model)
+            if expr is not None:
+                filters.append(expr)
+
+        stmt = select(model)
+        if filters:
+            stmt = stmt.where(and_(*filters))
+
+        count_stmt = select(func.count()).select_from(model)
+        if filters:
+            count_stmt = count_stmt.where(and_(*filters))
+
+        stmt = apply_pagination(stmt, page, size)
+
+        total = db.scalar(count_stmt)
+        items = db.execute(stmt).scalars().all()
+
+        return paginated_response(items, page, size, total)
 
     @router.get("/{entity}/{item_id}")
     def get_one(entity: str, item_id: int, db: Session = Depends(get_db)):
