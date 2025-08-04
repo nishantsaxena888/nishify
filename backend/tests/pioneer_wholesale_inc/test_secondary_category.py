@@ -4,7 +4,7 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_secondary_category():
-    payload = {'description': 'worker', 'id': 2758, 'name': 'quickly'}
+    payload = {'description': 'political', 'id': 657, 'name': 'bill'}
 
     response = client.post("/api/secondary_category", json=payload)
     assert response.status_code == 200

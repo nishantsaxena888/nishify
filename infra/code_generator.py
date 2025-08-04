@@ -6,13 +6,12 @@ import pandas as pd
 import sys
 import shutil
 import pprint
+
 LOG = True
-# ✅ Accept client name as argument
-# ✅ Accept client name as argument (and optional 'mock' flag)
+
 if len(sys.argv) < 2:
     raise ValueError("Usage: python code_generator.py <client_name> [mock]")
 
-CLIENT_NAME = sys.argv[1]
 CLIENT_NAME = sys.argv[1]
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))  # nishify root
@@ -22,9 +21,11 @@ ENTITIES_PATH = os.path.join(CLIENT_DIR, "entities.py")
 CONFIG_PATH = os.path.join(CLIENT_DIR, "config.json")
 PAGES_OUTPUT_DIR = os.path.join(ROOT_DIR, f"nishify.io/src/clients/{CLIENT_NAME}")
 TESTS_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/tests/{CLIENT_NAME}")
+MODEL_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/clients/{CLIENT_NAME}/models")
+MOCK_OUTPUT_DIR = os.path.join(ROOT_DIR, f"nishify.io/src/lib/api/mock/{CLIENT_NAME}")
+TESTDATA_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/clients/{CLIENT_NAME}/test_data")
+EXCEL_OUTPUT_FILE = os.path.join(TESTDATA_OUTPUT_DIR, "test_data.xlsx")
 
-
-# 🚨 If missing, show list of clients or scaffold new one
 if not os.path.exists(ENTITIES_PATH):
     print(f"❌ Client '{CLIENT_NAME}' not found at {ENTITIES_PATH}\n")
     print("📁 Available clients:")
@@ -35,17 +36,11 @@ if not os.path.exists(ENTITIES_PATH):
     scaffold = input(f"\nWould you like to scaffold a new client '{CLIENT_NAME}'? (y/n): ").strip().lower()
     if scaffold == 'y':
         os.makedirs(CLIENT_DIR, exist_ok=True)
-
-        # Create empty entities.py
         with open(ENTITIES_PATH, 'w') as f:
             f.write("entities = {}\n")
-
-        # Create empty entities.data.py
         ENTITIES_DATA_PATH = os.path.join(CLIENT_DIR, "entities.data.py")
         with open(ENTITIES_DATA_PATH, 'w') as f:
             f.write("entities_data = {}\n")
-
-        # Create config.json
         with open(CONFIG_PATH, 'w') as f:
             json.dump({
                 "env": {
@@ -56,33 +51,22 @@ if not os.path.exists(ENTITIES_PATH):
                 "theme": "default",
                 "auth_mode": "none"
             }, f, indent=2)
-
         print(f"✅ Scaffolded new client at {CLIENT_DIR}. Now re-run the script.")
         sys.exit(0)
     else:
         print("❌ Aborting.")
         sys.exit(1)
 
-
-# Load config.json per client (optional settings)
 client_config = {}
 if os.path.exists(CONFIG_PATH):
     with open(CONFIG_PATH, 'r') as f:
         client_config = json.load(f)
 
-MODEL_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/clients/{CLIENT_NAME}/models")
-MOCK_OUTPUT_DIR = os.path.join(ROOT_DIR, f"nishify.io/src/lib/api/mock/{CLIENT_NAME}")
-TESTDATA_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/clients/{CLIENT_NAME}/test_data")
-EXCEL_OUTPUT_FILE = os.path.join(TESTDATA_OUTPUT_DIR, "test_data.xlsx")
-
-# 🔁 Dynamic import of entities.py from client folder
-# 🔁 Load entities.py
 spec_entities = importlib.util.spec_from_file_location("entities", ENTITIES_PATH)
 entities_module = importlib.util.module_from_spec(spec_entities)
 spec_entities.loader.exec_module(entities_module)
 entities = entities_module.entities
 
-# 🔁 Load entities.data.py
 ENTITIES_DATA_PATH = os.path.join(CLIENT_DIR, "entities.data.py")
 if os.path.exists(ENTITIES_DATA_PATH):
     spec_data = importlib.util.spec_from_file_location("entities_data", ENTITIES_DATA_PATH)
@@ -90,7 +74,6 @@ if os.path.exists(ENTITIES_DATA_PATH):
     spec_data.loader.exec_module(data_module)
     data_entities = data_module.entities_data
 
-    # 🔁 Merge sample_data from entities.data.py into entities
     for key, value in data_entities.items():
         if key in entities:
             entities[key]["sample_data"] = value.get("sample_data", [])
@@ -99,11 +82,9 @@ if os.path.exists(ENTITIES_DATA_PATH):
 else:
     print("⚠️ entities.data.py not found — proceeding without sample data.")
 
-
 def log(msg):
     if LOG:
         print(msg)
-
 
 def default_serializer(obj):
     if isinstance(obj, (datetime, date)):
@@ -125,7 +106,6 @@ def generate_models():
     for entity, config in entities.items():
         fields = config["fields"]
 
-        # ✅ Skip models with no primary key
         has_primary_key = any(field_conf.get("primary_key") for field_conf in fields.values())
         if not has_primary_key:
             log(f"⚠️ Skipping model for {entity} (no primary key found)")
@@ -133,6 +113,7 @@ def generate_models():
 
         lines = [
             "from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey",
+            "from sqlalchemy.orm import relationship",
             "from datetime import datetime",
             "\nfrom backend.utils.db_base import Base",
             f"\nclass {entity.capitalize()}(Base):",
@@ -144,7 +125,7 @@ def generate_models():
             opts = []
             args = [sql_type]
             if field_conf.get("foreign_key"):
-                args.append(f"ForeignKey('{field_conf['foreign_key']}')")
+                args.append(f"ForeignKey('{field_conf['foreign_key']}.id')")
 
             kwargs = []
             if field_conf.get("primary_key"):
@@ -156,9 +137,15 @@ def generate_models():
 
             all_args = args + kwargs
             line = f"    {field_name} = Column({', '.join(all_args)})"
-                        
-            
             lines.append(line)
+
+            if field_conf.get("foreign_key"):
+                fk_entity = field_conf["foreign_key"].split(".")[0]
+                rel_name = fk_entity  # Always use this
+                rel_class = fk_entity.capitalize()
+                lines.append(f"    {rel_name} = relationship(\"{rel_class}\")")
+
+
 
         model_code = "\n".join(lines)
         model_path = os.path.join(MODEL_OUTPUT_DIR, f"{entity}.py")
@@ -209,23 +196,17 @@ def generate_excel_dump():
             df.to_excel(writer, sheet_name=name, index=False)
     log(f"✅ Excel dump generated at {EXCEL_OUTPUT_FILE}")
 
-
-
 def generate_pages_config():
     os.makedirs(PAGES_OUTPUT_DIR, exist_ok=True)
 
     for root, dirs, files in os.walk(CLIENT_DIR):
         for file in files:
             src_file = os.path.join(root, file)
-
-            # Preserve folder structure in destination
             relative_path = os.path.relpath(src_file, CLIENT_DIR)
             dest_file = os.path.join(PAGES_OUTPUT_DIR, relative_path)
 
             os.makedirs(os.path.dirname(dest_file), exist_ok=True)
             shutil.copy2(src_file, dest_file)
-
-            # ✅ Print full absolute path
             log(f"✅ Copied {relative_path} to frontend at {os.path.abspath(dest_file)}")
 
 def generate_test_cases_from_mock(entities, test_dir):
@@ -297,7 +278,6 @@ def reset_client_code():
     generate_test_cases_from_mock(entities, TESTS_OUTPUT_DIR)
     copy_entity_files()
     log("🎉 Code generation completed")
-
 
 if __name__ == "__main__":
     reset_client_code()

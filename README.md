@@ -1,17 +1,4 @@
 ```
-python -m infra.data_faker pioneer_wholesale_inc
-python -m infra.code_generator pioneer_wholesale_inc
-
-
-PYTHONPATH=. alembic revision --autogenerate -m "initial schema"
-
-PYTHONPATH=. alembic upgrade head
-
-
-PYTHONPATH=. python backend/scripts/load_sample_data.py
-PYTHONPATH=. python backend/scripts/show_counts.py  item
-
-uvicorn backend.main:app --reload
 
 
 ### TODO : Separate test db and make following success and asdd more test cases as well. 
@@ -153,4 +140,25 @@ git remote set-url origin git@github.com:nishantsaxena888/nishify.git
 > Idea : TOC main FAQ 
 >> move all this to TOC
 ```
+
+
+
+
+python -m infra.data_faker pioneer_wholesale_inc
+python -m infra.code_generator pioneer_wholesale_inc
+
+
+PYTHONPATH=. alembic revision --autogenerate -m "initial schema"
+
+PYTHONPATH=. alembic upgrade head
+
+
+PYTHONPATH=. python backend/scripts/load_sample_data.py
+PYTHONPATH=. python backend/scripts/show_counts.py  item
+
+PYTHONPATH=. python backend/search_elastic/indexer.py
+
+
+uvicorn backend.main:app --reload
+
 
