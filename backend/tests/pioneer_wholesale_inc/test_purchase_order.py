@@ -4,10 +4,10 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_purchase_order():
-    payload = {   'date': '2025-01-06T12:37:19.756205',
-    'id': 3121,
-    'status': 'describe',
-    'vendor_id': 4114}
+    payload = {   'date': datetime.datetime(2025, 2, 1, 17, 42, 52, 136624),
+    'id': 3414,
+    'status': 'democratic',
+    'vendor_id': 7558}
 
     response = client.post("/api/purchase_order", json=payload)
     assert response.status_code == 200

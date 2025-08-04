@@ -1,27 +1,127 @@
 [
   {
-    "id": 3319,
-    "name": "southern",
-    "tax_percent": 701.95
+    "id": 2573,
+    "name": "push",
+    "tax_percent": 408.81
   },
   {
-    "id": 646,
-    "name": "country",
-    "tax_percent": 7501.0
+    "id": 2875,
+    "name": "skill",
+    "tax_percent": 4899.85
   },
   {
-    "id": 8103,
-    "name": "food",
-    "tax_percent": 170.41
+    "id": 4930,
+    "name": "thing",
+    "tax_percent": 7678.43
   },
   {
-    "id": 9283,
-    "name": "value",
-    "tax_percent": 9023.69
+    "id": 6307,
+    "name": "take",
+    "tax_percent": 3347.02
   },
   {
-    "id": 2526,
-    "name": "able",
-    "tax_percent": 8375.47
+    "id": 2869,
+    "name": "daughter",
+    "tax_percent": 9612.25
+  },
+  {
+    "id": 8378,
+    "name": "book",
+    "tax_percent": 1694.24
+  },
+  {
+    "id": 24,
+    "name": "human",
+    "tax_percent": 2432.26
+  },
+  {
+    "id": 4236,
+    "name": "bag",
+    "tax_percent": 6710.56
+  },
+  {
+    "id": 8410,
+    "name": "worry",
+    "tax_percent": 1542.63
+  },
+  {
+    "id": 1989,
+    "name": "environment",
+    "tax_percent": 7970.88
+  },
+  {
+    "id": 3318,
+    "name": "choice",
+    "tax_percent": 8768.9
+  },
+  {
+    "id": 1080,
+    "name": "east",
+    "tax_percent": 4345.77
+  },
+  {
+    "id": 9996,
+    "name": "south",
+    "tax_percent": 9840.68
+  },
+  {
+    "id": 8318,
+    "name": "pull",
+    "tax_percent": 1672.87
+  },
+  {
+    "id": 4495,
+    "name": "major",
+    "tax_percent": 5383.21
+  },
+  {
+    "id": 6683,
+    "name": "speak",
+    "tax_percent": 1888.08
+  },
+  {
+    "id": 7377,
+    "name": "owner",
+    "tax_percent": 8306.82
+  },
+  {
+    "id": 2285,
+    "name": "various",
+    "tax_percent": 3563.21
+  },
+  {
+    "id": 8899,
+    "name": "especially",
+    "tax_percent": 7103.54
+  },
+  {
+    "id": 2299,
+    "name": "try",
+    "tax_percent": 8760.5
+  },
+  {
+    "id": 4634,
+    "name": "skill",
+    "tax_percent": 9311.05
+  },
+  {
+    "id": 5190,
+    "name": "interest",
+    "tax_percent": 5859.43
+  },
+  {
+    "id": 9385,
+    "name": "fast",
+    "tax_percent": 1696.1
+  },
+  {
+    "id": 8902,
+    "name": "thing",
+    "tax_percent": 4044.17
+  },
+  {
+    "id": 160,
+    "name": "also",
+    "tax_percent": 952.71
   }
 ]

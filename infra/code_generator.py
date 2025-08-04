@@ -1,6 +1,6 @@
 import os
 import importlib.util
-from datetime import datetime
+from datetime import datetime, date
 import json
 import pandas as pd
 import sys
@@ -104,6 +104,12 @@ def log(msg):
     if LOG:
         print(msg)
 
+
+def default_serializer(obj):
+    if isinstance(obj, (datetime, date)):
+        return obj.isoformat()
+    raise TypeError(f"Object of type {type(obj).__name__} is not JSON serializable")
+
 def type_map(field_type):
     return {
         "int": "Integer",
@@ -187,7 +193,7 @@ def generate_test_data():
         data = config.get("sample_data", [])
         json_path = os.path.join(TESTDATA_OUTPUT_DIR, f"{entity}.json")
         with open(json_path, "w") as f:
-            json.dump(data, f, indent=2)
+            json.dump(data, f, indent=2, default=default_serializer)
         log(f"✅ Generated test data for {entity} at {json_path}")
 
 def generate_excel_dump():

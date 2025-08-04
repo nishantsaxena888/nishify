@@ -4,6 +4,7 @@ import random
 import importlib.util
 from faker import Faker
 import pprint  
+from datetime import datetime, date
 
 faker = Faker()
 
@@ -40,24 +41,25 @@ def generate_default_value(field_type):
     elif field_type == "bool":
         return random.choice([True, False])
     elif field_type == "datetime":
-        return faker.date_time_this_year().isoformat()
+        return faker.date_time_this_year()  # ✅ RETURN datetime object
     elif field_type == "date":
-        return faker.date_this_year().isoformat()
+        return faker.date_this_year()  # ✅ RETURN date object
     return None
 
 entities_data = {}
 for entity_name, config in entities_config.items():
     fields = config.get("fields", {})
     rows = []
-    for _ in range(5):
+
+    for _ in range(25):  # ⬅️ Increase number of rows here
         row = {}
         for field_name, field_config in fields.items():
             field_type = field_config.get("type")
             required = field_config.get("required", True)
 
-            # 30% chance to skip non-required fields
-            if not required and random.random() < 0.3:
-                value = None
+            # Clean logic: always include required; sometimes None if optional
+            if not required:
+                value = None if random.random() < 0.1 else generate_default_value(field_type)
             elif "faker" in field_config:
                 value = generate_faker_value(field_config["faker"])
             else:
@@ -65,13 +67,14 @@ for entity_name, config in entities_config.items():
 
             row[field_name] = value
         rows.append(row)
+
     entities_data[entity_name] = {"sample_data": rows}
 
-
-
 with open(ENTITIES_DATA_PATH, "w") as f:
+    f.write("# AUTO-GENERATED FILE — DO NOT EDIT MANUALLY\n")
+    f.write("import datetime\n\n")  # ✅ add this line
     f.write("entities_data = ")
     f.write(pprint.pformat(entities_data, indent=2))
 
 
-print(f"✅ Created: {ENTITIES_DATA_PATH}")
+print(f"✅ Created: {ENTITIES_DATA_PATH} with sample data for {len(entities_data)} entities")

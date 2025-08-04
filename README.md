@@ -7,6 +7,12 @@ PYTHONPATH=. alembic revision --autogenerate -m "initial schema"
 
 PYTHONPATH=. alembic upgrade head
 
+
+PYTHONPATH=. python backend/scripts/load_sample_data.py
+PYTHONPATH=. python backend/scripts/show_counts.py  item
+
+
+### TODO : Separate test db and make following success and asdd more test cases as well. 
 PYTHONPATH=.  pytest backend/tests/pioneer_wholesale_inc
 
 

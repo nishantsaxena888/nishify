@@ -4,7 +4,7 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_invoice_item():
-    payload = {'invoice_id': 4740, 'item_id': 764, 'price': 981.69, 'quantity': 2597}
+    payload = {'invoice_id': 8210, 'item_id': 2683, 'price': 1173.41, 'quantity': 9407}
 
     response = client.post("/api/invoice_item", json=payload)
     assert response.status_code == 200

@@ -4,13 +4,13 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_customer():
-    payload = {   'address': 'figure',
-    'credit_limit': 8066.23,
-    'email': 'white',
-    'id': 3506,
-    'name': 'tree',
-    'phone': 'such',
-    'salesperson_id': 2125}
+    payload = {   'address': 'better',
+    'credit_limit': 1099.62,
+    'email': 'main',
+    'id': 6691,
+    'name': 'anyone',
+    'phone': 'sure',
+    'salesperson_id': 9240}
 
     response = client.post("/api/customer", json=payload)
     assert response.status_code == 200
