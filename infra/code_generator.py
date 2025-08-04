@@ -27,8 +27,8 @@ TESTDATA_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/clients/{CLIENT_NAME}/tes
 EXCEL_OUTPUT_FILE = os.path.join(TESTDATA_OUTPUT_DIR, "test_data.xlsx")
 
 if not os.path.exists(ENTITIES_PATH):
-    print(f"❌ Client '{CLIENT_NAME}' not found at {ENTITIES_PATH}\n")
-    print("📁 Available clients:")
+    print(f"\u274c Client '{CLIENT_NAME}' not found at {ENTITIES_PATH}\n")
+    print("\ud83d\udcc1 Available clients:")
     for folder in os.listdir(CLIENTS_DIR):
         if os.path.isdir(os.path.join(CLIENTS_DIR, folder)):
             print(f"- {folder}")
@@ -51,10 +51,10 @@ if not os.path.exists(ENTITIES_PATH):
                 "theme": "default",
                 "auth_mode": "none"
             }, f, indent=2)
-        print(f"✅ Scaffolded new client at {CLIENT_DIR}. Now re-run the script.")
+        print(f"\u2705 Scaffolded new client at {CLIENT_DIR}. Now re-run the script.")
         sys.exit(0)
     else:
-        print("❌ Aborting.")
+        print("\u274c Aborting.")
         sys.exit(1)
 
 client_config = {}
@@ -78,9 +78,9 @@ if os.path.exists(ENTITIES_DATA_PATH):
         if key in entities:
             entities[key]["sample_data"] = value.get("sample_data", [])
         else:
-            print(f"⚠️ {key} found in entities.data.py but not in entities.py — skipping.")
+            print(f"\u26a0\ufe0f {key} found in entities.data.py but not in entities.py — skipping.")
 else:
-    print("⚠️ entities.data.py not found — proceeding without sample data.")
+    print("\u26a0\ufe0f entities.data.py not found — proceeding without sample data.")
 
 def log(msg):
     if LOG:
@@ -108,24 +108,24 @@ def generate_models():
 
         has_primary_key = any(field_conf.get("primary_key") for field_conf in fields.values())
         if not has_primary_key:
-            log(f"⚠️ Skipping model for {entity} (no primary key found)")
+            log(f"\u26a0\ufe0f Skipping model for {entity} (no primary key found)")
             continue
 
-        lines = [
-            "from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey",
-            "from sqlalchemy.orm import relationship",
-            "from datetime import datetime",
-            "\nfrom backend.utils.db_base import Base",
-            f"\nclass {entity.capitalize()}(Base):",
-            f"    __tablename__ = '{entity}'",
-        ]
+        fk_imports = set()
+        field_lines = []
+        relationship_lines = []
 
         for field_name, field_conf in fields.items():
             sql_type = type_map(field_conf["type"])
-            opts = []
             args = [sql_type]
+
             if field_conf.get("foreign_key"):
-                args.append(f"ForeignKey('{field_conf['foreign_key']}.id')")
+                fk_table = field_conf["foreign_key"].split(".")[0]
+                rel_class = fk_table.capitalize()
+                args.append(f"ForeignKey('{field_conf['foreign_key']}')")
+                rel_name = field_name.removesuffix("_id")
+                relationship_lines.append(f"    {rel_name} = relationship({rel_class})")
+                fk_imports.add(f"from backend.clients.{CLIENT_NAME}.models.{fk_table} import {rel_class}")
 
             kwargs = []
             if field_conf.get("primary_key"):
@@ -136,22 +136,27 @@ def generate_models():
                 kwargs.append("default=datetime.utcnow")
 
             all_args = args + kwargs
-            line = f"    {field_name} = Column({', '.join(all_args)})"
-            lines.append(line)
+            field_lines.append(f"    {field_name} = Column({', '.join(all_args)})")
 
-            if field_conf.get("foreign_key"):
-                fk_entity = field_conf["foreign_key"].split(".")[0]
-                rel_name = fk_entity  # Always use this
-                rel_class = fk_entity.capitalize()
-                lines.append(f"    {rel_name} = relationship(\"{rel_class}\")")
-
-
+        lines = [
+            "from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey",
+            "from sqlalchemy.orm import relationship",
+            "from datetime import datetime",
+            *sorted(fk_imports),
+            "",
+            "from backend.utils.db_base import Base",
+            f"\nclass {entity.capitalize()}(Base):",
+            f"    __tablename__ = '{entity}'",
+            *field_lines,
+            *relationship_lines,
+        ]
 
         model_code = "\n".join(lines)
         model_path = os.path.join(MODEL_OUTPUT_DIR, f"{entity}.py")
         with open(model_path, "w") as f:
             f.write(model_code)
-        log(f"✅ Generated model for {entity} at {model_path}")
+        log(f"\u2705 Generated model for {entity} at {model_path}")
+
 
 def generate_mock_data():
     os.makedirs(MOCK_OUTPUT_DIR, exist_ok=True)

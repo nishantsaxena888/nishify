@@ -1,4 +1,16 @@
 entities = {
+
+    "state": {
+        "fields": {
+            "id": {"type": "int", "primary_key": True},
+            "name": {"type": "str", "required": True}
+        },
+        "sample_data": [
+            {"id": 1, "name": "California"},
+            {"id": 2, "name": "Texas"},
+            {"id": 3, "name": "New York"}
+        ]
+    },
     "item_category": {
         "fields": {
             "id": {"type": "int", "primary_key": True},
@@ -27,6 +39,10 @@ entities = {
             "email": {"type": "str"},
             "phone": {"type": "str"},
             "contact_person": {"type": "str"},
+            "state_id": {
+                "type": "int",
+                "foreign_key": "state.id"
+            }
         },
         "sample_data": [
             {"id": 1, "name": "Coca-Cola Co.", "phone": "1234567890"}

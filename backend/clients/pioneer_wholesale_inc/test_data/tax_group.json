@@ -1,127 +1,127 @@
 [
   {
-    "id": 5714,
-    "name": "word",
-    "tax_percent": 7945.07
+    "id": 6268,
+    "name": "environment",
+    "tax_percent": 7036.86
   },
   {
-    "id": 1928,
-    "name": "step",
-    "tax_percent": 1353.72
+    "id": 29,
+    "name": "single",
+    "tax_percent": 8566.59
   },
   {
-    "id": 2598,
-    "name": "family",
-    "tax_percent": 6608.99
+    "id": 5019,
+    "name": "visit",
+    "tax_percent": 4577.79
   },
   {
-    "id": 2395,
-    "name": "help",
-    "tax_percent": 2768.63
+    "id": 5921,
+    "name": "age",
+    "tax_percent": 2279.5
   },
   {
-    "id": 6784,
-    "name": "north",
-    "tax_percent": 4711.21
+    "id": 6562,
+    "name": "member",
+    "tax_percent": 5688.8
   },
   {
-    "id": 9641,
-    "name": "top",
-    "tax_percent": 6626.36
+    "id": 3628,
+    "name": "fly",
+    "tax_percent": 4060.47
   },
   {
-    "id": 8433,
-    "name": "letter",
-    "tax_percent": 8976.42
+    "id": 9672,
+    "name": "owner",
+    "tax_percent": 5302.37
   },
   {
-    "id": 595,
-    "name": "appear",
-    "tax_percent": 684.61
+    "id": 3485,
+    "name": "approach",
+    "tax_percent": 5587.5
   },
   {
-    "id": 8762,
-    "name": "concern",
-    "tax_percent": 7798.99
+    "id": 3306,
+    "name": "skin",
+    "tax_percent": 6527.74
   },
   {
-    "id": 2892,
-    "name": "compare",
-    "tax_percent": 3524.14
+    "id": 8032,
+    "name": "girl",
+    "tax_percent": 1071.54
   },
   {
-    "id": 5416,
-    "name": "none",
-    "tax_percent": 4759.37
+    "id": 8375,
+    "name": "identify",
+    "tax_percent": 2350.55
   },
   {
-    "id": 7866,
-    "name": "continue",
-    "tax_percent": 4243.41
+    "id": 1777,
+    "name": "traditional",
+    "tax_percent": 5001.87
   },
   {
-    "id": 1987,
-    "name": "just",
-    "tax_percent": 1704.37
+    "id": 5513,
+    "name": "event",
+    "tax_percent": 3352.75
   },
   {
-    "id": 9428,
-    "name": "fine",
-    "tax_percent": 4264.27
+    "id": 9451,
+    "name": "condition",
+    "tax_percent": 8495.95
   },
   {
-    "id": 1711,
-    "name": "especially",
-    "tax_percent": 6589.53
+    "id": 8918,
+    "name": "girl",
+    "tax_percent": 8363.56
   },
   {
-    "id": 8156,
-    "name": "too",
-    "tax_percent": 1717.28
+    "id": 8221,
+    "name": "model",
+    "tax_percent": 1794.75
   },
   {
-    "id": 3890,
-    "name": "anyone",
-    "tax_percent": 9059.37
+    "id": 3209,
+    "name": "deal",
+    "tax_percent": 4052.32
   },
   {
-    "id": 3581,
-    "name": "exactly",
-    "tax_percent": 9738.96
+    "id": 6537,
+    "name": "relate",
+    "tax_percent": 3585.95
   },
   {
-    "id": 9447,
-    "name": "fund",
-    "tax_percent": 9066.02
+    "id": 8658,
+    "name": "couple",
+    "tax_percent": 1917.86
   },
   {
-    "id": 2315,
-    "name": "assume",
-    "tax_percent": 7586.45
+    "id": 1542,
+    "name": "field",
+    "tax_percent": 6812.31
   },
   {
-    "id": 7894,
-    "name": "lawyer",
-    "tax_percent": 4668.93
+    "id": 3559,
+    "name": "language",
+    "tax_percent": 3624.31
   },
   {
-    "id": 4865,
-    "name": "modern",
-    "tax_percent": 7337.11
+    "id": 79,
+    "name": "lot",
+    "tax_percent": 8632.8
   },
   {
-    "id": 7302,
-    "name": "left",
-    "tax_percent": 4832.63
+    "id": 3657,
+    "name": "system",
+    "tax_percent": 2888.98
   },
   {
-    "id": 7794,
-    "name": "course",
-    "tax_percent": 7468.91
+    "id": 710,
+    "name": "short",
+    "tax_percent": 557.38
   },
   {
-    "id": 9989,
-    "name": "lead",
-    "tax_percent": 5325.32
+    "id": 2543,
+    "name": "space",
+    "tax_percent": 5441.09
   }
 ]

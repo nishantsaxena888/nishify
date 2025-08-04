@@ -1,152 +1,152 @@
 [
   {
-    "invoice_id": 3129,
-    "item_id": 9831,
-    "price": 164.7,
-    "quantity": 9536
+    "invoice_id": 3478,
+    "item_id": 9579,
+    "price": 8974.97,
+    "quantity": 9454
   },
   {
-    "invoice_id": 8621,
-    "item_id": 2396,
-    "price": 9944.9,
-    "quantity": 43
+    "invoice_id": 135,
+    "item_id": 488,
+    "price": 5220.31,
+    "quantity": 4464
   },
   {
-    "invoice_id": 6836,
-    "item_id": 1132,
-    "price": 9932.37,
-    "quantity": 9448
+    "invoice_id": 6488,
+    "item_id": 2281,
+    "price": 8992.04,
+    "quantity": 9442
   },
   {
-    "invoice_id": 3528,
-    "item_id": 8737,
-    "price": 8610.67,
-    "quantity": 2287
+    "invoice_id": 3802,
+    "item_id": 6763,
+    "price": 6134.49,
+    "quantity": 4773
   },
   {
-    "invoice_id": 8361,
-    "item_id": 4944,
-    "price": 2721.99,
-    "quantity": 9567
+    "invoice_id": 3116,
+    "item_id": 1455,
+    "price": 1747.0,
+    "quantity": 5339
   },
   {
-    "invoice_id": 6231,
-    "item_id": 8956,
-    "price": 9711.71,
-    "quantity": 2116
+    "invoice_id": 2571,
+    "item_id": 2168,
+    "price": 6030.1,
+    "quantity": 8088
   },
   {
-    "invoice_id": 7578,
-    "item_id": 6770,
-    "price": 4249.81,
-    "quantity": 4073
+    "invoice_id": 4271,
+    "item_id": 2133,
+    "price": 4971.35,
+    "quantity": 1024
   },
   {
-    "invoice_id": 6894,
-    "item_id": 8650,
-    "price": 102.33,
-    "quantity": 2687
+    "invoice_id": 6053,
+    "item_id": 1192,
+    "price": 3058.31,
+    "quantity": 3018
   },
   {
-    "invoice_id": 2680,
-    "item_id": 2927,
-    "price": 6566.01,
-    "quantity": 8783
+    "invoice_id": 3301,
+    "item_id": 5898,
+    "price": 7513.74,
+    "quantity": 7180
   },
   {
-    "invoice_id": 4446,
-    "item_id": 2036,
-    "price": 5852.18,
-    "quantity": 720
+    "invoice_id": 1727,
+    "item_id": 6369,
+    "price": 6827.36,
+    "quantity": 3149
   },
   {
-    "invoice_id": 4216,
-    "item_id": 7307,
-    "price": 9320.85,
-    "quantity": 572
+    "invoice_id": 4098,
+    "item_id": 5113,
+    "price": 6438.9,
+    "quantity": 4523
   },
   {
-    "invoice_id": 2716,
-    "item_id": 3118,
-    "price": 4357.39,
-    "quantity": 7014
+    "invoice_id": 1812,
+    "item_id": 511,
+    "price": 3941.51,
+    "quantity": 6253
   },
   {
-    "invoice_id": 2071,
-    "item_id": 7673,
-    "price": 1694.19,
-    "quantity": 9301
+    "invoice_id": 2406,
+    "item_id": 944,
+    "price": 4566.85,
+    "quantity": 7260
   },
   {
-    "invoice_id": 5619,
-    "item_id": 1948,
-    "price": 3104.63,
-    "quantity": 4850
+    "invoice_id": 4815,
+    "item_id": 4872,
+    "price": 9454.09,
+    "quantity": 6382
   },
   {
-    "invoice_id": 5491,
-    "item_id": 702,
-    "price": 8694.2,
-    "quantity": 7723
+    "invoice_id": 8271,
+    "item_id": 4185,
+    "price": 8190.22,
+    "quantity": 8418
   },
   {
-    "invoice_id": 6563,
-    "item_id": 4439,
-    "price": 3899.8,
-    "quantity": 5929
+    "invoice_id": 9018,
+    "item_id": 6410,
+    "price": 2437.11,
+    "quantity": 9719
   },
   {
-    "invoice_id": 5322,
-    "item_id": 793,
-    "price": 2491.29,
-    "quantity": 3260
+    "invoice_id": 1034,
+    "item_id": 7169,
+    "price": 1809.83,
+    "quantity": 1310
   },
   {
-    "invoice_id": 8511,
-    "item_id": 3453,
-    "price": 3684.57,
-    "quantity": 9080
-  },
-  {
-    "invoice_id": 1273,
-    "item_id": 3803,
-    "price": 1786.31,
-    "quantity": 7949
-  },
-  {
-    "invoice_id": 3335,
-    "item_id": 2716,
-    "price": 2653.06,
-    "quantity": 54
-  },
-  {
-    "invoice_id": 5684,
-    "item_id": 4690,
-    "price": 5954.32,
-    "quantity": 6940
-  },
-  {
-    "invoice_id": 9127,
-    "item_id": 1112,
-    "price": 6745.68,
+    "invoice_id": 1874,
+    "item_id": 6526,
+    "price": 913.39,
     "quantity": 8878
   },
   {
-    "invoice_id": 2779,
-    "item_id": 7399,
-    "price": 2468.15,
-    "quantity": 2835
+    "invoice_id": 3615,
+    "item_id": 6580,
+    "price": 2968.54,
+    "quantity": 2988
   },
   {
-    "invoice_id": 5166,
-    "item_id": 6728,
-    "price": 5340.4,
-    "quantity": 6657
+    "invoice_id": 9822,
+    "item_id": 1061,
+    "price": 8138.79,
+    "quantity": 2204
   },
   {
-    "invoice_id": 439,
-    "item_id": 7660,
-    "price": 3296.5,
-    "quantity": 278
+    "invoice_id": 7807,
+    "item_id": 6322,
+    "price": 5876.75,
+    "quantity": 7703
+  },
+  {
+    "invoice_id": 9123,
+    "item_id": 5012,
+    "price": 3523.27,
+    "quantity": 1860
+  },
+  {
+    "invoice_id": 2925,
+    "item_id": 1123,
+    "price": 1469.9,
+    "quantity": 78
+  },
+  {
+    "invoice_id": 8119,
+    "item_id": 4220,
+    "price": 7228.57,
+    "quantity": 5906
+  },
+  {
+    "invoice_id": 3667,
+    "item_id": 8965,
+    "price": 7427.13,
+    "quantity": 1524
   }
 ]

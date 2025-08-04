@@ -4,7 +4,7 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_inventory_location():
-    payload = {'address': 'open', 'id': 3753, 'name': 'discussion'}
+    payload = {'address': 'lot', 'id': 5800, 'name': 'drug'}
 
     response = client.post("/api/inventory_location", json=payload)
     assert response.status_code == 200

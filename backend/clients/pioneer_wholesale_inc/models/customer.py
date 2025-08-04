@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 from datetime import datetime
+from backend.clients.pioneer_wholesale_inc.models.salesperson import Salesperson
 
 from backend.utils.db_base import Base
 
@@ -11,6 +12,6 @@ class Customer(Base):
     address = Column(String)
     email = Column(String)
     phone = Column(String)
-    salesperson_id = Column(Integer, ForeignKey('salesperson.id.id'))
-    salesperson = relationship("Salesperson")
+    salesperson_id = Column(Integer, ForeignKey('salesperson.id'))
     credit_limit = Column(Float)
+    salesperson = relationship(Salesperson)

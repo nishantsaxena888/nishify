@@ -3,19 +3,19 @@ from backend.main import app
 
 client = TestClient(app)
 
-def test_create_tax_group():
-    payload = {'id': 6268, 'name': 'environment', 'tax_percent': 7036.86}
+def test_create_state():
+    payload = {'id': 545, 'name': 'would'}
 
-    response = client.post("/api/tax_group", json=payload)
+    response = client.post("/api/state", json=payload)
     assert response.status_code == 200
     assert response.json().get("success") == True
 
-def test_list_tax_group():
-    response = client.get("/api/tax_group")
+def test_list_state():
+    response = client.get("/api/state")
     assert response.status_code == 200
     assert isinstance(response.json(), list)
 
-def test_tax_group_options():
-    response = client.get("/api/tax_group/options")
+def test_state_options():
+    response = client.get("/api/state/options")
     assert response.status_code == 200
     assert isinstance(response.json(), list)
