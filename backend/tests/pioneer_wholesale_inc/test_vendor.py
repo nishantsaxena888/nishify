@@ -4,13 +4,13 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_vendor():
-    payload = {   'address': 'report',
-    'contact_person': 'read',
-    'email': 'president',
-    'id': 7762,
-    'name': 'opportunity',
-    'phone': 'important',
-    'state_id': 7774}
+    payload = {   'address': 'positive',
+    'contact_person': 'six',
+    'email': 'everyone',
+    'id': 5420,
+    'name': 'social',
+    'phone': 'network',
+    'state_id': 6081}
 
     response = client.post("/api/vendor", json=payload)
     assert response.status_code == 200

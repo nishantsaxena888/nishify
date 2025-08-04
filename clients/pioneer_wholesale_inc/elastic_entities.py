@@ -84,25 +84,34 @@ elastic_entities = {
         }
     },
 
-    # 📦 Invoice indexing with FK to customer
+    # 📦 Invoice indexing with nested FK to customer.salesperson
     "invoice": {
         "index_name": "invoice_index",
         "fields": ["id", "date", "status"],
         "follow_fk": {
             "customer": {
-                "fields": ["id", "name", "email"]
-            },
-            "salesperson": {
-                "fields": ["id", "name"]
-            },
-            "store": {
-                "fields": ["id", "name"]
+                "fields": ["id", "name", "email"],
+                "follow_fk": {
+                    "salesperson": {
+                        "fields": ["id", "name"]
+                    }
+                }
             }
         },
         "flatten": True,
-        "searchable_fields": ["id", "customer.name", "salesperson.name", "store.name"],
-        "weights": {"customer.name": 1.5},
+        "searchable_fields": [
+            "id",
+            "customer.name",
+            "customer.salesperson.name",
+            "store.name"
+        ],
+        "weights": {
+            "customer.name": 1.5
+        },
         "suggest_fields": ["id"],
-        "field_aliases": {"customer.name": "customerName"}
+        "field_aliases": {
+            "customer.name": "customerName",
+            "customer.salesperson.name": "salespersonName"
+        }
     }
 }

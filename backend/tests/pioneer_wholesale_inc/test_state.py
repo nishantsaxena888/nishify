@@ -4,7 +4,7 @@ from backend.main import app
 client = TestClient(app)
 
 def test_create_state():
-    payload = {'id': 545, 'name': 'would'}
+    payload = {'id': 7024, 'name': 'rock'}
 
     response = client.post("/api/state", json=payload)
     assert response.status_code == 200

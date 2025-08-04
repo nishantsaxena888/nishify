@@ -5,19 +5,19 @@ client = TestClient(app)
 
 def test_create_item():
     payload = {   'active': True,
-    'cash_discount_group_id': 5954,
-    'category_id': 2935,
-    'description': 'feel',
-    'id': 9170,
-    'item_code': 'government',
-    'name': 'again',
-    'price': 1987.59,
-    'price_group_id': 2611,
-    'secondary_category_id': 3646,
-    'tax_group_id': 6737,
-    'unit': 'star',
-    'upc_code': 'yeah',
-    'vendor_id': 2853}
+    'cash_discount_group_id': 9624,
+    'category_id': 8271,
+    'description': 'southern',
+    'id': 804,
+    'item_code': 'affect',
+    'name': 'four',
+    'price': 9025.1,
+    'price_group_id': 5428,
+    'secondary_category_id': 9820,
+    'tax_group_id': 9812,
+    'unit': 'man',
+    'upc_code': 'long',
+    'vendor_id': 4902}
 
     response = client.post("/api/item", json=payload)
     assert response.status_code == 200

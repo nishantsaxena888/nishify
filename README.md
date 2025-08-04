@@ -148,15 +148,18 @@ python -m infra.data_faker pioneer_wholesale_inc
 python -m infra.code_generator pioneer_wholesale_inc
 
 
-PYTHONPATH=. alembic revision --autogenerate -m "initial schessma"
+export PYTHONPATH=. 
+set PYTHONPATH=. 
 
-PYTHONPATH=. alembic upgrade head
+alembic revision --autogenerate -m "initial schessma"
+
+alembic upgrade head
 
 
-PYTHONPATH=. python backend/scripts/load_sample_data.py
-PYTHONPATH=. python backend/scripts/show_counts.py  item
+python backend/scripts/load_sample_data.py
+python backend/scripts/show_counts.py  item
 
-PYTHONPATH=. python backend/search_elastic/indexer.py
+python backend/search_elastic/indexer.py
 
 
 uvicorn backend.main:app --reload
