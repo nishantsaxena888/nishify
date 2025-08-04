@@ -1,4 +1,9 @@
 from fastapi import APIRouter, HTTPException, Query, Depends, Request
+from backend.search_elastic.query import search_elastic
+from backend.utils.config import get_elastic_config
+
+elastic_entities = get_elastic_config()
+
 from sqlalchemy import select, insert, update, delete, func, and_
 from sqlalchemy.orm import Session
 from backend.utils.db import get_db
@@ -29,6 +34,13 @@ def generate_entity_router(client_name: str):
         raw_query_params.pop("page", None)
         raw_query_params.pop("size", None)
 
+        # ✅ Use Elasticsearch if entity is indexed
+        if entity in elastic_entities:
+            print(f"[🔍 ElasticSearch] Fetching entity from index: {entity}")
+            results = search_elastic(entity, raw_query_params, page, size)
+            return paginated_response(results["items"], page, size, results["total"])
+        print(f"[🗃️ SQLAlchemy] Fetching entity from SQL table: {entity}")
+        # ✅ Else fallback to SQLAlchemy
         filters = []
         for field, value in raw_query_params.items():
             expr = parse_filter_expression(field, value, model)
@@ -47,8 +59,32 @@ def generate_entity_router(client_name: str):
 
         total = db.scalar(count_stmt)
         items = db.execute(stmt).scalars().all()
-
         return paginated_response(items, page, size, total)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @router.get("/{entity}/{item_id}")
     def get_one(entity: str, item_id: int, db: Session = Depends(get_db)):
