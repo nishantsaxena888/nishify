@@ -1,33 +1,35 @@
-'use client'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
 
-import React from 'react'
-import { getDynamicComponent } from './dynamic-loader'
+import React from "react";
+import { getDynamicComponent } from "./dynamic-loader";
 
 type SectionConfig = {
-  type: string
-  [key: string]: any
-}
+  type: string;
+  [key: string]: any;
+};
 
 type Props = {
-  sections: SectionConfig[]
-}
+  sections: SectionConfig[];
+};
 
 const HomeClientWrapper: React.FC<Props> = ({ sections }) => {
   return (
     <div className="space-y-8 p-6">
+      <pre>{JSON.stringify(sections, null, 2)}</pre>
       {sections.map((section, index) => {
-        const Component = getDynamicComponent(section.type)
+        const Component = getDynamicComponent(section.type);
         if (!Component) {
           return (
             <div key={index} className="text-red-500">
               ⚠ Missing component: <strong>{section.type}</strong>
             </div>
-          )
+          );
         }
-        return <Component key={index} {...section} />
+        return <Component key={index} {...section} />;
       })}
     </div>
-  )
-}
+  );
+};
 
-export default HomeClientWrapper
+export default HomeClientWrapper;
