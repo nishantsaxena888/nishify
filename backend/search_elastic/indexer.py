@@ -6,8 +6,56 @@ from sqlalchemy import select
 from sqlalchemy.orm import joinedload
 import importlib.util
 import os
+import sys
 
-# 🔁 Load config dynamically
+# -------------------------
+# Elastic client (ES 8 compat via v9 client)
+# -------------------------
+
+# ---- Elasticsearch client (v9 client talking to ES 8 via compat headers) ----
+import os, sys
+from urllib.parse import urlparse
+from elasticsearch import Elasticsearch
+from elastic_transport import Transport, NodeConfig
+
+ES_URL = os.getenv("ES_URL", "http://localhost:9200")
+ES_USER = os.getenv("ES_USER")
+ES_PASS = os.getenv("ES_PASS")
+ES_API_KEY = os.getenv("ES_API_KEY")
+
+# ES 8 needs these headers when using v9 client
+COMPAT_HEADERS = {
+    "Accept": "application/vnd.elasticsearch+json; compatible-with=8",
+    "Content-Type": "application/vnd.elasticsearch+json; compatible-with=8",
+}
+
+# --- Elasticsearch client (v9 client + ES 9) ---
+import os, sys
+from elasticsearch import Elasticsearch
+
+ES_URL = os.getenv("ES_URL", "http://localhost:9200")
+ES_USER = os.getenv("ES_USER")
+ES_PASS = os.getenv("ES_PASS")
+ES_API_KEY = os.getenv("ES_API_KEY")
+
+auth_kwargs = {}
+if ES_API_KEY:
+    auth_kwargs["api_key"] = ES_API_KEY
+elif ES_USER and ES_PASS:
+    auth_kwargs["basic_auth"] = (ES_USER, ES_PASS)
+
+es = Elasticsearch(ES_URL, **auth_kwargs)
+
+# sanity check
+try:
+    info = es.info()
+    print(f"✅ Connected to Elasticsearch {info['version']['number']} at {ES_URL}")
+except Exception as e:
+    print(f"❌ Could not connect to Elasticsearch at {ES_URL}: {e}")
+    sys.exit(1)
+# --- end client setup ---
+
+
 client_name = get_client_name()
 client_dir = os.path.join(os.path.dirname(__file__), "..", "clients", client_name)
 elastic_config_path = os.path.join(client_dir, "elastic_entities.py")
@@ -16,25 +64,25 @@ elastic_module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(elastic_module)
 elastic_entities = elastic_module.elastic_entities
 
-# 🔌 Elastic & DB
-es = Elasticsearch("http://localhost:9200")
-db = SessionLocal()
+# -------------------------
+# DB session
+# -------------------------
 
+db = SessionLocal()
 
 def get_entity_data(entity_name, config):
     model = get_model_class(client_name, entity_name)
     query = select(model)
 
     if "follow_fk" in config:
-        for fk_field in config["follow_fk"]:
+        fk_fields = config["follow_fk"].keys() if isinstance(config["follow_fk"], dict) else config["follow_fk"]
+        for fk_field in fk_fields:
             query = query.options(joinedload(getattr(model, fk_field)))
 
     return db.scalars(query).all()
 
-
 def serialize_row(row, config, prefix="", flatten=True):
     result = {}
-
     fields = [c.name for c in row.__table__.columns] if config.get("__all__") else config.get("fields", [])
 
     for field in fields:
@@ -43,7 +91,12 @@ def serialize_row(row, config, prefix="", flatten=True):
         result[key.replace(".", "_") if flatten else key] = value
 
     if "follow_fk" in config:
-        for fk_field, fk_conf in config["follow_fk"].items():
+        if isinstance(config["follow_fk"], dict):
+            fk_items = config["follow_fk"].items()
+        else:
+            fk_items = ((name, config) for name in config["follow_fk"])
+
+        for fk_field, fk_conf in fk_items:
             related = getattr(row, fk_field, None)
             if related:
                 nested = serialize_row(
@@ -60,7 +113,6 @@ def serialize_row(row, config, prefix="", flatten=True):
             result[alias] = result.pop(orig)
 
     return result
-
 
 def index_entity_data(entity_name):
     if entity_name not in elastic_entities:
@@ -92,10 +144,7 @@ def index_entity_data(entity_name):
 
     print(f"✅ Indexed {count} documents to `{index_name}`")
 
-
 if __name__ == "__main__":
-    import sys
-
     args = sys.argv[1:]
     if not args:
         print("ℹ️  Indexing ALL entities...")
