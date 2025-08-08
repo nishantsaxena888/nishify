@@ -5,30 +5,30 @@ BASE_URL = "http://localhost:8000/secondary_category"
 
 def test_create():
     payload = {
-    "description": "surface",
-    "id": 4249,
-    "name": "support"
+    "description": "political",
+    "id": 9861,
+    "name": "today"
 }
     response = httpx.post(BASE_URL, json=payload)
     assert response.status_code == 200
     assert response.json().get('success')
 
 def test_get_one():
-    response = httpx.get(f"{BASE_URL}/4249")
+    response = httpx.get(f"{BASE_URL}/9861")
     assert response.status_code == 200
 
 def test_update():
     payload = {
-    "description": "surface",
-    "id": 4249,
-    "name": "support"
+    "description": "political",
+    "id": 9861,
+    "name": "today"
 }
-    payload['id'] = 4249
-    response = httpx.put(f"{BASE_URL}/4249", json=payload)
+    payload['id'] = 9861
+    response = httpx.put(f"{BASE_URL}/9861", json=payload)
     assert response.status_code == 200
 
 def test_delete():
-    response = httpx.delete(f"{BASE_URL}/4249")
+    response = httpx.delete(f"{BASE_URL}/9861")
     assert response.status_code == 200
 
 def test_options():
@@ -36,13 +36,13 @@ def test_options():
     assert response.status_code == 200
 
 def test_list_eq():
-    response = httpx.get(f"{BASE_URL}?description=surface")
+    response = httpx.get(f"{BASE_URL}?description=political")
     assert response.status_code == 200
-    response = httpx.get(f"{BASE_URL}?id=4249")
+    response = httpx.get(f"{BASE_URL}?id=9861")
     assert response.status_code == 200
-    response = httpx.get(f"{BASE_URL}?name=support")
+    response = httpx.get(f"{BASE_URL}?name=today")
     assert response.status_code == 200
 
 def test_range_gt_lt():
-    response = httpx.get(f"{BASE_URL}?id__gt=4248&id__lt=4250")
+    response = httpx.get(f"{BASE_URL}?id__gt=9860&id__lt=9862")
     assert response.status_code == 200

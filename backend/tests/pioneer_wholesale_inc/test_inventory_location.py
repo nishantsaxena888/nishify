@@ -5,30 +5,30 @@ BASE_URL = "http://localhost:8000/inventory_location"
 
 def test_create():
     payload = {
-    "address": "list",
-    "id": 8862,
-    "name": "fly"
+    "address": "use",
+    "id": 3098,
+    "name": "material"
 }
     response = httpx.post(BASE_URL, json=payload)
     assert response.status_code == 200
     assert response.json().get('success')
 
 def test_get_one():
-    response = httpx.get(f"{BASE_URL}/8862")
+    response = httpx.get(f"{BASE_URL}/3098")
     assert response.status_code == 200
 
 def test_update():
     payload = {
-    "address": "list",
-    "id": 8862,
-    "name": "fly"
+    "address": "use",
+    "id": 3098,
+    "name": "material"
 }
-    payload['id'] = 8862
-    response = httpx.put(f"{BASE_URL}/8862", json=payload)
+    payload['id'] = 3098
+    response = httpx.put(f"{BASE_URL}/3098", json=payload)
     assert response.status_code == 200
 
 def test_delete():
-    response = httpx.delete(f"{BASE_URL}/8862")
+    response = httpx.delete(f"{BASE_URL}/3098")
     assert response.status_code == 200
 
 def test_options():
@@ -36,13 +36,13 @@ def test_options():
     assert response.status_code == 200
 
 def test_list_eq():
-    response = httpx.get(f"{BASE_URL}?address=list")
+    response = httpx.get(f"{BASE_URL}?address=use")
     assert response.status_code == 200
-    response = httpx.get(f"{BASE_URL}?id=8862")
+    response = httpx.get(f"{BASE_URL}?id=3098")
     assert response.status_code == 200
-    response = httpx.get(f"{BASE_URL}?name=fly")
+    response = httpx.get(f"{BASE_URL}?name=material")
     assert response.status_code == 200
 
 def test_range_gt_lt():
-    response = httpx.get(f"{BASE_URL}?id__gt=8861&id__lt=8863")
+    response = httpx.get(f"{BASE_URL}?id__gt=3097&id__lt=3099")
     assert response.status_code == 200

@@ -36,6 +36,7 @@ def generate_entity_router(client_name: str):
 
         # ✅ Use Elasticsearch if entity is indexed
         if entity in elastic_entities:
+
             print(f"[🔍 ElasticSearch] Fetching entity from index: {entity}")
             results = search_elastic(entity, raw_query_params, page, size)
             return paginated_response(results["items"], page, size, results["total"])
