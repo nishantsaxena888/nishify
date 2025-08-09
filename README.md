@@ -180,5 +180,8 @@ uvicorn backend.main:app --reload
 ### TODO : Separate test db and make following success and asdd more test cases as well. 
 pytest backend/tests/pioneer_wholesale_inc
 
+cd nishify.io 
+NEXT_PUBLIC_CLIENT_NAME=pioneer_wholesale_inc npm run test
+
 
 

@@ -29,7 +29,7 @@ def _pk_filter_from_payload(p):
 
 def test_create():
     global CREATED_ID
-    payload = json.loads("{\"discount_percent\": 4884.49, \"id\": 9152, \"name\": \"sing\", \"terms\": \"out\"}")
+    payload = json.loads("{\"discount_percent\": 524.83, \"id\": 2690, \"name\": \"oil\", \"terms\": \"bar\"}")
     payload = _inject_fk(payload)
     response = httpx.post(BASE_URL, json=payload)
     assert response.status_code in (200, 201), response.text
@@ -44,15 +44,15 @@ def test_create():
     elif isinstance(body, list) and body and isinstance(body[0], dict) and 'id' in body[0]:
         CREATED_ID = body[0]['id']
     else:
-        CREATED_ID = 9152
+        CREATED_ID = 2690
     assert isinstance(body, (dict, list))
 
 def test_get_one():
     rid = CREATED_ID if 'CREATED_ID' in globals() and CREATED_ID else None
-    rid = rid or 9152
+    rid = rid or 2690
     resp = httpx.get(f"{BASE_URL}/{rid}")
     if resp.status_code == 404:
-        payload = json.loads("{\"discount_percent\": 4884.49, \"id\": 9152, \"name\": \"sing\", \"terms\": \"out\"}")
+        payload = json.loads("{\"discount_percent\": 524.83, \"id\": 2690, \"name\": \"oil\", \"terms\": \"bar\"}")
         payload = _inject_fk(payload)
         payload['id'] = rid
         httpx.post(BASE_URL, json=payload)
@@ -62,19 +62,19 @@ def test_get_one():
     assert resp.status_code == 200, f"GET failed: {resp.status_code} {resp.text}"
 
 def test_update():
-    payload = json.loads("{\"discount_percent\": 4884.49, \"id\": 9152, \"name\": \"sing\", \"terms\": \"out\"}")
+    payload = json.loads("{\"discount_percent\": 524.83, \"id\": 2690, \"name\": \"oil\", \"terms\": \"bar\"}")
     payload = _inject_fk(payload)
-    payload['id'] = 9152
+    payload['id'] = 2690
     httpx.post(BASE_URL, json=payload)
-    response = httpx.put(f"{BASE_URL}/9152", json=payload)
+    response = httpx.put(f"{BASE_URL}/2690", json=payload)
     assert response.status_code == 200
 
 def test_delete():
-    payload = json.loads("{\"discount_percent\": 4884.49, \"id\": 9152, \"name\": \"sing\", \"terms\": \"out\"}")
+    payload = json.loads("{\"discount_percent\": 524.83, \"id\": 2690, \"name\": \"oil\", \"terms\": \"bar\"}")
     payload = _inject_fk(payload)
-    payload['id'] = 9152
+    payload['id'] = 2690
     httpx.post(BASE_URL, json=payload)
-    response = httpx.delete(f"{BASE_URL}/9152")
+    response = httpx.delete(f"{BASE_URL}/2690")
     assert response.status_code in (200, 204)
 
 def test_options():
@@ -82,19 +82,19 @@ def test_options():
     assert response.status_code == 200
 
 def test_eq_discount_percent():
-    response = httpx.get(BASE_URL, params={'discount_percent': 4884.49})
+    response = httpx.get(BASE_URL, params={'discount_percent': 524.83})
     assert response.status_code == 200
 
 def test_eq_id():
-    response = httpx.get(BASE_URL, params={'id': 9152})
+    response = httpx.get(BASE_URL, params={'id': 2690})
     assert response.status_code == 200
 
 def test_eq_name():
-    response = httpx.get(BASE_URL, params={'name': 'sing'})
+    response = httpx.get(BASE_URL, params={'name': 'oil'})
     assert response.status_code == 200
 
 def test_eq_terms():
-    response = httpx.get(BASE_URL, params={'terms': 'out'})
+    response = httpx.get(BASE_URL, params={'terms': 'bar'})
     assert response.status_code == 200
 
 def test_date_filter():

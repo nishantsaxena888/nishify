@@ -18,9 +18,9 @@ def _mk_parent(entity, body):
 
 def _inject_fk(payload):
     p = dict(payload)
-    parent = _mk_parent('purchase_order', json.loads('{"date": "2025-01-23T22:32:49.802311", "id": 649, "status": "there", "vendor_id": 1920}'))
+    parent = _mk_parent('purchase_order', json.loads('{"date": "2025-05-29T02:56:12.980210", "id": 6400, "status": "relate", "vendor_id": 8039}'))
     p['po_id'] = parent.get('id', parent.get('id', 700001))
-    parent = _mk_parent('item', json.loads('{"active": false, "cash_discount_group_id": 6179, "category_id": 5828, "description": "write", "id": 5628, "item_code": "hit", "name": "action", "price": 1135.26, "price_group_id": 6155, "secondary_category_id": 5805, "tax_group_id": 9260, "unit": "authority", "upc_code": "structure", "vendor_id": 7926}'))
+    parent = _mk_parent('item', json.loads('{"active": false, "cash_discount_group_id": 5248, "category_id": 4668, "description": "others", "id": 9732, "item_code": "move", "name": "hot", "price": 3215.77, "price_group_id": 3228, "secondary_category_id": 3545, "tax_group_id": 979, "unit": "interesting", "upc_code": "leave", "vendor_id": 8051}'))
     p['item_id'] = parent.get('id', parent.get('id', 700001))
     return p
 
@@ -33,7 +33,7 @@ def _pk_filter_from_payload(p):
 
 def test_create():
     global CREATED_ID
-    payload = json.loads("{\"item_id\": 2694, \"po_id\": 7956, \"quantity\": 37, \"unit_price\": 8189.63}")
+    payload = json.loads("{\"item_id\": 7301, \"po_id\": 2877, \"quantity\": 8566, \"unit_price\": 7551.03}")
     payload = _inject_fk(payload)
     response = httpx.post(BASE_URL, json=payload)
     assert response.status_code in (200, 201), response.text
@@ -45,7 +45,7 @@ def test_create():
     assert isinstance(body, (dict, list))
 
 def test_get_one():
-    payload = json.loads("{\"item_id\": 2694, \"po_id\": 7956, \"quantity\": 37, \"unit_price\": 8189.63}")
+    payload = json.loads("{\"item_id\": 7301, \"po_id\": 2877, \"quantity\": 8566, \"unit_price\": 7551.03}")
     payload = _inject_fk(payload)
     httpx.post(BASE_URL, json=payload)
     params = _pk_filter_from_payload(payload)
@@ -64,19 +64,19 @@ def test_options():
     assert response.status_code == 200
 
 def test_eq_item_id():
-    response = httpx.get(BASE_URL, params={'item_id': 2694})
+    response = httpx.get(BASE_URL, params={'item_id': 7301})
     assert response.status_code == 200
 
 def test_eq_po_id():
-    response = httpx.get(BASE_URL, params={'po_id': 7956})
+    response = httpx.get(BASE_URL, params={'po_id': 2877})
     assert response.status_code == 200
 
 def test_eq_quantity():
-    response = httpx.get(BASE_URL, params={'quantity': 37})
+    response = httpx.get(BASE_URL, params={'quantity': 8566})
     assert response.status_code == 200
 
 def test_eq_unit_price():
-    response = httpx.get(BASE_URL, params={'unit_price': 8189.63})
+    response = httpx.get(BASE_URL, params={'unit_price': 7551.03})
     assert response.status_code == 200
 
 def test_date_filter():

@@ -348,10 +348,14 @@ def generate_mock_data():
 
     for entity, config in entities.items():
         sample_data = config.get("sample_data", [])
+
+        # JSON-serialize so booleans/nulls are JS-friendly (true/false/null) and quotes are valid
+        js_sample = json.dumps(sample_data, default=_json_sanitize, ensure_ascii=False)
+
         handlers = {
-            "options": f"() => {str([k for k in config['fields'].keys()])}",
-            "get": f"() => {sample_data}",
-            "getOne": f"(id) => {sample_data}[0]",
+            "options": f"() => {json.dumps(list(config['fields'].keys()))}",
+            "get": f"() => {js_sample}",
+            "getOne": f"(id) => (Array.isArray({js_sample}) && {js_sample}.length ? {js_sample}[0] : {{}})",
             "post": "(payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) })",
             "update": "(payload) => payload"
         }

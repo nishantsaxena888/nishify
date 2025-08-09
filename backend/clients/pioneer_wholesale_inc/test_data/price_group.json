@@ -1,127 +1,127 @@
 [
   {
-    "id": 4872,
-    "markup_percent": 4095.71,
-    "name": "owner"
+    "id": 915,
+    "markup_percent": 5125.49,
+    "name": "go"
   },
   {
-    "id": 620,
-    "markup_percent": 4235.63,
-    "name": "difficult"
+    "id": 2103,
+    "markup_percent": 2754.66,
+    "name": "each"
   },
   {
-    "id": 1643,
-    "markup_percent": 2953.13,
+    "id": 5504,
+    "markup_percent": 1265.05,
+    "name": "high"
+  },
+  {
+    "id": 1556,
+    "markup_percent": 8730.23,
+    "name": "production"
+  },
+  {
+    "id": 626,
+    "markup_percent": 8794.91,
+    "name": "economic"
+  },
+  {
+    "id": 9959,
+    "markup_percent": 9187.88,
+    "name": "responsibility"
+  },
+  {
+    "id": 2184,
+    "markup_percent": 9863.51,
+    "name": "road"
+  },
+  {
+    "id": 2969,
+    "markup_percent": 5281.41,
+    "name": "short"
+  },
+  {
+    "id": 8102,
+    "markup_percent": 4734.8,
+    "name": "structure"
+  },
+  {
+    "id": 3032,
+    "markup_percent": 2368.86,
+    "name": "half"
+  },
+  {
+    "id": 2057,
+    "markup_percent": 7782.92,
+    "name": "field"
+  },
+  {
+    "id": 7580,
+    "markup_percent": 2565.46,
+    "name": "drive"
+  },
+  {
+    "id": 7737,
+    "markup_percent": 5631.9,
+    "name": "change"
+  },
+  {
+    "id": 1235,
+    "markup_percent": 5605.52,
+    "name": "common"
+  },
+  {
+    "id": 6244,
+    "markup_percent": 3245.71,
+    "name": "report"
+  },
+  {
+    "id": 8925,
+    "markup_percent": 5160.96,
+    "name": "ground"
+  },
+  {
+    "id": 5595,
+    "markup_percent": 5907.8,
+    "name": "suffer"
+  },
+  {
+    "id": 7734,
+    "markup_percent": 7760.65,
+    "name": "our"
+  },
+  {
+    "id": 9949,
+    "markup_percent": 896.26,
+    "name": "the"
+  },
+  {
+    "id": 396,
+    "markup_percent": 6391.27,
+    "name": "need"
+  },
+  {
+    "id": 365,
+    "markup_percent": 36.84,
+    "name": "do"
+  },
+  {
+    "id": 552,
+    "markup_percent": 6069.31,
+    "name": "available"
+  },
+  {
+    "id": 9058,
+    "markup_percent": 8695.81,
     "name": "level"
   },
   {
-    "id": 1334,
-    "markup_percent": 2493.54,
-    "name": "increase"
+    "id": 870,
+    "markup_percent": 957.78,
+    "name": "often"
   },
   {
-    "id": 816,
-    "markup_percent": 2050.78,
-    "name": "democratic"
-  },
-  {
-    "id": 477,
-    "markup_percent": 5662.46,
-    "name": "long"
-  },
-  {
-    "id": 1502,
-    "markup_percent": 5176.78,
-    "name": "bit"
-  },
-  {
-    "id": 4357,
-    "markup_percent": 9117.02,
-    "name": "word"
-  },
-  {
-    "id": 9651,
-    "markup_percent": 5235.14,
-    "name": "school"
-  },
-  {
-    "id": 3241,
-    "markup_percent": 3045.43,
-    "name": "institution"
-  },
-  {
-    "id": 3844,
-    "markup_percent": 65.8,
-    "name": "guess"
-  },
-  {
-    "id": 3772,
-    "markup_percent": 8811.04,
-    "name": "music"
-  },
-  {
-    "id": 4088,
-    "markup_percent": 3736.55,
-    "name": "painting"
-  },
-  {
-    "id": 1883,
-    "markup_percent": 9543.9,
-    "name": "share"
-  },
-  {
-    "id": 4684,
-    "markup_percent": 8325.94,
-    "name": "whose"
-  },
-  {
-    "id": 102,
-    "markup_percent": 813.75,
-    "name": "pressure"
-  },
-  {
-    "id": 2757,
-    "markup_percent": 4370.22,
-    "name": "cut"
-  },
-  {
-    "id": 8187,
-    "markup_percent": 8672.36,
-    "name": "particularly"
-  },
-  {
-    "id": 9191,
-    "markup_percent": 9098.46,
-    "name": "sometimes"
-  },
-  {
-    "id": 8126,
-    "markup_percent": 2560.98,
-    "name": "reach"
-  },
-  {
-    "id": 8298,
-    "markup_percent": 9911.71,
-    "name": "situation"
-  },
-  {
-    "id": 9075,
-    "markup_percent": 4708.79,
-    "name": "relate"
-  },
-  {
-    "id": 9669,
-    "markup_percent": 7793.69,
-    "name": "low"
-  },
-  {
-    "id": 5433,
-    "markup_percent": 367.44,
-    "name": "believe"
-  },
-  {
-    "id": 2351,
-    "markup_percent": 7825.92,
-    "name": "realize"
+    "id": 5043,
+    "markup_percent": 835.45,
+    "name": "analysis"
   }
 ]
