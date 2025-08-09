@@ -29,7 +29,7 @@ def _pk_filter_from_payload(p):
 
 def test_create():
     global CREATED_ID
-    payload = json.loads("{\"email\": \"hair\", \"id\": 2879, \"name\": \"ahead\", \"phone\": \"trouble\"}")
+    payload = json.loads("{\"email\": \"response\", \"id\": 2356, \"name\": \"price\", \"phone\": \"mission\"}")
     payload = _inject_fk(payload)
     response = httpx.post(BASE_URL, json=payload)
     assert response.status_code in (200, 201), response.text
@@ -44,15 +44,15 @@ def test_create():
     elif isinstance(body, list) and body and isinstance(body[0], dict) and 'id' in body[0]:
         CREATED_ID = body[0]['id']
     else:
-        CREATED_ID = 2879
+        CREATED_ID = 2356
     assert isinstance(body, (dict, list))
 
 def test_get_one():
     rid = CREATED_ID if 'CREATED_ID' in globals() and CREATED_ID else None
-    rid = rid or 2879
+    rid = rid or 2356
     resp = httpx.get(f"{BASE_URL}/{rid}")
     if resp.status_code == 404:
-        payload = json.loads("{\"email\": \"hair\", \"id\": 2879, \"name\": \"ahead\", \"phone\": \"trouble\"}")
+        payload = json.loads("{\"email\": \"response\", \"id\": 2356, \"name\": \"price\", \"phone\": \"mission\"}")
         payload = _inject_fk(payload)
         payload['id'] = rid
         httpx.post(BASE_URL, json=payload)
@@ -62,40 +62,39 @@ def test_get_one():
     assert resp.status_code == 200, f"GET failed: {resp.status_code} {resp.text}"
 
 def test_update():
-    payload = json.loads("{\"email\": \"hair\", \"id\": 2879, \"name\": \"ahead\", \"phone\": \"trouble\"}")
+    payload = json.loads("{\"email\": \"response\", \"id\": 2356, \"name\": \"price\", \"phone\": \"mission\"}")
     payload = _inject_fk(payload)
-    payload['id'] = 2879
+    payload['id'] = 2356
     httpx.post(BASE_URL, json=payload)
-    response = httpx.put(f"{BASE_URL}/2879", json=payload)
+    response = httpx.put(f"{BASE_URL}/2356", json=payload)
     assert response.status_code == 200
 
 def test_delete():
-    payload = json.loads("{\"email\": \"hair\", \"id\": 2879, \"name\": \"ahead\", \"phone\": \"trouble\"}")
+    payload = json.loads("{\"email\": \"response\", \"id\": 2356, \"name\": \"price\", \"phone\": \"mission\"}")
     payload = _inject_fk(payload)
-    payload['id'] = 2879
+    payload['id'] = 2356
     httpx.post(BASE_URL, json=payload)
-    response = httpx.delete(f"{BASE_URL}/2879")
+    response = httpx.delete(f"{BASE_URL}/2356")
     assert response.status_code in (200, 204)
 
 def test_options():
     response = httpx.get(f"{BASE_URL}/options")
     assert response.status_code == 200
 
-# eq filters
 def test_eq_email():
-    response = httpx.get(BASE_URL, params={'email': 'hair'})
+    response = httpx.get(BASE_URL, params={'email': 'response'})
     assert response.status_code == 200
 
 def test_eq_id():
-    response = httpx.get(BASE_URL, params={'id': 2879})
+    response = httpx.get(BASE_URL, params={'id': 2356})
     assert response.status_code == 200
 
 def test_eq_name():
-    response = httpx.get(BASE_URL, params={'name': 'ahead'})
+    response = httpx.get(BASE_URL, params={'name': 'price'})
     assert response.status_code == 200
 
 def test_eq_phone():
-    response = httpx.get(BASE_URL, params={'phone': 'trouble'})
+    response = httpx.get(BASE_URL, params={'phone': 'mission'})
     assert response.status_code == 200
 
 def test_date_filter():

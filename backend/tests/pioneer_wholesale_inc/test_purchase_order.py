@@ -18,7 +18,7 @@ def _mk_parent(entity, body):
 
 def _inject_fk(payload):
     p = dict(payload)
-    parent = _mk_parent('vendor', json.loads('{"address": "level", "contact_person": "collection", "email": "region", "id": 5658, "name": "sure", "phone": "human", "state_id": 7978}'))
+    parent = _mk_parent('vendor', json.loads('{"address": "number", "contact_person": "money", "email": "experience", "id": 6167, "name": "present", "phone": "however", "state_id": 8936}'))
     p['vendor_id'] = parent.get('id', parent.get('id', 700001))
     return p
 
@@ -31,7 +31,7 @@ def _pk_filter_from_payload(p):
 
 def test_create():
     global CREATED_ID
-    payload = json.loads("{\"date\": \"2025-04-02T04:58:09.990240\", \"id\": 1858, \"status\": \"no\", \"vendor_id\": 3585}")
+    payload = json.loads("{\"date\": \"2025-03-23T08:05:34.506702\", \"id\": 8959, \"status\": \"determine\", \"vendor_id\": 6897}")
     payload = _inject_fk(payload)
     response = httpx.post(BASE_URL, json=payload)
     assert response.status_code in (200, 201), response.text
@@ -46,15 +46,15 @@ def test_create():
     elif isinstance(body, list) and body and isinstance(body[0], dict) and 'id' in body[0]:
         CREATED_ID = body[0]['id']
     else:
-        CREATED_ID = 1858
+        CREATED_ID = 8959
     assert isinstance(body, (dict, list))
 
 def test_get_one():
     rid = CREATED_ID if 'CREATED_ID' in globals() and CREATED_ID else None
-    rid = rid or 1858
+    rid = rid or 8959
     resp = httpx.get(f"{BASE_URL}/{rid}")
     if resp.status_code == 404:
-        payload = json.loads("{\"date\": \"2025-04-02T04:58:09.990240\", \"id\": 1858, \"status\": \"no\", \"vendor_id\": 3585}")
+        payload = json.loads("{\"date\": \"2025-03-23T08:05:34.506702\", \"id\": 8959, \"status\": \"determine\", \"vendor_id\": 6897}")
         payload = _inject_fk(payload)
         payload['id'] = rid
         httpx.post(BASE_URL, json=payload)
@@ -64,36 +64,35 @@ def test_get_one():
     assert resp.status_code == 200, f"GET failed: {resp.status_code} {resp.text}"
 
 def test_update():
-    payload = json.loads("{\"date\": \"2025-04-02T04:58:09.990240\", \"id\": 1858, \"status\": \"no\", \"vendor_id\": 3585}")
+    payload = json.loads("{\"date\": \"2025-03-23T08:05:34.506702\", \"id\": 8959, \"status\": \"determine\", \"vendor_id\": 6897}")
     payload = _inject_fk(payload)
-    payload['id'] = 1858
+    payload['id'] = 8959
     httpx.post(BASE_URL, json=payload)
-    response = httpx.put(f"{BASE_URL}/1858", json=payload)
+    response = httpx.put(f"{BASE_URL}/8959", json=payload)
     assert response.status_code == 200
 
 def test_delete():
-    payload = json.loads("{\"date\": \"2025-04-02T04:58:09.990240\", \"id\": 1858, \"status\": \"no\", \"vendor_id\": 3585}")
+    payload = json.loads("{\"date\": \"2025-03-23T08:05:34.506702\", \"id\": 8959, \"status\": \"determine\", \"vendor_id\": 6897}")
     payload = _inject_fk(payload)
-    payload['id'] = 1858
+    payload['id'] = 8959
     httpx.post(BASE_URL, json=payload)
-    response = httpx.delete(f"{BASE_URL}/1858")
+    response = httpx.delete(f"{BASE_URL}/8959")
     assert response.status_code in (200, 204)
 
 def test_options():
     response = httpx.get(f"{BASE_URL}/options")
     assert response.status_code == 200
 
-# eq filters
 def test_eq_id():
-    response = httpx.get(BASE_URL, params={'id': 1858})
+    response = httpx.get(BASE_URL, params={'id': 8959})
     assert response.status_code == 200
 
 def test_eq_status():
-    response = httpx.get(BASE_URL, params={'status': 'no'})
+    response = httpx.get(BASE_URL, params={'status': 'determine'})
     assert response.status_code == 200
 
 def test_eq_vendor_id():
-    response = httpx.get(BASE_URL, params={'vendor_id': 3585})
+    response = httpx.get(BASE_URL, params={'vendor_id': 6897})
     assert response.status_code == 200
 
 def test_date_filter():
@@ -102,5 +101,5 @@ def test_date_filter():
     response = httpx.get(
         BASE_URL,
         params={'status__gt': start.isoformat(), 'status__lt': end.isoformat()}
-    )
+)
     assert response.status_code == 200

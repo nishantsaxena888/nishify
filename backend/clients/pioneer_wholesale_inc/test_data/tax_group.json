@@ -1,127 +1,127 @@
 [
   {
-    "id": 2154,
-    "name": "sport",
-    "tax_percent": 3996.84
+    "id": 4942,
+    "name": "leg",
+    "tax_percent": 4396.33
   },
   {
-    "id": 5701,
-    "name": "industry",
-    "tax_percent": 3518.63
+    "id": 2918,
+    "name": "as",
+    "tax_percent": 1443.74
   },
   {
-    "id": 7209,
-    "name": "exactly",
-    "tax_percent": 3297.34
+    "id": 8791,
+    "name": "find",
+    "tax_percent": 4435.42
   },
   {
-    "id": 2669,
-    "name": "in",
-    "tax_percent": 6496.71
+    "id": 6354,
+    "name": "development",
+    "tax_percent": 9637.09
   },
   {
-    "id": 8045,
-    "name": "a",
-    "tax_percent": 1283.28
+    "id": 2742,
+    "name": "hour",
+    "tax_percent": 697.15
   },
   {
-    "id": 6881,
-    "name": "ok",
-    "tax_percent": 720.76
+    "id": 8400,
+    "name": "federal",
+    "tax_percent": 4444.93
   },
   {
-    "id": 2258,
-    "name": "parent",
-    "tax_percent": 3543.15
+    "id": 6308,
+    "name": "idea",
+    "tax_percent": 8334.43
   },
   {
-    "id": 8565,
-    "name": "by",
-    "tax_percent": 4150.85
+    "id": 8262,
+    "name": "true",
+    "tax_percent": 814.95
   },
   {
-    "id": 2591,
-    "name": "cut",
-    "tax_percent": 5124.94
+    "id": 9365,
+    "name": "write",
+    "tax_percent": 3266.47
   },
   {
-    "id": 9032,
-    "name": "news",
-    "tax_percent": 9354.48
+    "id": 8346,
+    "name": "great",
+    "tax_percent": 4916.95
   },
   {
-    "id": 5427,
-    "name": "maybe",
-    "tax_percent": 7432.46
+    "id": 2823,
+    "name": "course",
+    "tax_percent": 2519.32
   },
   {
-    "id": 8858,
-    "name": "education",
-    "tax_percent": 3795.56
+    "id": 9189,
+    "name": "cold",
+    "tax_percent": 5920.61
   },
   {
-    "id": 211,
-    "name": "million",
-    "tax_percent": 3267.56
+    "id": 5991,
+    "name": "which",
+    "tax_percent": 7656.49
   },
   {
-    "id": 1574,
-    "name": "site",
-    "tax_percent": 4056.66
+    "id": 9854,
+    "name": "have",
+    "tax_percent": 5017.64
   },
   {
-    "id": 3120,
-    "name": "probably",
-    "tax_percent": 1982.65
+    "id": 482,
+    "name": "health",
+    "tax_percent": 5175.02
   },
   {
-    "id": 6528,
-    "name": "dark",
-    "tax_percent": 2326.18
+    "id": 232,
+    "name": "term",
+    "tax_percent": 3200.24
   },
   {
-    "id": 4499,
-    "name": "teach",
-    "tax_percent": 1497.97
+    "id": 9402,
+    "name": "time",
+    "tax_percent": 8988.7
   },
   {
-    "id": 6619,
-    "name": "film",
-    "tax_percent": 5090.35
+    "id": 9795,
+    "name": "guess",
+    "tax_percent": 1729.29
   },
   {
-    "id": 6740,
-    "name": "assume",
-    "tax_percent": 1338.84
+    "id": 2891,
+    "name": "interesting",
+    "tax_percent": 6303.85
   },
   {
-    "id": 5615,
-    "name": "allow",
-    "tax_percent": 6426.04
+    "id": 1430,
+    "name": "board",
+    "tax_percent": 6414.7
   },
   {
-    "id": 5178,
-    "name": "serious",
-    "tax_percent": 4293.96
-  },
-  {
-    "id": 9477,
+    "id": 3225,
     "name": "difference",
-    "tax_percent": 5733.09
+    "tax_percent": 2474.44
   },
   {
-    "id": 9413,
-    "name": "standard",
-    "tax_percent": 1632.64
+    "id": 8350,
+    "name": "sell",
+    "tax_percent": 7293.14
   },
   {
-    "id": 5763,
-    "name": "cause",
-    "tax_percent": 273.68
+    "id": 4943,
+    "name": "true",
+    "tax_percent": 1405.97
   },
   {
-    "id": 6414,
-    "name": "society",
-    "tax_percent": 3848.61
+    "id": 7899,
+    "name": "computer",
+    "tax_percent": 7290.52
+  },
+  {
+    "id": 1350,
+    "name": "or",
+    "tax_percent": 8288.72
   }
 ]
