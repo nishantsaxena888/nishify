@@ -29,7 +29,7 @@ def _pk_filter_from_payload(p):
 
 def test_create():
     global CREATED_ID
-    payload = json.loads("{\"id\": 3450, \"markup_percent\": 8474.25, \"name\": \"sort\"}")
+    payload = json.loads("{\"id\": 4872, \"markup_percent\": 4095.71, \"name\": \"owner\"}")
     payload = _inject_fk(payload)
     response = httpx.post(BASE_URL, json=payload)
     assert response.status_code in (200, 201), response.text
@@ -44,15 +44,15 @@ def test_create():
     elif isinstance(body, list) and body and isinstance(body[0], dict) and 'id' in body[0]:
         CREATED_ID = body[0]['id']
     else:
-        CREATED_ID = 3450
+        CREATED_ID = 4872
     assert isinstance(body, (dict, list))
 
 def test_get_one():
     rid = CREATED_ID if 'CREATED_ID' in globals() and CREATED_ID else None
-    rid = rid or 3450
+    rid = rid or 4872
     resp = httpx.get(f"{BASE_URL}/{rid}")
     if resp.status_code == 404:
-        payload = json.loads("{\"id\": 3450, \"markup_percent\": 8474.25, \"name\": \"sort\"}")
+        payload = json.loads("{\"id\": 4872, \"markup_percent\": 4095.71, \"name\": \"owner\"}")
         payload = _inject_fk(payload)
         payload['id'] = rid
         httpx.post(BASE_URL, json=payload)
@@ -62,19 +62,19 @@ def test_get_one():
     assert resp.status_code == 200, f"GET failed: {resp.status_code} {resp.text}"
 
 def test_update():
-    payload = json.loads("{\"id\": 3450, \"markup_percent\": 8474.25, \"name\": \"sort\"}")
+    payload = json.loads("{\"id\": 4872, \"markup_percent\": 4095.71, \"name\": \"owner\"}")
     payload = _inject_fk(payload)
-    payload['id'] = 3450
+    payload['id'] = 4872
     httpx.post(BASE_URL, json=payload)
-    response = httpx.put(f"{BASE_URL}/3450", json=payload)
+    response = httpx.put(f"{BASE_URL}/4872", json=payload)
     assert response.status_code == 200
 
 def test_delete():
-    payload = json.loads("{\"id\": 3450, \"markup_percent\": 8474.25, \"name\": \"sort\"}")
+    payload = json.loads("{\"id\": 4872, \"markup_percent\": 4095.71, \"name\": \"owner\"}")
     payload = _inject_fk(payload)
-    payload['id'] = 3450
+    payload['id'] = 4872
     httpx.post(BASE_URL, json=payload)
-    response = httpx.delete(f"{BASE_URL}/3450")
+    response = httpx.delete(f"{BASE_URL}/4872")
     assert response.status_code in (200, 204)
 
 def test_options():
@@ -82,15 +82,15 @@ def test_options():
     assert response.status_code == 200
 
 def test_eq_id():
-    response = httpx.get(BASE_URL, params={'id': 3450})
+    response = httpx.get(BASE_URL, params={'id': 4872})
     assert response.status_code == 200
 
 def test_eq_markup_percent():
-    response = httpx.get(BASE_URL, params={'markup_percent': 8474.25})
+    response = httpx.get(BASE_URL, params={'markup_percent': 4095.71})
     assert response.status_code == 200
 
 def test_eq_name():
-    response = httpx.get(BASE_URL, params={'name': 'sort'})
+    response = httpx.get(BASE_URL, params={'name': 'owner'})
     assert response.status_code == 200
 
 def test_date_filter():

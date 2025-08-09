@@ -18,7 +18,7 @@ def _mk_parent(entity, body):
 
 def _inject_fk(payload):
     p = dict(payload)
-    parent = _mk_parent('salesperson', json.loads('{"email": "example", "id": 9802, "name": "PM", "phone": "amount"}'))
+    parent = _mk_parent('salesperson', json.loads('{"email": "during", "id": 7893, "name": "truth", "phone": "never"}'))
     p['salesperson_id'] = parent.get('id', parent.get('id', 700001))
     return p
 
@@ -31,7 +31,7 @@ def _pk_filter_from_payload(p):
 
 def test_create():
     global CREATED_ID
-    payload = json.loads("{\"address\": \"fine\", \"credit_limit\": 5042.84, \"email\": \"toward\", \"id\": 5853, \"name\": \"simple\", \"phone\": \"risk\", \"salesperson_id\": 6193}")
+    payload = json.loads("{\"address\": \"affect\", \"credit_limit\": 9881.27, \"email\": \"couple\", \"id\": 5943, \"name\": \"sometimes\", \"phone\": \"leader\", \"salesperson_id\": 9852}")
     payload = _inject_fk(payload)
     response = httpx.post(BASE_URL, json=payload)
     assert response.status_code in (200, 201), response.text
@@ -46,15 +46,15 @@ def test_create():
     elif isinstance(body, list) and body and isinstance(body[0], dict) and 'id' in body[0]:
         CREATED_ID = body[0]['id']
     else:
-        CREATED_ID = 5853
+        CREATED_ID = 5943
     assert isinstance(body, (dict, list))
 
 def test_get_one():
     rid = CREATED_ID if 'CREATED_ID' in globals() and CREATED_ID else None
-    rid = rid or 5853
+    rid = rid or 5943
     resp = httpx.get(f"{BASE_URL}/{rid}")
     if resp.status_code == 404:
-        payload = json.loads("{\"address\": \"fine\", \"credit_limit\": 5042.84, \"email\": \"toward\", \"id\": 5853, \"name\": \"simple\", \"phone\": \"risk\", \"salesperson_id\": 6193}")
+        payload = json.loads("{\"address\": \"affect\", \"credit_limit\": 9881.27, \"email\": \"couple\", \"id\": 5943, \"name\": \"sometimes\", \"phone\": \"leader\", \"salesperson_id\": 9852}")
         payload = _inject_fk(payload)
         payload['id'] = rid
         httpx.post(BASE_URL, json=payload)
@@ -64,19 +64,19 @@ def test_get_one():
     assert resp.status_code == 200, f"GET failed: {resp.status_code} {resp.text}"
 
 def test_update():
-    payload = json.loads("{\"address\": \"fine\", \"credit_limit\": 5042.84, \"email\": \"toward\", \"id\": 5853, \"name\": \"simple\", \"phone\": \"risk\", \"salesperson_id\": 6193}")
+    payload = json.loads("{\"address\": \"affect\", \"credit_limit\": 9881.27, \"email\": \"couple\", \"id\": 5943, \"name\": \"sometimes\", \"phone\": \"leader\", \"salesperson_id\": 9852}")
     payload = _inject_fk(payload)
-    payload['id'] = 5853
+    payload['id'] = 5943
     httpx.post(BASE_URL, json=payload)
-    response = httpx.put(f"{BASE_URL}/5853", json=payload)
+    response = httpx.put(f"{BASE_URL}/5943", json=payload)
     assert response.status_code == 200
 
 def test_delete():
-    payload = json.loads("{\"address\": \"fine\", \"credit_limit\": 5042.84, \"email\": \"toward\", \"id\": 5853, \"name\": \"simple\", \"phone\": \"risk\", \"salesperson_id\": 6193}")
+    payload = json.loads("{\"address\": \"affect\", \"credit_limit\": 9881.27, \"email\": \"couple\", \"id\": 5943, \"name\": \"sometimes\", \"phone\": \"leader\", \"salesperson_id\": 9852}")
     payload = _inject_fk(payload)
-    payload['id'] = 5853
+    payload['id'] = 5943
     httpx.post(BASE_URL, json=payload)
-    response = httpx.delete(f"{BASE_URL}/5853")
+    response = httpx.delete(f"{BASE_URL}/5943")
     assert response.status_code in (200, 204)
 
 def test_options():
@@ -84,31 +84,31 @@ def test_options():
     assert response.status_code == 200
 
 def test_eq_address():
-    response = httpx.get(BASE_URL, params={'address': 'fine'})
+    response = httpx.get(BASE_URL, params={'address': 'affect'})
     assert response.status_code == 200
 
 def test_eq_credit_limit():
-    response = httpx.get(BASE_URL, params={'credit_limit': 5042.84})
+    response = httpx.get(BASE_URL, params={'credit_limit': 9881.27})
     assert response.status_code == 200
 
 def test_eq_email():
-    response = httpx.get(BASE_URL, params={'email': 'toward'})
+    response = httpx.get(BASE_URL, params={'email': 'couple'})
     assert response.status_code == 200
 
 def test_eq_id():
-    response = httpx.get(BASE_URL, params={'id': 5853})
+    response = httpx.get(BASE_URL, params={'id': 5943})
     assert response.status_code == 200
 
 def test_eq_name():
-    response = httpx.get(BASE_URL, params={'name': 'simple'})
+    response = httpx.get(BASE_URL, params={'name': 'sometimes'})
     assert response.status_code == 200
 
 def test_eq_phone():
-    response = httpx.get(BASE_URL, params={'phone': 'risk'})
+    response = httpx.get(BASE_URL, params={'phone': 'leader'})
     assert response.status_code == 200
 
 def test_eq_salesperson_id():
-    response = httpx.get(BASE_URL, params={'salesperson_id': 6193})
+    response = httpx.get(BASE_URL, params={'salesperson_id': 9852})
     assert response.status_code == 200
 
 def test_date_filter():

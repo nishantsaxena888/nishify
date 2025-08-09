@@ -18,9 +18,9 @@ def _mk_parent(entity, body):
 
 def _inject_fk(payload):
     p = dict(payload)
-    parent = _mk_parent('item', json.loads('{"active": false, "cash_discount_group_id": 4944, "category_id": 7145, "description": "police", "id": 8610, "item_code": "decision", "name": "enjoy", "price": 440.88, "price_group_id": 9893, "secondary_category_id": 2882, "tax_group_id": 9149, "unit": "beautiful", "upc_code": "claim", "vendor_id": 5872}'))
+    parent = _mk_parent('item', json.loads('{"active": false, "cash_discount_group_id": 6179, "category_id": 5828, "description": "write", "id": 5628, "item_code": "hit", "name": "action", "price": 1135.26, "price_group_id": 6155, "secondary_category_id": 5805, "tax_group_id": 9260, "unit": "authority", "upc_code": "structure", "vendor_id": 7926}'))
     p['item_id'] = parent.get('id', parent.get('id', 700001))
-    parent = _mk_parent('inventory_location', json.loads('{"address": "item", "id": 3871, "name": "environmental"}'))
+    parent = _mk_parent('inventory_location', json.loads('{"address": "trouble", "id": 736, "name": "concern"}'))
     p['location_id'] = parent.get('id', parent.get('id', 700001))
     return p
 
@@ -33,7 +33,7 @@ def _pk_filter_from_payload(p):
 
 def test_create():
     global CREATED_ID
-    payload = json.loads("{\"id\": 635, \"item_id\": 1180, \"location_id\": 5716, \"quantity\": 5233}")
+    payload = json.loads("{\"id\": 7117, \"item_id\": 1866, \"location_id\": 4144, \"quantity\": 2629}")
     payload = _inject_fk(payload)
     response = httpx.post(BASE_URL, json=payload)
     assert response.status_code in (200, 201), response.text
@@ -48,15 +48,15 @@ def test_create():
     elif isinstance(body, list) and body and isinstance(body[0], dict) and 'id' in body[0]:
         CREATED_ID = body[0]['id']
     else:
-        CREATED_ID = 635
+        CREATED_ID = 7117
     assert isinstance(body, (dict, list))
 
 def test_get_one():
     rid = CREATED_ID if 'CREATED_ID' in globals() and CREATED_ID else None
-    rid = rid or 635
+    rid = rid or 7117
     resp = httpx.get(f"{BASE_URL}/{rid}")
     if resp.status_code == 404:
-        payload = json.loads("{\"id\": 635, \"item_id\": 1180, \"location_id\": 5716, \"quantity\": 5233}")
+        payload = json.loads("{\"id\": 7117, \"item_id\": 1866, \"location_id\": 4144, \"quantity\": 2629}")
         payload = _inject_fk(payload)
         payload['id'] = rid
         httpx.post(BASE_URL, json=payload)
@@ -66,19 +66,19 @@ def test_get_one():
     assert resp.status_code == 200, f"GET failed: {resp.status_code} {resp.text}"
 
 def test_update():
-    payload = json.loads("{\"id\": 635, \"item_id\": 1180, \"location_id\": 5716, \"quantity\": 5233}")
+    payload = json.loads("{\"id\": 7117, \"item_id\": 1866, \"location_id\": 4144, \"quantity\": 2629}")
     payload = _inject_fk(payload)
-    payload['id'] = 635
+    payload['id'] = 7117
     httpx.post(BASE_URL, json=payload)
-    response = httpx.put(f"{BASE_URL}/635", json=payload)
+    response = httpx.put(f"{BASE_URL}/7117", json=payload)
     assert response.status_code == 200
 
 def test_delete():
-    payload = json.loads("{\"id\": 635, \"item_id\": 1180, \"location_id\": 5716, \"quantity\": 5233}")
+    payload = json.loads("{\"id\": 7117, \"item_id\": 1866, \"location_id\": 4144, \"quantity\": 2629}")
     payload = _inject_fk(payload)
-    payload['id'] = 635
+    payload['id'] = 7117
     httpx.post(BASE_URL, json=payload)
-    response = httpx.delete(f"{BASE_URL}/635")
+    response = httpx.delete(f"{BASE_URL}/7117")
     assert response.status_code in (200, 204)
 
 def test_options():
@@ -86,19 +86,19 @@ def test_options():
     assert response.status_code == 200
 
 def test_eq_id():
-    response = httpx.get(BASE_URL, params={'id': 635})
+    response = httpx.get(BASE_URL, params={'id': 7117})
     assert response.status_code == 200
 
 def test_eq_item_id():
-    response = httpx.get(BASE_URL, params={'item_id': 1180})
+    response = httpx.get(BASE_URL, params={'item_id': 1866})
     assert response.status_code == 200
 
 def test_eq_location_id():
-    response = httpx.get(BASE_URL, params={'location_id': 5716})
+    response = httpx.get(BASE_URL, params={'location_id': 4144})
     assert response.status_code == 200
 
 def test_eq_quantity():
-    response = httpx.get(BASE_URL, params={'quantity': 5233})
+    response = httpx.get(BASE_URL, params={'quantity': 2629})
     assert response.status_code == 200
 
 def test_date_filter():
