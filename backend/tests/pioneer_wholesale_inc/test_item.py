@@ -18,17 +18,17 @@ def _mk_parent(entity, body):
 
 def _inject_fk(payload):
     p = dict(payload)
-    parent = _mk_parent('item_category', json.loads('{"description": "fire", "id": 1488, "name": "thing"}'))
+    parent = _mk_parent('item_category', json.loads('{"description": "movie", "id": 8094, "name": "despite"}'))
     p['category_id'] = parent.get('id', parent.get('id', 700001))
-    parent = _mk_parent('secondary_category', json.loads('{"description": "relationship", "id": 9216, "name": "the"}'))
+    parent = _mk_parent('secondary_category', json.loads('{"description": "professor", "id": 4774, "name": "respond"}'))
     p['secondary_category_id'] = parent.get('id', parent.get('id', 700001))
-    parent = _mk_parent('vendor', json.loads('{"address": "number", "contact_person": "money", "email": "experience", "id": 6167, "name": "present", "phone": "however", "state_id": 8936}'))
+    parent = _mk_parent('vendor', json.loads('{"address": "all", "contact_person": "including", "email": "card", "id": 4258, "name": "but", "phone": "them", "state_id": 4017}'))
     p['vendor_id'] = parent.get('id', parent.get('id', 700001))
-    parent = _mk_parent('tax_group', json.loads('{"id": 4942, "name": "leg", "tax_percent": 4396.33}'))
+    parent = _mk_parent('tax_group', json.loads('{"id": 655, "name": "five", "tax_percent": 5754.8}'))
     p['tax_group_id'] = parent.get('id', parent.get('id', 700001))
-    parent = _mk_parent('price_group', json.loads('{"id": 6726, "markup_percent": 1775.76, "name": "appear"}'))
+    parent = _mk_parent('price_group', json.loads('{"id": 3450, "markup_percent": 8474.25, "name": "sort"}'))
     p['price_group_id'] = parent.get('id', parent.get('id', 700001))
-    parent = _mk_parent('cash_discount_group', json.loads('{"discount_percent": 274.9, "id": 7042, "name": "front", "terms": "minute"}'))
+    parent = _mk_parent('cash_discount_group', json.loads('{"discount_percent": 8857.44, "id": 327, "name": "range", "terms": "process"}'))
     p['cash_discount_group_id'] = parent.get('id', parent.get('id', 700001))
     return p
 
@@ -41,7 +41,7 @@ def _pk_filter_from_payload(p):
 
 def test_create():
     global CREATED_ID
-    payload = json.loads("{\"active\": true, \"cash_discount_group_id\": 9028, \"category_id\": 4064, \"description\": \"crime\", \"id\": 6385, \"item_code\": \"give\", \"name\": \"unit\", \"price\": 9549.85, \"price_group_id\": 7518, \"secondary_category_id\": 9125, \"tax_group_id\": 8650, \"unit\": \"respond\", \"upc_code\": \"probably\", \"vendor_id\": 8446}")
+    payload = json.loads("{\"active\": false, \"cash_discount_group_id\": 4944, \"category_id\": 7145, \"description\": \"police\", \"id\": 8610, \"item_code\": \"decision\", \"name\": \"enjoy\", \"price\": 440.88, \"price_group_id\": 9893, \"secondary_category_id\": 2882, \"tax_group_id\": 9149, \"unit\": \"beautiful\", \"upc_code\": \"claim\", \"vendor_id\": 5872}")
     payload = _inject_fk(payload)
     response = httpx.post(BASE_URL, json=payload)
     assert response.status_code in (200, 201), response.text
@@ -56,15 +56,15 @@ def test_create():
     elif isinstance(body, list) and body and isinstance(body[0], dict) and 'id' in body[0]:
         CREATED_ID = body[0]['id']
     else:
-        CREATED_ID = 6385
+        CREATED_ID = 8610
     assert isinstance(body, (dict, list))
 
 def test_get_one():
     rid = CREATED_ID if 'CREATED_ID' in globals() and CREATED_ID else None
-    rid = rid or 6385
+    rid = rid or 8610
     resp = httpx.get(f"{BASE_URL}/{rid}")
     if resp.status_code == 404:
-        payload = json.loads("{\"active\": true, \"cash_discount_group_id\": 9028, \"category_id\": 4064, \"description\": \"crime\", \"id\": 6385, \"item_code\": \"give\", \"name\": \"unit\", \"price\": 9549.85, \"price_group_id\": 7518, \"secondary_category_id\": 9125, \"tax_group_id\": 8650, \"unit\": \"respond\", \"upc_code\": \"probably\", \"vendor_id\": 8446}")
+        payload = json.loads("{\"active\": false, \"cash_discount_group_id\": 4944, \"category_id\": 7145, \"description\": \"police\", \"id\": 8610, \"item_code\": \"decision\", \"name\": \"enjoy\", \"price\": 440.88, \"price_group_id\": 9893, \"secondary_category_id\": 2882, \"tax_group_id\": 9149, \"unit\": \"beautiful\", \"upc_code\": \"claim\", \"vendor_id\": 5872}")
         payload = _inject_fk(payload)
         payload['id'] = rid
         httpx.post(BASE_URL, json=payload)
@@ -74,19 +74,19 @@ def test_get_one():
     assert resp.status_code == 200, f"GET failed: {resp.status_code} {resp.text}"
 
 def test_update():
-    payload = json.loads("{\"active\": true, \"cash_discount_group_id\": 9028, \"category_id\": 4064, \"description\": \"crime\", \"id\": 6385, \"item_code\": \"give\", \"name\": \"unit\", \"price\": 9549.85, \"price_group_id\": 7518, \"secondary_category_id\": 9125, \"tax_group_id\": 8650, \"unit\": \"respond\", \"upc_code\": \"probably\", \"vendor_id\": 8446}")
+    payload = json.loads("{\"active\": false, \"cash_discount_group_id\": 4944, \"category_id\": 7145, \"description\": \"police\", \"id\": 8610, \"item_code\": \"decision\", \"name\": \"enjoy\", \"price\": 440.88, \"price_group_id\": 9893, \"secondary_category_id\": 2882, \"tax_group_id\": 9149, \"unit\": \"beautiful\", \"upc_code\": \"claim\", \"vendor_id\": 5872}")
     payload = _inject_fk(payload)
-    payload['id'] = 6385
+    payload['id'] = 8610
     httpx.post(BASE_URL, json=payload)
-    response = httpx.put(f"{BASE_URL}/6385", json=payload)
+    response = httpx.put(f"{BASE_URL}/8610", json=payload)
     assert response.status_code == 200
 
 def test_delete():
-    payload = json.loads("{\"active\": true, \"cash_discount_group_id\": 9028, \"category_id\": 4064, \"description\": \"crime\", \"id\": 6385, \"item_code\": \"give\", \"name\": \"unit\", \"price\": 9549.85, \"price_group_id\": 7518, \"secondary_category_id\": 9125, \"tax_group_id\": 8650, \"unit\": \"respond\", \"upc_code\": \"probably\", \"vendor_id\": 8446}")
+    payload = json.loads("{\"active\": false, \"cash_discount_group_id\": 4944, \"category_id\": 7145, \"description\": \"police\", \"id\": 8610, \"item_code\": \"decision\", \"name\": \"enjoy\", \"price\": 440.88, \"price_group_id\": 9893, \"secondary_category_id\": 2882, \"tax_group_id\": 9149, \"unit\": \"beautiful\", \"upc_code\": \"claim\", \"vendor_id\": 5872}")
     payload = _inject_fk(payload)
-    payload['id'] = 6385
+    payload['id'] = 8610
     httpx.post(BASE_URL, json=payload)
-    response = httpx.delete(f"{BASE_URL}/6385")
+    response = httpx.delete(f"{BASE_URL}/8610")
     assert response.status_code in (200, 204)
 
 def test_options():
@@ -94,59 +94,59 @@ def test_options():
     assert response.status_code == 200
 
 def test_eq_active():
-    response = httpx.get(BASE_URL, params={'active': True})
+    response = httpx.get(BASE_URL, params={'active': False})
     assert response.status_code == 200
 
 def test_eq_cash_discount_group_id():
-    response = httpx.get(BASE_URL, params={'cash_discount_group_id': 9028})
+    response = httpx.get(BASE_URL, params={'cash_discount_group_id': 4944})
     assert response.status_code == 200
 
 def test_eq_category_id():
-    response = httpx.get(BASE_URL, params={'category_id': 4064})
+    response = httpx.get(BASE_URL, params={'category_id': 7145})
     assert response.status_code == 200
 
 def test_eq_description():
-    response = httpx.get(BASE_URL, params={'description': 'crime'})
+    response = httpx.get(BASE_URL, params={'description': 'police'})
     assert response.status_code == 200
 
 def test_eq_id():
-    response = httpx.get(BASE_URL, params={'id': 6385})
+    response = httpx.get(BASE_URL, params={'id': 8610})
     assert response.status_code == 200
 
 def test_eq_item_code():
-    response = httpx.get(BASE_URL, params={'item_code': 'give'})
+    response = httpx.get(BASE_URL, params={'item_code': 'decision'})
     assert response.status_code == 200
 
 def test_eq_name():
-    response = httpx.get(BASE_URL, params={'name': 'unit'})
+    response = httpx.get(BASE_URL, params={'name': 'enjoy'})
     assert response.status_code == 200
 
 def test_eq_price():
-    response = httpx.get(BASE_URL, params={'price': 9549.85})
+    response = httpx.get(BASE_URL, params={'price': 440.88})
     assert response.status_code == 200
 
 def test_eq_price_group_id():
-    response = httpx.get(BASE_URL, params={'price_group_id': 7518})
+    response = httpx.get(BASE_URL, params={'price_group_id': 9893})
     assert response.status_code == 200
 
 def test_eq_secondary_category_id():
-    response = httpx.get(BASE_URL, params={'secondary_category_id': 9125})
+    response = httpx.get(BASE_URL, params={'secondary_category_id': 2882})
     assert response.status_code == 200
 
 def test_eq_tax_group_id():
-    response = httpx.get(BASE_URL, params={'tax_group_id': 8650})
+    response = httpx.get(BASE_URL, params={'tax_group_id': 9149})
     assert response.status_code == 200
 
 def test_eq_unit():
-    response = httpx.get(BASE_URL, params={'unit': 'respond'})
+    response = httpx.get(BASE_URL, params={'unit': 'beautiful'})
     assert response.status_code == 200
 
 def test_eq_upc_code():
-    response = httpx.get(BASE_URL, params={'upc_code': 'probably'})
+    response = httpx.get(BASE_URL, params={'upc_code': 'claim'})
     assert response.status_code == 200
 
 def test_eq_vendor_id():
-    response = httpx.get(BASE_URL, params={'vendor_id': 8446})
+    response = httpx.get(BASE_URL, params={'vendor_id': 5872})
     assert response.status_code == 200
 
 def test_date_filter():

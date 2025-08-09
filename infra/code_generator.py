@@ -76,13 +76,15 @@ CONFIG_PATH = os.path.join(CLIENT_DIR, "config.json")
 PAGES_OUTPUT_DIR = os.path.join(ROOT_DIR, f"nishify.io/src/clients/{CLIENT_NAME}")
 TESTS_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/tests/{CLIENT_NAME}")
 MODEL_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/clients/{CLIENT_NAME}/models")
-MOCK_OUTPUT_DIR = os.path.join(ROOT_DIR, f"nishify.io/src/lib/api/mock/{CLIENT_NAME}")
 TESTDATA_OUTPUT_DIR = os.path.join(ROOT_DIR, f"backend/clients/{CLIENT_NAME}/test_data")
 EXCEL_OUTPUT_FILE = os.path.join(TESTDATA_OUTPUT_DIR, "test_data.xlsx")
 BACKEND_CLIENT_DIR = os.path.join(ROOT_DIR, "backend", "clients", CLIENT_NAME)
 SEARCH_OUTPUT_DIR = os.path.join(BACKEND_CLIENT_DIR, "elastic")
 ELASTIC_ENTITIES_PATH = os.path.join(CLIENT_DIR, "elastic_entities.py")
 ENTITIES_DATA_PATH = os.path.join(CLIENT_DIR, "entities.data.py")
+FRONTEND_CLIENT_DIR = os.path.join(ROOT_DIR, f"nishify.io/src/clients/{CLIENT_NAME}")
+MOCK_OUTPUT_DIR = os.path.join(FRONTEND_CLIENT_DIR, "mock")
+FRONTEND_CONFIG_SRC = os.path.join(CLIENT_DIR, "frontend.api.config.json")
 
 
 def _json_sanitize(obj):
@@ -778,6 +780,52 @@ def search_snapshot():
     if os.path.exists(ELASTIC_ENTITIES_PATH):
         _copy(ELASTIC_ENTITIES_PATH, os.path.join(SEARCH_OUTPUT_DIR, "elastic_entities.raw.py"))
 
+
+# --- Frontend UI config: create if missing, then copy to src/clients/<client>/ ---
+def generate_frontend_config():
+    """
+    Build frontend.api.config.json from entities.py:
+    - mode: hybrid
+    - default: mock
+    - routing.<entity>.options = "mock" (so forms never hit API)
+    - (No overwrite if file already exists)
+    Also copy to nishify.io/src/clients/<client>/frontend.api.config.json
+    """
+    # 1) Derive from entities.py
+    routing: Dict[str, Dict[str, str]] = {}
+    total_entities = 0
+
+    for entity_name, cfg in (entities or {}).items():
+        fields = list((cfg or {}).get("fields", {}).keys())
+        total_entities += 1
+
+        # options always mock by default
+        routing[entity_name] = {"options": "mock"}
+
+        # LOG: show a compact preview of options (field list)
+        _log(f"  • {entity_name}: options -> mock  | fields: {fields}")
+
+    cfg_json = {
+        "mode": "hybrid",
+        "default": "mock",
+        "routing": routing,
+        "direct": {}
+    }
+
+    # 2) Create only if absent (respect manual edits)
+    if not os.path.exists(FRONTEND_CONFIG_SRC):
+        _log(f"🧩 FE::Creating UI config from entities.py for client '{CLIENT_NAME}' "
+             f"({total_entities} entities)")
+        _write(FRONTEND_CONFIG_SRC, json.dumps(cfg_json, indent=2))
+        _log(f"✅ FE::Wrote {FRONTEND_CONFIG_SRC}")
+    else:
+        _log(f"ℹ️ FE::UI config already exists, keeping it: {FRONTEND_CONFIG_SRC}")
+
+    # 3) Copy to UI folder for runtime use
+    dest = os.path.join(FRONTEND_CLIENT_DIR, "frontend.api.config.json")
+    _copy(FRONTEND_CONFIG_SRC, dest)
+    _log(f"📦 FE::Copied UI config to {dest}")
+    
 # -------------------------------------------------------------------------------------------------
 # Adapter registry (lightweight)
 # -------------------------------------------------------------------------------------------------
@@ -789,6 +837,7 @@ ADAPTERS: Dict[str, callable] = {
     "backend.copy_entities": copy_entity_files,
     # frontend bundle
     "frontend.mocks": generate_mock_data,
+    "frontend.config": generate_frontend_config,
     "frontend.pages": generate_pages_config,
     # search bundle
     "search.tests": generate_search_tests,
@@ -796,12 +845,12 @@ ADAPTERS: Dict[str, callable] = {
 }
 
 TARGET_MAP: Dict[str, List[str]] = {
-    "backend": ["backend.models", "backend.testdata", "backend.legacy_tests", "backend.copy_entities"],
-    "frontend": ["frontend.mocks", "frontend.pages"],
+    "backend": ["frontend.config","backend.models", "backend.testdata", "backend.legacy_tests", "backend.copy_entities"],
+    "frontend": ["frontend.config","frontend.mocks", "frontend.pages"],
     "search": ["search.tests", "search.snapshot"],
     "all": [
         "backend.models", "backend.testdata", "backend.legacy_tests", "backend.copy_entities",
-        "frontend.mocks", "frontend.pages",
+        "frontend.mocks", "frontend.pages","frontend.config",
         "search.tests", "search.snapshot",
     ],
 }

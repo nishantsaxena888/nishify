@@ -1,0 +1,55 @@
+{
+  "mode": "hybrid",
+  "default": "mock",
+  "routing": {
+    "state": {
+      "options": "mock"
+    },
+    "item_category": {
+      "options": "mock"
+    },
+    "secondary_category": {
+      "options": "mock"
+    },
+    "vendor": {
+      "options": "mock"
+    },
+    "item": {
+      "options": "mock"
+    },
+    "tax_group": {
+      "options": "mock"
+    },
+    "cash_discount_group": {
+      "options": "mock"
+    },
+    "price_group": {
+      "options": "mock"
+    },
+    "inventory_location": {
+      "options": "mock"
+    },
+    "inventory": {
+      "options": "mock"
+    },
+    "salesperson": {
+      "options": "mock"
+    },
+    "customer": {
+      "options": "mock"
+    },
+    "purchase_order": {
+      "options": "mock"
+    },
+    "purchase_order_item": {
+      "options": "mock"
+    },
+    "invoice": {
+      "options": "mock"
+    },
+    "invoice_item": {
+      "options": "mock"
+    }
+  },
+  "direct": {}
+}
