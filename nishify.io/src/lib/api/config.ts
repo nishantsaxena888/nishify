@@ -1,4 +1,5 @@
 // src/lib/api/config.ts
+
 export type ClientConfig = {
   env: { dev_url: string; prod_url: string };
   use_mock?: boolean;
@@ -6,54 +7,53 @@ export type ClientConfig = {
   auth_mode?: string;
 };
 
+// ---- Test overrides ---------------------------------------------------------
 let __mockOverride: boolean | null = null;
 
-/** Jest uses this to force mock/direct routing in tests */
+/** Jest/tests can force mock or direct routing explicitly */
 export function __setMockOverrideForTests(v: boolean | null) {
   __mockOverride = v;
 }
 
+// ---- Client identity (hard-coded default, env can override) -----------------
 export function getClientName(): string {
-  // NEXT_PUBLIC_* works in Next.js + Jest envs
-  return process.env.NEXT_PUBLIC_CLIENT_NAME || "default_client";
+  return process.env.NEXT_PUBLIC_CLIENT_NAME || "pioneer_wholesale_inc";
 }
 
+// ---- Config loader (kept for compatibility; values are hard-coded) ----------
 export function loadClientConfig(): ClientConfig {
-  const name = getClientName();
-  try {
-    // resolved relative to this file: src/lib/api/clients/<client>/config.json
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const cfg = require(`../clients/${name}/config.json`);
-    return cfg as ClientConfig;
-  } catch {
-    // safe fallback so tests never crash
-    return {
-      env: {
-        dev_url: "http://localhost:8000/api",
-        prod_url: "http://localhost:8000/api",
-      },
-      use_mock: true,
-      theme: "default",
-      auth_mode: "none",
-    };
-  }
+  return {
+    env: {
+      dev_url: "http://localhost:8000/api",
+      prod_url: "http://localhost:8000/api",
+    },
+    use_mock: undefined,
+  };
 }
 
+// ---- Mock mode: default ON unless explicitly disabled ----------------------
 export function isMockMode(): boolean {
   if (__mockOverride !== null) return __mockOverride;
-  const fromEnv = process.env.NEXT_PUBLIC_USE_MOCK;
-  if (fromEnv === "true" || fromEnv === "1") return true;
-  if (fromEnv === "false" || fromEnv === "0") return false;
-  const cfg = loadClientConfig();
-  return !!cfg.use_mock;
+
+  const v = process.env.NEXT_PUBLIC_USE_MOCK;
+  if (v === "true" || v === "1") return true;
+  if (v === "false" || v === "0") return false;
+
+  return true; // default ON so tests don't hit network unless you say so
 }
 
+/** Convenience export used across the codebase */
+export const USE_MOCK = isMockMode();
+
+// ---- API base: HARD-CODED ---------------------------------------------------
 export function apiBase(): string {
-  const cfg = loadClientConfig();
-  const base = process.env.NEXT_PUBLIC_API_BASE || cfg.env?.dev_url || "http://localhost:8000/api";
-  return base.replace(/\/+$/, "");
+  return "http://localhost:8000/api";
 }
 
-export function urlFor(entity: string): string {
-  return `${apiBase()}/${entity}`;
+export const BASE_URL = apiBase();
+
+/** Helper to join paths onto the API base */
+export function urlFor(path: string): string {
+  const clean = path.replace(/^\/+/, "");
+  return `${apiBase()}/${clean}`;
 }
