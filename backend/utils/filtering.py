@@ -7,7 +7,6 @@ from fastapi import HTTPException
 DEFAULT_FUZZY_STRINGS = False
 
 def _get_col(model, column_name):
-    print(111111)
     col = getattr(model, column_name, None)
     if col is None:
         return None
@@ -17,7 +16,6 @@ def _get_col(model, column_name):
     return col
 
 def _col_type_name(col):
-    print(22222)
     return getattr(getattr(col, "type", None), "__class__", type(None)).__name__
 
 def _to_bool(v: str) -> bool:
@@ -57,7 +55,6 @@ def _cast_list(raw_csv: str, col):
     return [_cast_scalar(p, col) for p in parts]
 
 def parse_filter_expression(field, value, model):
-    breakpoint()
     """
     Supports:
       eq (default), contains, startswith, endswith,

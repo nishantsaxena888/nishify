@@ -1,10 +1,10 @@
-from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, Float, Boolean, Date, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
-from datetime import datetime
+from datetime import datetime, date
 
 from backend.utils.db_base import Base
 
-class Item_category(Base):
+class ItemCategory(Base):
     __tablename__ = 'item_category'
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)

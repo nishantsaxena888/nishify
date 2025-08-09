@@ -1,6 +1,6 @@
-from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, Float, Boolean, Date, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
-from datetime import datetime
+from datetime import datetime, date
 from backend.clients.pioneer_wholesale_inc.models.state import State
 
 from backend.utils.db_base import Base
@@ -14,4 +14,4 @@ class Vendor(Base):
     phone = Column(String)
     contact_person = Column(String)
     state_id = Column(Integer, ForeignKey('state.id'))
-    state = relationship(State)
+    state = relationship('State')

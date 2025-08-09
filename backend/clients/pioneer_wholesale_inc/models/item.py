@@ -1,11 +1,11 @@
-from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, Float, Boolean, Date, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
-from datetime import datetime
-from backend.clients.pioneer_wholesale_inc.models.cash_discount_group import Cash_discount_group
-from backend.clients.pioneer_wholesale_inc.models.item_category import Item_category
-from backend.clients.pioneer_wholesale_inc.models.price_group import Price_group
-from backend.clients.pioneer_wholesale_inc.models.secondary_category import Secondary_category
-from backend.clients.pioneer_wholesale_inc.models.tax_group import Tax_group
+from datetime import datetime, date
+from backend.clients.pioneer_wholesale_inc.models.cash_discount_group import CashDiscountGroup
+from backend.clients.pioneer_wholesale_inc.models.item_category import ItemCategory
+from backend.clients.pioneer_wholesale_inc.models.price_group import PriceGroup
+from backend.clients.pioneer_wholesale_inc.models.secondary_category import SecondaryCategory
+from backend.clients.pioneer_wholesale_inc.models.tax_group import TaxGroup
 from backend.clients.pioneer_wholesale_inc.models.vendor import Vendor
 
 from backend.utils.db_base import Base
@@ -26,9 +26,9 @@ class Item(Base):
     price = Column(Float)
     description = Column(String)
     active = Column(Boolean)
-    category = relationship(Item_category)
-    secondary_category = relationship(Secondary_category)
-    vendor = relationship(Vendor)
-    tax_group = relationship(Tax_group)
-    price_group = relationship(Price_group)
-    cash_discount_group = relationship(Cash_discount_group)
+    category = relationship('ItemCategory')
+    secondary_category = relationship('SecondaryCategory')
+    vendor = relationship('Vendor')
+    tax_group = relationship('TaxGroup')
+    price_group = relationship('PriceGroup')
+    cash_discount_group = relationship('CashDiscountGroup')

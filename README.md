@@ -1,8 +1,20 @@
 ```
 
 
-### TODO : Separate test db and make following success and asdd more test cases as well. 
-PYTHONPATH=.  pytest backend/tests/pioneer_wholesale_inc
+curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-9.1.1-darwin-aarch64.tar.gz
+tar -xzf elasticsearch-9.1.1-darwin-aarch64.tar.gz
+cd elasticsearch-9.1.1
+
+# ENSURE FOLOOWING EXISTIS OR AT THE BOTTOM OF  config/elasticsearch.yml  ADD/UPDATE
+discovery.type: single-node
+xpack.security.enabled: false
+
+
+bin/elasticsearch \
+  -Ecluster.name=nishant-dev \
+  -Enode.name=mac-node-1 \
+  -Ediscovery.type=single-node \
+  -Expack.security.enabled=false
 
 
 ```
@@ -20,7 +32,7 @@ http://localhost:8000/api/item?unit__startswith=mi
 🔢 Numeric Filters
 4. Price > 8000
 
-http://localhost:8000/api/item?price__gt=8000
+http://localhost:8000/api/item?price__gt=8000\
 5. Price < 1000
 
 http://localhost:8000/api/item?price__lt=1000
@@ -143,7 +155,7 @@ git remote set-url origin git@github.com:nishantsaxena888/nishify.git
 
 
 
-
+rm db.sqlite3 
 python -m infra.data_faker pioneer_wholesale_inc
 python -m infra.code_generator pioneer_wholesale_inc
 
@@ -157,11 +169,16 @@ alembic upgrade head
 
 
 python backend/scripts/load_sample_data.py
+python backend/scripts/show_counts.py 
 python backend/scripts/show_counts.py  item
-
 python backend/search_elastic/indexer.py
 
 
 uvicorn backend.main:app --reload
+
+
+### TODO : Separate test db and make following success and asdd more test cases as well. 
+pytest backend/tests/pioneer_wholesale_inc
+
 
 
