@@ -15,8 +15,7 @@ type Props = {
 
 const HomeClientWrapper: React.FC<Props> = ({ sections }) => {
   return (
-    <div className="space-y-8 p-6">
-      <pre>{JSON.stringify(sections, null, 2)}</pre>
+    <div className="">
       {sections.map((section, index) => {
         const Component = getDynamicComponent(section.type);
         if (!Component) {

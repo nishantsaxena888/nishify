@@ -2,6 +2,615 @@
   "layout": "default",
   "sections": [
     {
+      "type": "navbar",
+      "sticky": true,
+      "brand": { "text": "ShadcnUI/React", "href": "/" },
+      "routes": [
+        { "href": "/#product", "label": "Product" },
+        { "href": "/#features", "label": "Features" },
+        { "href": "/#testimonials", "label": "Testimonials" },
+        { "href": "/#pricing", "label": "Pricing" },
+        { "href": "/home/#faq", "label": "FAQ" }
+      ],
+      "actions": {
+        "showModeToggle": true,
+        "showThemeSwitcher": true,
+        "cartLink": "/cart",
+        "github": {
+          "href": "https://github.com/leoMirandaa/shadcn-landing-page.git",
+          "text": "Github"
+        }
+      }
+    },
+    {
+      "type": "hero",
+      "titleLine1": {
+        "segments": [
+          { "text": "Shadcn", "gradient": ["#F596D3", "#D247BF"] },
+          { "text": " landing page" }
+        ]
+      },
+      "titleLine2": {
+        "segments": [
+          { "text": "React", "gradient": ["#61DAFB", "#1fc0f1", "#03a3d7"] },
+          { "text": " developers" }
+        ]
+      },
+      "middleText": " for ",
+      "cardsLayout": "absolute",
+      "cardsContainerSize": "w-[700px] h-[500px]",
+      "subtitle": "Build your React landing page effortlessly with the required sections to your project.",
+      "ctas": [
+        { "text": "Get Started", "link": "/get-started", "variant": "solid" },
+        {
+          "text": "Github Repository",
+          "link": "https://github.com/leoMirandaa/shadcn-landing-page.git",
+          "variant": "outline",
+          "icon": "github",
+          "external": true
+        }
+      ],
+      "cards": [
+        {
+          "type": "testimonial",
+          "avatarUrl": "https://github.com/shadcn.png",
+          "name": "John Doe",
+          "handle": "@john",
+          "quote": "This landing page is awesome!"
+        },
+        {
+          "type": "team",
+          "avatarUrl": "https://i.pravatar.cc/150?img=58",
+          "name": "Leo Miranda",
+          "role": "Frontend Dev",
+          "quote": "I really enjoy transforming ideas into functional software that exceeds expectations",
+          "links": [
+            { "icon": "github", "href": "https://github.com/leoMirandaa" },
+            { "icon": "x", "href": "https://twitter.com/leo_mirand4" },
+            {
+              "icon": "linkedin",
+              "href": "https://www.linkedin.com/in/leopoldo-miranda/"
+            }
+          ]
+        },
+        {
+          "type": "pricing",
+          "tier": "Free",
+          "price": "$0",
+          "frequency": "month",
+          "description": "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
+          "popular": true,
+          "benefits": ["4 users", "4 GB", "6 pages"],
+          "ctaText": "Start Free",
+          "ctaLink": "#"
+        },
+        {
+          "type": "feature",
+          "iconName": "lightbulb",
+          "title": "Light & dark mode",
+          "description": "Lorem ipsum dolor sit amet consect adipisicing elit. Consectetur natusm."
+        }
+      ]
+    },
+    {
+      "type": "sponsors",
+      "title": "Investors and founders",
+      "items": [
+        {
+          "label": "Sponsor 1",
+          "icon": { "kind": "lucide", "name": "Radar", "size": 34 }
+        },
+        {
+          "label": "Sponsor 2",
+          "icon": { "kind": "lucide", "name": "Radar", "size": 34 }
+        },
+        {
+          "label": "Sponsor 3",
+          "icon": { "kind": "lucide", "name": "Radar", "size": 34 }
+        },
+        {
+          "label": "Sponsor 4",
+          "icon": { "kind": "lucide", "name": "Radar", "size": 34 }
+        },
+        {
+          "label": "Sponsor 5",
+          "icon": { "kind": "lucide", "name": "Radar", "size": 34 }
+        },
+        {
+          "label": "Sponsor 6",
+          "icon": { "kind": "lucide", "name": "Radar", "size": 34 }
+        }
+      ],
+      "wrapperClass": "container pt-24 sm:py-32",
+      "titleClass": "text-center text-md lg:text-xl font-bold mb-8 text-primary",
+      "itemsClass": "flex flex-wrap justify-center items-center gap-4 md:gap-8"
+    },
+    {
+      "type": "about",
+      "id": "about",
+      "image": {
+        "src": "/assets/pilot.png",
+        "alt": "Pilot illustration",
+        "width": 500,
+        "height": 500,
+        "className": "w-[300px] object-contain rounded-lg"
+      },
+      "titleSegments": [
+        { "text": "About ", "className": "text-primary" },
+        { "text": "Company" }
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "stats": [
+        { "quantity": "2.7K+", "description": "Users" },
+        { "quantity": "1.8K+", "description": "Subscribers" },
+        { "quantity": "112", "description": "Downloads" },
+        { "quantity": "4", "description": "Products" }
+      ],
+      "containerClass": "container py-14 sm:pb-32",
+      "panelClass": "bg-muted/50 border rounded-lg py-12",
+      "innerClass": "px-6 flex flex-col-reverse md:flex-row gap-8 md:gap-12",
+      "titleClass": "text-3xl md:text-4xl font-bold",
+      "descClass": "text-xl text-muted-foreground mt-4",
+      "statsGridClass": "grid grid-cols-2 lg:grid-cols-4 gap-8"
+    },
+    {
+      "type": "how-it-works",
+      "heading": [
+        { "text": "How It " },
+        { "text": "Works", "className": "font-semibold" },
+        { "text": " Step-by-Step Guide" }
+      ],
+      "subtitle": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis dolor pariatur sit!",
+      "features": [
+        {
+          "title": "Accessibility",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+          "icon": { "kind": "lucide", "name": "Medal", "size": 32 },
+          "cardClass": "shadow-sm",
+          "titleBadgeClass": "bg-primary/30 px-2 rounded"
+        },
+        {
+          "title": "Community",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+          "icon": { "kind": "lucide", "name": "Map", "size": 32 },
+          "cardClass": "shadow-sm"
+        },
+        {
+          "title": "Scalability",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+          "icon": { "kind": "lucide", "name": "Plane", "size": 32 },
+          "cardClass": "shadow-sm"
+        },
+        {
+          "title": "Gamification",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+          "icon": { "kind": "lucide", "name": "Gift", "size": 32 },
+          "cardClass": "shadow-sm"
+        }
+      ]
+    },
+    {
+      "type": "features-grid",
+      "heading": [
+        { "text": "Many " },
+        { "text": "Great ", "className": "text-foreground" },
+        { "text": "Features" }
+      ],
+      "subtitle": "",
+      "chips": [
+        { "label": "Dark/Light theme" },
+        { "label": "Reviews" },
+        { "label": "Features" },
+        { "label": "Pricing" },
+        { "label": "Contact form" },
+        { "label": "Our team" },
+        { "label": "Responsive design" },
+        { "label": "Newsletter" },
+        { "label": "Minimalist" }
+      ],
+      "features": [
+        {
+          "title": "Responsive Design",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+          "image": { "src": "/assets/growth.png", "width": 300, "height": 300 }
+        },
+        {
+          "title": "Intuitive user interface",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+          "image": {
+            "src": "/assets/reflecting.png",
+            "width": 300,
+            "height": 300
+          }
+        },
+        {
+          "title": "AI-Powered insights",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+          "image": {
+            "src": "/assets/looking-ahead.png",
+            "width": 300,
+            "height": 300
+          }
+        }
+      ],
+      "gridClass": "grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+    },
+    {
+      "type": "services",
+      "heading": [{ "text": "Client-Centric " }, { "text": "Services" }],
+      "subtitle": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis dolor.",
+      "services": [
+        {
+          "title": "Code Collaboration",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+          "icon": { "kind": "custom", "name": "ChartIcon" }
+        },
+        {
+          "title": "Project Management",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+          "icon": { "kind": "custom", "name": "WalletIcon" }
+        },
+        {
+          "title": "Task Automation",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+          "icon": { "kind": "custom", "name": "MagnifierIcon" }
+        }
+      ],
+      "rightImage": {
+        "src": "/assets/cube-leg.png",
+        "width": 600,
+        "height": 600,
+        "className": "w-[300px] md:w-[500px] lg:w-[600px] object-contain"
+      },
+      "containerClass": "container py-24 sm:py-32",
+      "gridClass": "grid lg:grid-cols-2 gap-8 place-items-center",
+      "listClass": "flex flex-col gap-8",
+      "iconWrapClass": "mt-1 bg-primary/20 p-1 rounded-2xl",
+      "cardBaseClass": "border rounded-2xl"
+    },
+    {
+      "type": "cta-banner",
+      "title": [
+        { "text": "All Your " },
+        {
+          "text": "Ideas & Concepts ",
+          "className": "bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text"
+        },
+        { "text": "In One Interface" }
+      ],
+      "subtitle": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, beatae. Ipsa tempore ipsum iste quibusdam illum ducimus eos. Quasi, sed!",
+      "buttons": [
+        { "text": "Request a Demo", "href": "/demo" },
+        {
+          "text": "View all features",
+          "href": "/features",
+          "variant": "outline"
+        }
+      ],
+      "sectionClass": "bg-muted/50 py-16 my-24 sm:my-32",
+      "containerClass": "container lg:grid lg:grid-cols-2 place-items-center",
+      "buttonsWrapClass": "space-y-4 lg:space-y-0 lg:col-start-2 flex flex-col md:flex-row md:items-center md:gap-4"
+    },
+    {
+      "type": "testimonials-masonry",
+      "heading": [
+        { "text": "Discover Why " },
+        {
+          "text": "People Love ",
+          "className": "bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text"
+        },
+        { "text": "This Landing Page" }
+      ],
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non unde error facere hic reiciendis illo",
+      "items": [
+        {
+          "image": "https://github.com/shadcn.png",
+          "name": "John Doe React",
+          "userName": "@john_Doe",
+          "comment": "This landing page is awesome!"
+        },
+        {
+          "image": "https://github.com/shadcn.png",
+          "name": "John Doe React",
+          "userName": "@john_Doe1",
+          "comment": "Lorem ipsum dolor sit amet,empor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud."
+        },
+        {
+          "image": "https://github.com/shadcn.png",
+          "name": "John Doe React",
+          "userName": "@john_Doe2",
+          "comment": "Lorem ipsum dolor sit amet,exercitation. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
+        },
+        {
+          "image": "https://github.com/shadcn.png",
+          "name": "John Doe React",
+          "userName": "@john_Doe3",
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+        },
+        {
+          "image": "https://github.com/shadcn.png",
+          "name": "John Doe React",
+          "userName": "@john_Doe4",
+          "comment": "Lorem ipsum dolor sit amet, tempor incididunt  aliqua. Ut enim ad minim veniam, quis nostrud."
+        },
+        {
+          "image": "https://github.com/shadcn.png",
+          "name": "John Doe React",
+          "userName": "@john_Doe5",
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+      ],
+      "masonryClass": "mx-auto columns-1 sm:columns-2 lg:columns-3 lg:gap-6 space-y-4 lg:space-y-6"
+    },
+    {
+      "type": "team-section",
+      "heading": [
+        {
+          "text": "Our Dedicated ",
+          "className": "bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text"
+        },
+        { "text": "Crew" }
+      ],
+      "subtitle": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis dolor pariatur sit!",
+      "members": [
+        {
+          "imageUrl": "https://i.pravatar.cc/150?img=35",
+          "name": "Emma Smith",
+          "position": "Product Manager",
+          "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+          "socials": [
+            { "icon": "linkedin", "href": "https://www.linkedin.com/" },
+            { "icon": "facebook", "href": "https://www.facebook.com/" },
+            { "icon": "instagram", "href": "https://www.instagram.com/" }
+          ]
+        },
+        {
+          "imageUrl": "https://i.pravatar.cc/150?img=60",
+          "name": "John Doe",
+          "position": "Tech Lead",
+          "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+          "socials": [
+            { "icon": "linkedin", "href": "https://www.linkedin.com/" },
+            { "icon": "facebook", "href": "https://www.facebook.com/" },
+            { "icon": "instagram", "href": "https://www.instagram.com/" }
+          ]
+        },
+        {
+          "imageUrl": "https://i.pravatar.cc/150?img=36",
+          "name": "Ashley Ross",
+          "position": "Frontend Developer",
+          "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+          "socials": [
+            { "icon": "linkedin", "href": "https://www.linkedin.com/" },
+            { "icon": "instagram", "href": "https://www.instagram.com/" }
+          ]
+        },
+        {
+          "imageUrl": "https://i.pravatar.cc/150?img=17",
+          "name": "Bruce Rogers",
+          "position": "Backend Developer",
+          "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+          "socials": [
+            { "icon": "linkedin", "href": "https://www.linkedin.com/" },
+            { "icon": "facebook", "href": "https://www.facebook.com/" }
+          ]
+        }
+      ],
+      "gridClass": "grid md:grid-cols-2 lg:grid-cols-4 gap-8 gap-y-10",
+      "cardBaseClass": "bg-muted/50 relative mt-8 flex flex-col justify-center items-center rounded-2xl"
+    },
+    {
+      "type": "pricing-grid",
+      "heading": [
+        { "text": "Get " },
+        {
+          "text": "Unlimited ",
+          "className": "bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text"
+        },
+        { "text": "Access" }
+      ],
+      "subheading": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias reiciendis.",
+      "plans": [
+        {
+          "title": "Free",
+          "popular": false,
+          "price": 0,
+          "currency": "$",
+          "period": "month",
+          "description": "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
+          "button": { "text": "Get Started", "href": "/signup" },
+          "benefits": [
+            "1 Team member",
+            "2 GB Storage",
+            "Upto 4 pages",
+            "Community support",
+            "lorem ipsum dolor"
+          ]
+        },
+        {
+          "title": "Premium",
+          "popular": true,
+          "popularLabel": "Most popular",
+          "price": 5,
+          "currency": "$",
+          "period": "month",
+          "description": "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
+          "button": { "text": "Start Free Trial", "href": "/trial" },
+          "benefits": [
+            "4 Team member",
+            "4 GB Storage",
+            "Upto 6 pages",
+            "Priority support",
+            "lorem ipsum dolor"
+          ]
+        },
+        {
+          "title": "Enterprise",
+          "popular": false,
+          "price": 40,
+          "currency": "$",
+          "period": "month",
+          "description": "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
+          "button": {
+            "text": "Contact US",
+            "href": "/contact",
+            "variant": "default"
+          },
+          "benefits": [
+            "10 Team member",
+            "8 GB Storage",
+            "Upto 10 pages",
+            "Priority support",
+            "lorem ipsum dolor"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "newsletter-signup",
+      "title": [
+        { "text": "Join Our Daily " },
+        {
+          "text": "Newsletter",
+          "className": "bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text"
+        }
+      ],
+      "subtitle": "Lorem ipsum dolor sit amet consectetur.",
+      "input": {
+        "placeholder": "leomirandadev@gmail.com",
+        "ariaLabel": "email"
+      },
+      "button": { "text": "Subscribe" },
+      "showTopDivider": true,
+      "showBottomDivider": true,
+      "sectionClass": "",
+      "containerClass": "container py-24 sm:py-32",
+      "formClass": "flex flex-col w-full md:flex-row md:w-6/12 lg:w-4/12 mx-auto gap-4 md:gap-2"
+    },
+    {
+      "type": "faq-accordion",
+      "heading": [
+        { "text": "Frequently Asked " },
+        {
+          "text": "Questions",
+          "className": "bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text"
+        }
+      ],
+      "subheading": "",
+      "accordion": {
+        "type": "single",
+        "collapsible": true,
+        "defaultValue": "item-2"
+      },
+      "items": [
+        {
+          "id": "item-1",
+          "question": "Is this template free?",
+          "answer": "Yes. It is a free Shadcn UI template."
+        },
+        {
+          "id": "item-2",
+          "question": "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
+          "answer": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod."
+        },
+        {
+          "id": "item-3",
+          "question": "Lorem ipsum dolor sit amet Consectetur natus dolores minus quibusdam?",
+          "answer": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore qui nostrum reiciendis veritatis necessitatibus maxime quis ipsa vitae cumque quo?"
+        },
+        {
+          "id": "item-4",
+          "question": "Lorem ipsum dolor sit amet, consectetur adipisicing elit?",
+          "answer": "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+        },
+        {
+          "id": "item-5",
+          "question": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur natus?",
+          "answer": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod."
+        }
+      ],
+      "contact": {
+        "prefix": "Still have questions?",
+        "linkText": "Contact us",
+        "href": "/contact"
+      },
+      "containerClass": "container py-24 sm:py-32",
+      "accordionClass": "w-full"
+    },
+    {
+      "type": "footer-section",
+      "brand": {
+        "text": "ShadcnUI/React",
+        "href": "/",
+        "icon": { "kind": "custom", "name": "LogoIcon", "className": "" },
+        "className": ""
+      },
+      "columns": [
+        {
+          "title": "Follow US",
+          "links": [
+            {
+              "label": "Github",
+              "href": "https://github.com",
+              "external": true
+            },
+            {
+              "label": "Twitter",
+              "href": "https://twitter.com",
+              "external": true
+            },
+            {
+              "label": "Dribbble",
+              "href": "https://dribbble.com",
+              "external": true
+            }
+          ]
+        },
+        {
+          "title": "Platforms",
+          "links": [
+            { "label": "Web", "href": "/#" },
+            { "label": "Mobile", "href": "/#" },
+            { "label": "Desktop", "href": "/#" }
+          ]
+        },
+        {
+          "title": "About",
+          "links": [
+            { "label": "Features", "href": "/#features" },
+            { "label": "Pricing", "href": "/#pricing" },
+            { "label": "FAQ", "href": "/#faq" }
+          ]
+        },
+        {
+          "title": "Community",
+          "links": [
+            {
+              "label": "Youtube",
+              "href": "https://youtube.com",
+              "external": true
+            },
+            {
+              "label": "Discord",
+              "href": "https://discord.com",
+              "external": true
+            },
+            { "label": "Twitch", "href": "https://twitch.tv", "external": true }
+          ]
+        }
+      ],
+      "copyright": {
+        "prefix": "Landing page made by ",
+        "author": {
+          "label": "Leo Miranda",
+          "href": "https://www.linkedin.com/in/leopoldo-miranda/",
+          "external": true
+        },
+        "year": "auto"
+      },
+      "showTopDivider": true
+    },
+    {
       "type": "hero-banner",
       "title": "Welcome to Pioneer Wholesale",
       "subtitle": "Your trusted B2B inventory partner",

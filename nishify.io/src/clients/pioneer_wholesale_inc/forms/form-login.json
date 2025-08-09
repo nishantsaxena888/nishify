@@ -11,7 +11,7 @@
     {
       "id": "email",
       "type": "email",
-      "label": "Email Address",
+      "label": "Email Address 1",
       "placeholder": "you@example.com",
       "name": "email",
       "autoComplete": "email",

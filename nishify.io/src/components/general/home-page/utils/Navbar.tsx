@@ -13,15 +13,13 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { GithubIcon, Menu, ShoppingCart } from "lucide-react";
+import { GithubIcon, Menu } from "lucide-react";
 import { LogoIcon } from "./Icons";
 import Link from "next/link";
 // import { ModeToggle } from "./mode-toggle";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { ModeToggle } from "@/components/mode-toggle";
-import { Badge } from "@/components/ui/badge";
-import { useCart } from "./cart-provider";
 import { HeaderCart } from "./header-cart";
 
 interface RouteProps {
@@ -137,15 +135,6 @@ export const Navbar = () => {
           </nav>
 
           <div className="hidden md:flex gap-2">
-            <a
-              rel="noreferrer noopener"
-              href="https://github.com/leoMirandaa/shadcn-landing-page.git"
-              target="_blank"
-              className={`border ${buttonVariants({ variant: "secondary" })}`}
-            >
-              <GithubIcon className="mr-2 w-5 h-5" />
-              Github
-            </a>
             <ModeToggle />
             <ThemeSwitcher />
             <HeaderCart link="/cart" />
