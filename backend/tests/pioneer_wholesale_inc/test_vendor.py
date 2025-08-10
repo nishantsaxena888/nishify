@@ -18,7 +18,7 @@ def _mk_parent(entity, body):
 
 def _inject_fk(payload):
     p = dict(payload)
-    parent = _mk_parent('state', json.loads('{"id": 8633, "name": "enjoy"}'))
+    parent = _mk_parent('state', json.loads('{"id": 4793, "name": "different"}'))
     p['state_id'] = parent.get('id', parent.get('id', 700001))
     return p
 
@@ -31,7 +31,7 @@ def _pk_filter_from_payload(p):
 
 def test_create():
     global CREATED_ID
-    payload = json.loads("{\"address\": \"center\", \"contact_person\": \"pretty\", \"email\": \"well\", \"id\": 3284, \"name\": \"front\", \"phone\": \"attention\", \"state_id\": 1339}")
+    payload = json.loads("{\"address\": \"plant\", \"contact_person\": \"life\", \"email\": \"what\", \"id\": 7883, \"name\": \"run\", \"phone\": \"loss\", \"state_id\": 5953}")
     payload = _inject_fk(payload)
     response = httpx.post(BASE_URL, json=payload)
     assert response.status_code in (200, 201), response.text
@@ -46,15 +46,15 @@ def test_create():
     elif isinstance(body, list) and body and isinstance(body[0], dict) and 'id' in body[0]:
         CREATED_ID = body[0]['id']
     else:
-        CREATED_ID = 3284
+        CREATED_ID = 7883
     assert isinstance(body, (dict, list))
 
 def test_get_one():
     rid = CREATED_ID if 'CREATED_ID' in globals() and CREATED_ID else None
-    rid = rid or 3284
+    rid = rid or 7883
     resp = httpx.get(f"{BASE_URL}/{rid}")
     if resp.status_code == 404:
-        payload = json.loads("{\"address\": \"center\", \"contact_person\": \"pretty\", \"email\": \"well\", \"id\": 3284, \"name\": \"front\", \"phone\": \"attention\", \"state_id\": 1339}")
+        payload = json.loads("{\"address\": \"plant\", \"contact_person\": \"life\", \"email\": \"what\", \"id\": 7883, \"name\": \"run\", \"phone\": \"loss\", \"state_id\": 5953}")
         payload = _inject_fk(payload)
         payload['id'] = rid
         httpx.post(BASE_URL, json=payload)
@@ -64,19 +64,19 @@ def test_get_one():
     assert resp.status_code == 200, f"GET failed: {resp.status_code} {resp.text}"
 
 def test_update():
-    payload = json.loads("{\"address\": \"center\", \"contact_person\": \"pretty\", \"email\": \"well\", \"id\": 3284, \"name\": \"front\", \"phone\": \"attention\", \"state_id\": 1339}")
+    payload = json.loads("{\"address\": \"plant\", \"contact_person\": \"life\", \"email\": \"what\", \"id\": 7883, \"name\": \"run\", \"phone\": \"loss\", \"state_id\": 5953}")
     payload = _inject_fk(payload)
-    payload['id'] = 3284
+    payload['id'] = 7883
     httpx.post(BASE_URL, json=payload)
-    response = httpx.put(f"{BASE_URL}/3284", json=payload)
+    response = httpx.put(f"{BASE_URL}/7883", json=payload)
     assert response.status_code == 200
 
 def test_delete():
-    payload = json.loads("{\"address\": \"center\", \"contact_person\": \"pretty\", \"email\": \"well\", \"id\": 3284, \"name\": \"front\", \"phone\": \"attention\", \"state_id\": 1339}")
+    payload = json.loads("{\"address\": \"plant\", \"contact_person\": \"life\", \"email\": \"what\", \"id\": 7883, \"name\": \"run\", \"phone\": \"loss\", \"state_id\": 5953}")
     payload = _inject_fk(payload)
-    payload['id'] = 3284
+    payload['id'] = 7883
     httpx.post(BASE_URL, json=payload)
-    response = httpx.delete(f"{BASE_URL}/3284")
+    response = httpx.delete(f"{BASE_URL}/7883")
     assert response.status_code in (200, 204)
 
 def test_options():
@@ -84,31 +84,31 @@ def test_options():
     assert response.status_code == 200
 
 def test_eq_address():
-    response = httpx.get(BASE_URL, params={'address': 'center'})
+    response = httpx.get(BASE_URL, params={'address': 'plant'})
     assert response.status_code == 200
 
 def test_eq_contact_person():
-    response = httpx.get(BASE_URL, params={'contact_person': 'pretty'})
+    response = httpx.get(BASE_URL, params={'contact_person': 'life'})
     assert response.status_code == 200
 
 def test_eq_email():
-    response = httpx.get(BASE_URL, params={'email': 'well'})
+    response = httpx.get(BASE_URL, params={'email': 'what'})
     assert response.status_code == 200
 
 def test_eq_id():
-    response = httpx.get(BASE_URL, params={'id': 3284})
+    response = httpx.get(BASE_URL, params={'id': 7883})
     assert response.status_code == 200
 
 def test_eq_name():
-    response = httpx.get(BASE_URL, params={'name': 'front'})
+    response = httpx.get(BASE_URL, params={'name': 'run'})
     assert response.status_code == 200
 
 def test_eq_phone():
-    response = httpx.get(BASE_URL, params={'phone': 'attention'})
+    response = httpx.get(BASE_URL, params={'phone': 'loss'})
     assert response.status_code == 200
 
 def test_eq_state_id():
-    response = httpx.get(BASE_URL, params={'state_id': 1339})
+    response = httpx.get(BASE_URL, params={'state_id': 5953})
     assert response.status_code == 200
 
 def test_date_filter():
