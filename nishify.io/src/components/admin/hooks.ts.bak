@@ -1,0 +1,85 @@
+// src/components/admin/hooks.ts
+'use client'
+
+import { useEffect, useMemo, useState } from 'react'
+import { fetchOptionsMerged, type Options } from '@/lib/api/options-merged'
+import { fetchEntityData } from '@/lib/api'
+
+export type SchemaField = {
+  name: string
+  type?: string
+  label?: string
+  required?: boolean
+  read_only?: boolean
+  nullable?: boolean
+  primary_key?: boolean
+  foreign_key?: string | null
+  default?: any
+}
+
+export function useEntityOptions(entity: string) {
+  const [schema, setSchema] = useState<SchemaField[]>([])
+  const [admin, setAdmin] = useState<Options['admin'] | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    let alive = true
+    setLoading(true)
+    setError(null)
+    fetchOptionsMerged(entity)
+      .then((opt) => {
+        if (!alive) return
+        const fields = (opt?.fields || []).map((f: any) => ({ ...f }))
+        setSchema(fields)
+        setAdmin(opt?.admin || null)
+      })
+      .catch((e) => {
+        if (!alive) return
+        setError(String(e?.message ?? e))
+      })
+      .finally(() => {
+        if (!alive) return
+        setLoading(false)
+      })
+    return () => { alive = false }
+  }, [entity])
+
+  return { schema, admin, loading, error }
+}
+
+/** Optional helper: primary key name (“id” if present, else first pk-marked, else null). */
+export function usePrimaryKey(entity: string) {
+  const { schema } = useEntityOptions(entity)
+  return useMemo(() => {
+    const names = schema.map((f) => f.name)
+    if (names.includes('id')) return 'id'
+    const pk = schema.find((f: any) => f.primary_key)
+    return pk?.name ?? null
+  }, [schema])
+}
+
+/** Optional list loader (kept simple to avoid changing your current table logic). */
+export function useEntityList(entity: string, deps: any[] = []) {
+  const [rows, setRows] = useState<Record<string, any>[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string | null>(null)
+
+  async function load() {
+    setLoading(true)
+    setError(null)
+    try {
+      const data = await fetchEntityData(entity, 'get')
+      const list = Array.isArray(data) ? data : Array.isArray((data as any)?.items) ? (data as any).items : []
+      setRows(list)
+    } catch (e: any) {
+      setError(String(e?.message ?? e))
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => { load() }, [entity, ...deps])
+
+  return { rows, loading, error, reload: load }
+}

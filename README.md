@@ -1,7 +1,6 @@
 ```
 
 
-<<<<<<< HEAD
 curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-9.1.1-darwin-aarch64.tar.gz
 tar -xzf elasticsearch-9.1.1-darwin-aarch64.tar.gz
 cd elasticsearch-9.1.1
@@ -16,10 +15,8 @@ bin/elasticsearch \
   -Enode.name=mac-node-1 \
   -Ediscovery.type=single-node \
   -Expack.security.enabled=false
-=======
 ### TODO : Separate test db and make following success and asdd more test cases as well.
 PYTHONPATH=.  pytest backend/tests/pioneer_wholesale_inc
->>>>>>> 2703af34266c20af8515e21695b425d663320963
 
 
 ```
@@ -36,13 +33,10 @@ http://localhost:8000/api/item?description\_\_contains=girl 3. Unit starts with 
 http://localhost:8000/api/item?unit\_\_startswith=mi
 🔢 Numeric Filters 4. Price > 8000
 
-<<<<<<< HEAD
 http://localhost:8000/api/item?price\_\_gt=8000\
 5. Price < 1000
-=======
 http://localhost:8000/api/item?price\_\_gt=8000 5. Price < 1000
 
-> > > > > > > 2703af34266c20af8515e21695b425d663320963
 
 http://localhost:8000/api/item?price\_\_lt=1000 6. Price between 1000 and 2000
 
@@ -152,21 +146,18 @@ git remote set-url origin git@github.com:nishantsaxena888/nishify.git
 rm db.sqlite3
 python -m infra.data_faker pioneer_wholesale_inc
 python -m infra.code_generator pioneer_wholesale_inc
-
-set PYTHONPATH=.
-alembic revision --autogenerate -m "initial schessma"
-
 export PYTHONPATH=.
-set PYTHONPATH=.
-
-alembic revision --autogenerate -m "initial schessma"
-
+#set PYTHONPATH=.
+rm -Rf backend/alembic/versions/*
+yes | alembic revision --autogenerate -m "initial schema"
 alembic upgrade head
-
 python backend/scripts/load_sample_data.py
 python backend/scripts/show_counts.py
 python backend/scripts/show_counts.py item
 python backend/search_elastic/indexer.py
+pytest backend/tests/pioneer_wholesale_inc
+cd nishify.io
+NEXT_PUBLIC_CLIENT_NAME=pioneer_wholesale_inc npm run test
 
 uvicorn backend.main:app --reload
 
@@ -174,5 +165,3 @@ uvicorn backend.main:app --reload
 
 pytest backend/tests/pioneer_wholesale_inc
 
-cd nishify.io
-NEXT_PUBLIC_CLIENT_NAME=pioneer_wholesale_inc npm run test

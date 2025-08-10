@@ -52,7 +52,7 @@ export async function options() {
       "delete_confirmation": true,
       "inline_edit": false,
       "show_filters": true,
-      "page_size": 20,
+      "page_size": 10,
       "global_search": true,
       "column_search": false,
       "sortable": true,
