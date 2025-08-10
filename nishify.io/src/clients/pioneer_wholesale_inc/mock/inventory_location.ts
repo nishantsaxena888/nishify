@@ -1,7 +1,65 @@
 export const inventory_location = {
   options: () => ["id", "name", "address"],
-  get: () => [{"address": "culture", "id": 2053, "name": "business"}, {"address": "indicate", "id": 9892, "name": "add"}, {"address": "machine", "id": 8915, "name": "interesting"}, {"address": "morning", "id": 5724, "name": "camera"}, {"address": "know", "id": 1648, "name": "exactly"}, {"address": "movie", "id": 3644, "name": "activity"}, {"address": "off", "id": 8345, "name": "factor"}, {"address": "affect", "id": 604, "name": "experience"}, {"address": "structure", "id": 3624, "name": "task"}, {"address": "certain", "id": 1954, "name": "think"}, {"address": "air", "id": 8319, "name": "fund"}, {"address": "dark", "id": 6048, "name": "bill"}, {"address": "four", "id": 1180, "name": "policy"}, {"address": "far", "id": 966, "name": "safe"}, {"address": "produce", "id": 2129, "name": "better"}, {"address": "election", "id": 2555, "name": "want"}, {"address": "soon", "id": 3868, "name": "truth"}, {"address": "list", "id": 8938, "name": "perform"}, {"address": "condition", "id": 5289, "name": "wait"}, {"address": "protect", "id": 915, "name": "race"}, {"address": "would", "id": 9507, "name": "employee"}, {"address": "agent", "id": 3093, "name": "goal"}, {"address": "million", "id": 1342, "name": "especially"}, {"address": "form", "id": 1744, "name": "treat"}, {"address": "herself", "id": 6669, "name": "bad"}],
-  getOne: (id) => (Array.isArray([{"address": "culture", "id": 2053, "name": "business"}, {"address": "indicate", "id": 9892, "name": "add"}, {"address": "machine", "id": 8915, "name": "interesting"}, {"address": "morning", "id": 5724, "name": "camera"}, {"address": "know", "id": 1648, "name": "exactly"}, {"address": "movie", "id": 3644, "name": "activity"}, {"address": "off", "id": 8345, "name": "factor"}, {"address": "affect", "id": 604, "name": "experience"}, {"address": "structure", "id": 3624, "name": "task"}, {"address": "certain", "id": 1954, "name": "think"}, {"address": "air", "id": 8319, "name": "fund"}, {"address": "dark", "id": 6048, "name": "bill"}, {"address": "four", "id": 1180, "name": "policy"}, {"address": "far", "id": 966, "name": "safe"}, {"address": "produce", "id": 2129, "name": "better"}, {"address": "election", "id": 2555, "name": "want"}, {"address": "soon", "id": 3868, "name": "truth"}, {"address": "list", "id": 8938, "name": "perform"}, {"address": "condition", "id": 5289, "name": "wait"}, {"address": "protect", "id": 915, "name": "race"}, {"address": "would", "id": 9507, "name": "employee"}, {"address": "agent", "id": 3093, "name": "goal"}, {"address": "million", "id": 1342, "name": "especially"}, {"address": "form", "id": 1744, "name": "treat"}, {"address": "herself", "id": 6669, "name": "bad"}]) && [{"address": "culture", "id": 2053, "name": "business"}, {"address": "indicate", "id": 9892, "name": "add"}, {"address": "machine", "id": 8915, "name": "interesting"}, {"address": "morning", "id": 5724, "name": "camera"}, {"address": "know", "id": 1648, "name": "exactly"}, {"address": "movie", "id": 3644, "name": "activity"}, {"address": "off", "id": 8345, "name": "factor"}, {"address": "affect", "id": 604, "name": "experience"}, {"address": "structure", "id": 3624, "name": "task"}, {"address": "certain", "id": 1954, "name": "think"}, {"address": "air", "id": 8319, "name": "fund"}, {"address": "dark", "id": 6048, "name": "bill"}, {"address": "four", "id": 1180, "name": "policy"}, {"address": "far", "id": 966, "name": "safe"}, {"address": "produce", "id": 2129, "name": "better"}, {"address": "election", "id": 2555, "name": "want"}, {"address": "soon", "id": 3868, "name": "truth"}, {"address": "list", "id": 8938, "name": "perform"}, {"address": "condition", "id": 5289, "name": "wait"}, {"address": "protect", "id": 915, "name": "race"}, {"address": "would", "id": 9507, "name": "employee"}, {"address": "agent", "id": 3093, "name": "goal"}, {"address": "million", "id": 1342, "name": "especially"}, {"address": "form", "id": 1744, "name": "treat"}, {"address": "herself", "id": 6669, "name": "bad"}].length ? [{"address": "culture", "id": 2053, "name": "business"}, {"address": "indicate", "id": 9892, "name": "add"}, {"address": "machine", "id": 8915, "name": "interesting"}, {"address": "morning", "id": 5724, "name": "camera"}, {"address": "know", "id": 1648, "name": "exactly"}, {"address": "movie", "id": 3644, "name": "activity"}, {"address": "off", "id": 8345, "name": "factor"}, {"address": "affect", "id": 604, "name": "experience"}, {"address": "structure", "id": 3624, "name": "task"}, {"address": "certain", "id": 1954, "name": "think"}, {"address": "air", "id": 8319, "name": "fund"}, {"address": "dark", "id": 6048, "name": "bill"}, {"address": "four", "id": 1180, "name": "policy"}, {"address": "far", "id": 966, "name": "safe"}, {"address": "produce", "id": 2129, "name": "better"}, {"address": "election", "id": 2555, "name": "want"}, {"address": "soon", "id": 3868, "name": "truth"}, {"address": "list", "id": 8938, "name": "perform"}, {"address": "condition", "id": 5289, "name": "wait"}, {"address": "protect", "id": 915, "name": "race"}, {"address": "would", "id": 9507, "name": "employee"}, {"address": "agent", "id": 3093, "name": "goal"}, {"address": "million", "id": 1342, "name": "especially"}, {"address": "form", "id": 1744, "name": "treat"}, {"address": "herself", "id": 6669, "name": "bad"}][0] : {}),
+  get: () => [{"id": 1, "name": "Warehouse A"}],
+  getOne: (id) => (Array.isArray([{"id": 1, "name": "Warehouse A"}]) && [{"id": 1, "name": "Warehouse A"}].length ? [{"id": 1, "name": "Warehouse A"}][0] : {}),
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };
+// Auto-generated by code_generator.py — per-entity mock options
+// entity: inventory_location
+
+export async function options() {
+  return {
+  "entity": "inventory_location",
+  "primary_key": "id",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "address",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    }
+  ],
+  "admin": {
+    "table": {
+      "delete_confirmation": true,
+      "inline_edit": false,
+      "show_filters": true,
+      "page_size": 20,
+      "global_search": true,
+      "column_search": false,
+      "sortable": true,
+      "sticky_header": false
+    },
+    "form": null,
+    "list": null
+  }
+}
+}

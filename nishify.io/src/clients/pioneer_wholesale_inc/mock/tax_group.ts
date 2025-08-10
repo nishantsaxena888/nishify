@@ -1,7 +1,65 @@
 export const tax_group = {
   options: () => ["id", "name", "tax_percent"],
-  get: () => [{"id": 219, "name": "appear", "tax_percent": 8550.35}, {"id": 9884, "name": "college", "tax_percent": 7163.91}, {"id": 1715, "name": "degree", "tax_percent": 8366.88}, {"id": 4749, "name": "wide", "tax_percent": 2284.82}, {"id": 7710, "name": "best", "tax_percent": 5763.86}, {"id": 767, "name": "develop", "tax_percent": 5082.21}, {"id": 4259, "name": "because", "tax_percent": 4620.11}, {"id": 8278, "name": "physical", "tax_percent": 8044.36}, {"id": 7310, "name": "decision", "tax_percent": 5446.55}, {"id": 7611, "name": "resource", "tax_percent": 4278.12}, {"id": 4412, "name": "executive", "tax_percent": 8061.88}, {"id": 9311, "name": "interview", "tax_percent": 4261.5}, {"id": 3747, "name": "this", "tax_percent": 1914.22}, {"id": 3040, "name": "resource", "tax_percent": 4856.99}, {"id": 3072, "name": "old", "tax_percent": 5385.03}, {"id": 6312, "name": "growth", "tax_percent": 8540.19}, {"id": 2310, "name": "room", "tax_percent": 4075.3}, {"id": 3303, "name": "where", "tax_percent": 2846.4}, {"id": 7077, "name": "smile", "tax_percent": 5632.16}, {"id": 8621, "name": "right", "tax_percent": 1972.43}, {"id": 5084, "name": "investment", "tax_percent": 6156.69}, {"id": 2259, "name": "reality", "tax_percent": 3570.45}, {"id": 6038, "name": "report", "tax_percent": 5161.3}, {"id": 4110, "name": "reflect", "tax_percent": 501.33}, {"id": 3047, "name": "century", "tax_percent": 4364.76}],
-  getOne: (id) => (Array.isArray([{"id": 219, "name": "appear", "tax_percent": 8550.35}, {"id": 9884, "name": "college", "tax_percent": 7163.91}, {"id": 1715, "name": "degree", "tax_percent": 8366.88}, {"id": 4749, "name": "wide", "tax_percent": 2284.82}, {"id": 7710, "name": "best", "tax_percent": 5763.86}, {"id": 767, "name": "develop", "tax_percent": 5082.21}, {"id": 4259, "name": "because", "tax_percent": 4620.11}, {"id": 8278, "name": "physical", "tax_percent": 8044.36}, {"id": 7310, "name": "decision", "tax_percent": 5446.55}, {"id": 7611, "name": "resource", "tax_percent": 4278.12}, {"id": 4412, "name": "executive", "tax_percent": 8061.88}, {"id": 9311, "name": "interview", "tax_percent": 4261.5}, {"id": 3747, "name": "this", "tax_percent": 1914.22}, {"id": 3040, "name": "resource", "tax_percent": 4856.99}, {"id": 3072, "name": "old", "tax_percent": 5385.03}, {"id": 6312, "name": "growth", "tax_percent": 8540.19}, {"id": 2310, "name": "room", "tax_percent": 4075.3}, {"id": 3303, "name": "where", "tax_percent": 2846.4}, {"id": 7077, "name": "smile", "tax_percent": 5632.16}, {"id": 8621, "name": "right", "tax_percent": 1972.43}, {"id": 5084, "name": "investment", "tax_percent": 6156.69}, {"id": 2259, "name": "reality", "tax_percent": 3570.45}, {"id": 6038, "name": "report", "tax_percent": 5161.3}, {"id": 4110, "name": "reflect", "tax_percent": 501.33}, {"id": 3047, "name": "century", "tax_percent": 4364.76}]) && [{"id": 219, "name": "appear", "tax_percent": 8550.35}, {"id": 9884, "name": "college", "tax_percent": 7163.91}, {"id": 1715, "name": "degree", "tax_percent": 8366.88}, {"id": 4749, "name": "wide", "tax_percent": 2284.82}, {"id": 7710, "name": "best", "tax_percent": 5763.86}, {"id": 767, "name": "develop", "tax_percent": 5082.21}, {"id": 4259, "name": "because", "tax_percent": 4620.11}, {"id": 8278, "name": "physical", "tax_percent": 8044.36}, {"id": 7310, "name": "decision", "tax_percent": 5446.55}, {"id": 7611, "name": "resource", "tax_percent": 4278.12}, {"id": 4412, "name": "executive", "tax_percent": 8061.88}, {"id": 9311, "name": "interview", "tax_percent": 4261.5}, {"id": 3747, "name": "this", "tax_percent": 1914.22}, {"id": 3040, "name": "resource", "tax_percent": 4856.99}, {"id": 3072, "name": "old", "tax_percent": 5385.03}, {"id": 6312, "name": "growth", "tax_percent": 8540.19}, {"id": 2310, "name": "room", "tax_percent": 4075.3}, {"id": 3303, "name": "where", "tax_percent": 2846.4}, {"id": 7077, "name": "smile", "tax_percent": 5632.16}, {"id": 8621, "name": "right", "tax_percent": 1972.43}, {"id": 5084, "name": "investment", "tax_percent": 6156.69}, {"id": 2259, "name": "reality", "tax_percent": 3570.45}, {"id": 6038, "name": "report", "tax_percent": 5161.3}, {"id": 4110, "name": "reflect", "tax_percent": 501.33}, {"id": 3047, "name": "century", "tax_percent": 4364.76}].length ? [{"id": 219, "name": "appear", "tax_percent": 8550.35}, {"id": 9884, "name": "college", "tax_percent": 7163.91}, {"id": 1715, "name": "degree", "tax_percent": 8366.88}, {"id": 4749, "name": "wide", "tax_percent": 2284.82}, {"id": 7710, "name": "best", "tax_percent": 5763.86}, {"id": 767, "name": "develop", "tax_percent": 5082.21}, {"id": 4259, "name": "because", "tax_percent": 4620.11}, {"id": 8278, "name": "physical", "tax_percent": 8044.36}, {"id": 7310, "name": "decision", "tax_percent": 5446.55}, {"id": 7611, "name": "resource", "tax_percent": 4278.12}, {"id": 4412, "name": "executive", "tax_percent": 8061.88}, {"id": 9311, "name": "interview", "tax_percent": 4261.5}, {"id": 3747, "name": "this", "tax_percent": 1914.22}, {"id": 3040, "name": "resource", "tax_percent": 4856.99}, {"id": 3072, "name": "old", "tax_percent": 5385.03}, {"id": 6312, "name": "growth", "tax_percent": 8540.19}, {"id": 2310, "name": "room", "tax_percent": 4075.3}, {"id": 3303, "name": "where", "tax_percent": 2846.4}, {"id": 7077, "name": "smile", "tax_percent": 5632.16}, {"id": 8621, "name": "right", "tax_percent": 1972.43}, {"id": 5084, "name": "investment", "tax_percent": 6156.69}, {"id": 2259, "name": "reality", "tax_percent": 3570.45}, {"id": 6038, "name": "report", "tax_percent": 5161.3}, {"id": 4110, "name": "reflect", "tax_percent": 501.33}, {"id": 3047, "name": "century", "tax_percent": 4364.76}][0] : {}),
+  get: () => [{"id": 1, "name": "Standard Tax", "tax_percent": 7.5}],
+  getOne: (id) => (Array.isArray([{"id": 1, "name": "Standard Tax", "tax_percent": 7.5}]) && [{"id": 1, "name": "Standard Tax", "tax_percent": 7.5}].length ? [{"id": 1, "name": "Standard Tax", "tax_percent": 7.5}][0] : {}),
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };
+// Auto-generated by code_generator.py — per-entity mock options
+// entity: tax_group
+
+export async function options() {
+  return {
+  "entity": "tax_group",
+  "primary_key": "id",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "tax_percent",
+      "type": "float",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    }
+  ],
+  "admin": {
+    "table": {
+      "delete_confirmation": true,
+      "inline_edit": false,
+      "show_filters": true,
+      "page_size": 20,
+      "global_search": true,
+      "column_search": false,
+      "sortable": true,
+      "sticky_header": false
+    },
+    "form": null,
+    "list": null
+  }
+}
+}

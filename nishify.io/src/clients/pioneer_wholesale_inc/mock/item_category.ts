@@ -1,7 +1,65 @@
 export const item_category = {
   options: () => ["id", "name", "description"],
-  get: () => [{"description": "from", "id": 3555, "name": "environment"}, {"description": "bill", "id": 8986, "name": "section"}, {"description": "cold", "id": 910, "name": "fight"}, {"description": "others", "id": 725, "name": "serve"}, {"description": "toward", "id": 3939, "name": "really"}, {"description": "spring", "id": 7973, "name": "chance"}, {"description": "election", "id": 8086, "name": "hour"}, {"description": "hear", "id": 208, "name": "money"}, {"description": "pattern", "id": 4075, "name": "most"}, {"description": "reach", "id": 6325, "name": "listen"}, {"description": "hit", "id": 2247, "name": "first"}, {"description": "turn", "id": 345, "name": "read"}, {"description": "necessary", "id": 7492, "name": "security"}, {"description": "future", "id": 8967, "name": "response"}, {"description": "yes", "id": 3394, "name": "tough"}, {"description": "house", "id": 8626, "name": "fact"}, {"description": "that", "id": 8573, "name": "oil"}, {"description": "present", "id": 5993, "name": "song"}, {"description": "we", "id": 8354, "name": "air"}, {"description": "health", "id": 2296, "name": "cultural"}, {"description": "customer", "id": 2789, "name": "them"}, {"description": "understand", "id": 821, "name": "condition"}, {"description": "choose", "id": 2436, "name": "resource"}, {"description": "wide", "id": 4576, "name": "hour"}, {"description": "people", "id": 7509, "name": "peace"}],
-  getOne: (id) => (Array.isArray([{"description": "from", "id": 3555, "name": "environment"}, {"description": "bill", "id": 8986, "name": "section"}, {"description": "cold", "id": 910, "name": "fight"}, {"description": "others", "id": 725, "name": "serve"}, {"description": "toward", "id": 3939, "name": "really"}, {"description": "spring", "id": 7973, "name": "chance"}, {"description": "election", "id": 8086, "name": "hour"}, {"description": "hear", "id": 208, "name": "money"}, {"description": "pattern", "id": 4075, "name": "most"}, {"description": "reach", "id": 6325, "name": "listen"}, {"description": "hit", "id": 2247, "name": "first"}, {"description": "turn", "id": 345, "name": "read"}, {"description": "necessary", "id": 7492, "name": "security"}, {"description": "future", "id": 8967, "name": "response"}, {"description": "yes", "id": 3394, "name": "tough"}, {"description": "house", "id": 8626, "name": "fact"}, {"description": "that", "id": 8573, "name": "oil"}, {"description": "present", "id": 5993, "name": "song"}, {"description": "we", "id": 8354, "name": "air"}, {"description": "health", "id": 2296, "name": "cultural"}, {"description": "customer", "id": 2789, "name": "them"}, {"description": "understand", "id": 821, "name": "condition"}, {"description": "choose", "id": 2436, "name": "resource"}, {"description": "wide", "id": 4576, "name": "hour"}, {"description": "people", "id": 7509, "name": "peace"}]) && [{"description": "from", "id": 3555, "name": "environment"}, {"description": "bill", "id": 8986, "name": "section"}, {"description": "cold", "id": 910, "name": "fight"}, {"description": "others", "id": 725, "name": "serve"}, {"description": "toward", "id": 3939, "name": "really"}, {"description": "spring", "id": 7973, "name": "chance"}, {"description": "election", "id": 8086, "name": "hour"}, {"description": "hear", "id": 208, "name": "money"}, {"description": "pattern", "id": 4075, "name": "most"}, {"description": "reach", "id": 6325, "name": "listen"}, {"description": "hit", "id": 2247, "name": "first"}, {"description": "turn", "id": 345, "name": "read"}, {"description": "necessary", "id": 7492, "name": "security"}, {"description": "future", "id": 8967, "name": "response"}, {"description": "yes", "id": 3394, "name": "tough"}, {"description": "house", "id": 8626, "name": "fact"}, {"description": "that", "id": 8573, "name": "oil"}, {"description": "present", "id": 5993, "name": "song"}, {"description": "we", "id": 8354, "name": "air"}, {"description": "health", "id": 2296, "name": "cultural"}, {"description": "customer", "id": 2789, "name": "them"}, {"description": "understand", "id": 821, "name": "condition"}, {"description": "choose", "id": 2436, "name": "resource"}, {"description": "wide", "id": 4576, "name": "hour"}, {"description": "people", "id": 7509, "name": "peace"}].length ? [{"description": "from", "id": 3555, "name": "environment"}, {"description": "bill", "id": 8986, "name": "section"}, {"description": "cold", "id": 910, "name": "fight"}, {"description": "others", "id": 725, "name": "serve"}, {"description": "toward", "id": 3939, "name": "really"}, {"description": "spring", "id": 7973, "name": "chance"}, {"description": "election", "id": 8086, "name": "hour"}, {"description": "hear", "id": 208, "name": "money"}, {"description": "pattern", "id": 4075, "name": "most"}, {"description": "reach", "id": 6325, "name": "listen"}, {"description": "hit", "id": 2247, "name": "first"}, {"description": "turn", "id": 345, "name": "read"}, {"description": "necessary", "id": 7492, "name": "security"}, {"description": "future", "id": 8967, "name": "response"}, {"description": "yes", "id": 3394, "name": "tough"}, {"description": "house", "id": 8626, "name": "fact"}, {"description": "that", "id": 8573, "name": "oil"}, {"description": "present", "id": 5993, "name": "song"}, {"description": "we", "id": 8354, "name": "air"}, {"description": "health", "id": 2296, "name": "cultural"}, {"description": "customer", "id": 2789, "name": "them"}, {"description": "understand", "id": 821, "name": "condition"}, {"description": "choose", "id": 2436, "name": "resource"}, {"description": "wide", "id": 4576, "name": "hour"}, {"description": "people", "id": 7509, "name": "peace"}][0] : {}),
+  get: () => [{"id": 1, "name": "Beverages", "description": "Cold drinks and juices"}],
+  getOne: (id) => (Array.isArray([{"id": 1, "name": "Beverages", "description": "Cold drinks and juices"}]) && [{"id": 1, "name": "Beverages", "description": "Cold drinks and juices"}].length ? [{"id": 1, "name": "Beverages", "description": "Cold drinks and juices"}][0] : {}),
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };
+// Auto-generated by code_generator.py — per-entity mock options
+// entity: item_category
+
+export async function options() {
+  return {
+  "entity": "item_category",
+  "primary_key": "id",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "description",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "label": null,
+      "required": true,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    }
+  ],
+  "admin": {
+    "table": {
+      "delete_confirmation": true,
+      "inline_edit": false,
+      "show_filters": true,
+      "page_size": 20,
+      "global_search": true,
+      "column_search": false,
+      "sortable": true,
+      "sticky_header": false
+    },
+    "form": null,
+    "list": null
+  }
+}
+}

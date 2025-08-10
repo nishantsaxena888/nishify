@@ -46,7 +46,7 @@ export function isMockMode(): boolean {
 }
 
 /** Convenience export used across the codebase */
-export const USE_MOCK = isMockMode();
+export const USE_MOCK = false;
 
 // ---- API base (single source of truth) -------------------------------------
 /**

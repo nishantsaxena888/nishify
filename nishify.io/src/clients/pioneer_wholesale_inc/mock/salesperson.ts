@@ -1,7 +1,76 @@
 export const salesperson = {
   options: () => ["id", "name", "email", "phone"],
-  get: () => [{"email": "risk", "id": 1485, "name": "hundred", "phone": "wife"}, {"email": "against", "id": 7237, "name": "box", "phone": "should"}, {"email": "white", "id": 9286, "name": "doctor", "phone": "per"}, {"email": "eight", "id": 3141, "name": "establish", "phone": "check"}, {"email": "myself", "id": 5247, "name": "purpose", "phone": "raise"}, {"email": "fast", "id": 5207, "name": "professor", "phone": "alone"}, {"email": "own", "id": 9303, "name": "bed", "phone": "share"}, {"email": "style", "id": 5051, "name": "instead", "phone": "event"}, {"email": "just", "id": 8565, "name": "such", "phone": "community"}, {"email": "ahead", "id": 8399, "name": "ask", "phone": "way"}, {"email": "professional", "id": 569, "name": "toward", "phone": "statement"}, {"email": "every", "id": 464, "name": "hope", "phone": "ever"}, {"email": "field", "id": 7258, "name": "expect", "phone": "not"}, {"email": "store", "id": 5632, "name": "foot", "phone": "kitchen"}, {"email": "a", "id": 7435, "name": "machine", "phone": "reality"}, {"email": "test", "id": 8768, "name": "each", "phone": "drop"}, {"email": "majority", "id": 20, "name": "very", "phone": "choose"}, {"email": "would", "id": 10, "name": "should", "phone": "seek"}, {"email": "condition", "id": 1768, "name": "production", "phone": "real"}, {"email": "sometimes", "id": 8838, "name": "customer", "phone": "customer"}, {"email": "material", "id": 6279, "name": "eight", "phone": "general"}, {"email": "interest", "id": 5837, "name": "fly", "phone": "edge"}, {"email": "argue", "id": 215, "name": "rest", "phone": "bring"}, {"email": "democratic", "id": 337, "name": "operation", "phone": "require"}, {"email": "brother", "id": 4511, "name": "American", "phone": "live"}],
-  getOne: (id) => (Array.isArray([{"email": "risk", "id": 1485, "name": "hundred", "phone": "wife"}, {"email": "against", "id": 7237, "name": "box", "phone": "should"}, {"email": "white", "id": 9286, "name": "doctor", "phone": "per"}, {"email": "eight", "id": 3141, "name": "establish", "phone": "check"}, {"email": "myself", "id": 5247, "name": "purpose", "phone": "raise"}, {"email": "fast", "id": 5207, "name": "professor", "phone": "alone"}, {"email": "own", "id": 9303, "name": "bed", "phone": "share"}, {"email": "style", "id": 5051, "name": "instead", "phone": "event"}, {"email": "just", "id": 8565, "name": "such", "phone": "community"}, {"email": "ahead", "id": 8399, "name": "ask", "phone": "way"}, {"email": "professional", "id": 569, "name": "toward", "phone": "statement"}, {"email": "every", "id": 464, "name": "hope", "phone": "ever"}, {"email": "field", "id": 7258, "name": "expect", "phone": "not"}, {"email": "store", "id": 5632, "name": "foot", "phone": "kitchen"}, {"email": "a", "id": 7435, "name": "machine", "phone": "reality"}, {"email": "test", "id": 8768, "name": "each", "phone": "drop"}, {"email": "majority", "id": 20, "name": "very", "phone": "choose"}, {"email": "would", "id": 10, "name": "should", "phone": "seek"}, {"email": "condition", "id": 1768, "name": "production", "phone": "real"}, {"email": "sometimes", "id": 8838, "name": "customer", "phone": "customer"}, {"email": "material", "id": 6279, "name": "eight", "phone": "general"}, {"email": "interest", "id": 5837, "name": "fly", "phone": "edge"}, {"email": "argue", "id": 215, "name": "rest", "phone": "bring"}, {"email": "democratic", "id": 337, "name": "operation", "phone": "require"}, {"email": "brother", "id": 4511, "name": "American", "phone": "live"}]) && [{"email": "risk", "id": 1485, "name": "hundred", "phone": "wife"}, {"email": "against", "id": 7237, "name": "box", "phone": "should"}, {"email": "white", "id": 9286, "name": "doctor", "phone": "per"}, {"email": "eight", "id": 3141, "name": "establish", "phone": "check"}, {"email": "myself", "id": 5247, "name": "purpose", "phone": "raise"}, {"email": "fast", "id": 5207, "name": "professor", "phone": "alone"}, {"email": "own", "id": 9303, "name": "bed", "phone": "share"}, {"email": "style", "id": 5051, "name": "instead", "phone": "event"}, {"email": "just", "id": 8565, "name": "such", "phone": "community"}, {"email": "ahead", "id": 8399, "name": "ask", "phone": "way"}, {"email": "professional", "id": 569, "name": "toward", "phone": "statement"}, {"email": "every", "id": 464, "name": "hope", "phone": "ever"}, {"email": "field", "id": 7258, "name": "expect", "phone": "not"}, {"email": "store", "id": 5632, "name": "foot", "phone": "kitchen"}, {"email": "a", "id": 7435, "name": "machine", "phone": "reality"}, {"email": "test", "id": 8768, "name": "each", "phone": "drop"}, {"email": "majority", "id": 20, "name": "very", "phone": "choose"}, {"email": "would", "id": 10, "name": "should", "phone": "seek"}, {"email": "condition", "id": 1768, "name": "production", "phone": "real"}, {"email": "sometimes", "id": 8838, "name": "customer", "phone": "customer"}, {"email": "material", "id": 6279, "name": "eight", "phone": "general"}, {"email": "interest", "id": 5837, "name": "fly", "phone": "edge"}, {"email": "argue", "id": 215, "name": "rest", "phone": "bring"}, {"email": "democratic", "id": 337, "name": "operation", "phone": "require"}, {"email": "brother", "id": 4511, "name": "American", "phone": "live"}].length ? [{"email": "risk", "id": 1485, "name": "hundred", "phone": "wife"}, {"email": "against", "id": 7237, "name": "box", "phone": "should"}, {"email": "white", "id": 9286, "name": "doctor", "phone": "per"}, {"email": "eight", "id": 3141, "name": "establish", "phone": "check"}, {"email": "myself", "id": 5247, "name": "purpose", "phone": "raise"}, {"email": "fast", "id": 5207, "name": "professor", "phone": "alone"}, {"email": "own", "id": 9303, "name": "bed", "phone": "share"}, {"email": "style", "id": 5051, "name": "instead", "phone": "event"}, {"email": "just", "id": 8565, "name": "such", "phone": "community"}, {"email": "ahead", "id": 8399, "name": "ask", "phone": "way"}, {"email": "professional", "id": 569, "name": "toward", "phone": "statement"}, {"email": "every", "id": 464, "name": "hope", "phone": "ever"}, {"email": "field", "id": 7258, "name": "expect", "phone": "not"}, {"email": "store", "id": 5632, "name": "foot", "phone": "kitchen"}, {"email": "a", "id": 7435, "name": "machine", "phone": "reality"}, {"email": "test", "id": 8768, "name": "each", "phone": "drop"}, {"email": "majority", "id": 20, "name": "very", "phone": "choose"}, {"email": "would", "id": 10, "name": "should", "phone": "seek"}, {"email": "condition", "id": 1768, "name": "production", "phone": "real"}, {"email": "sometimes", "id": 8838, "name": "customer", "phone": "customer"}, {"email": "material", "id": 6279, "name": "eight", "phone": "general"}, {"email": "interest", "id": 5837, "name": "fly", "phone": "edge"}, {"email": "argue", "id": 215, "name": "rest", "phone": "bring"}, {"email": "democratic", "id": 337, "name": "operation", "phone": "require"}, {"email": "brother", "id": 4511, "name": "American", "phone": "live"}][0] : {}),
+  get: () => [{"id": 1, "name": "Ravi", "email": "ravi@jnq.com"}],
+  getOne: (id) => (Array.isArray([{"id": 1, "name": "Ravi", "email": "ravi@jnq.com"}]) && [{"id": 1, "name": "Ravi", "email": "ravi@jnq.com"}].length ? [{"id": 1, "name": "Ravi", "email": "ravi@jnq.com"}][0] : {}),
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };
+// Auto-generated by code_generator.py — per-entity mock options
+// entity: salesperson
+
+export async function options() {
+  return {
+  "entity": "salesperson",
+  "primary_key": "id",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "email",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "phone",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    }
+  ],
+  "admin": {
+    "table": {
+      "delete_confirmation": true,
+      "inline_edit": false,
+      "show_filters": true,
+      "page_size": 20,
+      "global_search": true,
+      "column_search": false,
+      "sortable": true,
+      "sticky_header": false
+    },
+    "form": null,
+    "list": null
+  }
+}
+}

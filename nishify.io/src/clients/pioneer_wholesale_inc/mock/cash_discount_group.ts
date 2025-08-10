@@ -1,7 +1,76 @@
 export const cash_discount_group = {
   options: () => ["id", "name", "discount_percent", "terms"],
-  get: () => [{"discount_percent": 3670.22, "id": 632, "name": "area", "terms": "class"}, {"discount_percent": 9335.21, "id": 2877, "name": "site", "terms": "sit"}, {"discount_percent": 553.98, "id": 2992, "name": "later", "terms": "mother"}, {"discount_percent": 9703.76, "id": 4841, "name": "listen", "terms": "today"}, {"discount_percent": 2990.18, "id": 823, "name": "only", "terms": "debate"}, {"discount_percent": 3060.56, "id": 3637, "name": "watch", "terms": "last"}, {"discount_percent": 5812.37, "id": 3628, "name": "nature", "terms": "TV"}, {"discount_percent": 2460.92, "id": 2509, "name": "region", "terms": "would"}, {"discount_percent": 7867.09, "id": 5943, "name": "shoulder", "terms": "site"}, {"discount_percent": 5297.79, "id": 5608, "name": "hour", "terms": "never"}, {"discount_percent": 5038.4, "id": 9427, "name": "walk", "terms": "listen"}, {"discount_percent": 1635.6, "id": 9423, "name": "blood", "terms": "trial"}, {"discount_percent": 5851.74, "id": 1853, "name": "whom", "terms": "although"}, {"discount_percent": 4466.66, "id": 5870, "name": "opportunity", "terms": "everybody"}, {"discount_percent": 4649.51, "id": 7420, "name": "scientist", "terms": "nearly"}, {"discount_percent": 8116.16, "id": 4861, "name": "bad", "terms": "significant"}, {"discount_percent": 8646.07, "id": 2597, "name": "child", "terms": "boy"}, {"discount_percent": 9386.24, "id": 1688, "name": "stop", "terms": "guy"}, {"discount_percent": 8318.91, "id": 4040, "name": "high", "terms": "suddenly"}, {"discount_percent": 9814.02, "id": 1859, "name": "number", "terms": "possible"}, {"discount_percent": 3422.12, "id": 2563, "name": "action", "terms": "sure"}, {"discount_percent": 1358.59, "id": 6973, "name": "likely", "terms": "newspaper"}, {"discount_percent": 4825.5, "id": 2280, "name": "station", "terms": "nature"}, {"discount_percent": 4816.08, "id": 1161, "name": "health", "terms": "remain"}, {"discount_percent": 598.1, "id": 6288, "name": "decide", "terms": "hit"}],
-  getOne: (id) => (Array.isArray([{"discount_percent": 3670.22, "id": 632, "name": "area", "terms": "class"}, {"discount_percent": 9335.21, "id": 2877, "name": "site", "terms": "sit"}, {"discount_percent": 553.98, "id": 2992, "name": "later", "terms": "mother"}, {"discount_percent": 9703.76, "id": 4841, "name": "listen", "terms": "today"}, {"discount_percent": 2990.18, "id": 823, "name": "only", "terms": "debate"}, {"discount_percent": 3060.56, "id": 3637, "name": "watch", "terms": "last"}, {"discount_percent": 5812.37, "id": 3628, "name": "nature", "terms": "TV"}, {"discount_percent": 2460.92, "id": 2509, "name": "region", "terms": "would"}, {"discount_percent": 7867.09, "id": 5943, "name": "shoulder", "terms": "site"}, {"discount_percent": 5297.79, "id": 5608, "name": "hour", "terms": "never"}, {"discount_percent": 5038.4, "id": 9427, "name": "walk", "terms": "listen"}, {"discount_percent": 1635.6, "id": 9423, "name": "blood", "terms": "trial"}, {"discount_percent": 5851.74, "id": 1853, "name": "whom", "terms": "although"}, {"discount_percent": 4466.66, "id": 5870, "name": "opportunity", "terms": "everybody"}, {"discount_percent": 4649.51, "id": 7420, "name": "scientist", "terms": "nearly"}, {"discount_percent": 8116.16, "id": 4861, "name": "bad", "terms": "significant"}, {"discount_percent": 8646.07, "id": 2597, "name": "child", "terms": "boy"}, {"discount_percent": 9386.24, "id": 1688, "name": "stop", "terms": "guy"}, {"discount_percent": 8318.91, "id": 4040, "name": "high", "terms": "suddenly"}, {"discount_percent": 9814.02, "id": 1859, "name": "number", "terms": "possible"}, {"discount_percent": 3422.12, "id": 2563, "name": "action", "terms": "sure"}, {"discount_percent": 1358.59, "id": 6973, "name": "likely", "terms": "newspaper"}, {"discount_percent": 4825.5, "id": 2280, "name": "station", "terms": "nature"}, {"discount_percent": 4816.08, "id": 1161, "name": "health", "terms": "remain"}, {"discount_percent": 598.1, "id": 6288, "name": "decide", "terms": "hit"}]) && [{"discount_percent": 3670.22, "id": 632, "name": "area", "terms": "class"}, {"discount_percent": 9335.21, "id": 2877, "name": "site", "terms": "sit"}, {"discount_percent": 553.98, "id": 2992, "name": "later", "terms": "mother"}, {"discount_percent": 9703.76, "id": 4841, "name": "listen", "terms": "today"}, {"discount_percent": 2990.18, "id": 823, "name": "only", "terms": "debate"}, {"discount_percent": 3060.56, "id": 3637, "name": "watch", "terms": "last"}, {"discount_percent": 5812.37, "id": 3628, "name": "nature", "terms": "TV"}, {"discount_percent": 2460.92, "id": 2509, "name": "region", "terms": "would"}, {"discount_percent": 7867.09, "id": 5943, "name": "shoulder", "terms": "site"}, {"discount_percent": 5297.79, "id": 5608, "name": "hour", "terms": "never"}, {"discount_percent": 5038.4, "id": 9427, "name": "walk", "terms": "listen"}, {"discount_percent": 1635.6, "id": 9423, "name": "blood", "terms": "trial"}, {"discount_percent": 5851.74, "id": 1853, "name": "whom", "terms": "although"}, {"discount_percent": 4466.66, "id": 5870, "name": "opportunity", "terms": "everybody"}, {"discount_percent": 4649.51, "id": 7420, "name": "scientist", "terms": "nearly"}, {"discount_percent": 8116.16, "id": 4861, "name": "bad", "terms": "significant"}, {"discount_percent": 8646.07, "id": 2597, "name": "child", "terms": "boy"}, {"discount_percent": 9386.24, "id": 1688, "name": "stop", "terms": "guy"}, {"discount_percent": 8318.91, "id": 4040, "name": "high", "terms": "suddenly"}, {"discount_percent": 9814.02, "id": 1859, "name": "number", "terms": "possible"}, {"discount_percent": 3422.12, "id": 2563, "name": "action", "terms": "sure"}, {"discount_percent": 1358.59, "id": 6973, "name": "likely", "terms": "newspaper"}, {"discount_percent": 4825.5, "id": 2280, "name": "station", "terms": "nature"}, {"discount_percent": 4816.08, "id": 1161, "name": "health", "terms": "remain"}, {"discount_percent": 598.1, "id": 6288, "name": "decide", "terms": "hit"}].length ? [{"discount_percent": 3670.22, "id": 632, "name": "area", "terms": "class"}, {"discount_percent": 9335.21, "id": 2877, "name": "site", "terms": "sit"}, {"discount_percent": 553.98, "id": 2992, "name": "later", "terms": "mother"}, {"discount_percent": 9703.76, "id": 4841, "name": "listen", "terms": "today"}, {"discount_percent": 2990.18, "id": 823, "name": "only", "terms": "debate"}, {"discount_percent": 3060.56, "id": 3637, "name": "watch", "terms": "last"}, {"discount_percent": 5812.37, "id": 3628, "name": "nature", "terms": "TV"}, {"discount_percent": 2460.92, "id": 2509, "name": "region", "terms": "would"}, {"discount_percent": 7867.09, "id": 5943, "name": "shoulder", "terms": "site"}, {"discount_percent": 5297.79, "id": 5608, "name": "hour", "terms": "never"}, {"discount_percent": 5038.4, "id": 9427, "name": "walk", "terms": "listen"}, {"discount_percent": 1635.6, "id": 9423, "name": "blood", "terms": "trial"}, {"discount_percent": 5851.74, "id": 1853, "name": "whom", "terms": "although"}, {"discount_percent": 4466.66, "id": 5870, "name": "opportunity", "terms": "everybody"}, {"discount_percent": 4649.51, "id": 7420, "name": "scientist", "terms": "nearly"}, {"discount_percent": 8116.16, "id": 4861, "name": "bad", "terms": "significant"}, {"discount_percent": 8646.07, "id": 2597, "name": "child", "terms": "boy"}, {"discount_percent": 9386.24, "id": 1688, "name": "stop", "terms": "guy"}, {"discount_percent": 8318.91, "id": 4040, "name": "high", "terms": "suddenly"}, {"discount_percent": 9814.02, "id": 1859, "name": "number", "terms": "possible"}, {"discount_percent": 3422.12, "id": 2563, "name": "action", "terms": "sure"}, {"discount_percent": 1358.59, "id": 6973, "name": "likely", "terms": "newspaper"}, {"discount_percent": 4825.5, "id": 2280, "name": "station", "terms": "nature"}, {"discount_percent": 4816.08, "id": 1161, "name": "health", "terms": "remain"}, {"discount_percent": 598.1, "id": 6288, "name": "decide", "terms": "hit"}][0] : {}),
+  get: () => [{"id": 1, "name": "5% Net 15", "discount_percent": 5.0, "terms": "Net 15 days"}],
+  getOne: (id) => (Array.isArray([{"id": 1, "name": "5% Net 15", "discount_percent": 5.0, "terms": "Net 15 days"}]) && [{"id": 1, "name": "5% Net 15", "discount_percent": 5.0, "terms": "Net 15 days"}].length ? [{"id": 1, "name": "5% Net 15", "discount_percent": 5.0, "terms": "Net 15 days"}][0] : {}),
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };
+// Auto-generated by code_generator.py — per-entity mock options
+// entity: cash_discount_group
+
+export async function options() {
+  return {
+  "entity": "cash_discount_group",
+  "primary_key": "id",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "discount_percent",
+      "type": "float",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "terms",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    }
+  ],
+  "admin": {
+    "table": {
+      "delete_confirmation": true,
+      "inline_edit": false,
+      "show_filters": true,
+      "page_size": 20,
+      "global_search": true,
+      "column_search": false,
+      "sortable": true,
+      "sticky_header": false
+    },
+    "form": null,
+    "list": null
+  }
+}
+}

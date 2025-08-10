@@ -1,7 +1,76 @@
 export const inventory = {
   options: () => ["id", "item_id", "location_id", "quantity"],
-  get: () => [{"id": 9995, "item_id": 7162, "location_id": 7300, "quantity": 2313}, {"id": 6229, "item_id": 8349, "location_id": 9493, "quantity": 8386}, {"id": 7796, "item_id": 6830, "location_id": 6678, "quantity": 4309}, {"id": 4667, "item_id": 8949, "location_id": 3803, "quantity": 6608}, {"id": 5841, "item_id": 3914, "location_id": 9775, "quantity": 5732}, {"id": 6294, "item_id": 707, "location_id": 1220, "quantity": 3548}, {"id": 6418, "item_id": 8284, "location_id": 3196, "quantity": 2485}, {"id": 980, "item_id": 4516, "location_id": 1570, "quantity": 6677}, {"id": 6695, "item_id": 7157, "location_id": 3690, "quantity": 5243}, {"id": 3010, "item_id": 3530, "location_id": 1526, "quantity": 4409}, {"id": 9790, "item_id": 7676, "location_id": 7362, "quantity": 4474}, {"id": 21, "item_id": 2090, "location_id": 5427, "quantity": 2357}, {"id": 6830, "item_id": 8087, "location_id": 9311, "quantity": 9642}, {"id": 3362, "item_id": 3097, "location_id": 2761, "quantity": 1190}, {"id": 1942, "item_id": 3413, "location_id": 6051, "quantity": 4303}, {"id": 6651, "item_id": 7927, "location_id": 3276, "quantity": 9171}, {"id": 5782, "item_id": 7737, "location_id": 404, "quantity": 2150}, {"id": 9624, "item_id": 9462, "location_id": 1339, "quantity": 6140}, {"id": 7762, "item_id": 2800, "location_id": 5179, "quantity": 7474}, {"id": 2116, "item_id": 2473, "location_id": 6297, "quantity": 1542}, {"id": 3829, "item_id": 6141, "location_id": 6635, "quantity": 4297}, {"id": 4405, "item_id": 7019, "location_id": 6557, "quantity": 3948}, {"id": 4151, "item_id": 3187, "location_id": 3353, "quantity": 724}, {"id": 3125, "item_id": 1928, "location_id": 2534, "quantity": 26}, {"id": 3044, "item_id": 2866, "location_id": 2626, "quantity": 5952}],
-  getOne: (id) => (Array.isArray([{"id": 9995, "item_id": 7162, "location_id": 7300, "quantity": 2313}, {"id": 6229, "item_id": 8349, "location_id": 9493, "quantity": 8386}, {"id": 7796, "item_id": 6830, "location_id": 6678, "quantity": 4309}, {"id": 4667, "item_id": 8949, "location_id": 3803, "quantity": 6608}, {"id": 5841, "item_id": 3914, "location_id": 9775, "quantity": 5732}, {"id": 6294, "item_id": 707, "location_id": 1220, "quantity": 3548}, {"id": 6418, "item_id": 8284, "location_id": 3196, "quantity": 2485}, {"id": 980, "item_id": 4516, "location_id": 1570, "quantity": 6677}, {"id": 6695, "item_id": 7157, "location_id": 3690, "quantity": 5243}, {"id": 3010, "item_id": 3530, "location_id": 1526, "quantity": 4409}, {"id": 9790, "item_id": 7676, "location_id": 7362, "quantity": 4474}, {"id": 21, "item_id": 2090, "location_id": 5427, "quantity": 2357}, {"id": 6830, "item_id": 8087, "location_id": 9311, "quantity": 9642}, {"id": 3362, "item_id": 3097, "location_id": 2761, "quantity": 1190}, {"id": 1942, "item_id": 3413, "location_id": 6051, "quantity": 4303}, {"id": 6651, "item_id": 7927, "location_id": 3276, "quantity": 9171}, {"id": 5782, "item_id": 7737, "location_id": 404, "quantity": 2150}, {"id": 9624, "item_id": 9462, "location_id": 1339, "quantity": 6140}, {"id": 7762, "item_id": 2800, "location_id": 5179, "quantity": 7474}, {"id": 2116, "item_id": 2473, "location_id": 6297, "quantity": 1542}, {"id": 3829, "item_id": 6141, "location_id": 6635, "quantity": 4297}, {"id": 4405, "item_id": 7019, "location_id": 6557, "quantity": 3948}, {"id": 4151, "item_id": 3187, "location_id": 3353, "quantity": 724}, {"id": 3125, "item_id": 1928, "location_id": 2534, "quantity": 26}, {"id": 3044, "item_id": 2866, "location_id": 2626, "quantity": 5952}]) && [{"id": 9995, "item_id": 7162, "location_id": 7300, "quantity": 2313}, {"id": 6229, "item_id": 8349, "location_id": 9493, "quantity": 8386}, {"id": 7796, "item_id": 6830, "location_id": 6678, "quantity": 4309}, {"id": 4667, "item_id": 8949, "location_id": 3803, "quantity": 6608}, {"id": 5841, "item_id": 3914, "location_id": 9775, "quantity": 5732}, {"id": 6294, "item_id": 707, "location_id": 1220, "quantity": 3548}, {"id": 6418, "item_id": 8284, "location_id": 3196, "quantity": 2485}, {"id": 980, "item_id": 4516, "location_id": 1570, "quantity": 6677}, {"id": 6695, "item_id": 7157, "location_id": 3690, "quantity": 5243}, {"id": 3010, "item_id": 3530, "location_id": 1526, "quantity": 4409}, {"id": 9790, "item_id": 7676, "location_id": 7362, "quantity": 4474}, {"id": 21, "item_id": 2090, "location_id": 5427, "quantity": 2357}, {"id": 6830, "item_id": 8087, "location_id": 9311, "quantity": 9642}, {"id": 3362, "item_id": 3097, "location_id": 2761, "quantity": 1190}, {"id": 1942, "item_id": 3413, "location_id": 6051, "quantity": 4303}, {"id": 6651, "item_id": 7927, "location_id": 3276, "quantity": 9171}, {"id": 5782, "item_id": 7737, "location_id": 404, "quantity": 2150}, {"id": 9624, "item_id": 9462, "location_id": 1339, "quantity": 6140}, {"id": 7762, "item_id": 2800, "location_id": 5179, "quantity": 7474}, {"id": 2116, "item_id": 2473, "location_id": 6297, "quantity": 1542}, {"id": 3829, "item_id": 6141, "location_id": 6635, "quantity": 4297}, {"id": 4405, "item_id": 7019, "location_id": 6557, "quantity": 3948}, {"id": 4151, "item_id": 3187, "location_id": 3353, "quantity": 724}, {"id": 3125, "item_id": 1928, "location_id": 2534, "quantity": 26}, {"id": 3044, "item_id": 2866, "location_id": 2626, "quantity": 5952}].length ? [{"id": 9995, "item_id": 7162, "location_id": 7300, "quantity": 2313}, {"id": 6229, "item_id": 8349, "location_id": 9493, "quantity": 8386}, {"id": 7796, "item_id": 6830, "location_id": 6678, "quantity": 4309}, {"id": 4667, "item_id": 8949, "location_id": 3803, "quantity": 6608}, {"id": 5841, "item_id": 3914, "location_id": 9775, "quantity": 5732}, {"id": 6294, "item_id": 707, "location_id": 1220, "quantity": 3548}, {"id": 6418, "item_id": 8284, "location_id": 3196, "quantity": 2485}, {"id": 980, "item_id": 4516, "location_id": 1570, "quantity": 6677}, {"id": 6695, "item_id": 7157, "location_id": 3690, "quantity": 5243}, {"id": 3010, "item_id": 3530, "location_id": 1526, "quantity": 4409}, {"id": 9790, "item_id": 7676, "location_id": 7362, "quantity": 4474}, {"id": 21, "item_id": 2090, "location_id": 5427, "quantity": 2357}, {"id": 6830, "item_id": 8087, "location_id": 9311, "quantity": 9642}, {"id": 3362, "item_id": 3097, "location_id": 2761, "quantity": 1190}, {"id": 1942, "item_id": 3413, "location_id": 6051, "quantity": 4303}, {"id": 6651, "item_id": 7927, "location_id": 3276, "quantity": 9171}, {"id": 5782, "item_id": 7737, "location_id": 404, "quantity": 2150}, {"id": 9624, "item_id": 9462, "location_id": 1339, "quantity": 6140}, {"id": 7762, "item_id": 2800, "location_id": 5179, "quantity": 7474}, {"id": 2116, "item_id": 2473, "location_id": 6297, "quantity": 1542}, {"id": 3829, "item_id": 6141, "location_id": 6635, "quantity": 4297}, {"id": 4405, "item_id": 7019, "location_id": 6557, "quantity": 3948}, {"id": 4151, "item_id": 3187, "location_id": 3353, "quantity": 724}, {"id": 3125, "item_id": 1928, "location_id": 2534, "quantity": 26}, {"id": 3044, "item_id": 2866, "location_id": 2626, "quantity": 5952}][0] : {}),
+  get: () => [{"id": 1, "item_id": 1, "location_id": 1, "quantity": 150}],
+  getOne: (id) => (Array.isArray([{"id": 1, "item_id": 1, "location_id": 1, "quantity": 150}]) && [{"id": 1, "item_id": 1, "location_id": 1, "quantity": 150}].length ? [{"id": 1, "item_id": 1, "location_id": 1, "quantity": 150}][0] : {}),
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };
+// Auto-generated by code_generator.py — per-entity mock options
+// entity: inventory
+
+export async function options() {
+  return {
+  "entity": "inventory",
+  "primary_key": "id",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "item_id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": "item.id",
+      "default": null
+    },
+    {
+      "name": "location_id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": "inventory_location.id",
+      "default": null
+    },
+    {
+      "name": "quantity",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    }
+  ],
+  "admin": {
+    "table": {
+      "delete_confirmation": true,
+      "inline_edit": false,
+      "show_filters": true,
+      "page_size": 20,
+      "global_search": true,
+      "column_search": false,
+      "sortable": true,
+      "sticky_header": false
+    },
+    "form": null,
+    "list": null
+  }
+}
+}

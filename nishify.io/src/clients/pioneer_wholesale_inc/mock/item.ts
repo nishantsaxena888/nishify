@@ -1,7 +1,186 @@
 export const item = {
   options: () => ["id", "item_code", "name", "category_id", "secondary_category_id", "vendor_id", "tax_group_id", "price_group_id", "cash_discount_group_id", "upc_code", "unit", "price", "description", "active"],
-  get: () => [{"active": false, "cash_discount_group_id": 8356, "category_id": 8121, "description": "attorney", "id": 1387, "item_code": "pick", "name": "as", "price": 6922.22, "price_group_id": 8747, "secondary_category_id": 9256, "tax_group_id": 1539, "unit": "religious", "upc_code": "to", "vendor_id": 6170}, {"active": false, "cash_discount_group_id": 358, "category_id": 3244, "description": "million", "id": 2693, "item_code": "many", "name": "suggest", "price": 5339.03, "price_group_id": 3662, "secondary_category_id": 376, "tax_group_id": 533, "unit": "walk", "upc_code": "Mrs", "vendor_id": 852}, {"active": false, "cash_discount_group_id": 4438, "category_id": 1242, "description": "generation", "id": 2142, "item_code": "measure", "name": "push", "price": 4472.01, "price_group_id": 4440, "secondary_category_id": 8200, "tax_group_id": 8501, "unit": "point", "upc_code": "protect", "vendor_id": 2317}, {"active": true, "cash_discount_group_id": 7358, "category_id": 9799, "description": "detail", "id": 8975, "item_code": "doctor", "name": "benefit", "price": 674.46, "price_group_id": 9525, "secondary_category_id": 363, "tax_group_id": 3489, "unit": "yeah", "upc_code": "product", "vendor_id": 4086}, {"active": false, "cash_discount_group_id": 2492, "category_id": 7984, "description": "example", "id": 3732, "item_code": "if", "name": "eat", "price": 2729.03, "price_group_id": 9075, "secondary_category_id": 561, "tax_group_id": 9537, "unit": "only", "upc_code": "top", "vendor_id": 428}, {"active": true, "cash_discount_group_id": 4322, "category_id": 6543, "description": "can", "id": 7574, "item_code": "peace", "name": "research", "price": 4815.18, "price_group_id": 4642, "secondary_category_id": 2220, "tax_group_id": 1917, "unit": "talk", "upc_code": "where", "vendor_id": 3702}, {"active": false, "cash_discount_group_id": 6943, "category_id": 3888, "description": "establish", "id": 3363, "item_code": "those", "name": "doctor", "price": 5190.18, "price_group_id": 3171, "secondary_category_id": 651, "tax_group_id": 458, "unit": "wish", "upc_code": "radio", "vendor_id": 5253}, {"active": true, "cash_discount_group_id": 2557, "category_id": 4458, "description": "list", "id": 2469, "item_code": "receive", "name": "development", "price": 6592.56, "price_group_id": 9010, "secondary_category_id": 6353, "tax_group_id": 1656, "unit": "read", "upc_code": "case", "vendor_id": 6830}, {"active": false, "cash_discount_group_id": 7017, "category_id": 18, "description": "fall", "id": 2168, "item_code": "opportunity", "name": "ball", "price": 5404.03, "price_group_id": 6404, "secondary_category_id": 904, "tax_group_id": 5995, "unit": "true", "upc_code": "score", "vendor_id": 9103}, {"active": false, "cash_discount_group_id": 1653, "category_id": 1330, "description": "former", "id": 910, "item_code": "truth", "name": "business", "price": 2864.03, "price_group_id": 7544, "secondary_category_id": 762, "tax_group_id": 5981, "unit": "black", "upc_code": "budget", "vendor_id": 6768}, {"active": true, "cash_discount_group_id": 2860, "category_id": 1355, "description": "station", "id": 9946, "item_code": "girl", "name": "sometimes", "price": 3215.26, "price_group_id": 9808, "secondary_category_id": 9370, "tax_group_id": 3674, "unit": "information", "upc_code": "gas", "vendor_id": 5341}, {"active": true, "cash_discount_group_id": 345, "category_id": 1210, "description": "such", "id": 296, "item_code": "standard", "name": "event", "price": 6444.77, "price_group_id": 9233, "secondary_category_id": 4145, "tax_group_id": 1959, "unit": "environment", "upc_code": "section", "vendor_id": 2703}, {"active": true, "cash_discount_group_id": 260, "category_id": 3362, "description": "enter", "id": 9934, "item_code": "final", "name": "population", "price": 1529.44, "price_group_id": 8588, "secondary_category_id": 764, "tax_group_id": 5532, "unit": "institution", "upc_code": "brother", "vendor_id": 8487}, {"active": true, "cash_discount_group_id": 455, "category_id": 8006, "description": "half", "id": 1118, "item_code": "study", "name": "bad", "price": 5760.91, "price_group_id": 9492, "secondary_category_id": 7213, "tax_group_id": 2786, "unit": "in", "upc_code": "threat", "vendor_id": 4706}, {"active": false, "cash_discount_group_id": 4142, "category_id": 8505, "description": "think", "id": 8640, "item_code": "yet", "name": "there", "price": 7068.82, "price_group_id": 4935, "secondary_category_id": 6905, "tax_group_id": 5533, "unit": "fast", "upc_code": "level", "vendor_id": 9537}, {"active": true, "cash_discount_group_id": 1149, "category_id": 4435, "description": "soldier", "id": 3939, "item_code": "ago", "name": "fall", "price": 9052.2, "price_group_id": 2941, "secondary_category_id": 689, "tax_group_id": 3096, "unit": "country", "upc_code": "occur", "vendor_id": 2237}, {"active": true, "cash_discount_group_id": 5436, "category_id": 5986, "description": "join", "id": 7280, "item_code": "story", "name": "forget", "price": 3532.14, "price_group_id": 7285, "secondary_category_id": 9284, "tax_group_id": 2468, "unit": "these", "upc_code": "if", "vendor_id": 7611}, {"active": true, "cash_discount_group_id": 166, "category_id": 1166, "description": "group", "id": 5224, "item_code": "full", "name": "form", "price": 4225.49, "price_group_id": 8897, "secondary_category_id": 2432, "tax_group_id": 2870, "unit": "allow", "upc_code": "ten", "vendor_id": 1079}, {"active": false, "cash_discount_group_id": 8441, "category_id": 282, "description": "window", "id": 6798, "item_code": "skill", "name": "opportunity", "price": 2408.03, "price_group_id": 9807, "secondary_category_id": 4752, "tax_group_id": 3266, "unit": "north", "upc_code": "child", "vendor_id": 5488}, {"active": true, "cash_discount_group_id": 6600, "category_id": 6855, "description": "or", "id": 81, "item_code": "any", "name": "budget", "price": 7705.19, "price_group_id": 5820, "secondary_category_id": 3551, "tax_group_id": 4482, "unit": "clear", "upc_code": "song", "vendor_id": 2296}, {"active": true, "cash_discount_group_id": 2250, "category_id": 1357, "description": "receive", "id": 3176, "item_code": "allow", "name": "whose", "price": 9756.52, "price_group_id": 9733, "secondary_category_id": 9036, "tax_group_id": 4821, "unit": "pattern", "upc_code": "teacher", "vendor_id": 6241}, {"active": true, "cash_discount_group_id": 1180, "category_id": 7803, "description": "reason", "id": 2350, "item_code": "arm", "name": "stuff", "price": 3908.84, "price_group_id": 8785, "secondary_category_id": 773, "tax_group_id": 7727, "unit": "mean", "upc_code": "final", "vendor_id": 3787}, {"active": true, "cash_discount_group_id": 2012, "category_id": 5497, "description": "economy", "id": 5017, "item_code": "deal", "name": "federal", "price": 2418.14, "price_group_id": 2221, "secondary_category_id": 9760, "tax_group_id": 2291, "unit": "moment", "upc_code": "fast", "vendor_id": 7591}, {"active": true, "cash_discount_group_id": 3164, "category_id": 9768, "description": "we", "id": 7259, "item_code": "chance", "name": "available", "price": 6530.11, "price_group_id": 8962, "secondary_category_id": 7700, "tax_group_id": 9532, "unit": "front", "upc_code": "field", "vendor_id": 565}, {"active": true, "cash_discount_group_id": 2006, "category_id": 660, "description": "radio", "id": 9213, "item_code": "international", "name": "medical", "price": 9962.25, "price_group_id": 2359, "secondary_category_id": 1906, "tax_group_id": 947, "unit": "very", "upc_code": "anyone", "vendor_id": 4153}],
-  getOne: (id) => (Array.isArray([{"active": false, "cash_discount_group_id": 8356, "category_id": 8121, "description": "attorney", "id": 1387, "item_code": "pick", "name": "as", "price": 6922.22, "price_group_id": 8747, "secondary_category_id": 9256, "tax_group_id": 1539, "unit": "religious", "upc_code": "to", "vendor_id": 6170}, {"active": false, "cash_discount_group_id": 358, "category_id": 3244, "description": "million", "id": 2693, "item_code": "many", "name": "suggest", "price": 5339.03, "price_group_id": 3662, "secondary_category_id": 376, "tax_group_id": 533, "unit": "walk", "upc_code": "Mrs", "vendor_id": 852}, {"active": false, "cash_discount_group_id": 4438, "category_id": 1242, "description": "generation", "id": 2142, "item_code": "measure", "name": "push", "price": 4472.01, "price_group_id": 4440, "secondary_category_id": 8200, "tax_group_id": 8501, "unit": "point", "upc_code": "protect", "vendor_id": 2317}, {"active": true, "cash_discount_group_id": 7358, "category_id": 9799, "description": "detail", "id": 8975, "item_code": "doctor", "name": "benefit", "price": 674.46, "price_group_id": 9525, "secondary_category_id": 363, "tax_group_id": 3489, "unit": "yeah", "upc_code": "product", "vendor_id": 4086}, {"active": false, "cash_discount_group_id": 2492, "category_id": 7984, "description": "example", "id": 3732, "item_code": "if", "name": "eat", "price": 2729.03, "price_group_id": 9075, "secondary_category_id": 561, "tax_group_id": 9537, "unit": "only", "upc_code": "top", "vendor_id": 428}, {"active": true, "cash_discount_group_id": 4322, "category_id": 6543, "description": "can", "id": 7574, "item_code": "peace", "name": "research", "price": 4815.18, "price_group_id": 4642, "secondary_category_id": 2220, "tax_group_id": 1917, "unit": "talk", "upc_code": "where", "vendor_id": 3702}, {"active": false, "cash_discount_group_id": 6943, "category_id": 3888, "description": "establish", "id": 3363, "item_code": "those", "name": "doctor", "price": 5190.18, "price_group_id": 3171, "secondary_category_id": 651, "tax_group_id": 458, "unit": "wish", "upc_code": "radio", "vendor_id": 5253}, {"active": true, "cash_discount_group_id": 2557, "category_id": 4458, "description": "list", "id": 2469, "item_code": "receive", "name": "development", "price": 6592.56, "price_group_id": 9010, "secondary_category_id": 6353, "tax_group_id": 1656, "unit": "read", "upc_code": "case", "vendor_id": 6830}, {"active": false, "cash_discount_group_id": 7017, "category_id": 18, "description": "fall", "id": 2168, "item_code": "opportunity", "name": "ball", "price": 5404.03, "price_group_id": 6404, "secondary_category_id": 904, "tax_group_id": 5995, "unit": "true", "upc_code": "score", "vendor_id": 9103}, {"active": false, "cash_discount_group_id": 1653, "category_id": 1330, "description": "former", "id": 910, "item_code": "truth", "name": "business", "price": 2864.03, "price_group_id": 7544, "secondary_category_id": 762, "tax_group_id": 5981, "unit": "black", "upc_code": "budget", "vendor_id": 6768}, {"active": true, "cash_discount_group_id": 2860, "category_id": 1355, "description": "station", "id": 9946, "item_code": "girl", "name": "sometimes", "price": 3215.26, "price_group_id": 9808, "secondary_category_id": 9370, "tax_group_id": 3674, "unit": "information", "upc_code": "gas", "vendor_id": 5341}, {"active": true, "cash_discount_group_id": 345, "category_id": 1210, "description": "such", "id": 296, "item_code": "standard", "name": "event", "price": 6444.77, "price_group_id": 9233, "secondary_category_id": 4145, "tax_group_id": 1959, "unit": "environment", "upc_code": "section", "vendor_id": 2703}, {"active": true, "cash_discount_group_id": 260, "category_id": 3362, "description": "enter", "id": 9934, "item_code": "final", "name": "population", "price": 1529.44, "price_group_id": 8588, "secondary_category_id": 764, "tax_group_id": 5532, "unit": "institution", "upc_code": "brother", "vendor_id": 8487}, {"active": true, "cash_discount_group_id": 455, "category_id": 8006, "description": "half", "id": 1118, "item_code": "study", "name": "bad", "price": 5760.91, "price_group_id": 9492, "secondary_category_id": 7213, "tax_group_id": 2786, "unit": "in", "upc_code": "threat", "vendor_id": 4706}, {"active": false, "cash_discount_group_id": 4142, "category_id": 8505, "description": "think", "id": 8640, "item_code": "yet", "name": "there", "price": 7068.82, "price_group_id": 4935, "secondary_category_id": 6905, "tax_group_id": 5533, "unit": "fast", "upc_code": "level", "vendor_id": 9537}, {"active": true, "cash_discount_group_id": 1149, "category_id": 4435, "description": "soldier", "id": 3939, "item_code": "ago", "name": "fall", "price": 9052.2, "price_group_id": 2941, "secondary_category_id": 689, "tax_group_id": 3096, "unit": "country", "upc_code": "occur", "vendor_id": 2237}, {"active": true, "cash_discount_group_id": 5436, "category_id": 5986, "description": "join", "id": 7280, "item_code": "story", "name": "forget", "price": 3532.14, "price_group_id": 7285, "secondary_category_id": 9284, "tax_group_id": 2468, "unit": "these", "upc_code": "if", "vendor_id": 7611}, {"active": true, "cash_discount_group_id": 166, "category_id": 1166, "description": "group", "id": 5224, "item_code": "full", "name": "form", "price": 4225.49, "price_group_id": 8897, "secondary_category_id": 2432, "tax_group_id": 2870, "unit": "allow", "upc_code": "ten", "vendor_id": 1079}, {"active": false, "cash_discount_group_id": 8441, "category_id": 282, "description": "window", "id": 6798, "item_code": "skill", "name": "opportunity", "price": 2408.03, "price_group_id": 9807, "secondary_category_id": 4752, "tax_group_id": 3266, "unit": "north", "upc_code": "child", "vendor_id": 5488}, {"active": true, "cash_discount_group_id": 6600, "category_id": 6855, "description": "or", "id": 81, "item_code": "any", "name": "budget", "price": 7705.19, "price_group_id": 5820, "secondary_category_id": 3551, "tax_group_id": 4482, "unit": "clear", "upc_code": "song", "vendor_id": 2296}, {"active": true, "cash_discount_group_id": 2250, "category_id": 1357, "description": "receive", "id": 3176, "item_code": "allow", "name": "whose", "price": 9756.52, "price_group_id": 9733, "secondary_category_id": 9036, "tax_group_id": 4821, "unit": "pattern", "upc_code": "teacher", "vendor_id": 6241}, {"active": true, "cash_discount_group_id": 1180, "category_id": 7803, "description": "reason", "id": 2350, "item_code": "arm", "name": "stuff", "price": 3908.84, "price_group_id": 8785, "secondary_category_id": 773, "tax_group_id": 7727, "unit": "mean", "upc_code": "final", "vendor_id": 3787}, {"active": true, "cash_discount_group_id": 2012, "category_id": 5497, "description": "economy", "id": 5017, "item_code": "deal", "name": "federal", "price": 2418.14, "price_group_id": 2221, "secondary_category_id": 9760, "tax_group_id": 2291, "unit": "moment", "upc_code": "fast", "vendor_id": 7591}, {"active": true, "cash_discount_group_id": 3164, "category_id": 9768, "description": "we", "id": 7259, "item_code": "chance", "name": "available", "price": 6530.11, "price_group_id": 8962, "secondary_category_id": 7700, "tax_group_id": 9532, "unit": "front", "upc_code": "field", "vendor_id": 565}, {"active": true, "cash_discount_group_id": 2006, "category_id": 660, "description": "radio", "id": 9213, "item_code": "international", "name": "medical", "price": 9962.25, "price_group_id": 2359, "secondary_category_id": 1906, "tax_group_id": 947, "unit": "very", "upc_code": "anyone", "vendor_id": 4153}]) && [{"active": false, "cash_discount_group_id": 8356, "category_id": 8121, "description": "attorney", "id": 1387, "item_code": "pick", "name": "as", "price": 6922.22, "price_group_id": 8747, "secondary_category_id": 9256, "tax_group_id": 1539, "unit": "religious", "upc_code": "to", "vendor_id": 6170}, {"active": false, "cash_discount_group_id": 358, "category_id": 3244, "description": "million", "id": 2693, "item_code": "many", "name": "suggest", "price": 5339.03, "price_group_id": 3662, "secondary_category_id": 376, "tax_group_id": 533, "unit": "walk", "upc_code": "Mrs", "vendor_id": 852}, {"active": false, "cash_discount_group_id": 4438, "category_id": 1242, "description": "generation", "id": 2142, "item_code": "measure", "name": "push", "price": 4472.01, "price_group_id": 4440, "secondary_category_id": 8200, "tax_group_id": 8501, "unit": "point", "upc_code": "protect", "vendor_id": 2317}, {"active": true, "cash_discount_group_id": 7358, "category_id": 9799, "description": "detail", "id": 8975, "item_code": "doctor", "name": "benefit", "price": 674.46, "price_group_id": 9525, "secondary_category_id": 363, "tax_group_id": 3489, "unit": "yeah", "upc_code": "product", "vendor_id": 4086}, {"active": false, "cash_discount_group_id": 2492, "category_id": 7984, "description": "example", "id": 3732, "item_code": "if", "name": "eat", "price": 2729.03, "price_group_id": 9075, "secondary_category_id": 561, "tax_group_id": 9537, "unit": "only", "upc_code": "top", "vendor_id": 428}, {"active": true, "cash_discount_group_id": 4322, "category_id": 6543, "description": "can", "id": 7574, "item_code": "peace", "name": "research", "price": 4815.18, "price_group_id": 4642, "secondary_category_id": 2220, "tax_group_id": 1917, "unit": "talk", "upc_code": "where", "vendor_id": 3702}, {"active": false, "cash_discount_group_id": 6943, "category_id": 3888, "description": "establish", "id": 3363, "item_code": "those", "name": "doctor", "price": 5190.18, "price_group_id": 3171, "secondary_category_id": 651, "tax_group_id": 458, "unit": "wish", "upc_code": "radio", "vendor_id": 5253}, {"active": true, "cash_discount_group_id": 2557, "category_id": 4458, "description": "list", "id": 2469, "item_code": "receive", "name": "development", "price": 6592.56, "price_group_id": 9010, "secondary_category_id": 6353, "tax_group_id": 1656, "unit": "read", "upc_code": "case", "vendor_id": 6830}, {"active": false, "cash_discount_group_id": 7017, "category_id": 18, "description": "fall", "id": 2168, "item_code": "opportunity", "name": "ball", "price": 5404.03, "price_group_id": 6404, "secondary_category_id": 904, "tax_group_id": 5995, "unit": "true", "upc_code": "score", "vendor_id": 9103}, {"active": false, "cash_discount_group_id": 1653, "category_id": 1330, "description": "former", "id": 910, "item_code": "truth", "name": "business", "price": 2864.03, "price_group_id": 7544, "secondary_category_id": 762, "tax_group_id": 5981, "unit": "black", "upc_code": "budget", "vendor_id": 6768}, {"active": true, "cash_discount_group_id": 2860, "category_id": 1355, "description": "station", "id": 9946, "item_code": "girl", "name": "sometimes", "price": 3215.26, "price_group_id": 9808, "secondary_category_id": 9370, "tax_group_id": 3674, "unit": "information", "upc_code": "gas", "vendor_id": 5341}, {"active": true, "cash_discount_group_id": 345, "category_id": 1210, "description": "such", "id": 296, "item_code": "standard", "name": "event", "price": 6444.77, "price_group_id": 9233, "secondary_category_id": 4145, "tax_group_id": 1959, "unit": "environment", "upc_code": "section", "vendor_id": 2703}, {"active": true, "cash_discount_group_id": 260, "category_id": 3362, "description": "enter", "id": 9934, "item_code": "final", "name": "population", "price": 1529.44, "price_group_id": 8588, "secondary_category_id": 764, "tax_group_id": 5532, "unit": "institution", "upc_code": "brother", "vendor_id": 8487}, {"active": true, "cash_discount_group_id": 455, "category_id": 8006, "description": "half", "id": 1118, "item_code": "study", "name": "bad", "price": 5760.91, "price_group_id": 9492, "secondary_category_id": 7213, "tax_group_id": 2786, "unit": "in", "upc_code": "threat", "vendor_id": 4706}, {"active": false, "cash_discount_group_id": 4142, "category_id": 8505, "description": "think", "id": 8640, "item_code": "yet", "name": "there", "price": 7068.82, "price_group_id": 4935, "secondary_category_id": 6905, "tax_group_id": 5533, "unit": "fast", "upc_code": "level", "vendor_id": 9537}, {"active": true, "cash_discount_group_id": 1149, "category_id": 4435, "description": "soldier", "id": 3939, "item_code": "ago", "name": "fall", "price": 9052.2, "price_group_id": 2941, "secondary_category_id": 689, "tax_group_id": 3096, "unit": "country", "upc_code": "occur", "vendor_id": 2237}, {"active": true, "cash_discount_group_id": 5436, "category_id": 5986, "description": "join", "id": 7280, "item_code": "story", "name": "forget", "price": 3532.14, "price_group_id": 7285, "secondary_category_id": 9284, "tax_group_id": 2468, "unit": "these", "upc_code": "if", "vendor_id": 7611}, {"active": true, "cash_discount_group_id": 166, "category_id": 1166, "description": "group", "id": 5224, "item_code": "full", "name": "form", "price": 4225.49, "price_group_id": 8897, "secondary_category_id": 2432, "tax_group_id": 2870, "unit": "allow", "upc_code": "ten", "vendor_id": 1079}, {"active": false, "cash_discount_group_id": 8441, "category_id": 282, "description": "window", "id": 6798, "item_code": "skill", "name": "opportunity", "price": 2408.03, "price_group_id": 9807, "secondary_category_id": 4752, "tax_group_id": 3266, "unit": "north", "upc_code": "child", "vendor_id": 5488}, {"active": true, "cash_discount_group_id": 6600, "category_id": 6855, "description": "or", "id": 81, "item_code": "any", "name": "budget", "price": 7705.19, "price_group_id": 5820, "secondary_category_id": 3551, "tax_group_id": 4482, "unit": "clear", "upc_code": "song", "vendor_id": 2296}, {"active": true, "cash_discount_group_id": 2250, "category_id": 1357, "description": "receive", "id": 3176, "item_code": "allow", "name": "whose", "price": 9756.52, "price_group_id": 9733, "secondary_category_id": 9036, "tax_group_id": 4821, "unit": "pattern", "upc_code": "teacher", "vendor_id": 6241}, {"active": true, "cash_discount_group_id": 1180, "category_id": 7803, "description": "reason", "id": 2350, "item_code": "arm", "name": "stuff", "price": 3908.84, "price_group_id": 8785, "secondary_category_id": 773, "tax_group_id": 7727, "unit": "mean", "upc_code": "final", "vendor_id": 3787}, {"active": true, "cash_discount_group_id": 2012, "category_id": 5497, "description": "economy", "id": 5017, "item_code": "deal", "name": "federal", "price": 2418.14, "price_group_id": 2221, "secondary_category_id": 9760, "tax_group_id": 2291, "unit": "moment", "upc_code": "fast", "vendor_id": 7591}, {"active": true, "cash_discount_group_id": 3164, "category_id": 9768, "description": "we", "id": 7259, "item_code": "chance", "name": "available", "price": 6530.11, "price_group_id": 8962, "secondary_category_id": 7700, "tax_group_id": 9532, "unit": "front", "upc_code": "field", "vendor_id": 565}, {"active": true, "cash_discount_group_id": 2006, "category_id": 660, "description": "radio", "id": 9213, "item_code": "international", "name": "medical", "price": 9962.25, "price_group_id": 2359, "secondary_category_id": 1906, "tax_group_id": 947, "unit": "very", "upc_code": "anyone", "vendor_id": 4153}].length ? [{"active": false, "cash_discount_group_id": 8356, "category_id": 8121, "description": "attorney", "id": 1387, "item_code": "pick", "name": "as", "price": 6922.22, "price_group_id": 8747, "secondary_category_id": 9256, "tax_group_id": 1539, "unit": "religious", "upc_code": "to", "vendor_id": 6170}, {"active": false, "cash_discount_group_id": 358, "category_id": 3244, "description": "million", "id": 2693, "item_code": "many", "name": "suggest", "price": 5339.03, "price_group_id": 3662, "secondary_category_id": 376, "tax_group_id": 533, "unit": "walk", "upc_code": "Mrs", "vendor_id": 852}, {"active": false, "cash_discount_group_id": 4438, "category_id": 1242, "description": "generation", "id": 2142, "item_code": "measure", "name": "push", "price": 4472.01, "price_group_id": 4440, "secondary_category_id": 8200, "tax_group_id": 8501, "unit": "point", "upc_code": "protect", "vendor_id": 2317}, {"active": true, "cash_discount_group_id": 7358, "category_id": 9799, "description": "detail", "id": 8975, "item_code": "doctor", "name": "benefit", "price": 674.46, "price_group_id": 9525, "secondary_category_id": 363, "tax_group_id": 3489, "unit": "yeah", "upc_code": "product", "vendor_id": 4086}, {"active": false, "cash_discount_group_id": 2492, "category_id": 7984, "description": "example", "id": 3732, "item_code": "if", "name": "eat", "price": 2729.03, "price_group_id": 9075, "secondary_category_id": 561, "tax_group_id": 9537, "unit": "only", "upc_code": "top", "vendor_id": 428}, {"active": true, "cash_discount_group_id": 4322, "category_id": 6543, "description": "can", "id": 7574, "item_code": "peace", "name": "research", "price": 4815.18, "price_group_id": 4642, "secondary_category_id": 2220, "tax_group_id": 1917, "unit": "talk", "upc_code": "where", "vendor_id": 3702}, {"active": false, "cash_discount_group_id": 6943, "category_id": 3888, "description": "establish", "id": 3363, "item_code": "those", "name": "doctor", "price": 5190.18, "price_group_id": 3171, "secondary_category_id": 651, "tax_group_id": 458, "unit": "wish", "upc_code": "radio", "vendor_id": 5253}, {"active": true, "cash_discount_group_id": 2557, "category_id": 4458, "description": "list", "id": 2469, "item_code": "receive", "name": "development", "price": 6592.56, "price_group_id": 9010, "secondary_category_id": 6353, "tax_group_id": 1656, "unit": "read", "upc_code": "case", "vendor_id": 6830}, {"active": false, "cash_discount_group_id": 7017, "category_id": 18, "description": "fall", "id": 2168, "item_code": "opportunity", "name": "ball", "price": 5404.03, "price_group_id": 6404, "secondary_category_id": 904, "tax_group_id": 5995, "unit": "true", "upc_code": "score", "vendor_id": 9103}, {"active": false, "cash_discount_group_id": 1653, "category_id": 1330, "description": "former", "id": 910, "item_code": "truth", "name": "business", "price": 2864.03, "price_group_id": 7544, "secondary_category_id": 762, "tax_group_id": 5981, "unit": "black", "upc_code": "budget", "vendor_id": 6768}, {"active": true, "cash_discount_group_id": 2860, "category_id": 1355, "description": "station", "id": 9946, "item_code": "girl", "name": "sometimes", "price": 3215.26, "price_group_id": 9808, "secondary_category_id": 9370, "tax_group_id": 3674, "unit": "information", "upc_code": "gas", "vendor_id": 5341}, {"active": true, "cash_discount_group_id": 345, "category_id": 1210, "description": "such", "id": 296, "item_code": "standard", "name": "event", "price": 6444.77, "price_group_id": 9233, "secondary_category_id": 4145, "tax_group_id": 1959, "unit": "environment", "upc_code": "section", "vendor_id": 2703}, {"active": true, "cash_discount_group_id": 260, "category_id": 3362, "description": "enter", "id": 9934, "item_code": "final", "name": "population", "price": 1529.44, "price_group_id": 8588, "secondary_category_id": 764, "tax_group_id": 5532, "unit": "institution", "upc_code": "brother", "vendor_id": 8487}, {"active": true, "cash_discount_group_id": 455, "category_id": 8006, "description": "half", "id": 1118, "item_code": "study", "name": "bad", "price": 5760.91, "price_group_id": 9492, "secondary_category_id": 7213, "tax_group_id": 2786, "unit": "in", "upc_code": "threat", "vendor_id": 4706}, {"active": false, "cash_discount_group_id": 4142, "category_id": 8505, "description": "think", "id": 8640, "item_code": "yet", "name": "there", "price": 7068.82, "price_group_id": 4935, "secondary_category_id": 6905, "tax_group_id": 5533, "unit": "fast", "upc_code": "level", "vendor_id": 9537}, {"active": true, "cash_discount_group_id": 1149, "category_id": 4435, "description": "soldier", "id": 3939, "item_code": "ago", "name": "fall", "price": 9052.2, "price_group_id": 2941, "secondary_category_id": 689, "tax_group_id": 3096, "unit": "country", "upc_code": "occur", "vendor_id": 2237}, {"active": true, "cash_discount_group_id": 5436, "category_id": 5986, "description": "join", "id": 7280, "item_code": "story", "name": "forget", "price": 3532.14, "price_group_id": 7285, "secondary_category_id": 9284, "tax_group_id": 2468, "unit": "these", "upc_code": "if", "vendor_id": 7611}, {"active": true, "cash_discount_group_id": 166, "category_id": 1166, "description": "group", "id": 5224, "item_code": "full", "name": "form", "price": 4225.49, "price_group_id": 8897, "secondary_category_id": 2432, "tax_group_id": 2870, "unit": "allow", "upc_code": "ten", "vendor_id": 1079}, {"active": false, "cash_discount_group_id": 8441, "category_id": 282, "description": "window", "id": 6798, "item_code": "skill", "name": "opportunity", "price": 2408.03, "price_group_id": 9807, "secondary_category_id": 4752, "tax_group_id": 3266, "unit": "north", "upc_code": "child", "vendor_id": 5488}, {"active": true, "cash_discount_group_id": 6600, "category_id": 6855, "description": "or", "id": 81, "item_code": "any", "name": "budget", "price": 7705.19, "price_group_id": 5820, "secondary_category_id": 3551, "tax_group_id": 4482, "unit": "clear", "upc_code": "song", "vendor_id": 2296}, {"active": true, "cash_discount_group_id": 2250, "category_id": 1357, "description": "receive", "id": 3176, "item_code": "allow", "name": "whose", "price": 9756.52, "price_group_id": 9733, "secondary_category_id": 9036, "tax_group_id": 4821, "unit": "pattern", "upc_code": "teacher", "vendor_id": 6241}, {"active": true, "cash_discount_group_id": 1180, "category_id": 7803, "description": "reason", "id": 2350, "item_code": "arm", "name": "stuff", "price": 3908.84, "price_group_id": 8785, "secondary_category_id": 773, "tax_group_id": 7727, "unit": "mean", "upc_code": "final", "vendor_id": 3787}, {"active": true, "cash_discount_group_id": 2012, "category_id": 5497, "description": "economy", "id": 5017, "item_code": "deal", "name": "federal", "price": 2418.14, "price_group_id": 2221, "secondary_category_id": 9760, "tax_group_id": 2291, "unit": "moment", "upc_code": "fast", "vendor_id": 7591}, {"active": true, "cash_discount_group_id": 3164, "category_id": 9768, "description": "we", "id": 7259, "item_code": "chance", "name": "available", "price": 6530.11, "price_group_id": 8962, "secondary_category_id": 7700, "tax_group_id": 9532, "unit": "front", "upc_code": "field", "vendor_id": 565}, {"active": true, "cash_discount_group_id": 2006, "category_id": 660, "description": "radio", "id": 9213, "item_code": "international", "name": "medical", "price": 9962.25, "price_group_id": 2359, "secondary_category_id": 1906, "tax_group_id": 947, "unit": "very", "upc_code": "anyone", "vendor_id": 4153}][0] : {}),
+  get: () => [{"id": 1, "item_code": "COKE500", "name": "Coke 500ml", "price": 1.25}],
+  getOne: (id) => (Array.isArray([{"id": 1, "item_code": "COKE500", "name": "Coke 500ml", "price": 1.25}]) && [{"id": 1, "item_code": "COKE500", "name": "Coke 500ml", "price": 1.25}].length ? [{"id": 1, "item_code": "COKE500", "name": "Coke 500ml", "price": 1.25}][0] : {}),
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };
+// Auto-generated by code_generator.py — per-entity mock options
+// entity: item
+
+export async function options() {
+  return {
+  "entity": "item",
+  "primary_key": "id",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "active",
+      "type": "bool",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": true
+    },
+    {
+      "name": "cash_discount_group_id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": "cash_discount_group.id",
+      "default": null
+    },
+    {
+      "name": "category_id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": "item_category.id",
+      "default": null
+    },
+    {
+      "name": "description",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "item_code",
+      "type": "str",
+      "label": null,
+      "required": true,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "label": null,
+      "required": true,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "price",
+      "type": "float",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "price_group_id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": "price_group.id",
+      "default": null
+    },
+    {
+      "name": "secondary_category_id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": "secondary_category.id",
+      "default": null
+    },
+    {
+      "name": "tax_group_id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": "tax_group.id",
+      "default": null
+    },
+    {
+      "name": "unit",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "upc_code",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "vendor_id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": "vendor.id",
+      "default": null
+    }
+  ],
+  "admin": {
+    "table": {
+      "delete_confirmation": true,
+      "inline_edit": false,
+      "show_filters": true,
+      "page_size": 20,
+      "global_search": true,
+      "column_search": false,
+      "sortable": true,
+      "sticky_header": false
+    },
+    "form": null,
+    "list": null
+  }
+}
+}

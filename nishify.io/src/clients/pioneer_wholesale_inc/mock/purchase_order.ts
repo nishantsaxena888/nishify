@@ -1,7 +1,76 @@
 export const purchase_order = {
   options: () => ["id", "vendor_id", "date", "status"],
-  get: () => [{"date": "2025-06-11T07:04:19.754709", "id": 5731, "status": "field", "vendor_id": 6993}, {"date": "2025-07-25T10:30:16.873333", "id": 7365, "status": "within", "vendor_id": 8576}, {"date": "2025-04-15T23:11:26.827129", "id": 8968, "status": "threat", "vendor_id": 3389}, {"date": "2025-05-09T23:11:02.977306", "id": 2901, "status": "force", "vendor_id": 2391}, {"date": "2025-02-13T14:38:45.302415", "id": 3898, "status": "natural", "vendor_id": 5046}, {"date": "2025-05-09T11:26:05.311815", "id": 9600, "status": "guy", "vendor_id": 439}, {"date": "2025-03-04T23:10:08.429032", "id": 1610, "status": "open", "vendor_id": 3219}, {"date": "2025-07-07T14:30:03.213537", "id": 6786, "status": "gas", "vendor_id": 9627}, {"date": "2025-01-12T05:36:32.905184", "id": 3667, "status": "wrong", "vendor_id": 5873}, {"date": "2025-05-07T07:32:18.524780", "id": 2566, "status": "hear", "vendor_id": 5125}, {"date": "2025-01-27T23:47:36.426961", "id": 4449, "status": "tell", "vendor_id": 4573}, {"date": "2025-01-31T01:36:19.817174", "id": 4332, "status": "effort", "vendor_id": 7330}, {"date": "2025-06-21T00:26:08.510200", "id": 3208, "status": "wall", "vendor_id": 1323}, {"date": "2025-01-25T11:39:45.624449", "id": 1229, "status": "look", "vendor_id": 6673}, {"date": "2025-06-16T15:07:22.929669", "id": 7129, "status": "growth", "vendor_id": 6882}, {"date": "2025-02-24T05:02:37.023279", "id": 7787, "status": "result", "vendor_id": 7712}, {"date": "2025-02-20T03:41:38.271194", "id": 8385, "status": "field", "vendor_id": 7850}, {"date": "2025-03-10T03:26:29.042453", "id": 945, "status": "protect", "vendor_id": 787}, {"date": "2025-01-27T20:49:41.735273", "id": 1030, "status": "significant", "vendor_id": 4187}, {"date": "2025-04-27T00:17:03.454667", "id": 4451, "status": "media", "vendor_id": 1119}, {"date": "2025-05-09T20:57:50.675148", "id": 6017, "status": "response", "vendor_id": 8555}, {"date": "2025-07-24T10:35:17.608367", "id": 5146, "status": "and", "vendor_id": 7451}, {"date": "2025-01-23T22:55:45.939000", "id": 3875, "status": "read", "vendor_id": 9459}, {"date": "2025-06-17T20:47:52.194392", "id": 5264, "status": "poor", "vendor_id": 9429}, {"date": "2025-05-27T21:30:43.432400", "id": 6837, "status": "painting", "vendor_id": 6622}],
-  getOne: (id) => (Array.isArray([{"date": "2025-06-11T07:04:19.754709", "id": 5731, "status": "field", "vendor_id": 6993}, {"date": "2025-07-25T10:30:16.873333", "id": 7365, "status": "within", "vendor_id": 8576}, {"date": "2025-04-15T23:11:26.827129", "id": 8968, "status": "threat", "vendor_id": 3389}, {"date": "2025-05-09T23:11:02.977306", "id": 2901, "status": "force", "vendor_id": 2391}, {"date": "2025-02-13T14:38:45.302415", "id": 3898, "status": "natural", "vendor_id": 5046}, {"date": "2025-05-09T11:26:05.311815", "id": 9600, "status": "guy", "vendor_id": 439}, {"date": "2025-03-04T23:10:08.429032", "id": 1610, "status": "open", "vendor_id": 3219}, {"date": "2025-07-07T14:30:03.213537", "id": 6786, "status": "gas", "vendor_id": 9627}, {"date": "2025-01-12T05:36:32.905184", "id": 3667, "status": "wrong", "vendor_id": 5873}, {"date": "2025-05-07T07:32:18.524780", "id": 2566, "status": "hear", "vendor_id": 5125}, {"date": "2025-01-27T23:47:36.426961", "id": 4449, "status": "tell", "vendor_id": 4573}, {"date": "2025-01-31T01:36:19.817174", "id": 4332, "status": "effort", "vendor_id": 7330}, {"date": "2025-06-21T00:26:08.510200", "id": 3208, "status": "wall", "vendor_id": 1323}, {"date": "2025-01-25T11:39:45.624449", "id": 1229, "status": "look", "vendor_id": 6673}, {"date": "2025-06-16T15:07:22.929669", "id": 7129, "status": "growth", "vendor_id": 6882}, {"date": "2025-02-24T05:02:37.023279", "id": 7787, "status": "result", "vendor_id": 7712}, {"date": "2025-02-20T03:41:38.271194", "id": 8385, "status": "field", "vendor_id": 7850}, {"date": "2025-03-10T03:26:29.042453", "id": 945, "status": "protect", "vendor_id": 787}, {"date": "2025-01-27T20:49:41.735273", "id": 1030, "status": "significant", "vendor_id": 4187}, {"date": "2025-04-27T00:17:03.454667", "id": 4451, "status": "media", "vendor_id": 1119}, {"date": "2025-05-09T20:57:50.675148", "id": 6017, "status": "response", "vendor_id": 8555}, {"date": "2025-07-24T10:35:17.608367", "id": 5146, "status": "and", "vendor_id": 7451}, {"date": "2025-01-23T22:55:45.939000", "id": 3875, "status": "read", "vendor_id": 9459}, {"date": "2025-06-17T20:47:52.194392", "id": 5264, "status": "poor", "vendor_id": 9429}, {"date": "2025-05-27T21:30:43.432400", "id": 6837, "status": "painting", "vendor_id": 6622}]) && [{"date": "2025-06-11T07:04:19.754709", "id": 5731, "status": "field", "vendor_id": 6993}, {"date": "2025-07-25T10:30:16.873333", "id": 7365, "status": "within", "vendor_id": 8576}, {"date": "2025-04-15T23:11:26.827129", "id": 8968, "status": "threat", "vendor_id": 3389}, {"date": "2025-05-09T23:11:02.977306", "id": 2901, "status": "force", "vendor_id": 2391}, {"date": "2025-02-13T14:38:45.302415", "id": 3898, "status": "natural", "vendor_id": 5046}, {"date": "2025-05-09T11:26:05.311815", "id": 9600, "status": "guy", "vendor_id": 439}, {"date": "2025-03-04T23:10:08.429032", "id": 1610, "status": "open", "vendor_id": 3219}, {"date": "2025-07-07T14:30:03.213537", "id": 6786, "status": "gas", "vendor_id": 9627}, {"date": "2025-01-12T05:36:32.905184", "id": 3667, "status": "wrong", "vendor_id": 5873}, {"date": "2025-05-07T07:32:18.524780", "id": 2566, "status": "hear", "vendor_id": 5125}, {"date": "2025-01-27T23:47:36.426961", "id": 4449, "status": "tell", "vendor_id": 4573}, {"date": "2025-01-31T01:36:19.817174", "id": 4332, "status": "effort", "vendor_id": 7330}, {"date": "2025-06-21T00:26:08.510200", "id": 3208, "status": "wall", "vendor_id": 1323}, {"date": "2025-01-25T11:39:45.624449", "id": 1229, "status": "look", "vendor_id": 6673}, {"date": "2025-06-16T15:07:22.929669", "id": 7129, "status": "growth", "vendor_id": 6882}, {"date": "2025-02-24T05:02:37.023279", "id": 7787, "status": "result", "vendor_id": 7712}, {"date": "2025-02-20T03:41:38.271194", "id": 8385, "status": "field", "vendor_id": 7850}, {"date": "2025-03-10T03:26:29.042453", "id": 945, "status": "protect", "vendor_id": 787}, {"date": "2025-01-27T20:49:41.735273", "id": 1030, "status": "significant", "vendor_id": 4187}, {"date": "2025-04-27T00:17:03.454667", "id": 4451, "status": "media", "vendor_id": 1119}, {"date": "2025-05-09T20:57:50.675148", "id": 6017, "status": "response", "vendor_id": 8555}, {"date": "2025-07-24T10:35:17.608367", "id": 5146, "status": "and", "vendor_id": 7451}, {"date": "2025-01-23T22:55:45.939000", "id": 3875, "status": "read", "vendor_id": 9459}, {"date": "2025-06-17T20:47:52.194392", "id": 5264, "status": "poor", "vendor_id": 9429}, {"date": "2025-05-27T21:30:43.432400", "id": 6837, "status": "painting", "vendor_id": 6622}].length ? [{"date": "2025-06-11T07:04:19.754709", "id": 5731, "status": "field", "vendor_id": 6993}, {"date": "2025-07-25T10:30:16.873333", "id": 7365, "status": "within", "vendor_id": 8576}, {"date": "2025-04-15T23:11:26.827129", "id": 8968, "status": "threat", "vendor_id": 3389}, {"date": "2025-05-09T23:11:02.977306", "id": 2901, "status": "force", "vendor_id": 2391}, {"date": "2025-02-13T14:38:45.302415", "id": 3898, "status": "natural", "vendor_id": 5046}, {"date": "2025-05-09T11:26:05.311815", "id": 9600, "status": "guy", "vendor_id": 439}, {"date": "2025-03-04T23:10:08.429032", "id": 1610, "status": "open", "vendor_id": 3219}, {"date": "2025-07-07T14:30:03.213537", "id": 6786, "status": "gas", "vendor_id": 9627}, {"date": "2025-01-12T05:36:32.905184", "id": 3667, "status": "wrong", "vendor_id": 5873}, {"date": "2025-05-07T07:32:18.524780", "id": 2566, "status": "hear", "vendor_id": 5125}, {"date": "2025-01-27T23:47:36.426961", "id": 4449, "status": "tell", "vendor_id": 4573}, {"date": "2025-01-31T01:36:19.817174", "id": 4332, "status": "effort", "vendor_id": 7330}, {"date": "2025-06-21T00:26:08.510200", "id": 3208, "status": "wall", "vendor_id": 1323}, {"date": "2025-01-25T11:39:45.624449", "id": 1229, "status": "look", "vendor_id": 6673}, {"date": "2025-06-16T15:07:22.929669", "id": 7129, "status": "growth", "vendor_id": 6882}, {"date": "2025-02-24T05:02:37.023279", "id": 7787, "status": "result", "vendor_id": 7712}, {"date": "2025-02-20T03:41:38.271194", "id": 8385, "status": "field", "vendor_id": 7850}, {"date": "2025-03-10T03:26:29.042453", "id": 945, "status": "protect", "vendor_id": 787}, {"date": "2025-01-27T20:49:41.735273", "id": 1030, "status": "significant", "vendor_id": 4187}, {"date": "2025-04-27T00:17:03.454667", "id": 4451, "status": "media", "vendor_id": 1119}, {"date": "2025-05-09T20:57:50.675148", "id": 6017, "status": "response", "vendor_id": 8555}, {"date": "2025-07-24T10:35:17.608367", "id": 5146, "status": "and", "vendor_id": 7451}, {"date": "2025-01-23T22:55:45.939000", "id": 3875, "status": "read", "vendor_id": 9459}, {"date": "2025-06-17T20:47:52.194392", "id": 5264, "status": "poor", "vendor_id": 9429}, {"date": "2025-05-27T21:30:43.432400", "id": 6837, "status": "painting", "vendor_id": 6622}][0] : {}),
+  get: () => [{"id": 1, "vendor_id": 1, "date": "2024-07-01T10:00:00", "status": "Submitted"}],
+  getOne: (id) => (Array.isArray([{"id": 1, "vendor_id": 1, "date": "2024-07-01T10:00:00", "status": "Submitted"}]) && [{"id": 1, "vendor_id": 1, "date": "2024-07-01T10:00:00", "status": "Submitted"}].length ? [{"id": 1, "vendor_id": 1, "date": "2024-07-01T10:00:00", "status": "Submitted"}][0] : {}),
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };
+// Auto-generated by code_generator.py — per-entity mock options
+// entity: purchase_order
+
+export async function options() {
+  return {
+  "entity": "purchase_order",
+  "primary_key": "id",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "date",
+      "type": "datetime",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "status",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "vendor_id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": "vendor.id",
+      "default": null
+    }
+  ],
+  "admin": {
+    "table": {
+      "delete_confirmation": true,
+      "inline_edit": false,
+      "show_filters": true,
+      "page_size": 20,
+      "global_search": true,
+      "column_search": false,
+      "sortable": true,
+      "sticky_header": false
+    },
+    "form": null,
+    "list": null
+  }
+}
+}

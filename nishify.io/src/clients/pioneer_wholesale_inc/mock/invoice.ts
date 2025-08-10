@@ -1,7 +1,76 @@
 export const invoice = {
   options: () => ["id", "customer_id", "date", "status"],
-  get: () => [{"customer_id": 8404, "date": "2025-04-22T01:42:11.761530", "id": 6262, "status": "TV"}, {"customer_id": 8216, "date": "2025-01-06T16:04:59.108989", "id": 3048, "status": "drug"}, {"customer_id": 2033, "date": "2025-02-22T22:53:46.378986", "id": 9686, "status": "power"}, {"customer_id": 3461, "date": "2025-08-07T17:31:33.238913", "id": 3508, "status": "federal"}, {"customer_id": 2862, "date": "2025-04-10T12:10:02.533232", "id": 9416, "status": "meeting"}, {"customer_id": 9377, "date": "2025-07-27T07:04:25.989679", "id": 6563, "status": "theory"}, {"customer_id": 2939, "date": "2025-04-12T09:37:54.507756", "id": 2833, "status": "away"}, {"customer_id": 4140, "date": "2025-02-05T12:37:07.188000", "id": 1032, "status": "never"}, {"customer_id": 7543, "date": "2025-07-22T06:06:05.503588", "id": 3258, "status": "full"}, {"customer_id": 4302, "date": "2025-07-04T00:48:04.021612", "id": 301, "status": "scene"}, {"customer_id": 73, "date": "2025-05-01T19:06:45.967931", "id": 5744, "status": "pattern"}, {"customer_id": 9567, "date": "2025-05-27T10:44:46.485209", "id": 4367, "status": "teach"}, {"customer_id": 4676, "date": "2025-01-02T04:21:14.956449", "id": 4745, "status": "buy"}, {"customer_id": 4958, "date": "2025-03-11T13:18:28.728584", "id": 9116, "status": "investment"}, {"customer_id": 6702, "date": "2025-05-20T17:28:21.093052", "id": 42, "status": "cold"}, {"customer_id": 6122, "date": "2025-02-13T12:22:36.521991", "id": 4518, "status": "part"}, {"customer_id": 8102, "date": "2025-05-18T12:10:10.461735", "id": 2081, "status": "speech"}, {"customer_id": 9752, "date": "2025-03-30T01:05:44.377743", "id": 4309, "status": "head"}, {"customer_id": 6973, "date": "2025-05-22T04:24:38.243773", "id": 882, "status": "think"}, {"customer_id": 6794, "date": "2025-01-09T14:39:30.011758", "id": 5136, "status": "reveal"}, {"customer_id": 6706, "date": "2025-02-01T01:57:06.378379", "id": 4459, "status": "fly"}, {"customer_id": 4915, "date": "2025-05-30T22:18:12.994462", "id": 2130, "status": "call"}, {"customer_id": 7020, "date": "2025-01-26T07:45:10.669533", "id": 4581, "status": "hospital"}, {"customer_id": 1110, "date": "2025-03-03T15:24:36.689475", "id": 8110, "status": "call"}, {"customer_id": 1000, "date": "2025-04-03T05:01:41.386006", "id": 94, "status": "condition"}],
-  getOne: (id) => (Array.isArray([{"customer_id": 8404, "date": "2025-04-22T01:42:11.761530", "id": 6262, "status": "TV"}, {"customer_id": 8216, "date": "2025-01-06T16:04:59.108989", "id": 3048, "status": "drug"}, {"customer_id": 2033, "date": "2025-02-22T22:53:46.378986", "id": 9686, "status": "power"}, {"customer_id": 3461, "date": "2025-08-07T17:31:33.238913", "id": 3508, "status": "federal"}, {"customer_id": 2862, "date": "2025-04-10T12:10:02.533232", "id": 9416, "status": "meeting"}, {"customer_id": 9377, "date": "2025-07-27T07:04:25.989679", "id": 6563, "status": "theory"}, {"customer_id": 2939, "date": "2025-04-12T09:37:54.507756", "id": 2833, "status": "away"}, {"customer_id": 4140, "date": "2025-02-05T12:37:07.188000", "id": 1032, "status": "never"}, {"customer_id": 7543, "date": "2025-07-22T06:06:05.503588", "id": 3258, "status": "full"}, {"customer_id": 4302, "date": "2025-07-04T00:48:04.021612", "id": 301, "status": "scene"}, {"customer_id": 73, "date": "2025-05-01T19:06:45.967931", "id": 5744, "status": "pattern"}, {"customer_id": 9567, "date": "2025-05-27T10:44:46.485209", "id": 4367, "status": "teach"}, {"customer_id": 4676, "date": "2025-01-02T04:21:14.956449", "id": 4745, "status": "buy"}, {"customer_id": 4958, "date": "2025-03-11T13:18:28.728584", "id": 9116, "status": "investment"}, {"customer_id": 6702, "date": "2025-05-20T17:28:21.093052", "id": 42, "status": "cold"}, {"customer_id": 6122, "date": "2025-02-13T12:22:36.521991", "id": 4518, "status": "part"}, {"customer_id": 8102, "date": "2025-05-18T12:10:10.461735", "id": 2081, "status": "speech"}, {"customer_id": 9752, "date": "2025-03-30T01:05:44.377743", "id": 4309, "status": "head"}, {"customer_id": 6973, "date": "2025-05-22T04:24:38.243773", "id": 882, "status": "think"}, {"customer_id": 6794, "date": "2025-01-09T14:39:30.011758", "id": 5136, "status": "reveal"}, {"customer_id": 6706, "date": "2025-02-01T01:57:06.378379", "id": 4459, "status": "fly"}, {"customer_id": 4915, "date": "2025-05-30T22:18:12.994462", "id": 2130, "status": "call"}, {"customer_id": 7020, "date": "2025-01-26T07:45:10.669533", "id": 4581, "status": "hospital"}, {"customer_id": 1110, "date": "2025-03-03T15:24:36.689475", "id": 8110, "status": "call"}, {"customer_id": 1000, "date": "2025-04-03T05:01:41.386006", "id": 94, "status": "condition"}]) && [{"customer_id": 8404, "date": "2025-04-22T01:42:11.761530", "id": 6262, "status": "TV"}, {"customer_id": 8216, "date": "2025-01-06T16:04:59.108989", "id": 3048, "status": "drug"}, {"customer_id": 2033, "date": "2025-02-22T22:53:46.378986", "id": 9686, "status": "power"}, {"customer_id": 3461, "date": "2025-08-07T17:31:33.238913", "id": 3508, "status": "federal"}, {"customer_id": 2862, "date": "2025-04-10T12:10:02.533232", "id": 9416, "status": "meeting"}, {"customer_id": 9377, "date": "2025-07-27T07:04:25.989679", "id": 6563, "status": "theory"}, {"customer_id": 2939, "date": "2025-04-12T09:37:54.507756", "id": 2833, "status": "away"}, {"customer_id": 4140, "date": "2025-02-05T12:37:07.188000", "id": 1032, "status": "never"}, {"customer_id": 7543, "date": "2025-07-22T06:06:05.503588", "id": 3258, "status": "full"}, {"customer_id": 4302, "date": "2025-07-04T00:48:04.021612", "id": 301, "status": "scene"}, {"customer_id": 73, "date": "2025-05-01T19:06:45.967931", "id": 5744, "status": "pattern"}, {"customer_id": 9567, "date": "2025-05-27T10:44:46.485209", "id": 4367, "status": "teach"}, {"customer_id": 4676, "date": "2025-01-02T04:21:14.956449", "id": 4745, "status": "buy"}, {"customer_id": 4958, "date": "2025-03-11T13:18:28.728584", "id": 9116, "status": "investment"}, {"customer_id": 6702, "date": "2025-05-20T17:28:21.093052", "id": 42, "status": "cold"}, {"customer_id": 6122, "date": "2025-02-13T12:22:36.521991", "id": 4518, "status": "part"}, {"customer_id": 8102, "date": "2025-05-18T12:10:10.461735", "id": 2081, "status": "speech"}, {"customer_id": 9752, "date": "2025-03-30T01:05:44.377743", "id": 4309, "status": "head"}, {"customer_id": 6973, "date": "2025-05-22T04:24:38.243773", "id": 882, "status": "think"}, {"customer_id": 6794, "date": "2025-01-09T14:39:30.011758", "id": 5136, "status": "reveal"}, {"customer_id": 6706, "date": "2025-02-01T01:57:06.378379", "id": 4459, "status": "fly"}, {"customer_id": 4915, "date": "2025-05-30T22:18:12.994462", "id": 2130, "status": "call"}, {"customer_id": 7020, "date": "2025-01-26T07:45:10.669533", "id": 4581, "status": "hospital"}, {"customer_id": 1110, "date": "2025-03-03T15:24:36.689475", "id": 8110, "status": "call"}, {"customer_id": 1000, "date": "2025-04-03T05:01:41.386006", "id": 94, "status": "condition"}].length ? [{"customer_id": 8404, "date": "2025-04-22T01:42:11.761530", "id": 6262, "status": "TV"}, {"customer_id": 8216, "date": "2025-01-06T16:04:59.108989", "id": 3048, "status": "drug"}, {"customer_id": 2033, "date": "2025-02-22T22:53:46.378986", "id": 9686, "status": "power"}, {"customer_id": 3461, "date": "2025-08-07T17:31:33.238913", "id": 3508, "status": "federal"}, {"customer_id": 2862, "date": "2025-04-10T12:10:02.533232", "id": 9416, "status": "meeting"}, {"customer_id": 9377, "date": "2025-07-27T07:04:25.989679", "id": 6563, "status": "theory"}, {"customer_id": 2939, "date": "2025-04-12T09:37:54.507756", "id": 2833, "status": "away"}, {"customer_id": 4140, "date": "2025-02-05T12:37:07.188000", "id": 1032, "status": "never"}, {"customer_id": 7543, "date": "2025-07-22T06:06:05.503588", "id": 3258, "status": "full"}, {"customer_id": 4302, "date": "2025-07-04T00:48:04.021612", "id": 301, "status": "scene"}, {"customer_id": 73, "date": "2025-05-01T19:06:45.967931", "id": 5744, "status": "pattern"}, {"customer_id": 9567, "date": "2025-05-27T10:44:46.485209", "id": 4367, "status": "teach"}, {"customer_id": 4676, "date": "2025-01-02T04:21:14.956449", "id": 4745, "status": "buy"}, {"customer_id": 4958, "date": "2025-03-11T13:18:28.728584", "id": 9116, "status": "investment"}, {"customer_id": 6702, "date": "2025-05-20T17:28:21.093052", "id": 42, "status": "cold"}, {"customer_id": 6122, "date": "2025-02-13T12:22:36.521991", "id": 4518, "status": "part"}, {"customer_id": 8102, "date": "2025-05-18T12:10:10.461735", "id": 2081, "status": "speech"}, {"customer_id": 9752, "date": "2025-03-30T01:05:44.377743", "id": 4309, "status": "head"}, {"customer_id": 6973, "date": "2025-05-22T04:24:38.243773", "id": 882, "status": "think"}, {"customer_id": 6794, "date": "2025-01-09T14:39:30.011758", "id": 5136, "status": "reveal"}, {"customer_id": 6706, "date": "2025-02-01T01:57:06.378379", "id": 4459, "status": "fly"}, {"customer_id": 4915, "date": "2025-05-30T22:18:12.994462", "id": 2130, "status": "call"}, {"customer_id": 7020, "date": "2025-01-26T07:45:10.669533", "id": 4581, "status": "hospital"}, {"customer_id": 1110, "date": "2025-03-03T15:24:36.689475", "id": 8110, "status": "call"}, {"customer_id": 1000, "date": "2025-04-03T05:01:41.386006", "id": 94, "status": "condition"}][0] : {}),
+  get: () => [{"id": 1, "customer_id": 1, "date": "2024-08-01T09:00:00", "status": "Draft"}],
+  getOne: (id) => (Array.isArray([{"id": 1, "customer_id": 1, "date": "2024-08-01T09:00:00", "status": "Draft"}]) && [{"id": 1, "customer_id": 1, "date": "2024-08-01T09:00:00", "status": "Draft"}].length ? [{"id": 1, "customer_id": 1, "date": "2024-08-01T09:00:00", "status": "Draft"}][0] : {}),
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };
+// Auto-generated by code_generator.py — per-entity mock options
+// entity: invoice
+
+export async function options() {
+  return {
+  "entity": "invoice",
+  "primary_key": "id",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "customer_id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": "customer.id",
+      "default": null
+    },
+    {
+      "name": "date",
+      "type": "datetime",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "status",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    }
+  ],
+  "admin": {
+    "table": {
+      "delete_confirmation": true,
+      "inline_edit": false,
+      "show_filters": true,
+      "page_size": 20,
+      "global_search": true,
+      "column_search": false,
+      "sortable": true,
+      "sticky_header": false
+    },
+    "form": null,
+    "list": null
+  }
+}
+}

@@ -198,22 +198,22 @@ entities = {
         ]
     },
     "purchase_order_item": {
-        "fields": {
-            "po_id": {
-                "type": "int",
-                "foreign_key": "purchase_order.id",
-                "relation_type": "many-to-one",
-                "primary_key": True
-            },
-            "item_id": {
-                "type": "int",
-                "foreign_key": "item.id",
-                "relation_type": "many-to-one",
-                "primary_key": True
-            },
-            "quantity": {"type": "int"},
-            "unit_price": {"type": "float"},
+    "fields": {
+        "id": {"type": "int", "primary_key": True},
+        "po_id": {
+            "type": "int",
+            "foreign_key": "purchase_order.id",
+            "relation_type": "many-to-one"
         },
+        "item_id": {
+            "type": "int",
+            "foreign_key": "item.id",
+            "relation_type": "many-to-one"
+        },
+        "quantity": {"type": "int"},
+        "unit_price": {"type": "float"},
+        },
+        "unique_together": [["po_id", "item_id"]],
         "sample_data": [
             {"po_id": 1, "item_id": 1, "quantity": 100, "unit_price": 1.05}
         ]
@@ -235,23 +235,24 @@ entities = {
     },
     "invoice_item": {
         "fields": {
+            "id": {"type": "int", "primary_key": True},
             "invoice_id": {
                 "type": "int",
                 "foreign_key": "invoice.id",
-                "relation_type": "many-to-one",
-                "primary_key": True
+                "relation_type": "many-to-one"
             },
             "item_id": {
                 "type": "int",
                 "foreign_key": "item.id",
-                "relation_type": "many-to-one",
-                "primary_key": True
+                "relation_type": "many-to-one"
             },
             "quantity": {"type": "int"},
             "price": {"type": "float"},
         },
+        # enforce uniqueness on the business key
+        "unique_together": [["invoice_id", "item_id"]],
         "sample_data": [
-            {"invoice_id": 1, "item_id": 1, "quantity": 5, "price": 1.25}
+            {"id": 1, "invoice_id": 1, "item_id": 1, "quantity": 5, "price": 1.25}
         ]
     }
 }

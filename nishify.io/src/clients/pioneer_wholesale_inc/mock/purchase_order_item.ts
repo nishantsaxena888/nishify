@@ -1,7 +1,76 @@
 export const purchase_order_item = {
   options: () => ["po_id", "item_id", "quantity", "unit_price"],
-  get: () => [{"item_id": 9839, "po_id": 4992, "quantity": 2280, "unit_price": 4601.5}, {"item_id": 9487, "po_id": 1794, "quantity": 1604, "unit_price": 9178.49}, {"item_id": 368, "po_id": 6806, "quantity": 1592, "unit_price": 8854.59}, {"item_id": 1593, "po_id": 3654, "quantity": 6711, "unit_price": 6555.99}, {"item_id": 5803, "po_id": 9836, "quantity": 9304, "unit_price": 8404.73}, {"item_id": 9714, "po_id": 2513, "quantity": 6402, "unit_price": 1934.65}, {"item_id": 4213, "po_id": 1899, "quantity": 3274, "unit_price": 6026.61}, {"item_id": 6587, "po_id": 6088, "quantity": 9414, "unit_price": 9823.36}, {"item_id": 8666, "po_id": 2727, "quantity": 2943, "unit_price": 9041.8}, {"item_id": 695, "po_id": 1304, "quantity": 3222, "unit_price": 5597.12}, {"item_id": 7080, "po_id": 6754, "quantity": 790, "unit_price": 7081.59}, {"item_id": 7932, "po_id": 7615, "quantity": 3595, "unit_price": 1852.05}, {"item_id": 1187, "po_id": 9555, "quantity": 1421, "unit_price": 4544.88}, {"item_id": 4950, "po_id": 5686, "quantity": 5690, "unit_price": 3241.58}, {"item_id": 8049, "po_id": 6765, "quantity": 3105, "unit_price": 2290.01}, {"item_id": 301, "po_id": 5914, "quantity": 7605, "unit_price": 1900.55}, {"item_id": 3002, "po_id": 2733, "quantity": 9351, "unit_price": 3596.43}, {"item_id": 4118, "po_id": 2866, "quantity": 3968, "unit_price": 3170.51}, {"item_id": 511, "po_id": 4816, "quantity": 6666, "unit_price": 7106.04}, {"item_id": 5912, "po_id": 3618, "quantity": 4841, "unit_price": 1561.4}, {"item_id": 5334, "po_id": 1681, "quantity": 9465, "unit_price": 1653.87}, {"item_id": 8099, "po_id": 6137, "quantity": 7063, "unit_price": 3729.78}, {"item_id": 7777, "po_id": 6149, "quantity": 1593, "unit_price": 7059.41}, {"item_id": 3268, "po_id": 4725, "quantity": 4616, "unit_price": 8452.78}, {"item_id": 1015, "po_id": 9622, "quantity": 2365, "unit_price": 9480.63}],
-  getOne: (id) => (Array.isArray([{"item_id": 9839, "po_id": 4992, "quantity": 2280, "unit_price": 4601.5}, {"item_id": 9487, "po_id": 1794, "quantity": 1604, "unit_price": 9178.49}, {"item_id": 368, "po_id": 6806, "quantity": 1592, "unit_price": 8854.59}, {"item_id": 1593, "po_id": 3654, "quantity": 6711, "unit_price": 6555.99}, {"item_id": 5803, "po_id": 9836, "quantity": 9304, "unit_price": 8404.73}, {"item_id": 9714, "po_id": 2513, "quantity": 6402, "unit_price": 1934.65}, {"item_id": 4213, "po_id": 1899, "quantity": 3274, "unit_price": 6026.61}, {"item_id": 6587, "po_id": 6088, "quantity": 9414, "unit_price": 9823.36}, {"item_id": 8666, "po_id": 2727, "quantity": 2943, "unit_price": 9041.8}, {"item_id": 695, "po_id": 1304, "quantity": 3222, "unit_price": 5597.12}, {"item_id": 7080, "po_id": 6754, "quantity": 790, "unit_price": 7081.59}, {"item_id": 7932, "po_id": 7615, "quantity": 3595, "unit_price": 1852.05}, {"item_id": 1187, "po_id": 9555, "quantity": 1421, "unit_price": 4544.88}, {"item_id": 4950, "po_id": 5686, "quantity": 5690, "unit_price": 3241.58}, {"item_id": 8049, "po_id": 6765, "quantity": 3105, "unit_price": 2290.01}, {"item_id": 301, "po_id": 5914, "quantity": 7605, "unit_price": 1900.55}, {"item_id": 3002, "po_id": 2733, "quantity": 9351, "unit_price": 3596.43}, {"item_id": 4118, "po_id": 2866, "quantity": 3968, "unit_price": 3170.51}, {"item_id": 511, "po_id": 4816, "quantity": 6666, "unit_price": 7106.04}, {"item_id": 5912, "po_id": 3618, "quantity": 4841, "unit_price": 1561.4}, {"item_id": 5334, "po_id": 1681, "quantity": 9465, "unit_price": 1653.87}, {"item_id": 8099, "po_id": 6137, "quantity": 7063, "unit_price": 3729.78}, {"item_id": 7777, "po_id": 6149, "quantity": 1593, "unit_price": 7059.41}, {"item_id": 3268, "po_id": 4725, "quantity": 4616, "unit_price": 8452.78}, {"item_id": 1015, "po_id": 9622, "quantity": 2365, "unit_price": 9480.63}]) && [{"item_id": 9839, "po_id": 4992, "quantity": 2280, "unit_price": 4601.5}, {"item_id": 9487, "po_id": 1794, "quantity": 1604, "unit_price": 9178.49}, {"item_id": 368, "po_id": 6806, "quantity": 1592, "unit_price": 8854.59}, {"item_id": 1593, "po_id": 3654, "quantity": 6711, "unit_price": 6555.99}, {"item_id": 5803, "po_id": 9836, "quantity": 9304, "unit_price": 8404.73}, {"item_id": 9714, "po_id": 2513, "quantity": 6402, "unit_price": 1934.65}, {"item_id": 4213, "po_id": 1899, "quantity": 3274, "unit_price": 6026.61}, {"item_id": 6587, "po_id": 6088, "quantity": 9414, "unit_price": 9823.36}, {"item_id": 8666, "po_id": 2727, "quantity": 2943, "unit_price": 9041.8}, {"item_id": 695, "po_id": 1304, "quantity": 3222, "unit_price": 5597.12}, {"item_id": 7080, "po_id": 6754, "quantity": 790, "unit_price": 7081.59}, {"item_id": 7932, "po_id": 7615, "quantity": 3595, "unit_price": 1852.05}, {"item_id": 1187, "po_id": 9555, "quantity": 1421, "unit_price": 4544.88}, {"item_id": 4950, "po_id": 5686, "quantity": 5690, "unit_price": 3241.58}, {"item_id": 8049, "po_id": 6765, "quantity": 3105, "unit_price": 2290.01}, {"item_id": 301, "po_id": 5914, "quantity": 7605, "unit_price": 1900.55}, {"item_id": 3002, "po_id": 2733, "quantity": 9351, "unit_price": 3596.43}, {"item_id": 4118, "po_id": 2866, "quantity": 3968, "unit_price": 3170.51}, {"item_id": 511, "po_id": 4816, "quantity": 6666, "unit_price": 7106.04}, {"item_id": 5912, "po_id": 3618, "quantity": 4841, "unit_price": 1561.4}, {"item_id": 5334, "po_id": 1681, "quantity": 9465, "unit_price": 1653.87}, {"item_id": 8099, "po_id": 6137, "quantity": 7063, "unit_price": 3729.78}, {"item_id": 7777, "po_id": 6149, "quantity": 1593, "unit_price": 7059.41}, {"item_id": 3268, "po_id": 4725, "quantity": 4616, "unit_price": 8452.78}, {"item_id": 1015, "po_id": 9622, "quantity": 2365, "unit_price": 9480.63}].length ? [{"item_id": 9839, "po_id": 4992, "quantity": 2280, "unit_price": 4601.5}, {"item_id": 9487, "po_id": 1794, "quantity": 1604, "unit_price": 9178.49}, {"item_id": 368, "po_id": 6806, "quantity": 1592, "unit_price": 8854.59}, {"item_id": 1593, "po_id": 3654, "quantity": 6711, "unit_price": 6555.99}, {"item_id": 5803, "po_id": 9836, "quantity": 9304, "unit_price": 8404.73}, {"item_id": 9714, "po_id": 2513, "quantity": 6402, "unit_price": 1934.65}, {"item_id": 4213, "po_id": 1899, "quantity": 3274, "unit_price": 6026.61}, {"item_id": 6587, "po_id": 6088, "quantity": 9414, "unit_price": 9823.36}, {"item_id": 8666, "po_id": 2727, "quantity": 2943, "unit_price": 9041.8}, {"item_id": 695, "po_id": 1304, "quantity": 3222, "unit_price": 5597.12}, {"item_id": 7080, "po_id": 6754, "quantity": 790, "unit_price": 7081.59}, {"item_id": 7932, "po_id": 7615, "quantity": 3595, "unit_price": 1852.05}, {"item_id": 1187, "po_id": 9555, "quantity": 1421, "unit_price": 4544.88}, {"item_id": 4950, "po_id": 5686, "quantity": 5690, "unit_price": 3241.58}, {"item_id": 8049, "po_id": 6765, "quantity": 3105, "unit_price": 2290.01}, {"item_id": 301, "po_id": 5914, "quantity": 7605, "unit_price": 1900.55}, {"item_id": 3002, "po_id": 2733, "quantity": 9351, "unit_price": 3596.43}, {"item_id": 4118, "po_id": 2866, "quantity": 3968, "unit_price": 3170.51}, {"item_id": 511, "po_id": 4816, "quantity": 6666, "unit_price": 7106.04}, {"item_id": 5912, "po_id": 3618, "quantity": 4841, "unit_price": 1561.4}, {"item_id": 5334, "po_id": 1681, "quantity": 9465, "unit_price": 1653.87}, {"item_id": 8099, "po_id": 6137, "quantity": 7063, "unit_price": 3729.78}, {"item_id": 7777, "po_id": 6149, "quantity": 1593, "unit_price": 7059.41}, {"item_id": 3268, "po_id": 4725, "quantity": 4616, "unit_price": 8452.78}, {"item_id": 1015, "po_id": 9622, "quantity": 2365, "unit_price": 9480.63}][0] : {}),
+  get: () => [{"po_id": 1, "item_id": 1, "quantity": 100, "unit_price": 1.05}],
+  getOne: (id) => (Array.isArray([{"po_id": 1, "item_id": 1, "quantity": 100, "unit_price": 1.05}]) && [{"po_id": 1, "item_id": 1, "quantity": 100, "unit_price": 1.05}].length ? [{"po_id": 1, "item_id": 1, "quantity": 100, "unit_price": 1.05}][0] : {}),
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };
+// Auto-generated by code_generator.py — per-entity mock options
+// entity: purchase_order_item
+
+export async function options() {
+  return {
+  "entity": "purchase_order_item",
+  "primary_key": "item_id",
+  "fields": [
+    {
+      "name": "item_id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": "item.id",
+      "default": null
+    },
+    {
+      "name": "po_id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": "purchase_order.id",
+      "default": null
+    },
+    {
+      "name": "quantity",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "unit_price",
+      "type": "float",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    }
+  ],
+  "admin": {
+    "table": {
+      "delete_confirmation": true,
+      "inline_edit": false,
+      "show_filters": true,
+      "page_size": 20,
+      "global_search": true,
+      "column_search": false,
+      "sortable": true,
+      "sticky_header": false
+    },
+    "form": null,
+    "list": null
+  }
+}
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2025-08-10T17:58:09.412301",
+  "entities": [
+    "state",
+    "item_category",
+    "secondary_category",
+    "vendor",
+    "item",
+    "tax_group",
+    "cash_discount_group",
+    "price_group",
+    "inventory_location",
+    "inventory",
+    "salesperson",
+    "customer",
+    "purchase_order",
+    "purchase_order_item",
+    "invoice",
+    "invoice_item"
+  ]
+}

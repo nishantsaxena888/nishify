@@ -1,7 +1,76 @@
 export const invoice_item = {
   options: () => ["invoice_id", "item_id", "quantity", "price"],
-  get: () => [{"invoice_id": 6518, "item_id": 5607, "price": 5284.2, "quantity": 1059}, {"invoice_id": 9278, "item_id": 3086, "price": 7284.27, "quantity": 3465}, {"invoice_id": 631, "item_id": 3846, "price": 5234.66, "quantity": 6115}, {"invoice_id": 9324, "item_id": 9803, "price": 748.08, "quantity": 5881}, {"invoice_id": 3902, "item_id": 330, "price": 1508.83, "quantity": 4878}, {"invoice_id": 8571, "item_id": 1379, "price": 8034.69, "quantity": 5725}, {"invoice_id": 7892, "item_id": 3409, "price": 9451.0, "quantity": 2331}, {"invoice_id": 150, "item_id": 7802, "price": 7461.92, "quantity": 3445}, {"invoice_id": 8241, "item_id": 6775, "price": 9963.14, "quantity": 8595}, {"invoice_id": 6906, "item_id": 1253, "price": 1278.0, "quantity": 6199}, {"invoice_id": 5870, "item_id": 3913, "price": 7817.51, "quantity": 4124}, {"invoice_id": 5339, "item_id": 7930, "price": 5993.47, "quantity": 1999}, {"invoice_id": 9914, "item_id": 4093, "price": 399.63, "quantity": 1688}, {"invoice_id": 9975, "item_id": 6671, "price": 206.02, "quantity": 2961}, {"invoice_id": 5848, "item_id": 8120, "price": 870.33, "quantity": 3027}, {"invoice_id": 9476, "item_id": 3119, "price": 5402.9, "quantity": 2742}, {"invoice_id": 5530, "item_id": 6091, "price": 4810.99, "quantity": 700}, {"invoice_id": 4321, "item_id": 621, "price": 5297.45, "quantity": 6050}, {"invoice_id": 9771, "item_id": 8825, "price": 2909.82, "quantity": 4078}, {"invoice_id": 6049, "item_id": 1881, "price": 303.6, "quantity": 9583}, {"invoice_id": 6550, "item_id": 8892, "price": 9943.74, "quantity": 9657}, {"invoice_id": 2342, "item_id": 6262, "price": 730.59, "quantity": 904}, {"invoice_id": 7977, "item_id": 4054, "price": 8288.72, "quantity": 6676}, {"invoice_id": 5169, "item_id": 3777, "price": 2080.91, "quantity": 1250}, {"invoice_id": 7036, "item_id": 1269, "price": 7294.54, "quantity": 9386}],
-  getOne: (id) => (Array.isArray([{"invoice_id": 6518, "item_id": 5607, "price": 5284.2, "quantity": 1059}, {"invoice_id": 9278, "item_id": 3086, "price": 7284.27, "quantity": 3465}, {"invoice_id": 631, "item_id": 3846, "price": 5234.66, "quantity": 6115}, {"invoice_id": 9324, "item_id": 9803, "price": 748.08, "quantity": 5881}, {"invoice_id": 3902, "item_id": 330, "price": 1508.83, "quantity": 4878}, {"invoice_id": 8571, "item_id": 1379, "price": 8034.69, "quantity": 5725}, {"invoice_id": 7892, "item_id": 3409, "price": 9451.0, "quantity": 2331}, {"invoice_id": 150, "item_id": 7802, "price": 7461.92, "quantity": 3445}, {"invoice_id": 8241, "item_id": 6775, "price": 9963.14, "quantity": 8595}, {"invoice_id": 6906, "item_id": 1253, "price": 1278.0, "quantity": 6199}, {"invoice_id": 5870, "item_id": 3913, "price": 7817.51, "quantity": 4124}, {"invoice_id": 5339, "item_id": 7930, "price": 5993.47, "quantity": 1999}, {"invoice_id": 9914, "item_id": 4093, "price": 399.63, "quantity": 1688}, {"invoice_id": 9975, "item_id": 6671, "price": 206.02, "quantity": 2961}, {"invoice_id": 5848, "item_id": 8120, "price": 870.33, "quantity": 3027}, {"invoice_id": 9476, "item_id": 3119, "price": 5402.9, "quantity": 2742}, {"invoice_id": 5530, "item_id": 6091, "price": 4810.99, "quantity": 700}, {"invoice_id": 4321, "item_id": 621, "price": 5297.45, "quantity": 6050}, {"invoice_id": 9771, "item_id": 8825, "price": 2909.82, "quantity": 4078}, {"invoice_id": 6049, "item_id": 1881, "price": 303.6, "quantity": 9583}, {"invoice_id": 6550, "item_id": 8892, "price": 9943.74, "quantity": 9657}, {"invoice_id": 2342, "item_id": 6262, "price": 730.59, "quantity": 904}, {"invoice_id": 7977, "item_id": 4054, "price": 8288.72, "quantity": 6676}, {"invoice_id": 5169, "item_id": 3777, "price": 2080.91, "quantity": 1250}, {"invoice_id": 7036, "item_id": 1269, "price": 7294.54, "quantity": 9386}]) && [{"invoice_id": 6518, "item_id": 5607, "price": 5284.2, "quantity": 1059}, {"invoice_id": 9278, "item_id": 3086, "price": 7284.27, "quantity": 3465}, {"invoice_id": 631, "item_id": 3846, "price": 5234.66, "quantity": 6115}, {"invoice_id": 9324, "item_id": 9803, "price": 748.08, "quantity": 5881}, {"invoice_id": 3902, "item_id": 330, "price": 1508.83, "quantity": 4878}, {"invoice_id": 8571, "item_id": 1379, "price": 8034.69, "quantity": 5725}, {"invoice_id": 7892, "item_id": 3409, "price": 9451.0, "quantity": 2331}, {"invoice_id": 150, "item_id": 7802, "price": 7461.92, "quantity": 3445}, {"invoice_id": 8241, "item_id": 6775, "price": 9963.14, "quantity": 8595}, {"invoice_id": 6906, "item_id": 1253, "price": 1278.0, "quantity": 6199}, {"invoice_id": 5870, "item_id": 3913, "price": 7817.51, "quantity": 4124}, {"invoice_id": 5339, "item_id": 7930, "price": 5993.47, "quantity": 1999}, {"invoice_id": 9914, "item_id": 4093, "price": 399.63, "quantity": 1688}, {"invoice_id": 9975, "item_id": 6671, "price": 206.02, "quantity": 2961}, {"invoice_id": 5848, "item_id": 8120, "price": 870.33, "quantity": 3027}, {"invoice_id": 9476, "item_id": 3119, "price": 5402.9, "quantity": 2742}, {"invoice_id": 5530, "item_id": 6091, "price": 4810.99, "quantity": 700}, {"invoice_id": 4321, "item_id": 621, "price": 5297.45, "quantity": 6050}, {"invoice_id": 9771, "item_id": 8825, "price": 2909.82, "quantity": 4078}, {"invoice_id": 6049, "item_id": 1881, "price": 303.6, "quantity": 9583}, {"invoice_id": 6550, "item_id": 8892, "price": 9943.74, "quantity": 9657}, {"invoice_id": 2342, "item_id": 6262, "price": 730.59, "quantity": 904}, {"invoice_id": 7977, "item_id": 4054, "price": 8288.72, "quantity": 6676}, {"invoice_id": 5169, "item_id": 3777, "price": 2080.91, "quantity": 1250}, {"invoice_id": 7036, "item_id": 1269, "price": 7294.54, "quantity": 9386}].length ? [{"invoice_id": 6518, "item_id": 5607, "price": 5284.2, "quantity": 1059}, {"invoice_id": 9278, "item_id": 3086, "price": 7284.27, "quantity": 3465}, {"invoice_id": 631, "item_id": 3846, "price": 5234.66, "quantity": 6115}, {"invoice_id": 9324, "item_id": 9803, "price": 748.08, "quantity": 5881}, {"invoice_id": 3902, "item_id": 330, "price": 1508.83, "quantity": 4878}, {"invoice_id": 8571, "item_id": 1379, "price": 8034.69, "quantity": 5725}, {"invoice_id": 7892, "item_id": 3409, "price": 9451.0, "quantity": 2331}, {"invoice_id": 150, "item_id": 7802, "price": 7461.92, "quantity": 3445}, {"invoice_id": 8241, "item_id": 6775, "price": 9963.14, "quantity": 8595}, {"invoice_id": 6906, "item_id": 1253, "price": 1278.0, "quantity": 6199}, {"invoice_id": 5870, "item_id": 3913, "price": 7817.51, "quantity": 4124}, {"invoice_id": 5339, "item_id": 7930, "price": 5993.47, "quantity": 1999}, {"invoice_id": 9914, "item_id": 4093, "price": 399.63, "quantity": 1688}, {"invoice_id": 9975, "item_id": 6671, "price": 206.02, "quantity": 2961}, {"invoice_id": 5848, "item_id": 8120, "price": 870.33, "quantity": 3027}, {"invoice_id": 9476, "item_id": 3119, "price": 5402.9, "quantity": 2742}, {"invoice_id": 5530, "item_id": 6091, "price": 4810.99, "quantity": 700}, {"invoice_id": 4321, "item_id": 621, "price": 5297.45, "quantity": 6050}, {"invoice_id": 9771, "item_id": 8825, "price": 2909.82, "quantity": 4078}, {"invoice_id": 6049, "item_id": 1881, "price": 303.6, "quantity": 9583}, {"invoice_id": 6550, "item_id": 8892, "price": 9943.74, "quantity": 9657}, {"invoice_id": 2342, "item_id": 6262, "price": 730.59, "quantity": 904}, {"invoice_id": 7977, "item_id": 4054, "price": 8288.72, "quantity": 6676}, {"invoice_id": 5169, "item_id": 3777, "price": 2080.91, "quantity": 1250}, {"invoice_id": 7036, "item_id": 1269, "price": 7294.54, "quantity": 9386}][0] : {}),
+  get: () => [{"invoice_id": 1, "item_id": 1, "quantity": 5, "price": 1.25}],
+  getOne: (id) => (Array.isArray([{"invoice_id": 1, "item_id": 1, "quantity": 5, "price": 1.25}]) && [{"invoice_id": 1, "item_id": 1, "quantity": 5, "price": 1.25}].length ? [{"invoice_id": 1, "item_id": 1, "quantity": 5, "price": 1.25}][0] : {}),
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };
+// Auto-generated by code_generator.py — per-entity mock options
+// entity: invoice_item
+
+export async function options() {
+  return {
+  "entity": "invoice_item",
+  "primary_key": "invoice_id",
+  "fields": [
+    {
+      "name": "invoice_id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": "invoice.id",
+      "default": null
+    },
+    {
+      "name": "item_id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": "item.id",
+      "default": null
+    },
+    {
+      "name": "price",
+      "type": "float",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "quantity",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    }
+  ],
+  "admin": {
+    "table": {
+      "delete_confirmation": true,
+      "inline_edit": false,
+      "show_filters": true,
+      "page_size": 20,
+      "global_search": true,
+      "column_search": false,
+      "sortable": true,
+      "sticky_header": false
+    },
+    "form": null,
+    "list": null
+  }
+}
+}

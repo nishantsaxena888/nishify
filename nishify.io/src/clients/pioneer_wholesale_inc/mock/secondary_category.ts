@@ -1,7 +1,65 @@
 export const secondary_category = {
   options: () => ["id", "name", "description"],
-  get: () => [{"description": "bring", "id": 8789, "name": "learn"}, {"description": "appear", "id": 2175, "name": "account"}, {"description": "bring", "id": 4761, "name": "do"}, {"description": "performance", "id": 2064, "name": "between"}, {"description": "throw", "id": 9343, "name": "always"}, {"description": "local", "id": 402, "name": "issue"}, {"description": "under", "id": 5048, "name": "two"}, {"description": "concern", "id": 2442, "name": "affect"}, {"description": "subject", "id": 8095, "name": "this"}, {"description": "instead", "id": 1252, "name": "wish"}, {"description": "imagine", "id": 3177, "name": "course"}, {"description": "hold", "id": 1933, "name": "sound"}, {"description": "program", "id": 3031, "name": "above"}, {"description": "focus", "id": 1274, "name": "administration"}, {"description": "these", "id": 6260, "name": "mission"}, {"description": "chance", "id": 4159, "name": "arm"}, {"description": "traditional", "id": 7908, "name": "where"}, {"description": "former", "id": 8954, "name": "trip"}, {"description": "tough", "id": 8111, "name": "picture"}, {"description": "want", "id": 8016, "name": "defense"}, {"description": "cultural", "id": 2492, "name": "event"}, {"description": "clear", "id": 9625, "name": "although"}, {"description": "goal", "id": 3353, "name": "individual"}, {"description": "entire", "id": 9904, "name": "when"}, {"description": "modern", "id": 7056, "name": "while"}],
-  getOne: (id) => (Array.isArray([{"description": "bring", "id": 8789, "name": "learn"}, {"description": "appear", "id": 2175, "name": "account"}, {"description": "bring", "id": 4761, "name": "do"}, {"description": "performance", "id": 2064, "name": "between"}, {"description": "throw", "id": 9343, "name": "always"}, {"description": "local", "id": 402, "name": "issue"}, {"description": "under", "id": 5048, "name": "two"}, {"description": "concern", "id": 2442, "name": "affect"}, {"description": "subject", "id": 8095, "name": "this"}, {"description": "instead", "id": 1252, "name": "wish"}, {"description": "imagine", "id": 3177, "name": "course"}, {"description": "hold", "id": 1933, "name": "sound"}, {"description": "program", "id": 3031, "name": "above"}, {"description": "focus", "id": 1274, "name": "administration"}, {"description": "these", "id": 6260, "name": "mission"}, {"description": "chance", "id": 4159, "name": "arm"}, {"description": "traditional", "id": 7908, "name": "where"}, {"description": "former", "id": 8954, "name": "trip"}, {"description": "tough", "id": 8111, "name": "picture"}, {"description": "want", "id": 8016, "name": "defense"}, {"description": "cultural", "id": 2492, "name": "event"}, {"description": "clear", "id": 9625, "name": "although"}, {"description": "goal", "id": 3353, "name": "individual"}, {"description": "entire", "id": 9904, "name": "when"}, {"description": "modern", "id": 7056, "name": "while"}]) && [{"description": "bring", "id": 8789, "name": "learn"}, {"description": "appear", "id": 2175, "name": "account"}, {"description": "bring", "id": 4761, "name": "do"}, {"description": "performance", "id": 2064, "name": "between"}, {"description": "throw", "id": 9343, "name": "always"}, {"description": "local", "id": 402, "name": "issue"}, {"description": "under", "id": 5048, "name": "two"}, {"description": "concern", "id": 2442, "name": "affect"}, {"description": "subject", "id": 8095, "name": "this"}, {"description": "instead", "id": 1252, "name": "wish"}, {"description": "imagine", "id": 3177, "name": "course"}, {"description": "hold", "id": 1933, "name": "sound"}, {"description": "program", "id": 3031, "name": "above"}, {"description": "focus", "id": 1274, "name": "administration"}, {"description": "these", "id": 6260, "name": "mission"}, {"description": "chance", "id": 4159, "name": "arm"}, {"description": "traditional", "id": 7908, "name": "where"}, {"description": "former", "id": 8954, "name": "trip"}, {"description": "tough", "id": 8111, "name": "picture"}, {"description": "want", "id": 8016, "name": "defense"}, {"description": "cultural", "id": 2492, "name": "event"}, {"description": "clear", "id": 9625, "name": "although"}, {"description": "goal", "id": 3353, "name": "individual"}, {"description": "entire", "id": 9904, "name": "when"}, {"description": "modern", "id": 7056, "name": "while"}].length ? [{"description": "bring", "id": 8789, "name": "learn"}, {"description": "appear", "id": 2175, "name": "account"}, {"description": "bring", "id": 4761, "name": "do"}, {"description": "performance", "id": 2064, "name": "between"}, {"description": "throw", "id": 9343, "name": "always"}, {"description": "local", "id": 402, "name": "issue"}, {"description": "under", "id": 5048, "name": "two"}, {"description": "concern", "id": 2442, "name": "affect"}, {"description": "subject", "id": 8095, "name": "this"}, {"description": "instead", "id": 1252, "name": "wish"}, {"description": "imagine", "id": 3177, "name": "course"}, {"description": "hold", "id": 1933, "name": "sound"}, {"description": "program", "id": 3031, "name": "above"}, {"description": "focus", "id": 1274, "name": "administration"}, {"description": "these", "id": 6260, "name": "mission"}, {"description": "chance", "id": 4159, "name": "arm"}, {"description": "traditional", "id": 7908, "name": "where"}, {"description": "former", "id": 8954, "name": "trip"}, {"description": "tough", "id": 8111, "name": "picture"}, {"description": "want", "id": 8016, "name": "defense"}, {"description": "cultural", "id": 2492, "name": "event"}, {"description": "clear", "id": 9625, "name": "although"}, {"description": "goal", "id": 3353, "name": "individual"}, {"description": "entire", "id": 9904, "name": "when"}, {"description": "modern", "id": 7056, "name": "while"}][0] : {}),
+  get: () => [{"id": 1, "name": "Energy Drinks", "description": "Boost, Red Bull"}],
+  getOne: (id) => (Array.isArray([{"id": 1, "name": "Energy Drinks", "description": "Boost, Red Bull"}]) && [{"id": 1, "name": "Energy Drinks", "description": "Boost, Red Bull"}].length ? [{"id": 1, "name": "Energy Drinks", "description": "Boost, Red Bull"}][0] : {}),
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };
+// Auto-generated by code_generator.py — per-entity mock options
+// entity: secondary_category
+
+export async function options() {
+  return {
+  "entity": "secondary_category",
+  "primary_key": "id",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "description",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "label": null,
+      "required": true,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    }
+  ],
+  "admin": {
+    "table": {
+      "delete_confirmation": true,
+      "inline_edit": false,
+      "show_filters": true,
+      "page_size": 20,
+      "global_search": true,
+      "column_search": false,
+      "sortable": true,
+      "sticky_header": false
+    },
+    "form": null,
+    "list": null
+  }
+}
+}

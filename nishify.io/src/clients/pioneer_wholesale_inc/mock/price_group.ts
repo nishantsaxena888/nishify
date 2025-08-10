@@ -1,7 +1,65 @@
 export const price_group = {
   options: () => ["id", "name", "markup_percent"],
-  get: () => [{"id": 6840, "markup_percent": 9048.12, "name": "today"}, {"id": 3333, "markup_percent": 3661.41, "name": "on"}, {"id": 7227, "markup_percent": 8571.75, "name": "throw"}, {"id": 2274, "markup_percent": 6691.81, "name": "who"}, {"id": 6700, "markup_percent": 2838.28, "name": "thought"}, {"id": 4925, "markup_percent": 9091.18, "name": "bag"}, {"id": 7145, "markup_percent": 8745.27, "name": "kind"}, {"id": 2395, "markup_percent": 6180.24, "name": "task"}, {"id": 6762, "markup_percent": 7487.58, "name": "happen"}, {"id": 9312, "markup_percent": 5189.37, "name": "anything"}, {"id": 8461, "markup_percent": 1304.17, "name": "one"}, {"id": 4084, "markup_percent": 8321.65, "name": "last"}, {"id": 4976, "markup_percent": 9318.71, "name": "the"}, {"id": 5456, "markup_percent": 325.78, "name": "seat"}, {"id": 7390, "markup_percent": 7278.62, "name": "free"}, {"id": 1089, "markup_percent": 9433.63, "name": "rather"}, {"id": 5867, "markup_percent": 3146.41, "name": "keep"}, {"id": 3509, "markup_percent": 648.94, "name": "hotel"}, {"id": 7583, "markup_percent": 1046.25, "name": "college"}, {"id": 3717, "markup_percent": 6310.49, "name": "line"}, {"id": 145, "markup_percent": 3222.91, "name": "like"}, {"id": 1331, "markup_percent": 4260.68, "name": "catch"}, {"id": 1411, "markup_percent": 2624.65, "name": "now"}, {"id": 6225, "markup_percent": 3045.17, "name": "he"}, {"id": 8327, "markup_percent": 49.21, "name": "example"}],
-  getOne: (id) => (Array.isArray([{"id": 6840, "markup_percent": 9048.12, "name": "today"}, {"id": 3333, "markup_percent": 3661.41, "name": "on"}, {"id": 7227, "markup_percent": 8571.75, "name": "throw"}, {"id": 2274, "markup_percent": 6691.81, "name": "who"}, {"id": 6700, "markup_percent": 2838.28, "name": "thought"}, {"id": 4925, "markup_percent": 9091.18, "name": "bag"}, {"id": 7145, "markup_percent": 8745.27, "name": "kind"}, {"id": 2395, "markup_percent": 6180.24, "name": "task"}, {"id": 6762, "markup_percent": 7487.58, "name": "happen"}, {"id": 9312, "markup_percent": 5189.37, "name": "anything"}, {"id": 8461, "markup_percent": 1304.17, "name": "one"}, {"id": 4084, "markup_percent": 8321.65, "name": "last"}, {"id": 4976, "markup_percent": 9318.71, "name": "the"}, {"id": 5456, "markup_percent": 325.78, "name": "seat"}, {"id": 7390, "markup_percent": 7278.62, "name": "free"}, {"id": 1089, "markup_percent": 9433.63, "name": "rather"}, {"id": 5867, "markup_percent": 3146.41, "name": "keep"}, {"id": 3509, "markup_percent": 648.94, "name": "hotel"}, {"id": 7583, "markup_percent": 1046.25, "name": "college"}, {"id": 3717, "markup_percent": 6310.49, "name": "line"}, {"id": 145, "markup_percent": 3222.91, "name": "like"}, {"id": 1331, "markup_percent": 4260.68, "name": "catch"}, {"id": 1411, "markup_percent": 2624.65, "name": "now"}, {"id": 6225, "markup_percent": 3045.17, "name": "he"}, {"id": 8327, "markup_percent": 49.21, "name": "example"}]) && [{"id": 6840, "markup_percent": 9048.12, "name": "today"}, {"id": 3333, "markup_percent": 3661.41, "name": "on"}, {"id": 7227, "markup_percent": 8571.75, "name": "throw"}, {"id": 2274, "markup_percent": 6691.81, "name": "who"}, {"id": 6700, "markup_percent": 2838.28, "name": "thought"}, {"id": 4925, "markup_percent": 9091.18, "name": "bag"}, {"id": 7145, "markup_percent": 8745.27, "name": "kind"}, {"id": 2395, "markup_percent": 6180.24, "name": "task"}, {"id": 6762, "markup_percent": 7487.58, "name": "happen"}, {"id": 9312, "markup_percent": 5189.37, "name": "anything"}, {"id": 8461, "markup_percent": 1304.17, "name": "one"}, {"id": 4084, "markup_percent": 8321.65, "name": "last"}, {"id": 4976, "markup_percent": 9318.71, "name": "the"}, {"id": 5456, "markup_percent": 325.78, "name": "seat"}, {"id": 7390, "markup_percent": 7278.62, "name": "free"}, {"id": 1089, "markup_percent": 9433.63, "name": "rather"}, {"id": 5867, "markup_percent": 3146.41, "name": "keep"}, {"id": 3509, "markup_percent": 648.94, "name": "hotel"}, {"id": 7583, "markup_percent": 1046.25, "name": "college"}, {"id": 3717, "markup_percent": 6310.49, "name": "line"}, {"id": 145, "markup_percent": 3222.91, "name": "like"}, {"id": 1331, "markup_percent": 4260.68, "name": "catch"}, {"id": 1411, "markup_percent": 2624.65, "name": "now"}, {"id": 6225, "markup_percent": 3045.17, "name": "he"}, {"id": 8327, "markup_percent": 49.21, "name": "example"}].length ? [{"id": 6840, "markup_percent": 9048.12, "name": "today"}, {"id": 3333, "markup_percent": 3661.41, "name": "on"}, {"id": 7227, "markup_percent": 8571.75, "name": "throw"}, {"id": 2274, "markup_percent": 6691.81, "name": "who"}, {"id": 6700, "markup_percent": 2838.28, "name": "thought"}, {"id": 4925, "markup_percent": 9091.18, "name": "bag"}, {"id": 7145, "markup_percent": 8745.27, "name": "kind"}, {"id": 2395, "markup_percent": 6180.24, "name": "task"}, {"id": 6762, "markup_percent": 7487.58, "name": "happen"}, {"id": 9312, "markup_percent": 5189.37, "name": "anything"}, {"id": 8461, "markup_percent": 1304.17, "name": "one"}, {"id": 4084, "markup_percent": 8321.65, "name": "last"}, {"id": 4976, "markup_percent": 9318.71, "name": "the"}, {"id": 5456, "markup_percent": 325.78, "name": "seat"}, {"id": 7390, "markup_percent": 7278.62, "name": "free"}, {"id": 1089, "markup_percent": 9433.63, "name": "rather"}, {"id": 5867, "markup_percent": 3146.41, "name": "keep"}, {"id": 3509, "markup_percent": 648.94, "name": "hotel"}, {"id": 7583, "markup_percent": 1046.25, "name": "college"}, {"id": 3717, "markup_percent": 6310.49, "name": "line"}, {"id": 145, "markup_percent": 3222.91, "name": "like"}, {"id": 1331, "markup_percent": 4260.68, "name": "catch"}, {"id": 1411, "markup_percent": 2624.65, "name": "now"}, {"id": 6225, "markup_percent": 3045.17, "name": "he"}, {"id": 8327, "markup_percent": 49.21, "name": "example"}][0] : {}),
+  get: () => [{"id": 1, "name": "Retail Pricing", "markup_percent": 12.5}],
+  getOne: (id) => (Array.isArray([{"id": 1, "name": "Retail Pricing", "markup_percent": 12.5}]) && [{"id": 1, "name": "Retail Pricing", "markup_percent": 12.5}].length ? [{"id": 1, "name": "Retail Pricing", "markup_percent": 12.5}][0] : {}),
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };
+// Auto-generated by code_generator.py — per-entity mock options
+// entity: price_group
+
+export async function options() {
+  return {
+  "entity": "price_group",
+  "primary_key": "id",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "markup_percent",
+      "type": "float",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    }
+  ],
+  "admin": {
+    "table": {
+      "delete_confirmation": true,
+      "inline_edit": false,
+      "show_filters": true,
+      "page_size": 20,
+      "global_search": true,
+      "column_search": false,
+      "sortable": true,
+      "sticky_header": false
+    },
+    "form": null,
+    "list": null
+  }
+}
+}

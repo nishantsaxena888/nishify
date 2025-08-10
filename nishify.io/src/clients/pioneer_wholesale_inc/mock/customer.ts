@@ -1,7 +1,109 @@
 export const customer = {
   options: () => ["id", "name", "address", "email", "phone", "salesperson_id", "credit_limit"],
-  get: () => [{"address": "if", "credit_limit": 1639.22, "email": "perform", "id": 706, "name": "model", "phone": "consumer", "salesperson_id": 8785}, {"address": "necessary", "credit_limit": 6624.83, "email": "although", "id": 6283, "name": "paper", "phone": "table", "salesperson_id": 7948}, {"address": "occur", "credit_limit": 9386.85, "email": "good", "id": 5429, "name": "nearly", "phone": "prove", "salesperson_id": 8623}, {"address": "quite", "credit_limit": 3644.59, "email": "north", "id": 6151, "name": "public", "phone": "economy", "salesperson_id": 8117}, {"address": "law", "credit_limit": 8333.93, "email": "trade", "id": 8077, "name": "act", "phone": "why", "salesperson_id": 283}, {"address": "church", "credit_limit": 6831.72, "email": "main", "id": 7518, "name": "reach", "phone": "on", "salesperson_id": 9632}, {"address": "film", "credit_limit": 3307.24, "email": "both", "id": 5446, "name": "story", "phone": "bar", "salesperson_id": 9926}, {"address": "important", "credit_limit": 727.56, "email": "rather", "id": 1254, "name": "future", "phone": "two", "salesperson_id": 1509}, {"address": "training", "credit_limit": 7938.62, "email": "care", "id": 2428, "name": "care", "phone": "rate", "salesperson_id": 2932}, {"address": "position", "credit_limit": 5404.22, "email": "interest", "id": 158, "name": "put", "phone": "particular", "salesperson_id": 6023}, {"address": "pick", "credit_limit": 2375.09, "email": "poor", "id": 7348, "name": "mouth", "phone": "body", "salesperson_id": 8909}, {"address": "knowledge", "credit_limit": 4579.47, "email": "pull", "id": 9277, "name": "boy", "phone": "wish", "salesperson_id": 3334}, {"address": "daughter", "credit_limit": 5621.18, "email": "policy", "id": 1322, "name": "tough", "phone": "name", "salesperson_id": 1544}, {"address": "side", "credit_limit": 6582.58, "email": "support", "id": 6153, "name": "side", "phone": "large", "salesperson_id": 8021}, {"address": "low", "credit_limit": 588.48, "email": "store", "id": 8169, "name": "dinner", "phone": "entire", "salesperson_id": 2295}, {"address": "music", "credit_limit": 545.07, "email": "agreement", "id": 6678, "name": "today", "phone": "land", "salesperson_id": 7609}, {"address": "event", "credit_limit": 4616.29, "email": "brother", "id": 7021, "name": "us", "phone": "both", "salesperson_id": 584}, {"address": "theory", "credit_limit": 3736.75, "email": "degree", "id": 2319, "name": "phone", "phone": "decide", "salesperson_id": 5049}, {"address": "including", "credit_limit": 8282.36, "email": "class", "id": 5935, "name": "ago", "phone": "pretty", "salesperson_id": 1258}, {"address": "technology", "credit_limit": 8953.26, "email": "really", "id": 954, "name": "senior", "phone": "tonight", "salesperson_id": 4494}, {"address": "trade", "credit_limit": 3676.83, "email": "building", "id": 132, "name": "bring", "phone": "wife", "salesperson_id": 1701}, {"address": "sign", "credit_limit": 7479.48, "email": "firm", "id": 8570, "name": "kid", "phone": "run", "salesperson_id": 5174}, {"address": "national", "credit_limit": 2268.87, "email": "want", "id": 3840, "name": "issue", "phone": "realize", "salesperson_id": 6630}, {"address": "hope", "credit_limit": 9841.74, "email": "security", "id": 3564, "name": "dream", "phone": "even", "salesperson_id": 8481}, {"address": "under", "credit_limit": 8937.32, "email": "direction", "id": 2221, "name": "want", "phone": "sit", "salesperson_id": 7580}],
-  getOne: (id) => (Array.isArray([{"address": "if", "credit_limit": 1639.22, "email": "perform", "id": 706, "name": "model", "phone": "consumer", "salesperson_id": 8785}, {"address": "necessary", "credit_limit": 6624.83, "email": "although", "id": 6283, "name": "paper", "phone": "table", "salesperson_id": 7948}, {"address": "occur", "credit_limit": 9386.85, "email": "good", "id": 5429, "name": "nearly", "phone": "prove", "salesperson_id": 8623}, {"address": "quite", "credit_limit": 3644.59, "email": "north", "id": 6151, "name": "public", "phone": "economy", "salesperson_id": 8117}, {"address": "law", "credit_limit": 8333.93, "email": "trade", "id": 8077, "name": "act", "phone": "why", "salesperson_id": 283}, {"address": "church", "credit_limit": 6831.72, "email": "main", "id": 7518, "name": "reach", "phone": "on", "salesperson_id": 9632}, {"address": "film", "credit_limit": 3307.24, "email": "both", "id": 5446, "name": "story", "phone": "bar", "salesperson_id": 9926}, {"address": "important", "credit_limit": 727.56, "email": "rather", "id": 1254, "name": "future", "phone": "two", "salesperson_id": 1509}, {"address": "training", "credit_limit": 7938.62, "email": "care", "id": 2428, "name": "care", "phone": "rate", "salesperson_id": 2932}, {"address": "position", "credit_limit": 5404.22, "email": "interest", "id": 158, "name": "put", "phone": "particular", "salesperson_id": 6023}, {"address": "pick", "credit_limit": 2375.09, "email": "poor", "id": 7348, "name": "mouth", "phone": "body", "salesperson_id": 8909}, {"address": "knowledge", "credit_limit": 4579.47, "email": "pull", "id": 9277, "name": "boy", "phone": "wish", "salesperson_id": 3334}, {"address": "daughter", "credit_limit": 5621.18, "email": "policy", "id": 1322, "name": "tough", "phone": "name", "salesperson_id": 1544}, {"address": "side", "credit_limit": 6582.58, "email": "support", "id": 6153, "name": "side", "phone": "large", "salesperson_id": 8021}, {"address": "low", "credit_limit": 588.48, "email": "store", "id": 8169, "name": "dinner", "phone": "entire", "salesperson_id": 2295}, {"address": "music", "credit_limit": 545.07, "email": "agreement", "id": 6678, "name": "today", "phone": "land", "salesperson_id": 7609}, {"address": "event", "credit_limit": 4616.29, "email": "brother", "id": 7021, "name": "us", "phone": "both", "salesperson_id": 584}, {"address": "theory", "credit_limit": 3736.75, "email": "degree", "id": 2319, "name": "phone", "phone": "decide", "salesperson_id": 5049}, {"address": "including", "credit_limit": 8282.36, "email": "class", "id": 5935, "name": "ago", "phone": "pretty", "salesperson_id": 1258}, {"address": "technology", "credit_limit": 8953.26, "email": "really", "id": 954, "name": "senior", "phone": "tonight", "salesperson_id": 4494}, {"address": "trade", "credit_limit": 3676.83, "email": "building", "id": 132, "name": "bring", "phone": "wife", "salesperson_id": 1701}, {"address": "sign", "credit_limit": 7479.48, "email": "firm", "id": 8570, "name": "kid", "phone": "run", "salesperson_id": 5174}, {"address": "national", "credit_limit": 2268.87, "email": "want", "id": 3840, "name": "issue", "phone": "realize", "salesperson_id": 6630}, {"address": "hope", "credit_limit": 9841.74, "email": "security", "id": 3564, "name": "dream", "phone": "even", "salesperson_id": 8481}, {"address": "under", "credit_limit": 8937.32, "email": "direction", "id": 2221, "name": "want", "phone": "sit", "salesperson_id": 7580}]) && [{"address": "if", "credit_limit": 1639.22, "email": "perform", "id": 706, "name": "model", "phone": "consumer", "salesperson_id": 8785}, {"address": "necessary", "credit_limit": 6624.83, "email": "although", "id": 6283, "name": "paper", "phone": "table", "salesperson_id": 7948}, {"address": "occur", "credit_limit": 9386.85, "email": "good", "id": 5429, "name": "nearly", "phone": "prove", "salesperson_id": 8623}, {"address": "quite", "credit_limit": 3644.59, "email": "north", "id": 6151, "name": "public", "phone": "economy", "salesperson_id": 8117}, {"address": "law", "credit_limit": 8333.93, "email": "trade", "id": 8077, "name": "act", "phone": "why", "salesperson_id": 283}, {"address": "church", "credit_limit": 6831.72, "email": "main", "id": 7518, "name": "reach", "phone": "on", "salesperson_id": 9632}, {"address": "film", "credit_limit": 3307.24, "email": "both", "id": 5446, "name": "story", "phone": "bar", "salesperson_id": 9926}, {"address": "important", "credit_limit": 727.56, "email": "rather", "id": 1254, "name": "future", "phone": "two", "salesperson_id": 1509}, {"address": "training", "credit_limit": 7938.62, "email": "care", "id": 2428, "name": "care", "phone": "rate", "salesperson_id": 2932}, {"address": "position", "credit_limit": 5404.22, "email": "interest", "id": 158, "name": "put", "phone": "particular", "salesperson_id": 6023}, {"address": "pick", "credit_limit": 2375.09, "email": "poor", "id": 7348, "name": "mouth", "phone": "body", "salesperson_id": 8909}, {"address": "knowledge", "credit_limit": 4579.47, "email": "pull", "id": 9277, "name": "boy", "phone": "wish", "salesperson_id": 3334}, {"address": "daughter", "credit_limit": 5621.18, "email": "policy", "id": 1322, "name": "tough", "phone": "name", "salesperson_id": 1544}, {"address": "side", "credit_limit": 6582.58, "email": "support", "id": 6153, "name": "side", "phone": "large", "salesperson_id": 8021}, {"address": "low", "credit_limit": 588.48, "email": "store", "id": 8169, "name": "dinner", "phone": "entire", "salesperson_id": 2295}, {"address": "music", "credit_limit": 545.07, "email": "agreement", "id": 6678, "name": "today", "phone": "land", "salesperson_id": 7609}, {"address": "event", "credit_limit": 4616.29, "email": "brother", "id": 7021, "name": "us", "phone": "both", "salesperson_id": 584}, {"address": "theory", "credit_limit": 3736.75, "email": "degree", "id": 2319, "name": "phone", "phone": "decide", "salesperson_id": 5049}, {"address": "including", "credit_limit": 8282.36, "email": "class", "id": 5935, "name": "ago", "phone": "pretty", "salesperson_id": 1258}, {"address": "technology", "credit_limit": 8953.26, "email": "really", "id": 954, "name": "senior", "phone": "tonight", "salesperson_id": 4494}, {"address": "trade", "credit_limit": 3676.83, "email": "building", "id": 132, "name": "bring", "phone": "wife", "salesperson_id": 1701}, {"address": "sign", "credit_limit": 7479.48, "email": "firm", "id": 8570, "name": "kid", "phone": "run", "salesperson_id": 5174}, {"address": "national", "credit_limit": 2268.87, "email": "want", "id": 3840, "name": "issue", "phone": "realize", "salesperson_id": 6630}, {"address": "hope", "credit_limit": 9841.74, "email": "security", "id": 3564, "name": "dream", "phone": "even", "salesperson_id": 8481}, {"address": "under", "credit_limit": 8937.32, "email": "direction", "id": 2221, "name": "want", "phone": "sit", "salesperson_id": 7580}].length ? [{"address": "if", "credit_limit": 1639.22, "email": "perform", "id": 706, "name": "model", "phone": "consumer", "salesperson_id": 8785}, {"address": "necessary", "credit_limit": 6624.83, "email": "although", "id": 6283, "name": "paper", "phone": "table", "salesperson_id": 7948}, {"address": "occur", "credit_limit": 9386.85, "email": "good", "id": 5429, "name": "nearly", "phone": "prove", "salesperson_id": 8623}, {"address": "quite", "credit_limit": 3644.59, "email": "north", "id": 6151, "name": "public", "phone": "economy", "salesperson_id": 8117}, {"address": "law", "credit_limit": 8333.93, "email": "trade", "id": 8077, "name": "act", "phone": "why", "salesperson_id": 283}, {"address": "church", "credit_limit": 6831.72, "email": "main", "id": 7518, "name": "reach", "phone": "on", "salesperson_id": 9632}, {"address": "film", "credit_limit": 3307.24, "email": "both", "id": 5446, "name": "story", "phone": "bar", "salesperson_id": 9926}, {"address": "important", "credit_limit": 727.56, "email": "rather", "id": 1254, "name": "future", "phone": "two", "salesperson_id": 1509}, {"address": "training", "credit_limit": 7938.62, "email": "care", "id": 2428, "name": "care", "phone": "rate", "salesperson_id": 2932}, {"address": "position", "credit_limit": 5404.22, "email": "interest", "id": 158, "name": "put", "phone": "particular", "salesperson_id": 6023}, {"address": "pick", "credit_limit": 2375.09, "email": "poor", "id": 7348, "name": "mouth", "phone": "body", "salesperson_id": 8909}, {"address": "knowledge", "credit_limit": 4579.47, "email": "pull", "id": 9277, "name": "boy", "phone": "wish", "salesperson_id": 3334}, {"address": "daughter", "credit_limit": 5621.18, "email": "policy", "id": 1322, "name": "tough", "phone": "name", "salesperson_id": 1544}, {"address": "side", "credit_limit": 6582.58, "email": "support", "id": 6153, "name": "side", "phone": "large", "salesperson_id": 8021}, {"address": "low", "credit_limit": 588.48, "email": "store", "id": 8169, "name": "dinner", "phone": "entire", "salesperson_id": 2295}, {"address": "music", "credit_limit": 545.07, "email": "agreement", "id": 6678, "name": "today", "phone": "land", "salesperson_id": 7609}, {"address": "event", "credit_limit": 4616.29, "email": "brother", "id": 7021, "name": "us", "phone": "both", "salesperson_id": 584}, {"address": "theory", "credit_limit": 3736.75, "email": "degree", "id": 2319, "name": "phone", "phone": "decide", "salesperson_id": 5049}, {"address": "including", "credit_limit": 8282.36, "email": "class", "id": 5935, "name": "ago", "phone": "pretty", "salesperson_id": 1258}, {"address": "technology", "credit_limit": 8953.26, "email": "really", "id": 954, "name": "senior", "phone": "tonight", "salesperson_id": 4494}, {"address": "trade", "credit_limit": 3676.83, "email": "building", "id": 132, "name": "bring", "phone": "wife", "salesperson_id": 1701}, {"address": "sign", "credit_limit": 7479.48, "email": "firm", "id": 8570, "name": "kid", "phone": "run", "salesperson_id": 5174}, {"address": "national", "credit_limit": 2268.87, "email": "want", "id": 3840, "name": "issue", "phone": "realize", "salesperson_id": 6630}, {"address": "hope", "credit_limit": 9841.74, "email": "security", "id": 3564, "name": "dream", "phone": "even", "salesperson_id": 8481}, {"address": "under", "credit_limit": 8937.32, "email": "direction", "id": 2221, "name": "want", "phone": "sit", "salesperson_id": 7580}][0] : {}),
+  get: () => [{"id": 1, "name": "Big Retailer Inc", "phone": "9999999999"}],
+  getOne: (id) => (Array.isArray([{"id": 1, "name": "Big Retailer Inc", "phone": "9999999999"}]) && [{"id": 1, "name": "Big Retailer Inc", "phone": "9999999999"}].length ? [{"id": 1, "name": "Big Retailer Inc", "phone": "9999999999"}][0] : {}),
   post: (payload) => ({ ...payload, id: Math.floor(Math.random() * 10000) }),
   update: (payload) => payload,
 };
+// Auto-generated by code_generator.py — per-entity mock options
+// entity: customer
+
+export async function options() {
+  return {
+  "entity": "customer",
+  "primary_key": "id",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": true,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "address",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "credit_limit",
+      "type": "float",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "email",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "phone",
+      "type": "str",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": null,
+      "default": null
+    },
+    {
+      "name": "salesperson_id",
+      "type": "int",
+      "label": null,
+      "required": false,
+      "read_only": false,
+      "nullable": true,
+      "primary_key": false,
+      "foreign_key": "salesperson.id",
+      "default": null
+    }
+  ],
+  "admin": {
+    "table": {
+      "delete_confirmation": true,
+      "inline_edit": false,
+      "show_filters": true,
+      "page_size": 20,
+      "global_search": true,
+      "column_search": false,
+      "sortable": true,
+      "sticky_header": false
+    },
+    "form": null,
+    "list": null
+  }
+}
+}
