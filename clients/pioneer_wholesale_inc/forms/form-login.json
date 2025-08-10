@@ -5,7 +5,7 @@
   "redirect": {
     "label": "Don't have an account?",
     "linkText": "Register",
-    "href": "/auth/register"
+    "href": "/register"
   },
   "fields": [
     {
