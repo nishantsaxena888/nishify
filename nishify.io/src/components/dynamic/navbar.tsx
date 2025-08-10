@@ -98,9 +98,8 @@ export default function Navbar({
 
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger className="px-2">
-                <Menu className="h-5 w-5">
-                  <span className="sr-only">Menu Icon</span>
-                </Menu>
+                <Menu className="h-5 w-5"></Menu>
+                <span className="sr-only">Menu Icon</span>
               </SheetTrigger>
 
               <SheetContent side="left">
