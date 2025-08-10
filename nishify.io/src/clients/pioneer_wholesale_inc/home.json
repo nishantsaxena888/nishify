@@ -4,147 +4,116 @@
     {
       "type": "navbar",
       "sticky": true,
-      "brand": { "text": "Pioneer Wholesale", "href": "/" },
+      "brand": { "text": "JQ National Distributors", "href": "/" },
       "routes": [
-        { "href": "/#product", "label": "Product" },
+        { "href": "/#catalog", "label": "Catalog" },
         { "href": "/#features", "label": "Features" },
-        { "href": "/#testimonials", "label": "Testimonials" },
+        { "href": "/#how-it-works", "label": "How it works" },
         { "href": "/#pricing", "label": "Pricing" },
-        { "href": "/home/#faq", "label": "FAQ" }
+        { "href": "/#faq", "label": "FAQ" }
       ],
       "actions": {
         "showModeToggle": true,
         "showThemeSwitcher": true,
         "cartLink": "/cart",
-        "github": {
-          "href": "https://github.com/leoMirandaa/shadcn-landing-page.git",
-          "text": "Github"
-        }
+        "github": null
       }
     },
+
     {
       "type": "hero",
+      "bgClass": "bg-[linear-gradient(180deg,#F6FFFA_0%,#F2FBF7_100%)]",
       "titleLine1": {
         "segments": [
-          { "text": "Shadcn", "gradient": ["#F596D3", "#D247BF"] },
-          { "text": " landing page" }
+          { "text": "Wholesale", "gradient": ["#F596D3", "#D247BF"] },
+          { "text": " made" }
         ]
       },
       "titleLine2": {
         "segments": [
-          { "text": "React", "gradient": ["#61DAFB", "#1fc0f1", "#03a3d7"] },
-          { "text": " developers" }
+          { "text": "simple", "gradient": ["#61DAFB", "#1fc0f1", "#03a3d7"] }
         ]
       },
-      "middleText": " for ",
+      "middleText": "",
       "cardsLayout": "absolute",
       "cardsContainerSize": "w-[700px] h-[500px]",
-      "subtitle": "Build your React landing page effortlessly with the required sections to your project.",
+      "subtitle": "JQ National Distributors brings your buying online—real-time inventory, customer-specific pricing, and fast shipping from multi-warehouse locations.",
       "ctas": [
-        { "text": "Get Started", "link": "/get-started", "variant": "solid" },
-        {
-          "text": "Github Repository",
-          "link": "https://github.com/leoMirandaa/shadcn-landing-page.git",
-          "variant": "outline",
-          "icon": "github",
-          "external": true
-        }
+        { "text": "Browse Catalog", "link": "/catalog", "variant": "solid" },
+        { "text": "Request Account", "link": "/request-account", "variant": "outline" }
       ],
       "cards": [
         {
           "type": "testimonial",
-          "avatarUrl": "https://github.com/shadcn.png",
-          "name": "John Doe",
-          "handle": "@john",
-          "quote": "This landing page is awesome!"
+          "avatarUrl": "https://i.pravatar.cc/150?img=12",
+          "name": "Diana • Store Owner",
+          "handle": "@dianasupplies",
+          "quote": "Buyers now order in minutes—live stock and tiered pricing make it effortless."
         },
         {
           "type": "team",
           "avatarUrl": "https://i.pravatar.cc/150?img=58",
-          "name": "Leo Miranda",
-          "role": "Frontend Dev",
-          "quote": "I really enjoy transforming ideas into functional software that exceeds expectations",
-          "links": [
-            { "icon": "github", "href": "https://github.com/leoMirandaa" },
-            { "icon": "x", "href": "https://twitter.com/leo_mirand4" },
-            {
-              "icon": "linkedin",
-              "href": "https://www.linkedin.com/in/leopoldo-miranda/"
-            }
-          ]
+          "name": "Account",
+          "role": "B2B Support Success",
+          "quote": "Onboarding help, custom price lists, and quick order templates for your team.",
+          "links": [{ "icon": "linkedin", "href": "https://www.linkedin.com/" }]
         },
         {
           "type": "pricing",
-          "tier": "Free",
+          "tier": "Retailer",
           "price": "$0",
           "frequency": "month",
-          "description": "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
+          "description": "Free buyer accounts with negotiated pricing.",
           "popular": true,
-          "benefits": ["4 users", "4 GB", "6 pages"],
-          "ctaText": "Start Free",
-          "ctaLink": "#"
+          "benefits": ["Quick order", "Live inventory", "Order tracking"],
+          "ctaText": "Request Access",
+          "ctaLink": "/request-account"
         },
         {
           "type": "feature",
           "iconName": "lightbulb",
-          "title": "Light & dark mode",
-          "description": "Lorem ipsum dolor sit amet consect adipisicing elit. Consectetur natusm."
+          "title": "Customer pricing",
+          "description": "Contract & tiered pricing auto-applies at checkout."
         }
       ]
     },
+
     {
       "type": "sponsors",
-      "title": "Investors and founders",
+      "title": "Trusted by retailers & resellers",
       "items": [
-        {
-          "label": "Sponsor 1",
-          "icon": { "kind": "lucide", "name": "Radar", "size": 34 }
-        },
-        {
-          "label": "Sponsor 2",
-          "icon": { "kind": "lucide", "name": "Radar", "size": 34 }
-        },
-        {
-          "label": "Sponsor 3",
-          "icon": { "kind": "lucide", "name": "Radar", "size": 34 }
-        },
-        {
-          "label": "Sponsor 4",
-          "icon": { "kind": "lucide", "name": "Radar", "size": 34 }
-        },
-        {
-          "label": "Sponsor 5",
-          "icon": { "kind": "lucide", "name": "Radar", "size": 34 }
-        },
-        {
-          "label": "Sponsor 6",
-          "icon": { "kind": "lucide", "name": "Radar", "size": 34 }
-        }
+        { "label": "Regional Grocers", "icon": { "kind": "lucide", "name": "Store", "size": 34 } },
+        { "label": "Convenience Chains", "icon": { "kind": "lucide", "name": "BadgeCheck", "size": 34 } },
+        { "label": "Specialty Shops", "icon": { "kind": "lucide", "name": "Package", "size": 34 } },
+        { "label": "E-commerce Sellers", "icon": { "kind": "lucide", "name": "ShoppingCart", "size": 34 } },
+        { "label": "Wholesale Clubs", "icon": { "kind": "lucide", "name": "Users", "size": 34 } },
+        { "label": "Distributors", "icon": { "kind": "lucide", "name": "Network", "size": 34 } }
       ],
       "wrapperClass": "container pt-24 sm:py-32",
       "titleClass": "text-center text-md lg:text-xl font-bold mb-8 text-primary",
       "itemsClass": "flex flex-wrap justify-center items-center gap-4 md:gap-8"
     },
+
     {
       "type": "about",
       "id": "about",
       "image": {
         "src": "/assets/pilot.png",
-        "alt": "Pilot illustration",
+        "alt": "Warehouse illustration",
         "width": 500,
         "height": 500,
         "className": "w-[300px] object-contain rounded-lg"
       },
       "titleSegments": [
         { "text": "About ", "className": "text-primary" },
-        { "text": "Company" }
+        { "text": "JQ National Distributors" }
       ],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "description": "We power wholesale for thousands of retailers with reliable supply, competitive pricing, and nationwide fulfillment. Buy online 24/7, track orders in real time, and restock faster.",
       "stats": [
-        { "quantity": "2.7K+", "description": "Users" },
-        { "quantity": "1.8K+", "description": "Subscribers" },
-        { "quantity": "112", "description": "Downloads" },
-        { "quantity": "4", "description": "Products" }
+        { "quantity": "15K+", "description": "SKUs" },
+        { "quantity": "3", "description": "Warehouses" },
+        { "quantity": "48h", "description": "Avg. ship time" },
+        { "quantity": "50+", "description": "States served" }
       ],
       "containerClass": "container py-14 sm:pb-32",
       "panelClass": "bg-muted/50 border rounded-lg py-12",
@@ -153,106 +122,102 @@
       "descClass": "text-xl text-muted-foreground mt-4",
       "statsGridClass": "grid grid-cols-2 lg:grid-cols-4 gap-8"
     },
+
     {
       "type": "how-it-works",
+      "id": "how-it-works",
       "heading": [
-        { "text": "How It " },
-        { "text": "Works", "className": "font-semibold" },
-        { "text": " Step-by-Step Guide" }
+        { "text": "How " },
+        { "text": "Ordering Works", "className": "font-semibold" }
       ],
-      "subtitle": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis dolor pariatur sit!",
+      "subtitle": "Move your wholesale online in four simple steps.",
       "features": [
         {
-          "title": "Accessibility",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
-          "icon": { "kind": "lucide", "name": "Medal", "size": 32 },
+          "title": "1. Create account",
+          "description": "Get approved for your price lists and payment terms.",
+          "icon": { "kind": "lucide", "name": "UserPlus", "size": 32 },
           "cardClass": "shadow-sm",
           "titleBadgeClass": "bg-primary/30 px-2 rounded"
         },
         {
-          "title": "Community",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
-          "icon": { "kind": "lucide", "name": "Map", "size": 32 },
+          "title": "2. Browse catalog",
+          "description": "Live inventory, filters, quick order by SKU, and saved lists.",
+          "icon": { "kind": "lucide", "name": "Search", "size": 32 },
           "cardClass": "shadow-sm"
         },
         {
-          "title": "Scalability",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
-          "icon": { "kind": "lucide", "name": "Plane", "size": 32 },
+          "title": "3. Place order",
+          "description": "Customer-specific pricing, bulk breaks, PO support & approvals.",
+          "icon": { "kind": "lucide", "name": "ClipboardCheck", "size": 32 },
           "cardClass": "shadow-sm"
         },
         {
-          "title": "Gamification",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
-          "icon": { "kind": "lucide", "name": "Gift", "size": 32 },
+          "title": "4. Track & repeat",
+          "description": "Real-time tracking, re-order from history, automate replenishment.",
+          "icon": { "kind": "lucide", "name": "Truck", "size": 32 },
           "cardClass": "shadow-sm"
         }
       ]
     },
+
     {
       "type": "features-grid",
+      "id": "features",
       "heading": [
-        { "text": "Many " },
-        { "text": "Great ", "className": "text-foreground" },
+        { "text": "B2B " },
+        { "text": "Wholesale ", "className": "text-foreground" },
         { "text": "Features" }
       ],
-      "subtitle": "",
+      "subtitle": "Everything you need to buy and sell—online.",
       "chips": [
-        { "label": "Dark/Light theme" },
-        { "label": "Reviews" },
-        { "label": "Features" },
-        { "label": "Pricing" },
-        { "label": "Contact form" },
-        { "label": "Our team" },
-        { "label": "Responsive design" },
-        { "label": "Newsletter" },
-        { "label": "Minimalist" }
+        { "label": "Live Inventory" },
+        { "label": "Customer Pricing" },
+        { "label": "Multi-warehouse" },
+        { "label": "PO & Approvals" },
+        { "label": "Net Terms" },
+        { "label": "EDI/API" },
+        { "label": "Quick Order" },
+        { "label": "Scheduled Reorder" },
+        { "label": "Reports" }
       ],
       "features": [
         {
-          "title": "Responsive Design",
-          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+          "title": "Live inventory & holds",
+          "description": "Accurate stock by warehouse with optional reservation during checkout.",
           "image": { "src": "/assets/growth.png", "width": 300, "height": 300 }
         },
         {
-          "title": "Intuitive user interface",
-          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
-          "image": {
-            "src": "/assets/reflecting.png",
-            "width": 300,
-            "height": 300
-          }
+          "title": "Customer-specific pricing",
+          "description": "Tiers, contracts, and volume breaks applied automatically.",
+          "image": { "src": "/assets/reflecting.png", "width": 300, "height": 300 }
         },
         {
-          "title": "AI-Powered insights",
-          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
-          "image": {
-            "src": "/assets/looking-ahead.png",
-            "width": 300,
-            "height": 300
-          }
+          "title": "Purchase orders & approvals",
+          "description": "Create POs, route for approval, export to your ERP or accounting.",
+          "image": { "src": "/assets/looking-ahead.png", "width": 300, "height": 300 }
         }
       ],
       "gridClass": "grid md:grid-cols-2 lg:grid-cols-3 gap-8"
     },
+
     {
       "type": "services",
-      "heading": [{ "text": "Client-Centric " }, { "text": "Services" }],
-      "subtitle": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis dolor.",
+      "heading": [{ "text": "Integration & " }, { "text": "Onboarding Services" }],
+      "subtitle": "From catalog setup to EDI/API connectivity—our team helps you launch fast.",
       "services": [
         {
-          "title": "Code Collaboration",
-          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+          "title": "Catalog & Pricing Setup",
+          "description": "We import SKUs, create price lists, and configure bulk breaks.",
           "icon": { "kind": "custom", "name": "ChartIcon" }
         },
         {
-          "title": "Project Management",
-          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+          "title": "EDI & API Integrations",
+          "description": "Connect your POS/ERP for orders, inventory, invoices, and tracking.",
           "icon": { "kind": "custom", "name": "WalletIcon" }
         },
         {
-          "title": "Task Automation",
-          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+          "title": "Buyer Training & Support",
+          "description": "Guided onboarding, quick-order templates, and dedicated support.",
           "icon": { "kind": "custom", "name": "MagnifierIcon" }
         }
       ],
@@ -268,218 +233,125 @@
       "iconWrapClass": "mt-1 bg-primary/20 p-1 rounded-2xl",
       "cardBaseClass": "border rounded-2xl"
     },
+
     {
       "type": "cta-banner",
       "title": [
-        { "text": "All Your " },
+        { "text": "Move Your " },
         {
-          "text": "Ideas & Concepts ",
+          "text": "Wholesale Online ",
           "className": "bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text"
         },
-        { "text": "In One Interface" }
+        { "text": "with JQ" }
       ],
-      "subtitle": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, beatae. Ipsa tempore ipsum iste quibusdam illum ducimus eos. Quasi, sed!",
+      "subtitle": "Open 24/7 ordering with pricing, inventory, and shipping built for retailers.",
       "buttons": [
         { "text": "Request a Demo", "href": "/demo" },
-        {
-          "text": "View all features",
-          "href": "/features",
-          "variant": "outline"
-        }
+        { "text": "View Catalog", "href": "/catalog", "variant": "outline" }
       ],
       "sectionClass": "bg-muted/50 py-16 my-24 sm:my-32",
       "containerClass": "container lg:grid lg:grid-cols-2 place-items-center",
       "buttonsWrapClass": "space-y-4 lg:space-y-0 lg:col-start-2 flex flex-col md:flex-row md:items-center md:gap-4"
     },
+
     {
       "type": "testimonials-masonry",
       "heading": [
-        { "text": "Discover Why " },
+        { "text": "Retailers " },
         {
-          "text": "People Love ",
+          "text": "Who Trust ",
           "className": "bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text"
         },
-        { "text": "This Landing Page" }
+        { "text": "JQ National" }
       ],
-      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non unde error facere hic reiciendis illo",
+      "subtitle": "Real feedback from buyers using JQ for restock and replenishment.",
       "items": [
-        {
-          "image": "https://github.com/shadcn.png",
-          "name": "John Doe React",
-          "userName": "@john_Doe",
-          "comment": "This landing page is awesome!"
-        },
-        {
-          "image": "https://github.com/shadcn.png",
-          "name": "John Doe React",
-          "userName": "@john_Doe1",
-          "comment": "Lorem ipsum dolor sit amet,empor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud."
-        },
-        {
-          "image": "https://github.com/shadcn.png",
-          "name": "John Doe React",
-          "userName": "@john_Doe2",
-          "comment": "Lorem ipsum dolor sit amet,exercitation. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
-        },
-        {
-          "image": "https://github.com/shadcn.png",
-          "name": "John Doe React",
-          "userName": "@john_Doe3",
-          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-        },
-        {
-          "image": "https://github.com/shadcn.png",
-          "name": "John Doe React",
-          "userName": "@john_Doe4",
-          "comment": "Lorem ipsum dolor sit amet, tempor incididunt  aliqua. Ut enim ad minim veniam, quis nostrud."
-        },
-        {
-          "image": "https://github.com/shadcn.png",
-          "name": "John Doe React",
-          "userName": "@john_Doe5",
-          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        }
+        { "image": "https://i.pravatar.cc/150?img=22", "name": "Karan • Convenience", "userName": "@karan_store", "comment": "Quick order by SKU is perfect—our team saves hours each week." },
+        { "image": "https://i.pravatar.cc/150?img=31", "name": "Mia • Specialty Retail", "userName": "@miaretail", "comment": "Customer pricing and bulk discounts apply automatically—no phone calls." },
+        { "image": "https://i.pravatar.cc/150?img=28", "name": "Logan • Online Seller", "userName": "@logan_commerce", "comment": "Accurate inventory across warehouses and fast shipping." },
+        { "image": "https://i.pravatar.cc/150?img=45", "name": "Ava • Grocery", "userName": "@ava-g", "comment": "Approvals and POs streamlined our internal process." },
+        { "image": "https://i.pravatar.cc/150?img=52", "name": "Diego • Chain Ops", "userName": "@d_ops", "comment": "Great analytics—easy reorder from purchase history." },
+        { "image": "https://i.pravatar.cc/150?img=18", "name": "Priya • Buyer", "userName": "@priyabuyer", "comment": "Support team was excellent during onboarding." }
       ],
       "masonryClass": "mx-auto columns-1 sm:columns-2 lg:columns-3 lg:gap-6 space-y-4 lg:space-y-6"
     },
+
     {
       "type": "team-section",
       "heading": [
+        { "text": "Our " },
         {
-          "text": "Our Dedicated ",
+          "text": "Leadership ",
           "className": "bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text"
         },
-        { "text": "Crew" }
+        { "text": "Team" }
       ],
-      "subtitle": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis dolor pariatur sit!",
+      "subtitle": "Operations, logistics, and technology focused on retail success.",
       "members": [
-        {
-          "imageUrl": "https://i.pravatar.cc/150?img=35",
-          "name": "Emma Smith",
-          "position": "Product Manager",
-          "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-          "socials": [
-            { "icon": "linkedin", "href": "https://www.linkedin.com/" },
-            { "icon": "facebook", "href": "https://www.facebook.com/" },
-            { "icon": "instagram", "href": "https://www.instagram.com/" }
-          ]
-        },
-        {
-          "imageUrl": "https://i.pravatar.cc/150?img=60",
-          "name": "John Doe",
-          "position": "Tech Lead",
-          "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-          "socials": [
-            { "icon": "linkedin", "href": "https://www.linkedin.com/" },
-            { "icon": "facebook", "href": "https://www.facebook.com/" },
-            { "icon": "instagram", "href": "https://www.instagram.com/" }
-          ]
-        },
-        {
-          "imageUrl": "https://i.pravatar.cc/150?img=36",
-          "name": "Ashley Ross",
-          "position": "Frontend Developer",
-          "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-          "socials": [
-            { "icon": "linkedin", "href": "https://www.linkedin.com/" },
-            { "icon": "instagram", "href": "https://www.instagram.com/" }
-          ]
-        },
-        {
-          "imageUrl": "https://i.pravatar.cc/150?img=17",
-          "name": "Bruce Rogers",
-          "position": "Backend Developer",
-          "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-          "socials": [
-            { "icon": "linkedin", "href": "https://www.linkedin.com/" },
-            { "icon": "facebook", "href": "https://www.facebook.com/" }
-          ]
-        }
+        { "imageUrl": "https://i.pravatar.cc/150?img=35", "name": "Emma Smith", "position": "VP Operations", "bio": "Multi-warehouse logistics & fulfillment.", "socials": [{ "icon": "linkedin", "href": "https://www.linkedin.com/" }] },
+        { "imageUrl": "https://i.pravatar.cc/150?img=60", "name": "John Doe", "position": "Head of Technology", "bio": "Integrations, EDI, API & analytics.", "socials": [{ "icon": "linkedin", "href": "https://www.linkedin.com/" }] },
+        { "imageUrl": "https://i.pravatar.cc/150?img=36", "name": "Ashley Ross", "position": "Customer Success", "bio": "Buyer onboarding and training.", "socials": [{ "icon": "linkedin", "href": "https://www.linkedin.com/" }] },
+        { "imageUrl": "https://i.pravatar.cc/150?img=17", "name": "Bruce Rogers", "position": "Supply Chain", "bio": "Vendor relations and procurement.", "socials": [{ "icon": "linkedin", "href": "https://www.linkedin.com/" }] }
       ],
       "gridClass": "grid md:grid-cols-2 lg:grid-cols-4 gap-8 gap-y-10",
       "cardBaseClass": "bg-muted/50 relative mt-8 flex flex-col justify-center items-center rounded-2xl"
     },
+
     {
       "type": "pricing-grid",
+      "id": "pricing",
       "heading": [
-        { "text": "Get " },
+        { "text": "Account " },
         {
-          "text": "Unlimited ",
+          "text": "Options ",
           "className": "bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text"
         },
-        { "text": "Access" }
+        { "text": "for Buyers" }
       ],
-      "subheading": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias reiciendis.",
+      "subheading": "Choose the access that fits your team. Pricing reflects platform access—not product costs.",
       "plans": [
         {
-          "title": "Free",
+          "title": "Standard",
           "popular": false,
           "price": 0,
           "currency": "$",
           "period": "month",
-          "description": "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-          "button": { "text": "Get Started", "href": "/signup" },
-          "benefits": [
-            "1 Team member",
-            "2 GB Storage",
-            "Upto 4 pages",
-            "Community support",
-            "lorem ipsum dolor"
-          ]
+          "description": "Free account with negotiated product pricing.",
+          "button": { "text": "Request Access", "href": "/request-account" },
+          "benefits": ["Live inventory", "Quick order", "Order tracking", "Email support"]
         },
         {
-          "title": "Premium",
+          "title": "Preferred",
           "popular": true,
           "popularLabel": "Most popular",
-          "price": 5,
+          "price": 49,
           "currency": "$",
           "period": "month",
-          "description": "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-          "button": { "text": "Start Free Trial", "href": "/trial" },
-          "benefits": [
-            "4 Team member",
-            "4 GB Storage",
-            "Upto 6 pages",
-            "Priority support",
-            "lorem ipsum dolor"
-          ]
+          "description": "For teams needing advanced tools.",
+          "button": { "text": "Start Trial", "href": "/trial" },
+          "benefits": ["User roles & approvals", "PO export", "Saved lists & reorders", "Priority support"]
         },
         {
           "title": "Enterprise",
           "popular": false,
-          "price": 40,
-          "currency": "$",
-          "period": "month",
-          "description": "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-          "button": {
-            "text": "Contact US",
-            "href": "/contact",
-            "variant": "default"
-          },
-          "benefits": [
-            "10 Team member",
-            "8 GB Storage",
-            "Upto 10 pages",
-            "Priority support",
-            "lorem ipsum dolor"
-          ]
+          "price": 0,
+          "currency": "Talk",
+          "period": "to sales",
+          "description": "Custom terms & integrations.",
+          "button": { "text": "Contact Sales", "href": "/contact", "variant": "default" },
+          "benefits": ["EDI/API integration", "SLA support", "Custom pricing models", "Multi-warehouse routing"]
         }
       ]
     },
+
     {
       "type": "newsletter-signup",
       "title": [
-        { "text": "Join Our Daily " },
-        {
-          "text": "Newsletter",
-          "className": "bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text"
-        }
+        { "text": "Join Our " },
+        { "text": "Buyer Newsletter", "className": "bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text" }
       ],
-      "subtitle": "Lorem ipsum dolor sit amet consectetur.",
-      "input": {
-        "placeholder": "leomirandadev@gmail.com",
-        "ariaLabel": "email"
-      },
+      "subtitle": "Product drops, promotions, and stock alerts.",
+      "input": { "placeholder": "you@company.com", "ariaLabel": "email" },
       "button": { "text": "Subscribe" },
       "showTopDivider": true,
       "showBottomDivider": true,
@@ -487,125 +359,73 @@
       "containerClass": "container py-24 sm:py-32",
       "formClass": "flex flex-col w-full md:flex-row md:w-6/12 lg:w-4/12 mx-auto gap-4 md:gap-2"
     },
+
     {
       "type": "faq-accordion",
+      "id": "faq",
       "heading": [
         { "text": "Frequently Asked " },
-        {
-          "text": "Questions",
-          "className": "bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text"
-        }
+        { "text": "Questions", "className": "bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text" }
       ],
       "subheading": "",
-      "accordion": {
-        "type": "single",
-        "collapsible": true,
-        "defaultValue": "item-2"
-      },
+      "accordion": { "type": "single", "collapsible": true, "defaultValue": "item-2" },
       "items": [
-        {
-          "id": "item-1",
-          "question": "Is this template free?",
-          "answer": "Yes. It is a free Shadcn UI template."
-        },
-        {
-          "id": "item-2",
-          "question": "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
-          "answer": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod."
-        },
-        {
-          "id": "item-3",
-          "question": "Lorem ipsum dolor sit amet Consectetur natus dolores minus quibusdam?",
-          "answer": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore qui nostrum reiciendis veritatis necessitatibus maxime quis ipsa vitae cumque quo?"
-        },
-        {
-          "id": "item-4",
-          "question": "Lorem ipsum dolor sit amet, consectetur adipisicing elit?",
-          "answer": "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
-        },
-        {
-          "id": "item-5",
-          "question": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur natus?",
-          "answer": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod."
-        }
+        { "id": "item-1", "question": "How do I get access to pricing?", "answer": "Request an account. After approval we assign your negotiated price lists automatically." },
+        { "id": "item-2", "question": "Do you support purchase orders (PO)?", "answer": "Yes—create POs, route for approval, and export to your ERP or accounting system." },
+        { "id": "item-3", "question": "Can I see stock by warehouse?", "answer": "Live inventory is shown per-warehouse with estimated ship dates." },
+        { "id": "item-4", "question": "What payment terms are available?", "answer": "Credit card, ACH, and approved net terms are supported." },
+        { "id": "item-5", "question": "Do you integrate with my systems?", "answer": "We offer EDI and REST APIs for orders, inventory, invoices, and tracking." }
       ],
-      "contact": {
-        "prefix": "Still have questions?",
-        "linkText": "Contact us",
-        "href": "/contact"
-      },
+      "contact": { "prefix": "Still have questions?", "linkText": "Contact us", "href": "/contact" },
       "containerClass": "container py-24 sm:py-32",
       "accordionClass": "w-full"
     },
+
     {
       "type": "footer-section",
       "brand": {
-        "text": "ShadcnUI/React",
+        "text": "JQ National Distributors",
         "href": "/",
         "icon": { "kind": "custom", "name": "LogoIcon", "className": "" },
         "className": ""
       },
       "columns": [
         {
-          "title": "Follow US",
+          "title": "Company",
           "links": [
-            {
-              "label": "Github",
-              "href": "https://github.com",
-              "external": true
-            },
-            {
-              "label": "Twitter",
-              "href": "https://twitter.com",
-              "external": true
-            },
-            {
-              "label": "Dribbble",
-              "href": "https://dribbble.com",
-              "external": true
-            }
+            { "label": "About", "href": "/#about" },
+            { "label": "Careers", "href": "/careers" },
+            { "label": "Contact", "href": "/contact" }
           ]
         },
         {
-          "title": "Platforms",
+          "title": "Buyers",
           "links": [
-            { "label": "Web", "href": "/#" },
-            { "label": "Mobile", "href": "/#" },
-            { "label": "Desktop", "href": "/#" }
+            { "label": "Catalog", "href": "/catalog" },
+            { "label": "Request Account", "href": "/request-account" },
+            { "label": "Support", "href": "/support" }
           ]
         },
         {
-          "title": "About",
+          "title": "Integrations",
           "links": [
-            { "label": "Features", "href": "/#features" },
-            { "label": "Pricing", "href": "/#pricing" },
-            { "label": "FAQ", "href": "/#faq" }
+            { "label": "EDI", "href": "/integrations/edi" },
+            { "label": "API Docs", "href": "/integrations/api" },
+            { "label": "Status", "href": "/status" }
           ]
         },
         {
-          "title": "Community",
+          "title": "Legal",
           "links": [
-            {
-              "label": "Youtube",
-              "href": "https://youtube.com",
-              "external": true
-            },
-            {
-              "label": "Discord",
-              "href": "https://discord.com",
-              "external": true
-            },
-            { "label": "Twitch", "href": "https://twitch.tv", "external": true }
+            { "label": "Terms", "href": "/terms" },
+            { "label": "Privacy", "href": "/privacy" },
+            { "label": "Cookies", "href": "/cookies" }
           ]
         }
       ],
       "copyright": {
-        "prefix": " ",
-        "author": {
-          "label": "Pioneer Wholesale",
-          "href": "#",
-          "external": true
-        },
+        "prefix": "©",
+        "author": { "label": "JQ National Distributors", "href": "#", "external": false },
         "year": "auto"
       },
       "showTopDivider": true
