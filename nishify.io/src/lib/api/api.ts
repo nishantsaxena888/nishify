@@ -1,6 +1,6 @@
 // src/lib/api/api.ts
 
-import { BASE_URL } from "./config";
+import { API_BASE_URL } from "./config";
 import { shouldUseMock, Operation } from "./entityRouter";
 
 const CLIENT = process.env.NEXT_PUBLIC_CLIENT_NAME || "pioneer_wholesale_inc";
@@ -23,7 +23,7 @@ async function loadMock(entity: string) {
     // fall through
   }
   try {
-    const mod = await import(`@/lib/api/mock/${entity}.ts`);
+    const mod = await import(`@/lib/api/${entity}.ts`);
     return (mod as any).default || (mod as any)[entity] || mod;
   } catch {
     return null;
@@ -31,7 +31,7 @@ async function loadMock(entity: string) {
 }
 
 function buildUrl(entity: string, operation: Operation): string {
-  const base = BASE_URL.replace(/\/+$/, "");
+  const base = API_BASE_URL.replace(/\/+$/, "");
   const seg = `entity/${entity}/${operation}`;
   return `${base}/${seg}`;
 }

@@ -48,16 +48,31 @@ export function isMockMode(): boolean {
 /** Convenience export used across the codebase */
 export const USE_MOCK = isMockMode();
 
-// ---- API base ---------------------------------------------------------------
-export function apiBase(): string {
-  // if you want to switch by NODE_ENV later, do it here
-  return "http://localhost:8000/api";
-}
+// ---- API base (single source of truth) -------------------------------------
+/**
+ * You can override these via Next.js env:
+ *  - NEXT_PUBLIC_API_BASE   (default: http://localhost:8000)
+ *  - NEXT_PUBLIC_API_PREFIX (default: /api)
+ */
+const API_BASE =
+  process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000";
+const API_PREFIX =
+  process.env.NEXT_PUBLIC_API_PREFIX ?? "/api";
 
-export const API_BASE_URL = apiBase(); // <- add this
+// normalize: no trailing slash on base; prefix always starts with "/"
+const __base = API_BASE.replace(/\/+$/, "");
+const __prefix = API_PREFIX.startsWith("/") ? API_PREFIX : `/${API_PREFIX}`;
+
+/** Final base URL used by all calls (e.g., http://localhost:8000/api) */
+export const API_BASE_URL = `${__base}${__prefix}`;
+
+/** Backward-compat function (kept so existing imports keep working) */
+export function apiBase(): string {
+  return API_BASE_URL;
+}
 
 /** Helper to join paths onto the API base */
 export function urlFor(path: string): string {
-  const clean = path.replace(/^\/+/, "");
-  return `${apiBase()}/${clean}`;
+  const clean = path.startsWith("/") ? path : `/${path}`;
+  return `${API_BASE_URL}${clean}`;
 }

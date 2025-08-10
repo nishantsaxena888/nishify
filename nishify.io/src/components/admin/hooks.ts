@@ -1,7 +1,6 @@
-// src/components/admin/hooks.ts
 'use client'
 import { useEffect, useMemo, useState } from 'react'
-import { fetchEntityData } from '../../lib/api'
+import { fetchEntityData } from '@/lib/api'
 
 export function inferType(field: string): 'number'|'bool'|'date'|'fk'|'string' {
   const f = field.toLowerCase()
@@ -20,10 +19,34 @@ export function useEntityOptions(entity: string) {
   useEffect(() => {
     let alive = true
     setLoading(true)
-    fetchEntityData(entity, 'options')
-      .then((res) => alive && setFields(res ?? []))
-      .catch((e) => alive && setError(String(e?.message || e)))
+    fetchEntityData(entity, 'options') // should call .../options?schema=full
+      .then((res: any) => {
+        if (!alive) return
+
+        let names: string[] = []
+
+        // full schema: { fields: [{name:...}, ...] }
+        if (res && Array.isArray(res.fields)) {
+          names = res.fields
+            .map((f: any) => (typeof f === 'string' ? f : f?.name))
+            .filter(Boolean)
+        }
+        // some older shape: { schema: [{name:...}] }
+        else if (res && Array.isArray(res.schema)) {
+          names = res.schema
+            .map((s: any) => (typeof s === 'string' ? s : s?.name))
+            .filter(Boolean)
+        }
+        // minimal array: ["id", "name", ...]
+        else if (Array.isArray(res)) {
+          names = res as string[]
+        }
+
+        setFields(names)
+      })
+      .catch((e: any) => alive && setError(String(e?.message ?? e)))
       .finally(() => alive && setLoading(false))
+
     return () => { alive = false }
   }, [entity])
 
@@ -33,36 +56,4 @@ export function useEntityOptions(entity: string) {
   )
 
   return { fields, schema, loading, error }
-}
-
-export function useEntityList(entity: string, tab: string) {
-  const [rows, setRows] = useState<Record<string, any>[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    let alive = true
-    setLoading(true)
-    fetchEntityData(entity, 'get')
-      .then((res) => {
-        if (!alive) return
-        let data = Array.isArray(res) ? res : []
-        // built-in tabs: All / Active / Inactive / Recent(30d if *_at/date exists)
-        if (tab === 'active') data = data.filter((r) => r.active === true)
-        if (tab === 'inactive') data = data.filter((r) => r.active === false)
-        if (tab === 'recent') {
-          const now = Date.now()
-          data = data.filter((r) => {
-            const k = Object.keys(r).find((kk) => /date|_at$/i.test(kk))
-            if (!k) return false
-            const t = Date.parse(r[k])
-            return Number.isFinite(t) && now - t < 30 * 864e5
-          })
-        }
-        setRows(data)
-      })
-      .finally(() => alive && setLoading(false))
-    return () => { alive = false }
-  }, [entity, tab])
-
-  return { rows, loading }
 }

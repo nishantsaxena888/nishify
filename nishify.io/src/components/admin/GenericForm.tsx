@@ -8,7 +8,6 @@ import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 import { useEntityOptions } from './hooks'
 import { fetchEntityData } from '@/lib/api'
-import { DatePicker } from '@/components/ui/date-picker' // if you have one; else use Input type="date"
 
 type Props = {
   entity: string
@@ -21,7 +20,6 @@ export default function GenericForm({ entity, value, onSaved, onCancel }: Props)
   const { schema, loading, error } = useEntityOptions(entity)
   const [form, setForm] = useState<Record<string, any>>({})
 
-  // initialize form for create/edit
   useEffect(() => {
     if (value) setForm(value)
     else {
@@ -42,12 +40,13 @@ export default function GenericForm({ entity, value, onSaved, onCancel }: Props)
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const payload = { ...form }
-    // never send empty string for booleans
+
     schema.forEach(({ name, kind }) => {
       if (kind === 'bool' && payload[name] === '') payload[name] = false
     })
+
     if (isEdit && pk) {
-      await fetchEntityData(entity, 'put', payload)
+      await fetchEntityData(entity, 'update', payload) // expects payload.id
     } else {
       await fetchEntityData(entity, 'post', payload)
     }
@@ -87,10 +86,9 @@ export default function GenericForm({ entity, value, onSaved, onCancel }: Props)
                     onChange={(e) => update(name, e.target.value === '' ? '' : Number(e.target.value))}
                   />
                 ) : kind === 'date' ? (
-                  // If you don’t have a DatePicker, fallback to native input
                   <Input
                     type="date"
-                    value={form[name]?.slice(0, 10) ?? ''}
+                    value={form[name]?.slice?.(0, 10) ?? ''}
                     onChange={(e) => update(name, e.target.value)}
                   />
                 ) : (

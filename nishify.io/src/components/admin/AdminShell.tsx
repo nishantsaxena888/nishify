@@ -1,7 +1,6 @@
 // src/components/admin/AdminShell.tsx
 'use client'
 import { useEffect, useState } from 'react'
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import cfg from '@/clients/pioneer_wholesale_inc/frontend.api.config.json'
 import GenericForm from './GenericForm'
 import GenericTable from './GenericTable'
@@ -10,8 +9,8 @@ export type Row = Record<string, any>
 
 export default function AdminShell({ entity }: { entity: string }) {
   const [selected, setSelected] = useState<Row | null>(null)
+  const [refreshTick, setRefreshTick] = useState(0)
 
-  // entity change → clear selection
   useEffect(() => setSelected(null), [entity])
 
   const entities = Object.keys(cfg.routing)
@@ -38,12 +37,16 @@ export default function AdminShell({ entity }: { entity: string }) {
         <GenericForm
           entity={entity}
           value={selected}
-          onSaved={() => setSelected(null)}
+          onSaved={() => {
+            setSelected(null)
+            setRefreshTick(t => t + 1)
+          }}
           onCancel={() => setSelected(null)}
         />
 
         <GenericTable
           entity={entity}
+          refreshKey={refreshTick}
           onSelectRow={(row) => setSelected(row)}
         />
       </main>
