@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/lib/utils";
 import { GalleryVerticalEnd } from "lucide-react";
 import React from "react";
@@ -13,11 +14,18 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export const Login = () => {
+  const { push } = useRouter();
+  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    push("/dashboard");
+  };
   return (
     <div className="bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
-      <div className="absolute inset-0  h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+      <div className="absolute inset-0  h-full w-full items-center px-5 py-24 auth-bg"></div>
+
       <div className="flex w-full max-w-sm flex-col gap-6 relative">
         <a href="#" className="flex items-center gap-2 self-center font-medium">
           <div className="bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md">
@@ -34,7 +42,7 @@ export const Login = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form>
+              <form onSubmit={submitHandler}>
                 <div className="grid gap-6">
                   <div className="flex flex-col gap-4">
                     <Button variant="outline" className="w-full">
@@ -62,20 +70,19 @@ export const Login = () => {
                         id="email"
                         type="email"
                         placeholder="m@example.com"
-                        required
                       />
                     </div>
                     <div className="grid gap-3">
                       <div className="flex items-center">
                         <Label htmlFor="password">Password</Label>
-                        <a
-                          href="#"
+                        <Link
+                          href="/forgot-password"
                           className="ml-auto text-sm underline-offset-4 hover:underline"
                         >
                           Forgot your password?
-                        </a>
+                        </Link>
                       </div>
-                      <Input id="password" type="password" required />
+                      <Input id="password" type="password" />
                     </div>
                     <Button type="submit" className="w-full">
                       Login
@@ -84,7 +91,7 @@ export const Login = () => {
                   <div className="text-center text-sm">
                     Don&apos;t have an account?{" "}
                     <Link
-                      href="/auth/register"
+                      href="/register"
                       className="underline underline-offset-4"
                     >
                       Sign up
@@ -96,7 +103,8 @@ export const Login = () => {
           </Card>
           <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
             By clicking continue, you agree to our{" "}
-            <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+            <Link href="/terms-of-service">Terms of Service</Link> and{" "}
+            <Link href="/privacy-policy">Privacy Policy</Link>.
           </div>
         </div>
       </div>

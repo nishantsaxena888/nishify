@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // src/lib/api/index.ts
 import { USE_MOCK, API_BASE_URL, CLIENT } from "./config";
 
@@ -35,7 +36,8 @@ function inferSchemaFromRow(row: Record<string, any>) {
     let kind: "text" | "number" | "bool" | "date" = "text";
     if (typeof v === "number") kind = "number";
     else if (typeof v === "boolean") kind = "bool";
-    else if (typeof v === "string" && /^\d{4}-\d{2}-\d{2}/.test(v)) kind = "date";
+    else if (typeof v === "string" && /^\d{4}-\d{2}-\d{2}/.test(v))
+      kind = "date";
     return { name, kind };
   });
 }
@@ -48,11 +50,23 @@ const MOCK_ALIASES: Record<string, string[]> = {
   getOne: ["getById"],
 };
 
-type Operation = "options" | "get" | "getOne" | "post" | "update" | "delete" | "put";
+type Operation =
+  | "options"
+  | "get"
+  | "getOne"
+  | "post"
+  | "update"
+  | "delete"
+  | "put";
 
 // ---- Main Fetch --------------------------------------------------------------
-export async function fetchEntityData(entity: string, operation: Operation, payload?: any) {
-  const op: Exclude<Operation, "put"> = operation === "put" ? "update" : operation;
+export async function fetchEntityData(
+  entity: string,
+  operation: Operation,
+  payload?: any
+) {
+  const op: Exclude<Operation, "put"> =
+    operation === "put" ? "update" : operation;
 
   if (USE_MOCK) {
     const mock = await loadMock(entity);
@@ -93,7 +107,11 @@ export async function fetchEntityData(entity: string, operation: Operation, payl
 }
 
 // ---- API Calls ---------------------------------------------------------------
-async function callApiOp(entity: string, operation: Exclude<Operation, "put">, payload?: any) {
+async function callApiOp(
+  entity: string,
+  operation: Exclude<Operation, "put">,
+  payload?: any
+) {
   switch (operation) {
     case "options":
       return httpJson(`${API_BASE_URL}/${entity}/options?schema=full`);
@@ -102,10 +120,16 @@ async function callApiOp(entity: string, operation: Exclude<Operation, "put">, p
     case "getOne":
       return httpJson(`${API_BASE_URL}/${entity}/${payload?.id ?? payload}`);
     case "post":
-      return httpJson(`${API_BASE_URL}/${entity}`, { method: "POST", body: JSON.stringify(payload ?? {}) });
+      return httpJson(`${API_BASE_URL}/${entity}`, {
+        method: "POST",
+        body: JSON.stringify(payload ?? {}),
+      });
     case "update":
       if (payload?.id == null) throw new Error("update requires payload.id");
-      return httpJson(`${API_BASE_URL}/${entity}/${payload.id}`, { method: "PUT", body: JSON.stringify(payload ?? {}) });
+      return httpJson(`${API_BASE_URL}/${entity}/${payload.id}`, {
+        method: "PUT",
+        body: JSON.stringify(payload ?? {}),
+      });
     case "delete":
       const id = payload?.id ?? payload;
       if (id == null) throw new Error("delete requires id");
@@ -118,7 +142,11 @@ async function callApiOp(entity: string, operation: Exclude<Operation, "put">, p
 // ---- Shortcuts ---------------------------------------------------------------
 export const options = (entity: string) => fetchEntityData(entity, "options");
 export const getList = (entity: string) => fetchEntityData(entity, "get");
-export const getOne = (entity: string, id: number | string) => fetchEntityData(entity, "getOne", id);
-export const create = (entity: string, payload: any) => fetchEntityData(entity, "post", payload);
-export const update = (entity: string, payload: any) => fetchEntityData(entity, "update", payload);
-export const remove = (entity: string, id: number | string) => fetchEntityData(entity, "delete", id);
+export const getOne = (entity: string, id: number | string) =>
+  fetchEntityData(entity, "getOne", id);
+export const create = (entity: string, payload: any) =>
+  fetchEntityData(entity, "post", payload);
+export const update = (entity: string, payload: any) =>
+  fetchEntityData(entity, "update", payload);
+export const remove = (entity: string, id: number | string) =>
+  fetchEntityData(entity, "delete", id);
