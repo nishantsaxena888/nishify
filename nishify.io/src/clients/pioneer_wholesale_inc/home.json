@@ -4,7 +4,7 @@
     {
       "type": "navbar",
       "sticky": true,
-      "brand": { "text": "ShadcnUI/React", "href": "/" },
+      "brand": { "text": "Pioneer Wholesale", "href": "/" },
       "routes": [
         { "href": "/#product", "label": "Product" },
         { "href": "/#features", "label": "Features" },
@@ -600,45 +600,15 @@
         }
       ],
       "copyright": {
-        "prefix": "Landing page made by ",
+        "prefix": " ",
         "author": {
-          "label": "Leo Miranda",
-          "href": "https://www.linkedin.com/in/leopoldo-miranda/",
+          "label": "Pioneer Wholesale",
+          "href": "#",
           "external": true
         },
         "year": "auto"
       },
       "showTopDivider": true
-    },
-    {
-      "type": "hero-banner",
-      "title": "Welcome to Pioneer Wholesale",
-      "subtitle": "Your trusted B2B inventory partner",
-      "cta": {
-        "text": "Login",
-        "link": "/auth/login"
-      }
-    },
-    {
-      "type": "feature-list",
-      "title": "Why Choose Us",
-      "items": [
-        "Bulk discounts on all items",
-        "Real-time inventory tracking",
-        "Seamless accounting integration"
-      ]
-    },
-    {
-      "type": "login-form",
-      "form": "form-login.json"
-    },
-    {
-      "type": "register-form",
-      "form": "form-register.json"
-    },
-    {
-      "type": "forgot-password-form",
-      "form": "form-forgot-password.json"
     }
   ]
 }

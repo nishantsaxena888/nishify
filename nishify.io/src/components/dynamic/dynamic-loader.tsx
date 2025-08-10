@@ -34,6 +34,7 @@ export const componentMap: Record<string, any> = {
   ),
   "faq-accordion": dynamic(() => import("@/components/dynamic/faq-accordion")),
   "footer-section": dynamic(() => import("@/components/dynamic/footer")),
+  "auth-template": dynamic(() => import("@/components/dynamic/auth-template")),
   "login-form": DynamicFormRenderer,
   "register-form": DynamicFormRenderer,
   "forgot-password-form": DynamicFormRenderer,

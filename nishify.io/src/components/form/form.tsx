@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { useState } from "react";
@@ -116,7 +117,7 @@ export const DynamicForm = ({
   };
 
   return (
-    <div className="flex w-full items-center justify-center py-8 lg:py-16">
+    <div className="flex w-full items-center justify-center ">
       <div className="w-full max-w-md space-y-6 px-4">
         {title && <h2 className="text-center text-3xl font-bold">{title}</h2>}
         {description && (

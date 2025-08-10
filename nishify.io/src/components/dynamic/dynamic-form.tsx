@@ -33,6 +33,7 @@ export default function DynamicFormRenderer({ type }: { type?: string }) {
       fields={config.fields}
       submitText={config.submitText}
       redirect={config.redirect}
+      onSubmit={config.onSubmit}
     />
   );
 }

@@ -5,7 +5,7 @@
   "redirect": {
     "label": "Already have an account?",
     "linkText": "Login",
-    "href": "/auth/login"
+    "href": "/login"
   },
   "fields": [
     {

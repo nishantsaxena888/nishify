@@ -5,7 +5,14 @@
   "redirect": {
     "label": "Don't have an account?",
     "linkText": "Register",
-    "href": "/auth/register"
+    "href": "/register"
+  },
+  "submit": {
+    "url": "/dashboard/item",
+    "method": "POST",
+    "successRedirect": "/dashboard",
+    "successMessage": "Logged in successfully.",
+    "errorMessage": "Invalid email or password."
   },
   "fields": [
     {
