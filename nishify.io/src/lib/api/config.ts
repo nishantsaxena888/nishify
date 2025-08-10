@@ -20,7 +20,10 @@ export function getClientName(): string {
   return process.env.NEXT_PUBLIC_CLIENT_NAME || "pioneer_wholesale_inc";
 }
 
-// ---- Config loader (kept for compatibility; values are hard-coded) ----------
+// Expose as a constant for easy imports
+export const CLIENT = getClientName();
+
+// ---- Config loader (compat; not used by API directly) -----------------------
 export function loadClientConfig(): ClientConfig {
   return {
     env: {
@@ -45,12 +48,13 @@ export function isMockMode(): boolean {
 /** Convenience export used across the codebase */
 export const USE_MOCK = isMockMode();
 
-// ---- API base: HARD-CODED ---------------------------------------------------
+// ---- API base ---------------------------------------------------------------
 export function apiBase(): string {
+  // if you want to switch by NODE_ENV later, do it here
   return "http://localhost:8000/api";
 }
 
-export const BASE_URL = apiBase();
+export const API_BASE_URL = apiBase(); // <- add this
 
 /** Helper to join paths onto the API base */
 export function urlFor(path: string): string {

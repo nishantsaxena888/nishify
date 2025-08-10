@@ -2,7 +2,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { loadEntityOptions } from '@/lib/api'
+import { loadEntityOptions } from '../../lib/api/mock'
 import { MenuItem } from '@/types'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'

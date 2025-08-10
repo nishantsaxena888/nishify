@@ -1,4 +1,4 @@
-import { USE_MOCK } from './config'
+import { USE_MOCK } from '../config'
 
 export async function loadEntityOptions(entity: string) {
   if (USE_MOCK) {
