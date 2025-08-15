@@ -7,13 +7,6 @@
     "linkText": "Register",
     "href": "/register"
   },
-  "submit": {
-    "url": "/dashboard/item",
-    "method": "POST",
-    "successRedirect": "/dashboard",
-    "successMessage": "Logged in successfully.",
-    "errorMessage": "Invalid email or password."
-  },
   "fields": [
     {
       "id": "email",

@@ -18,7 +18,7 @@ def _mk_parent(entity, body):
 
 def _inject_fk(payload):
     p = dict(payload)
-    parent = _mk_parent('vendor', json.loads('{"address": "center", "contact_person": "pretty", "email": "well", "id": 3284, "name": "front", "phone": "attention", "state_id": 1339}'))
+    parent = _mk_parent('vendor', json.loads('{"address": "finish", "contact_person": "individual", "email": "friend", "id": 9852, "name": "wonder", "phone": "pretty", "state_id": 9427}'))
     p['vendor_id'] = parent.get('id', parent.get('id', 700001))
     return p
 
@@ -31,7 +31,7 @@ def _pk_filter_from_payload(p):
 
 def test_create():
     global CREATED_ID
-    payload = json.loads("{\"date\": \"2025-05-29T02:56:12.980210\", \"id\": 6400, \"status\": \"relate\", \"vendor_id\": 8039}")
+    payload = json.loads("{\"date\": \"2025-05-20T17:17:09.090482\", \"id\": 6106, \"status\": \"family\", \"vendor_id\": 4310}")
     payload = _inject_fk(payload)
     response = httpx.post(BASE_URL, json=payload)
     assert response.status_code in (200, 201), response.text
@@ -46,15 +46,15 @@ def test_create():
     elif isinstance(body, list) and body and isinstance(body[0], dict) and 'id' in body[0]:
         CREATED_ID = body[0]['id']
     else:
-        CREATED_ID = 6400
+        CREATED_ID = 6106
     assert isinstance(body, (dict, list))
 
 def test_get_one():
     rid = CREATED_ID if 'CREATED_ID' in globals() and CREATED_ID else None
-    rid = rid or 6400
+    rid = rid or 6106
     resp = httpx.get(f"{BASE_URL}/{rid}")
     if resp.status_code == 404:
-        payload = json.loads("{\"date\": \"2025-05-29T02:56:12.980210\", \"id\": 6400, \"status\": \"relate\", \"vendor_id\": 8039}")
+        payload = json.loads("{\"date\": \"2025-05-20T17:17:09.090482\", \"id\": 6106, \"status\": \"family\", \"vendor_id\": 4310}")
         payload = _inject_fk(payload)
         payload['id'] = rid
         httpx.post(BASE_URL, json=payload)
@@ -64,19 +64,19 @@ def test_get_one():
     assert resp.status_code == 200, f"GET failed: {resp.status_code} {resp.text}"
 
 def test_update():
-    payload = json.loads("{\"date\": \"2025-05-29T02:56:12.980210\", \"id\": 6400, \"status\": \"relate\", \"vendor_id\": 8039}")
+    payload = json.loads("{\"date\": \"2025-05-20T17:17:09.090482\", \"id\": 6106, \"status\": \"family\", \"vendor_id\": 4310}")
     payload = _inject_fk(payload)
-    payload['id'] = 6400
+    payload['id'] = 6106
     httpx.post(BASE_URL, json=payload)
-    response = httpx.put(f"{BASE_URL}/6400", json=payload)
+    response = httpx.put(f"{BASE_URL}/6106", json=payload)
     assert response.status_code == 200
 
 def test_delete():
-    payload = json.loads("{\"date\": \"2025-05-29T02:56:12.980210\", \"id\": 6400, \"status\": \"relate\", \"vendor_id\": 8039}")
+    payload = json.loads("{\"date\": \"2025-05-20T17:17:09.090482\", \"id\": 6106, \"status\": \"family\", \"vendor_id\": 4310}")
     payload = _inject_fk(payload)
-    payload['id'] = 6400
+    payload['id'] = 6106
     httpx.post(BASE_URL, json=payload)
-    response = httpx.delete(f"{BASE_URL}/6400")
+    response = httpx.delete(f"{BASE_URL}/6106")
     assert response.status_code in (200, 204)
 
 def test_options():
@@ -84,15 +84,15 @@ def test_options():
     assert response.status_code == 200
 
 def test_eq_id():
-    response = httpx.get(BASE_URL, params={'id': 6400})
+    response = httpx.get(BASE_URL, params={'id': 6106})
     assert response.status_code == 200
 
 def test_eq_status():
-    response = httpx.get(BASE_URL, params={'status': 'relate'})
+    response = httpx.get(BASE_URL, params={'status': 'family'})
     assert response.status_code == 200
 
 def test_eq_vendor_id():
-    response = httpx.get(BASE_URL, params={'vendor_id': 8039})
+    response = httpx.get(BASE_URL, params={'vendor_id': 4310})
     assert response.status_code == 200
 
 def test_date_filter():

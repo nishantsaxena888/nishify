@@ -1,127 +1,127 @@
 [
   {
-    "id": 2972,
-    "name": "learn",
-    "tax_percent": 5505.59
+    "id": 1685,
+    "name": "say",
+    "tax_percent": 6604.16
   },
   {
-    "id": 6147,
-    "name": "off",
-    "tax_percent": 7037.76
+    "id": 3742,
+    "name": "total",
+    "tax_percent": 3773.12
   },
   {
-    "id": 7694,
-    "name": "beat",
-    "tax_percent": 1657.11
+    "id": 6468,
+    "name": "matter",
+    "tax_percent": 6562.46
   },
   {
-    "id": 747,
-    "name": "letter",
-    "tax_percent": 3110.47
+    "id": 2109,
+    "name": "shoulder",
+    "tax_percent": 5529.61
   },
   {
-    "id": 7091,
-    "name": "ever",
-    "tax_percent": 3160.26
+    "id": 9157,
+    "name": "million",
+    "tax_percent": 8253.27
   },
   {
-    "id": 896,
-    "name": "wind",
-    "tax_percent": 9349.11
+    "id": 1847,
+    "name": "case",
+    "tax_percent": 3872.54
   },
   {
-    "id": 3786,
-    "name": "talk",
-    "tax_percent": 9599.77
+    "id": 9799,
+    "name": "win",
+    "tax_percent": 356.88
   },
   {
-    "id": 1835,
-    "name": "but",
-    "tax_percent": 1154.22
+    "id": 3671,
+    "name": "hear",
+    "tax_percent": 1735.39
   },
   {
-    "id": 8064,
-    "name": "must",
-    "tax_percent": 3803.81
+    "id": 844,
+    "name": "bag",
+    "tax_percent": 2989.07
   },
   {
-    "id": 9247,
-    "name": "arrive",
-    "tax_percent": 4012.83
+    "id": 6885,
+    "name": "method",
+    "tax_percent": 6877.73
   },
   {
-    "id": 8105,
-    "name": "source",
-    "tax_percent": 5645.79
-  },
-  {
-    "id": 1391,
-    "name": "life",
-    "tax_percent": 2577.65
-  },
-  {
-    "id": 4742,
-    "name": "eight",
-    "tax_percent": 8227.25
-  },
-  {
-    "id": 1291,
-    "name": "threat",
-    "tax_percent": 6473.47
-  },
-  {
-    "id": 8751,
-    "name": "effect",
-    "tax_percent": 8683.02
-  },
-  {
-    "id": 8734,
-    "name": "move",
-    "tax_percent": 6238.08
-  },
-  {
-    "id": 7737,
-    "name": "national",
-    "tax_percent": 6122.11
-  },
-  {
-    "id": 5158,
-    "name": "cup",
-    "tax_percent": 8446.8
-  },
-  {
-    "id": 2412,
-    "name": "fall",
-    "tax_percent": 1277.82
-  },
-  {
-    "id": 4516,
-    "name": "that",
-    "tax_percent": 8090.22
-  },
-  {
-    "id": 9579,
-    "name": "commercial",
-    "tax_percent": 7763.08
-  },
-  {
-    "id": 9167,
+    "id": 9664,
     "name": "politics",
-    "tax_percent": 6634.38
+    "tax_percent": 4673.75
   },
   {
-    "id": 2180,
-    "name": "state",
-    "tax_percent": 2340.79
+    "id": 2900,
+    "name": "plan",
+    "tax_percent": 7268.7
   },
   {
-    "id": 7691,
-    "name": "war",
-    "tax_percent": 4863.26
+    "id": 4879,
+    "name": "must",
+    "tax_percent": 4900.88
   },
   {
-    "id": 6350,
-    "name": "else",
-    "tax_percent": 9102.76
+    "id": 449,
+    "name": "resource",
+    "tax_percent": 9841.38
+  },
+  {
+    "id": 6007,
+    "name": "right",
+    "tax_percent": 2363.2
+  },
+  {
+    "id": 8677,
+    "name": "ok",
+    "tax_percent": 5729.63
+  },
+  {
+    "id": 7173,
+    "name": "process",
+    "tax_percent": 8617.12
+  },
+  {
+    "id": 4939,
+    "name": "at",
+    "tax_percent": 5257.69
+  },
+  {
+    "id": 3876,
+    "name": "political",
+    "tax_percent": 8390.56
+  },
+  {
+    "id": 4123,
+    "name": "reason",
+    "tax_percent": 8844.64
+  },
+  {
+    "id": 6337,
+    "name": "light",
+    "tax_percent": 4758.65
+  },
+  {
+    "id": 6762,
+    "name": "store",
+    "tax_percent": 8613.48
+  },
+  {
+    "id": 7273,
+    "name": "area",
+    "tax_percent": 5523.38
+  },
+  {
+    "id": 6510,
+    "name": "significant",
+    "tax_percent": 5479.26
+  },
+  {
+    "id": 2059,
+    "name": "paper",
+    "tax_percent": 61.93
   }
 ]
