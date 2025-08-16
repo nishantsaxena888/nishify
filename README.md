@@ -14,7 +14,7 @@ flowchart TD
   H --> I["Frontend tests/UI (optional)"]
 ```
 
-```
+```mermaid
 flowchart LR
   FE["Frontend (GenericTable, hooks, api)"] --> |"/api/:entity?filters"| R["FastAPI Router: backend/routers/entity_router.py"]
 
