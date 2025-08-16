@@ -1,4 +1,41 @@
 ```mermaid
+
+flowchart TD
+  %% ---------- Infra ----------
+  subgraph INFRA["Infra"]
+    A["infra/data_faker.py — generate seed/sample data"] --> B["clients/&lt;client&gt;/entities.data.py — generated sample_data + ids"]
+    B --> C["infra/code_generator.py — reads entities.data.py, entities.py, elastic_entities.py"]
+  end
+
+  %% ---------- Codegen Outputs ----------
+  subgraph OUT["Codegen Outputs"]
+    C --> M["backend/clients/&lt;client&gt;/models/*.py — SQLAlchemy models"]
+    C --> T["backend/clients/&lt;client&gt;/testdata/*.json — API & DB test payloads"]
+    C --> X["backend/clients/&lt;client&gt;/excel/sample_output.xlsx — sample export"]
+    C --> U["backend/tests/&lt;client&gt;/test_*.py — pytest integration tests"]
+    C --> CF["copy client files → {entities.py, elastic_entities.py}"]
+    C --> CFG["backend/clients/&lt;client&gt;/config/* — generated config (optional)"]
+  end
+
+  %% ---------- DB & Migrations ----------
+  subgraph DBMIG["DB & Migrations"]
+    CF --> ALE["alembic autogenerate"]
+    ALE --> UP["alembic upgrade"]
+    UP --> DB["Database Ready — SQLite/Postgres schema"]
+  end
+
+  %% ---------- Runtime Services ----------
+  subgraph RUNTIME["Runtime Services"]
+    DB --> API["FastAPI CRUD — backend/routers/entity_router.py"]
+    DB --> IDX["backend/search_elastic/indexer.py — build indices"]
+    IDX -. "if configured" .-> ES["Elasticsearch indices"]
+    ES -. "search results" .-> API
+    API --> FE["Frontend (GenericTable, hooks, api)"]
+  end
+
+```
+
+```mermaid
 flowchart TD
   A["infra/data_faker.py - generate sample data"] --> B["clients/<client>/entities.data.py"]
   B --> C["infra/code_generator.py - backend focus"]
