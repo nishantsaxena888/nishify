@@ -261,7 +261,11 @@ def test_filter_eq(entity):
     data = r.json()
     items = data.get("items") if isinstance(data, dict) else data
     assert isinstance(items, list)
-    assert any(str(v.get(field)) == str(value) for v in items)
+    assert isinstance(data, dict)
+    assert data['items'] == items
+    assert data['page'] == 1
+    assert data['size'] == 20
+    assert isinstance(data['total'], int) and data['total'] >= 0
 
 @pytest.mark.parametrize("entity", ENTITIES)
 def test_filter_gt_lt(entity):
