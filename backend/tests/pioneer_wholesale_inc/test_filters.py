@@ -1,5 +1,4 @@
-{# backend/tests_filters.py.j2 #}
-# Auto-generated filter/search tests for {{ client }}
+# Auto-generated filter/search tests for pioneer_wholesale_inc
 from __future__ import annotations
 import pytest
 from fastapi.testclient import TestClient
@@ -9,15 +8,11 @@ try:
 except Exception as e:  # pragma: no cover
     raise RuntimeError("Could not import backend.main:app for tests") from e
 
-from clients.{{ client }}.entities_data import sample_data as _SAMPLE
+from clients.pioneer_wholesale_inc.entities_data import sample_data as _SAMPLE
 
 client = TestClient(app)
 
-ENTITIES = [
-{%- for name, cfg in entities.items() %}
-    "{{ name }}",
-{%- endfor %}
-]
+ENTITIES = [    "state",    "item_category",    "secondary_category",    "vendor",    "item",    "tax_group",    "cash_discount_group",    "price_group",    "inventory_location",    "inventory",    "salesperson",    "customer",    "purchase_order",    "purchase_order_item",    "invoice",    "invoice_item",]
 
 @pytest.mark.parametrize("entity", ENTITIES)
 def test_filter_eq(entity):

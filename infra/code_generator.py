@@ -1,304 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Client Code Generator (Jinja + fallbacks)
+Client Code Generator (loads Jinja templates from infra/templates)
 """
-import os, sys, csv, datetime, importlib, re
-from typing import Dict, Any
-from jinja2 import Environment, FileSystemLoader, ChoiceLoader, DictLoader
-
-# ----------------- DEFAULT TEMPLATES (fallbacks) -----------------
-
-DEFAULT_MODEL_J2 = r"""
-# AUTO-GENERATED: {{ entity }} model for {{ client }} ({{ now }})
-# Source: clients/{{ client }}/entities.py
-# Do NOT edit manually.
-
-from __future__ import annotations
-from sqlalchemy import (
-    Column, String, Integer, Float, Boolean, Date, DateTime,
-    ForeignKey, UniqueConstraint, Text
-)
-from sqlalchemy.orm import relationship
-from backend.utils.db import Base
-
-def _sa_type(tname: str):
-    t = (tname or "string").lower()
-    if t in ("string", "str", "keyword", "varchar"): return String(255)
-    if t in ("text",): return Text()
-    if t in ("int", "integer"): return Integer()
-    if t in ("float", "double", "number", "numeric"): return Float()
-    if t in ("bool", "boolean"): return Boolean()
-    if t in ("date",): return Date()
-    if t in ("datetime", "timestamp"): return DateTime()
-    return String(255)
-
-{% set cls_name = entity|replace('-', ' ')|replace('_', ' ')|title|replace(' ', '') %}
-class {{ cls_name }}(Base):
-    __tablename__ = "{{ entity }}"
-
-    {# ==== Columns ==== #}
-    {% set fields = cfg.get("fields") or {} %}
-    {% set has_pk = False %}
-    {% for fname, spec in fields.items() %}
-    {% set t = spec.get("type") %}
-    {% set pk = spec.get("pk") or spec.get("primary_key") %}
-    {% set fk0 = spec.get("fk") or spec.get("foreign_key") %}
-    {% set uniq = spec.get("unique") %}
-    {% set required = spec.get("required") %}
-    {% set nullable = (False if required else (spec.get("nullable") if spec.get("nullable") is not none else None)) %}
-    {% set fk = fk0 %}
-    {% if not fk and fname.endswith('_id') and fname|length > 3 %}
-        {% set fk = fname[:-3] + ".id" %}
-    {% endif %}
-
-    {% if pk %}
-    {{ fname }} = Column(
-        _sa_type("{{ t }}"),
-        primary_key=True{% if (t or '')|lower in ['int','integer'] %}, autoincrement=True{% endif %}{% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %}
-    )
-    {% set has_pk = True %}
-    {% elif fk %}
-    {% set parts = fk.split(".") %}
-    {% set ref_table = parts[0] %}
-    {% set ref_col = parts[1] if parts|length > 1 else "id" %}
-    {{ fname }} = Column(
-        _sa_type("{{ t }}"),
-        ForeignKey("{{ ref_table }}.{{ ref_col }}"){% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %}
-    )
-    {% else %}
-    {{ fname }} = Column(
-        _sa_type("{{ t }}"){% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %}
-    )
-    {% endif %}
-
-    {% endfor %}
-    {% if not has_pk %}
-    # Surrogate PK because schema had no pk
-    id = Column(String(32), primary_key=True)
-    {% endif %}
-
-    {# ==== Unique Together ==== #}
-    {% set ucs = cfg.get("unique_together") or [] %}
-    {% if ucs %}
-    __table_args__ = (
-    {% for grp in ucs %}
-        UniqueConstraint({% for c in grp %}"{{ c }}"{% if not loop.last %}, {% endif %}{% endfor %}, name="{{ entity }}_uniq_{{ loop.index0 }}"),
-    {% endfor %}
-    )
-    {% endif %}
-
-    {# ==== Child -> Parent relationships for FK fields ==== #}
-    {% for fname, spec in fields.items() %}
-    {% set fk = (spec.get("fk") or spec.get("foreign_key")) %}
-    {% if not fk and fname.endswith('_id') and fname|length > 3 %}
-        {% set fk = fname[:-3] + ".id" %}
-    {% endif %}
-    {% if fk %}
-        {% set ref_table = fk.split(".")[0] %}
-        {% set target_cls = ref_table|replace('-', ' ')|replace('_',' ')|title|replace(' ','') %}
-        {% set rel_name = fname[:-3] if fname.endswith('_id') else fname + '_rel' %}
-    {{ rel_name }} = relationship("{{ target_cls }}", foreign_keys=[{{ fname }}])
-    {% endif %}
-    {% endfor %}
-"""
-
-DEFAULT_HOOKS_J2 = r"""
-# Auto-generated hooks for {{ client }}
-from __future__ import annotations
-from typing import Any, Dict, List
+import os
+import sys
+import csv
 import datetime
-
-# Static defaults only (simple literals). Dynamic timestamps handled below.
-ENTITY_DEFAULTS: Dict[str, Dict[str, Any]] = {
-{% for name, cfg in entities.items() %}
-    "{{ name }}": {
-    {%- for fname, fcfg in (cfg.get("fields") or {}).items() %}
-        {%- if fcfg.get("default") is not none %}
-        "{{ fname }}": {{ fcfg.get("default")|tojson }},
-        {%- endif %}
-    {%- endfor %}
-    },
-{% endfor %}
-}
-
-# Which entities have special timestamp behavior
-ENTITY_TS_FLAGS: Dict[str, Dict[str, bool]] = {
-{% for name, cfg in entities.items() %}
-    "{{ name }}": {
-        "has_created": {{ 'True' if 'created_at' in (cfg.get('fields') or {}) else 'False' }},
-        "has_updated": {{ 'True' if 'updated_at' in (cfg.get('fields') or {}) else 'False' }},
-    },
-{% endfor %}
-}
-
-# auto_now fields per entity (set at request-time)
-AUTO_NOW_FIELDS: Dict[str, List[str]] = {
-{% for name, cfg in entities.items() %}
-    "{{ name }}": [
-    {%- for fname, fcfg in (cfg.get("fields") or {}).items() if (fcfg.get("type") in ("date","datetime","timestamp")) and fcfg.get("auto_now") %}
-        "{{ fname }}",
-    {%- endfor %}
-    ],
-{% endfor %}
-}
-
-def options(entity: str, schema: str = "basic") -> Dict[str, Any]:
-    # Tests expect an OBJECT with 'entity' key
-    return {"entity": entity, "schema": schema, "generated_for": "{{ client }}"}
-
-def apply_defaults(entity: str, payload: Dict[str, Any]) -> Dict[str, Any]:
-    now = datetime.datetime.utcnow().isoformat() + "Z"
-    defaults = ENTITY_DEFAULTS.get(entity) or {}
-    out = dict(payload)
-
-    # static defaults
-    for k, v in defaults.items():
-        out.setdefault(k, v)
-
-    # dynamic auto_now fields
-    for k in AUTO_NOW_FIELDS.get(entity, []):
-        out.setdefault(k, now)
-
-    # timestamps
-    flags = ENTITY_TS_FLAGS.get(entity) or {}
-    if flags.get("has_created"):
-        out.setdefault("created_at", now)
-    if flags.get("has_updated"):
-        out["updated_at"] = now
-
-    return out
-
-def validate(entity: str, payload: Dict[str, Any]) -> List[str]:
-    return []
-
-def before_insert(entity: str, payload: Dict[str, Any]) -> Dict[str, Any]:
-    return apply_defaults(entity, payload)
-
-def after_insert(entity: str, record: Dict[str, Any]) -> Dict[str, Any]:
-    return record
-
-def before_update(entity: str, payload: Dict[str, Any]) -> Dict[str, Any]:
-    out = dict(payload)
-    if "updated_at" in ENTITY_TS_FLAGS.get(entity, {}):
-        out = apply_defaults(entity, out)  # refresh updated_at
-    return out
-
-def after_update(entity: str, record: Dict[str, Any]) -> Dict[str, Any]:
-    return record
-"""
-
-DEFAULT_TESTS_CRUD_J2 = r"""
-# Auto-generated CRUD smoke tests for {{ client }}
-from __future__ annotations import annotations
-import pytest
-from fastapi.testclient import TestClient
-
-try:
-    from backend.main import app
-except Exception as e:
-    raise RuntimeError("Could not import backend.main:app for tests") from e
-
-from clients.{{ client }}.entities_data import sample_data as _SAMPLE
-
-client = TestClient(app)
-
-ENTITIES = [
-{% for name, cfg in entities.items() %}
-    "{{ name }}",
-{% endfor %}
-]
-
-@pytest.mark.parametrize("entity", ENTITIES)
-def test_options_basic_and_full(entity):
-    r1 = client.get(f"/api/{entity}/options")
-    assert r1.status_code == 200, r1.text
-    assert r1.json().get("entity") == entity
-
-    r2 = client.get(f"/api/{entity}/options?schema=full")
-    assert r2.status_code == 200, r2.text
-    assert r2.json().get("entity") == entity
-
-@pytest.mark.parametrize("entity", ENTITIES)
-def test_list_minimal(entity):
-    r = client.get(f"/api/{entity}", params={"skip": 0, "limit": 5})
-    assert r.status_code == 200, r.text
-    data = r.json()
-    assert isinstance(data, dict), "List response should be an object"
-    assert isinstance(data.get("items"), list), "items must be a list"
-"""
-
-DEFAULT_TESTS_FILTERS_J2 = r"""
-# Auto-generated filter/search tests for {{ client }}
-from __future__ annotations import annotations
-import pytest
-from fastapi.testclient import TestClient
-
-try:
-    from backend.main import app
-except Exception as e:
-    raise RuntimeError("Could not import backend.main:app for tests") from e
-
-from clients.{{ client }}.entities_data import sample_data as _SAMPLE
-
-client = TestClient(app)
-
-ENTITIES = [
-{% for name, cfg in entities.items() %}
-    "{{ name }}",
-{% endfor %}
-]
-
-@pytest.mark.parametrize("entity", ENTITIES)
-def test_filter_eq(entity):
-    rows = _SAMPLE.get(entity) or []
-    if not rows:
-        pytest.skip(f"no sample rows for {entity}")
-    row = rows[0]
-    field, value = next(iter(row.items()))
-    r = client.get(f"/api/{entity}", params={field: value})
-    assert r.status_code == 200, r.text
-    data = r.json()
-    items = data.get("items") if isinstance(data, dict) else data
-    assert isinstance(items, list)
-    assert isinstance(data, dict)
-    assert data['items'] == items
-    assert data['page'] == 1
-    assert data['size'] == 20
-    assert isinstance(data['total'], int) and data['total'] >= 0
-
-@pytest.mark.parametrize("entity", ENTITIES)
-def test_filter_gt_lt(entity):
-    rows = _SAMPLE.get(entity) or []
-    if not rows:
-        pytest.skip(f"no sample rows for {entity}")
-    num_field = None
-    for k, v in rows[0].items():
-        if isinstance(v, (int, float)):
-            num_field = k
-            break
-    if not num_field:
-        pytest.skip(f"no numeric fields in {entity}")
-    val = rows[0][num_field]
-    r1 = client.get(f"/api/{entity}", params={f"{num_field}__gt": val})
-    assert r1.status_code == 200, r1.text
-    r2 = client.get(f"/api/{entity}", params={f"{num_field}__lt": val})
-    assert r2.status_code == 200, r2.text
-"""
+import importlib
+import re
+from typing import Dict, Any
+from jinja2 import Environment, FileSystemLoader
 
 # ----------------- Jinja env -----------------
 
 def get_jinja_env() -> Environment:
     return Environment(
-        loader=ChoiceLoader([
-            FileSystemLoader("infra/templates"),
-            DictLoader({
-                "backend/model.py.j2": DEFAULT_MODEL_J2,
-                "backend/hooks.py.j2": DEFAULT_HOOKS_J2,
-                "backend/tests_crud.py.j2": DEFAULT_TESTS_CRUD_J2,
-                "backend/tests_filters.py.j2": DEFAULT_TESTS_FILTERS_J2,
-            }),
-        ]),
+        loader=FileSystemLoader("infra/templates"),
         autoescape=False,
         trim_blocks=True,
         lstrip_blocks=True,
@@ -316,17 +34,6 @@ def _write_text(path: str, text: str):
 
 def _now_iso() -> str:
     return datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
-
-def _normalize_fields(cfg: dict) -> dict:
-    fields = {}
-    for fname, spec in (cfg.get("fields") or {}).items():
-        s = dict(spec)
-        if s.get("primary_key") and not s.get("pk"):
-            s["pk"] = True
-        if s.get("foreign_key") and not s.get("fk"):
-            s["fk"] = s["foreign_key"]
-        fields[fname] = s
-    return {**cfg, "fields": fields}
 
 def _ensure_pkg(path_dir: str):
     """Make every segment a package by adding __init__.py."""
@@ -384,6 +91,17 @@ def _fk_back_populates_for_entity(entity: str, entities: Dict[str, Any]):
             back[fname] = "items" if entity.endswith("_item") else f"{entity}s"
     return back
 
+def _normalize_fields(cfg: dict) -> dict:
+    fields = {}
+    for fname, spec in (cfg.get("fields") or {}).items():
+        s = dict(spec)
+        if s.get("primary_key") and not s.get("pk"):
+            s["pk"] = True
+        if s.get("foreign_key") and not s.get("fk"):
+            s["fk"] = s["foreign_key"]
+        fields[fname] = s
+    return {**cfg, "fields": fields}
+
 def load_entities(client: str) -> Dict[str, Any]:
     mod = _import(f"clients.{client}.entities")
     entities = getattr(mod, "entities", None)
@@ -412,7 +130,7 @@ def _assert_pks(entities: Dict[str, Any]):
 # ----------------- generators -----------------
 
 def generate_models(env: Environment, client: str, entities: Dict[str, Any]):
-    tpl = env.get_template("backend/model.py.j2")
+    tpl = env.get_template("backend/models.py.j2")
     _assert_pks(entities)
     pkg_dir = os.path.join("backend", "clients", client, "models")
     _ensure_pkg(os.path.join("backend"))
@@ -456,7 +174,7 @@ def generate_hooks(env: Environment, client: str, entities: Dict[str, Any]):
 def generate_tests(env: Environment, client: str, entities: Dict[str, Any]):
     tpl_crud = env.get_template("backend/tests_crud.py.j2")
     tpl_filters = env.get_template("backend/tests_filters.py.j2")
-    out_dir = os.path.join("backend", "clients", client, "tests")
+    out_dir = os.path.join("backend", "tests", client)
     _ensure_pkg(out_dir)
     _write_text(os.path.join(out_dir, "test_crud.py"), tpl_crud.render(client=client, entities=entities, now=_now_iso()))
     _write_text(os.path.join(out_dir, "test_filters.py"), tpl_filters.render(client=client, entities=entities, now=_now_iso()))
