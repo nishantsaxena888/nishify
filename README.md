@@ -15,6 +15,24 @@ flowchart TD
 ```
 
 ```
+flowchart LR
+  FE["Frontend (GenericTable, hooks, api)"] --> |"/api/:entity?filters"| R["FastAPI Router: backend/routers/entity_router.py"]
+
+  subgraph Router
+    R --> |"/options"| O["options: basic OR schema=full"]
+    R --> |"GET list"| L["SQL/ES query + pagination"]
+    R --> |"GET one"| G1["select by PK"]
+    R --> |"POST"| P1["validate + defaults + insert"]
+    R --> |"PUT"| U1["partial validate + update"]
+    R --> |"DELETE"| D1["delete by PK"]
+  end
+
+  R --> MDL["SQLAlchemy Models: backend/clients/&lt;client&gt;/models/*.py"]
+  MDL --> DB["(SQLite/Postgres)"]
+  R -. "if indexed" .-> ES["(Elasticsearch)"]
+
+```
+```
 $ Nonpx create-next-app@latest nishify.io 
 ✔ Would you like to use TypeScript? … No / Yes
 ✔ Would you like to use ESLint? … No / Yes
