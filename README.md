@@ -34,7 +34,7 @@ flowchart TD
   end
 
 ```
-```
+```mermaid
 flowchart LR
   FE["Frontend (GenericTable, hooks, api)"]
     --> |"/api/{entity}?filters,sort,limit,offset"| R["FastAPI Router: backend/routers/entity_router.py"]
