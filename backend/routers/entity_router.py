@@ -12,14 +12,38 @@ from backend.utils.pydantic_model import create_pydantic_model
 from backend.utils.pagination import apply_pagination, paginated_response
 from backend.utils.filtering import parse_filter_expression
 from typing import Optional
+from fastapi import HTTPException, Query
 
 def generate_entity_router(client_name: str):
     router = APIRouter()
 
+
     @router.get("/{entity}/options")
-    def get_entity_options(entity: str):
-        model = get_model_class(client_name, entity)
-        return [col.name for col in model.__table__.columns]
+    def get_entity_options(
+        entity: str,
+        schema: str = Query("basic", regex="^(basic|full)$"),
+    ):
+        try:
+            model = get_model_class(client_name, entity)
+        except Exception:
+            raise HTTPException(status_code=404, detail=f"Entity not found: {entity}")
+
+        if schema == "full":
+            # richer shape for full
+            options = [
+                {
+                    "name": c.name,
+                    "type": str(c.type),
+                    "nullable": bool(c.nullable),
+                    "primary_key": bool(c.primary_key),
+                }
+                for c in model.__table__.columns
+            ]
+        else:
+            # keep your old basic behavior but wrapped
+            options = [c.name for c in model.__table__.columns]
+
+        return {"entity": entity, "schema": schema, "options": options}
 
     @router.get("/{entity}")
     def list_entities(
