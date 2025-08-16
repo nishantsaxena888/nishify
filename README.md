@@ -1,3 +1,19 @@
+```mermaid
+flowchart TD
+  A["infra/data_faker.py - generate sample data"] --> B["clients/<client>/entities.data.py"]
+  B --> C["infra/code_generator.py - backend focus"]
+  C --> C1["backend models: backend/clients/<client>/models/*.py"]
+  C --> C2["backend test data: backend/clients/<client>/testdata/*.json"]
+  C --> C3["excel dump: backend/clients/<client>/excel/sample_output.xlsx"]
+  C --> C4["backend tests: backend/tests/<client>/test_*.py"]
+  C --> C5["copy client files: entities.py, elastic_entities.py"]
+  C5 --> D["alembic autogenerate → upgrade"]
+  D --> E["backend DB ready"]
+  E --> G["backend/search_elastic/indexer.py - index to Elasticsearch"]
+  E --> H["FastAPI CRUD live"]
+  H --> I["Frontend tests/UI (optional)"]
+```
+
 ```
 $ Nonpx create-next-app@latest nishify.io 
 ✔ Would you like to use TypeScript? … No / Yes
