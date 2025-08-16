@@ -22,62 +22,82 @@ class Item(Base):
 
 
 
-    id = Column(_sa_type("int"), primary_key=True)
+
+    id = Column(
+        _sa_type("int"),
+        primary_key=True, autoincrement=True    )
 
 
 
-    item_code = Column(_sa_type("str"), nullable=False)
+    item_code = Column(
+        _sa_type("str"), nullable=False    )
 
 
 
-    name = Column(_sa_type("str"), nullable=False)
+    name = Column(
+        _sa_type("str"), nullable=False    )
 
 
 
-    category_id = Column(_sa_type("int"), ForeignKey("item_category.id"))
+    category_id = Column(
+        _sa_type("int"),
+        ForeignKey("item_category.id")    )
 
 
 
-    secondary_category_id = Column(_sa_type("int"), ForeignKey("secondary_category.id"))
+    secondary_category_id = Column(
+        _sa_type("int"),
+        ForeignKey("secondary_category.id")    )
 
 
 
-    vendor_id = Column(_sa_type("int"), ForeignKey("vendor.id"))
+    vendor_id = Column(
+        _sa_type("int"),
+        ForeignKey("vendor.id")    )
 
 
 
-    tax_group_id = Column(_sa_type("int"), ForeignKey("tax_group.id"))
+    tax_group_id = Column(
+        _sa_type("int"),
+        ForeignKey("tax_group.id")    )
 
 
 
-    price_group_id = Column(_sa_type("int"), ForeignKey("price_group.id"))
+    price_group_id = Column(
+        _sa_type("int"),
+        ForeignKey("price_group.id")    )
 
 
 
-    cash_discount_group_id = Column(_sa_type("int"), ForeignKey("cash_discount_group.id"))
+    cash_discount_group_id = Column(
+        _sa_type("int"),
+        ForeignKey("cash_discount_group.id")    )
 
 
 
-    upc_code = Column(_sa_type("str"))
+    upc_code = Column(
+        _sa_type("str")    )
 
 
 
-    unit = Column(_sa_type("str"))
+    unit = Column(
+        _sa_type("str")    )
 
 
 
-    price = Column(_sa_type("float"))
+    price = Column(
+        _sa_type("float")    )
 
 
 
-    description = Column(_sa_type("str"))
+    description = Column(
+        _sa_type("str")    )
 
 
 
-    active = Column(_sa_type("bool"))
+    active = Column(
+        _sa_type("bool")    )
 
-    # Surrogate PK because schema had no pk
-    id = Column(String(32), primary_key=True)
 
 
     category = relationship(

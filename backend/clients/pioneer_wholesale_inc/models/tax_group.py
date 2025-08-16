@@ -22,17 +22,20 @@ class TaxGroup(Base):
 
 
 
-    id = Column(_sa_type("int"), primary_key=True)
+
+    id = Column(
+        _sa_type("int"),
+        primary_key=True, autoincrement=True    )
 
 
 
-    name = Column(_sa_type("str"))
+    name = Column(
+        _sa_type("str")    )
 
 
 
-    tax_percent = Column(_sa_type("float"))
+    tax_percent = Column(
+        _sa_type("float")    )
 
-    # Surrogate PK because schema had no pk
-    id = Column(String(32), primary_key=True)
 
 

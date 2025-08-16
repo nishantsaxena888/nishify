@@ -27,7 +27,6 @@ def generate_entity_router(client_name: str):
         request: Request,
         page: int = Query(1, ge=1),
         size: int = Query(20, le=100),
-        
         db: Session = Depends(get_db),
     ):
         model = get_model_class(client_name, entity)

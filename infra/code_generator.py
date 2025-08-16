@@ -55,7 +55,7 @@ class {{ cls_name }}(Base):
     {% if pk %}
     {{ fname }} = Column(
         _sa_type("{{ t }}"),
-        primary_key=True{% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %}
+        primary_key=True{% if (t or '')|lower in ['int','integer'] %}, autoincrement=True{% endif %}{% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %}
     )
     {% set has_pk = True %}
     {% elif fk %}
@@ -144,6 +144,7 @@ AUTO_NOW_FIELDS: Dict[str, List[str]] = {
 }
 
 def options(entity: str, schema: str = "basic") -> Dict[str, Any]:
+    # Tests expect an OBJECT with 'entity' key
     return {"entity": entity, "schema": schema, "generated_for": "{{ client }}"}
 
 def apply_defaults(entity: str, payload: Dict[str, Any]) -> Dict[str, Any]:
@@ -179,10 +180,8 @@ def after_insert(entity: str, record: Dict[str, Any]) -> Dict[str, Any]:
 
 def before_update(entity: str, payload: Dict[str, Any]) -> Dict[str, Any]:
     out = dict(payload)
-    # refresh updated_at if entity has it
-    if ENTITY_TS_FLAGS.get(entity, {}).get("has_updated"):
-        now = datetime.datetime.utcnow().isoformat() + "Z"
-        out["updated_at"] = now
+    if "updated_at" in ENTITY_TS_FLAGS.get(entity, {}):
+        out = apply_defaults(entity, out)  # refresh updated_at
     return out
 
 def after_update(entity: str, record: Dict[str, Any]) -> Dict[str, Any]:
@@ -191,7 +190,7 @@ def after_update(entity: str, record: Dict[str, Any]) -> Dict[str, Any]:
 
 DEFAULT_TESTS_CRUD_J2 = r"""
 # Auto-generated CRUD smoke tests for {{ client }}
-from __future__ import annotations
+from __future__ annotations import annotations
 import pytest
 from fastapi.testclient import TestClient
 
@@ -231,7 +230,7 @@ def test_list_minimal(entity):
 
 DEFAULT_TESTS_FILTERS_J2 = r"""
 # Auto-generated filter/search tests for {{ client }}
-from __future__ import annotations
+from __future__ annotations import annotations
 import pytest
 from fastapi.testclient import TestClient
 
@@ -268,7 +267,7 @@ def test_filter_eq(entity):
 def test_filter_gt_lt(entity):
     rows = _SAMPLE.get(entity) or []
     if not rows:
-        pytest.skip(f"no numeric fields in {entity}")
+        pytest.skip(f"no sample rows for {entity}")
     num_field = None
     for k, v in rows[0].items():
         if isinstance(v, (int, float)):
@@ -339,6 +338,48 @@ def _ensure_pkg(path_dir: str):
 def _class_name(name: str) -> str:
     return "".join(p.capitalize() for p in re.split(r'[_\W]+', name) if p)
 
+def _infer_fk(field_name: str, spec: dict):
+    fk = (spec or {}).get("fk") or (spec or {}).get("foreign_key")
+    if fk:
+        return fk.strip()
+    if field_name.endswith("_id") and len(field_name) > 3:
+        return f"{field_name[:-3]}.id"
+    return None
+
+def _incoming_fk_index(entities: Dict[str, Any]):
+    """
+    Build map: parent_entity -> list of child relationship descriptors.
+    """
+    incoming = {e: [] for e in entities.keys()}
+    for child_entity, cfg in entities.items():
+        fields = (cfg.get("fields") or {})
+        for fname, spec in fields.items():
+            fkspec = _infer_fk(fname, spec)
+            if not fkspec:
+                continue
+            parent_table = fkspec.split(".")[0].strip()
+            if parent_table not in incoming:
+                continue
+            rel_name = fname[:-3] if fname.endswith("_id") else f"{fname}_rel"
+            incoming[parent_table].append({
+                "child_entity": child_entity,
+                "child_class": _class_name(child_entity),
+                "child_field": fname,
+                "child_rel_name": rel_name,
+                "parent_collection": "items" if child_entity.endswith("_item") else f"{child_entity}s",
+            })
+    return incoming
+
+def _fk_back_populates_for_entity(entity: str, entities: Dict[str, Any]):
+    """
+    For each FK field on this entity, compute collection name on parent.
+    """
+    back = {}
+    for fname, spec in (entities[entity].get("fields") or {}).items():
+        if _infer_fk(fname, spec):
+            back[fname] = "items" if entity.endswith("_item") else f"{entity}s"
+    return back
+
 def load_entities(client: str) -> Dict[str, Any]:
     mod = _import(f"clients.{client}.entities")
     entities = getattr(mod, "entities", None)
@@ -375,6 +416,8 @@ def generate_models(env: Environment, client: str, entities: Dict[str, Any]):
     _ensure_pkg(os.path.join("backend", "clients", client))
     _ensure_pkg(pkg_dir)
 
+    incoming = _incoming_fk_index(entities)
+
     for name, cfg in entities.items():
         fields = cfg.get("fields") or {}
         has_pk = any((isinstance(v, dict) and v.get("pk")) for v in fields.values())
@@ -386,12 +429,14 @@ def generate_models(env: Environment, client: str, entities: Dict[str, Any]):
             cfg=safe_cfg,
             entities=entities,
             now=_now_iso(),
+            incoming_children=incoming.get(name, []),
+            fk_back_populates=_fk_back_populates_for_entity(name, entities),
         )
         out_path = os.path.join(pkg_dir, f"{name}.py")
         _write_text(out_path, rendered)
         print(f"[codegen] wrote {out_path}")
 
-    # Ensure string relationships resolve by importing all classes
+    # ensure string relationships resolve by importing all classes
     init_lines = [f"from .{n} import {_class_name(n)}" for n in entities.keys()]
     _write_text(os.path.join(pkg_dir, "__init__.py"), "\n".join(init_lines) + "\n")
     print(f"[codegen] wrote {os.path.join(pkg_dir, '__init__.py')}")
@@ -407,14 +452,10 @@ def generate_hooks(env: Environment, client: str, entities: Dict[str, Any]):
 def generate_tests(env: Environment, client: str, entities: Dict[str, Any]):
     tpl_crud = env.get_template("backend/tests_crud.py.j2")
     tpl_filters = env.get_template("backend/tests_filters.py.j2")
-    # match your pytest layout: backend/tests/<client>/
-    out_dir = os.path.join("backend", "tests", client)
-    _ensure_pkg(os.path.join("backend", "tests"))
+    out_dir = os.path.join("backend", "clients", client, "tests")
     _ensure_pkg(out_dir)
-    _write_text(os.path.join(out_dir, "test_crud.py"),
-                tpl_crud.render(client=client, entities=entities, now=_now_iso()))
-    _write_text(os.path.join(out_dir, "test_filters.py"),
-                tpl_filters.render(client=client, entities=entities, now=_now_iso()))
+    _write_text(os.path.join(out_dir, "test_crud.py"), tpl_crud.render(client=client, entities=entities, now=_now_iso()))
+    _write_text(os.path.join(out_dir, "test_filters.py"), tpl_filters.render(client=client, entities=entities, now=_now_iso()))
     print(f"[codegen] wrote {os.path.join(out_dir, 'test_crud.py')}")
     print(f"[codegen] wrote {os.path.join(out_dir, 'test_filters.py')}")
 

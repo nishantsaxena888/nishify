@@ -22,22 +22,28 @@ class Inventory(Base):
 
 
 
-    id = Column(_sa_type("int"), primary_key=True)
+
+    id = Column(
+        _sa_type("int"),
+        primary_key=True, autoincrement=True    )
 
 
 
-    item_id = Column(_sa_type("int"), ForeignKey("item.id"))
+    item_id = Column(
+        _sa_type("int"),
+        ForeignKey("item.id")    )
 
 
 
-    location_id = Column(_sa_type("int"), ForeignKey("inventory_location.id"))
+    location_id = Column(
+        _sa_type("int"),
+        ForeignKey("inventory_location.id")    )
 
 
 
-    quantity = Column(_sa_type("int"))
+    quantity = Column(
+        _sa_type("int")    )
 
-    # Surrogate PK because schema had no pk
-    id = Column(String(32), primary_key=True)
 
 
     item = relationship(

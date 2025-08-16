@@ -22,17 +22,20 @@ class PriceGroup(Base):
 
 
 
-    id = Column(_sa_type("int"), primary_key=True)
+
+    id = Column(
+        _sa_type("int"),
+        primary_key=True, autoincrement=True    )
 
 
 
-    name = Column(_sa_type("str"))
+    name = Column(
+        _sa_type("str")    )
 
 
 
-    markup_percent = Column(_sa_type("float"))
+    markup_percent = Column(
+        _sa_type("float")    )
 
-    # Surrogate PK because schema had no pk
-    id = Column(String(32), primary_key=True)
 
 

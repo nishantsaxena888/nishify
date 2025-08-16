@@ -22,22 +22,27 @@ class Invoice(Base):
 
 
 
-    id = Column(_sa_type("int"), primary_key=True)
+
+    id = Column(
+        _sa_type("int"),
+        primary_key=True, autoincrement=True    )
 
 
 
-    customer_id = Column(_sa_type("int"), ForeignKey("customer.id"))
+    customer_id = Column(
+        _sa_type("int"),
+        ForeignKey("customer.id")    )
 
 
 
-    date = Column(_sa_type("datetime"))
+    date = Column(
+        _sa_type("datetime")    )
 
 
 
-    status = Column(_sa_type("str"))
+    status = Column(
+        _sa_type("str")    )
 
-    # Surrogate PK because schema had no pk
-    id = Column(String(32), primary_key=True)
 
 
     customer = relationship(

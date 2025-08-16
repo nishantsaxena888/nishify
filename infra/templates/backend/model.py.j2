@@ -26,7 +26,15 @@ class {{ cls_name }}(Base):
 
     {# ==== Columns ==== #}
     {% set fields = cfg.get("fields") or {} %}
-    {% set has_pk = False %}
+    {% set pk_fields = [] %}
+    {% for _fname, _spec in fields.items() %}
+        {% if _spec.get("pk") or _spec.get("primary_key") %}
+            {% set _ = pk_fields.append(_fname) %}
+        {% endif %}
+    {% endfor %}
+    {% set has_pk = (pk_fields|length) > 0 %}
+    {% set single_pk = (pk_fields|length) == 1 %}
+
     {% for fname, spec in fields.items() %}
     {% set t = spec.get("type") %}
     {% set pk = spec.get("pk") or spec.get("primary_key") %}
@@ -43,15 +51,22 @@ class {{ cls_name }}(Base):
     {% set fkspec = fk or implicit_fk %}
 
     {% if pk %}
-    {{ fname }} = Column(_sa_type("{{ t }}"), primary_key=True{% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %})
-    {% set has_pk = True %}
+    {{ fname }} = Column(
+        _sa_type("{{ t }}"),
+        primary_key=True{% if single_pk and (t or '')|lower in ['int','integer'] %}, autoincrement=True{% endif %}{% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %}
+    )
     {% elif fkspec %}
     {% set parts = fkspec.split(".") %}
     {% set ref_table = parts[0] %}
     {% set ref_col = parts[1] if parts|length > 1 else "id" %}
-    {{ fname }} = Column(_sa_type("{{ t }}"), ForeignKey("{{ ref_table }}.{{ ref_col }}"){% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %})
+    {{ fname }} = Column(
+        _sa_type("{{ t }}"),
+        ForeignKey("{{ ref_table }}.{{ ref_col }}"){% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %}
+    )
     {% else %}
-    {{ fname }} = Column(_sa_type("{{ t }}"){% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %})
+    {{ fname }} = Column(
+        _sa_type("{{ t }}"){% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %}
+    )
     {% endif %}
 
     {% endfor %}

@@ -22,22 +22,27 @@ class InvoiceItem(Base):
 
 
 
-    invoice_id = Column(_sa_type("int"), primary_key=True)
+
+    invoice_id = Column(
+        _sa_type("int"),
+        primary_key=True    )
 
 
 
-    item_id = Column(_sa_type("int"), primary_key=True)
+    item_id = Column(
+        _sa_type("int"),
+        primary_key=True    )
 
 
 
-    quantity = Column(_sa_type("int"))
+    quantity = Column(
+        _sa_type("int")    )
 
 
 
-    price = Column(_sa_type("float"))
+    price = Column(
+        _sa_type("float")    )
 
-    # Surrogate PK because schema had no pk
-    id = Column(String(32), primary_key=True)
 
 
     invoice = relationship(

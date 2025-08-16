@@ -22,13 +22,15 @@ class State(Base):
 
 
 
-    id = Column(_sa_type("int"), primary_key=True)
+
+    id = Column(
+        _sa_type("int"),
+        primary_key=True, autoincrement=True    )
 
 
 
-    name = Column(_sa_type("str"), nullable=False)
+    name = Column(
+        _sa_type("str"), nullable=False    )
 
-    # Surrogate PK because schema had no pk
-    id = Column(String(32), primary_key=True)
 
 
