@@ -1,0 +1,4 @@
+id,name,address,email,phone,salesperson_id,credit_limit
+1,name_0,address_0,email_0,phone_0,1,100.0
+2,name_1,address_1,email_1,phone_1,2,101.1
+3,name_2,address_2,email_2,phone_2,3,102.2

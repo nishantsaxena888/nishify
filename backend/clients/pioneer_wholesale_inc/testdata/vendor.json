@@ -1,0 +1,47 @@
+[
+  {
+    "address": "address_0",
+    "contact_person": "contact_person_0",
+    "email": "email_0",
+    "id": 1,
+    "name": "name_0",
+    "phone": "phone_0",
+    "state_id": 1
+  },
+  {
+    "address": "address_1",
+    "contact_person": "contact_person_1",
+    "email": "email_1",
+    "id": 2,
+    "name": "name_1",
+    "phone": "phone_1",
+    "state_id": 2
+  },
+  {
+    "address": "address_2",
+    "contact_person": "contact_person_2",
+    "email": "email_2",
+    "id": 3,
+    "name": "name_2",
+    "phone": "phone_2",
+    "state_id": 3
+  },
+  {
+    "address": "address_3",
+    "contact_person": "contact_person_3",
+    "email": "email_3",
+    "id": 4,
+    "name": "name_3",
+    "phone": "phone_3",
+    "state_id": 4
+  },
+  {
+    "address": "address_4",
+    "contact_person": "contact_person_4",
+    "email": "email_4",
+    "id": 5,
+    "name": "name_4",
+    "phone": "phone_4",
+    "state_id": 5
+  }
+]

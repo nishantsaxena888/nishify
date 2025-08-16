@@ -1,0 +1,4 @@
+invoice_id,item_id,quantity,price
+1,1,1,100.0
+2,2,2,101.1
+3,3,3,102.2

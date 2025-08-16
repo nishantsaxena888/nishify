@@ -1,35 +1,31 @@
-import os
-import sys
+import os, sys
+from pathlib import Path
 from sqlalchemy import select, func
 from backend.utils.db import SessionLocal
-from backend.utils.model_loader import get_model_class
-from backend.utils.config import get_client_name
-import importlib.util
+from backend.utils.model_loader import get_all_models
 
-client_name = get_client_name()
+# repo root on path
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.append(str(ROOT))
+
+# env-only client
+CLIENT = os.environ.get("CLIENT_NAME")
+if not CLIENT:
+    raise SystemExit("Set CLIENT_NAME, e.g. CLIENT_NAME=pioneer_wholesale_inc")
+
+# load models for this client
+models = get_all_models(CLIENT)
+if not models:
+    raise SystemExit(f"No models found for client={CLIENT}. Did you generate models and have models/__init__.py?")
+
+# count rows per table
 db = SessionLocal()
-
-# 🔍 Load all entity names from entities.data.py if no arguments passed
-if len(sys.argv) > 1:
-    entities = sys.argv[1:]
-else:
-    CLIENT_DIR = os.path.join("clients", client_name)
-    ENTITIES_DATA_PATH = os.path.join(CLIENT_DIR, "entities.data.py")
-    
-    spec = importlib.util.spec_from_file_location("entities_data", ENTITIES_DATA_PATH)
-    entities_data_module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(entities_data_module)
-    entities_data = entities_data_module.entities_data
-    entities = list(entities_data.keys())
-
-print(f"🔍 Showing row counts for {len(entities)} entities...\n")
-
-for entity_name in entities:
-    try:
-        model = get_model_class(client_name, entity_name)
-        count = db.scalar(select(func.count()).select_from(model))
-        print(f"{entity_name}: {count} rows")
-    except Exception as e:
-        print(f"❌ Failed to load {entity_name}: {e}")
-
-db.close()
+try:
+    total = 0
+    for M in sorted(models, key=lambda m: m.__tablename__):
+        n = db.execute(select(func.count()).select_from(M)).scalar_one()
+        print(f"{M.__tablename__}: {n}")
+        total += int(n)
+    print(f"TOTAL: {total}")
+finally:
+    db.close()

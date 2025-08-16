@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "name_0",
+    "tax_percent": 100.0
+  },
+  {
+    "id": 2,
+    "name": "name_1",
+    "tax_percent": 101.1
+  },
+  {
+    "id": 3,
+    "name": "name_2",
+    "tax_percent": 102.2
+  },
+  {
+    "id": 4,
+    "name": "name_3",
+    "tax_percent": 103.3
+  },
+  {
+    "id": 5,
+    "name": "name_4",
+    "tax_percent": 104.4
+  }
+]

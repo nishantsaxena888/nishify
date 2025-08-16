@@ -1,0 +1,4 @@
+id,item_code,name,category_id,secondary_category_id,vendor_id,tax_group_id,price_group_id,cash_discount_group_id,upc_code,unit,price,description,active
+1,item_code_0,name_0,1,1,1,1,1,1,upc_code_0,unit_0,100.0,description_0,True
+2,item_code_1,name_1,2,2,2,2,2,2,upc_code_1,unit_1,101.1,description_1,False
+3,item_code_2,name_2,3,3,3,3,3,3,upc_code_2,unit_2,102.2,description_2,True

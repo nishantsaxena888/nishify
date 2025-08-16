@@ -1,0 +1,32 @@
+[
+  {
+    "invoice_id": 1,
+    "item_id": 1,
+    "price": 100.0,
+    "quantity": 1
+  },
+  {
+    "invoice_id": 2,
+    "item_id": 2,
+    "price": 101.1,
+    "quantity": 2
+  },
+  {
+    "invoice_id": 3,
+    "item_id": 3,
+    "price": 102.2,
+    "quantity": 3
+  },
+  {
+    "invoice_id": 4,
+    "item_id": 4,
+    "price": 103.3,
+    "quantity": 4
+  },
+  {
+    "invoice_id": 5,
+    "item_id": 5,
+    "price": 104.4,
+    "quantity": 5
+  }
+]

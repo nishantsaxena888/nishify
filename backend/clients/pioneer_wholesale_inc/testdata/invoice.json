@@ -1,0 +1,32 @@
+[
+  {
+    "customer_id": 1,
+    "date": "2025-01-01",
+    "id": 1,
+    "status": "status_0"
+  },
+  {
+    "customer_id": 2,
+    "date": "2025-01-02",
+    "id": 2,
+    "status": "status_1"
+  },
+  {
+    "customer_id": 3,
+    "date": "2025-01-03",
+    "id": 3,
+    "status": "status_2"
+  },
+  {
+    "customer_id": 4,
+    "date": "2025-01-04",
+    "id": 4,
+    "status": "status_3"
+  },
+  {
+    "customer_id": 5,
+    "date": "2025-01-05",
+    "id": 5,
+    "status": "status_4"
+  }
+]

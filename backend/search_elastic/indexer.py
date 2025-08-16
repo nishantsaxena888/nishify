@@ -57,6 +57,9 @@ except Exception as e:
 
 
 client_name = get_client_name()
+from backend.utils.model_loader import get_all_models
+get_all_models(client_name)  # ensure all models (e.g., State) are imported so string relationships resolve
+
 client_dir = os.path.join(os.path.dirname(__file__), "..", "clients", client_name)
 elastic_config_path = os.path.join(client_dir, "elastic_entities.py")
 spec = importlib.util.spec_from_file_location("elastic_entities", elastic_config_path)

@@ -1,0 +1,47 @@
+[
+  {
+    "address": "address_0",
+    "credit_limit": 100.0,
+    "email": "email_0",
+    "id": 1,
+    "name": "name_0",
+    "phone": "phone_0",
+    "salesperson_id": 1
+  },
+  {
+    "address": "address_1",
+    "credit_limit": 101.1,
+    "email": "email_1",
+    "id": 2,
+    "name": "name_1",
+    "phone": "phone_1",
+    "salesperson_id": 2
+  },
+  {
+    "address": "address_2",
+    "credit_limit": 102.2,
+    "email": "email_2",
+    "id": 3,
+    "name": "name_2",
+    "phone": "phone_2",
+    "salesperson_id": 3
+  },
+  {
+    "address": "address_3",
+    "credit_limit": 103.3,
+    "email": "email_3",
+    "id": 4,
+    "name": "name_3",
+    "phone": "phone_3",
+    "salesperson_id": 4
+  },
+  {
+    "address": "address_4",
+    "credit_limit": 104.4,
+    "email": "email_4",
+    "id": 5,
+    "name": "name_4",
+    "phone": "phone_4",
+    "salesperson_id": 5
+  }
+]

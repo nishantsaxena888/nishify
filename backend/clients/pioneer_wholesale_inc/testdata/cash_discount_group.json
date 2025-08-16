@@ -1,0 +1,32 @@
+[
+  {
+    "discount_percent": 100.0,
+    "id": 1,
+    "name": "name_0",
+    "terms": "terms_0"
+  },
+  {
+    "discount_percent": 101.1,
+    "id": 2,
+    "name": "name_1",
+    "terms": "terms_1"
+  },
+  {
+    "discount_percent": 102.2,
+    "id": 3,
+    "name": "name_2",
+    "terms": "terms_2"
+  },
+  {
+    "discount_percent": 103.3,
+    "id": 4,
+    "name": "name_3",
+    "terms": "terms_3"
+  },
+  {
+    "discount_percent": 104.4,
+    "id": 5,
+    "name": "name_4",
+    "terms": "terms_4"
+  }
+]

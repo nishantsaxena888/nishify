@@ -1,0 +1,93 @@
+{# AUTO-GENERATED: {{ entity }} model for {{ client }} ({{ now }})
+   Source: clients/{{ client }}/entities.py
+   Do NOT edit manually. #}
+from __future__ import annotations
+from sqlalchemy import (
+    Column, String, Integer, Float, Boolean, Date, DateTime,
+    ForeignKey, UniqueConstraint, Text
+)
+from sqlalchemy.orm import relationship
+from backend.utils.db import Base
+
+def _sa_type(tname: str):
+    t = (tname or "string").lower()
+    if t in ("string", "str", "keyword", "varchar"): return String(255)
+    if t in ("text",): return Text()
+    if t in ("int", "integer"): return Integer()
+    if t in ("float", "double", "number", "numeric"): return Float()
+    if t in ("bool", "boolean"): return Boolean()
+    if t in ("date",): return Date()
+    if t in ("datetime", "timestamp"): return DateTime()
+    return String(255)
+
+{% set cls_name = entity|replace('-', ' ')|replace('_', ' ')|title|replace(' ', '') %}
+class {{ cls_name }}(Base):
+    __tablename__ = "{{ entity }}"
+
+    {# ==== Columns ==== #}
+    {% set fields = cfg.get("fields") or {} %}
+    {% set has_pk = False %}
+    {% for fname, spec in fields.items() %}
+    {% set t = spec.get("type") %}
+    {% set pk = spec.get("pk") or spec.get("primary_key") %}
+    {% set fk = spec.get("fk") or spec.get("foreign_key") %}
+    {% set uniq = spec.get("unique") %}
+    {% set required = spec.get("required") %}
+    {% set nullable = (False if required else (spec.get("nullable") if spec.get("nullable") is not none else None)) %}
+
+    {# implicit FK if endswith _id and fk not provided #}
+    {% set implicit_fk = None %}
+    {% if not fk and fname.endswith('_id') and fname|length > 3 %}
+        {% set implicit_fk = fname[:-3] + ".id" %}
+    {% endif %}
+    {% set fkspec = fk or implicit_fk %}
+
+    {% if pk %}
+    {{ fname }} = Column(_sa_type("{{ t }}"), primary_key=True{% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %})
+    {% set has_pk = True %}
+    {% elif fkspec %}
+    {% set parts = fkspec.split(".") %}
+    {% set ref_table = parts[0] %}
+    {% set ref_col = parts[1] if parts|length > 1 else "id" %}
+    {{ fname }} = Column(_sa_type("{{ t }}"), ForeignKey("{{ ref_table }}.{{ ref_col }}"){% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %})
+    {% else %}
+    {{ fname }} = Column(_sa_type("{{ t }}"){% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %})
+    {% endif %}
+
+    {% endfor %}
+    {% if not has_pk %}
+    # Surrogate PK because schema had no pk
+    id = Column(String(32), primary_key=True)
+    {% endif %}
+
+    {# ==== Unique Together ==== #}
+    {% set ucs = cfg.get("unique_together") or [] %}
+    {% if ucs %}
+    __table_args__ = (
+    {% for grp in ucs %}
+        UniqueConstraint({% for c in grp %}"{{ c }}"{% if not loop.last %}, {% endif %}{% endfor %}, name="{{ entity }}_uniq_{{ loop.index0 }}"),
+    {% endfor %}
+    )
+    {% endif %}
+
+    {# ==== Relationships (explicit primaryjoin so it never fails) ==== #}
+    {% for fname, spec in fields.items() %}
+    {% set fk = spec.get("fk") or spec.get("foreign_key") %}
+    {% set implicit_fk = None %}
+    {% if not fk and fname.endswith('_id') and fname|length > 3 %}
+        {% set implicit_fk = fname[:-3] + ".id" %}
+    {% endif %}
+    {% set relspec = fk or implicit_fk %}
+    {% if relspec %}
+        {% set parts = relspec.split(".") %}
+        {% set ref_table = parts[0] %}
+        {% set ref_col = parts[1] if parts|length > 1 else "id" %}
+        {% set target_cls = ref_table|replace('-', ' ')|replace('_',' ')|title|replace(' ','') %}
+        {% set rel_name = fname[:-3] if fname.endswith('_id') else fname + '_rel' %}
+    {{ rel_name }} = relationship(
+        "{{ target_cls }}",
+        primaryjoin="{{ cls_name }}.{{ fname }} == {{ target_cls }}.{{ ref_col }}",
+        foreign_keys=[{{ fname }}]
+    )
+    {% endif %}
+    {% endfor %}

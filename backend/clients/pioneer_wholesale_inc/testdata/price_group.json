@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "markup_percent": 100.0,
+    "name": "name_0"
+  },
+  {
+    "id": 2,
+    "markup_percent": 101.1,
+    "name": "name_1"
+  },
+  {
+    "id": 3,
+    "markup_percent": 102.2,
+    "name": "name_2"
+  },
+  {
+    "id": 4,
+    "markup_percent": 103.3,
+    "name": "name_3"
+  },
+  {
+    "id": 5,
+    "markup_percent": 104.4,
+    "name": "name_4"
+  }
+]

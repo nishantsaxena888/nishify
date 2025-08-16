@@ -148,22 +148,16 @@ git remote set-url origin git@github.com:nishantsaxena888/nishify.git
 > Idea : TOC main FAQ
 >> move all this to TOC
 ```
+export PYTHONPATH=.
+export  CLIENT_NAME=pioneer_wholesale_inc
 
-rm db.sqlite3
 python -m infra.data_faker pioneer_wholesale_inc
 python -m infra.code_generator pioneer_wholesale_inc
-
-set PYTHONPATH=.
-alembic revision --autogenerate -m "initial schessma"
-
-export PYTHONPATH=.
-set PYTHONPATH=.
-
-alembic revision --autogenerate -m "initial schessma"
+rm -Rf backend/alembic/versions/* 
+alembic revision --autogenerate -m "initial schema"
 
 alembic upgrade head
 
-python backend/scripts/load_sample_data.py
 python backend/scripts/show_counts.py
 python backend/scripts/show_counts.py item
 python backend/search_elastic/indexer.py
@@ -176,3 +170,21 @@ pytest backend/tests/pioneer_wholesale_inc
 
 cd nishify.io
 NEXT_PUBLIC_CLIENT_NAME=pioneer_wholesale_inc npm run test
+
+rm db.sqlite3
+export PYTHONPATH="$(pwd)"
+CLIENT_NAME=pioneer_wholesale_inc python -m infra.data_faker
+python -m infra.code_generator pioneer_wholesale_inc
+rm -rf backend/alembic/versions || true
+mkdir -p backend/alembic/versions
+alembic revision --autogenerate -m "initial schema"
+alembic upgrade head
+python backend/scripts/load_sample_data.py
+python backend/scripts/show_counts.py
+python backend/search_elastic/indexer.py
+
+
+
+
+
+

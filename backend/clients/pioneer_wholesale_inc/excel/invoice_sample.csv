@@ -1,0 +1,4 @@
+id,customer_id,date,status
+1,1,2025-01-01,status_0
+2,2,2025-01-02,status_1
+3,3,2025-01-03,status_2
