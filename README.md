@@ -182,6 +182,7 @@ alembic upgrade head
 python backend/scripts/load_sample_data.py
 python backend/scripts/show_counts.py
 python backend/search_elastic/indexer.py
+pytest backend/tests/pioneer_wholesale_inc
 
 
 

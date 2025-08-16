@@ -3,9 +3,9 @@
 """
 Client Code Generator (Jinja + fallbacks)
 """
-import os, sys, csv, datetime, importlib
+import os, sys, csv, datetime, importlib, re
 from typing import Dict, Any
-from jinja2 import Environment, FileSystemLoader, ChoiceLoader, DictLoader, TemplateNotFound
+from jinja2 import Environment, FileSystemLoader, ChoiceLoader, DictLoader
 
 # ----------------- DEFAULT TEMPLATES (fallbacks) -----------------
 
@@ -19,11 +19,12 @@ from sqlalchemy import (
     Column, String, Integer, Float, Boolean, Date, DateTime,
     ForeignKey, UniqueConstraint, Text
 )
+from sqlalchemy.orm import relationship
 from backend.utils.db import Base
 
 def _sa_type(tname: str):
     t = (tname or "string").lower()
-    if t in ("string", "keyword", "varchar"): return String(255)
+    if t in ("string", "str", "keyword", "varchar"): return String(255)
     if t in ("text",): return Text()
     if t in ("int", "integer"): return Integer()
     if t in ("float", "double", "number", "numeric"): return Float()
@@ -32,38 +33,52 @@ def _sa_type(tname: str):
     if t in ("datetime", "timestamp"): return DateTime()
     return String(255)
 
-class {{ entity|replace('-', ' ')|replace('_', ' ')|title|replace(' ', '') }}(Base):
+{% set cls_name = entity|replace('-', ' ')|replace('_', ' ')|title|replace(' ', '') %}
+class {{ cls_name }}(Base):
     __tablename__ = "{{ entity }}"
 
+    {# ==== Columns ==== #}
     {% set fields = cfg.get("fields") or {} %}
     {% set has_pk = False %}
     {% for fname, spec in fields.items() %}
     {% set t = spec.get("type") %}
-    {% set pk = spec.get("pk") %}
-    {% set fk = spec.get("fk") %}
+    {% set pk = spec.get("pk") or spec.get("primary_key") %}
+    {% set fk0 = spec.get("fk") or spec.get("foreign_key") %}
     {% set uniq = spec.get("unique") %}
     {% set required = spec.get("required") %}
-    {% set nullable =
-         (False if required else
-          (spec.get("nullable") if spec.get("nullable") is not none else None)) %}
+    {% set nullable = (False if required else (spec.get("nullable") if spec.get("nullable") is not none else None)) %}
+    {% set fk = fk0 %}
+    {% if not fk and fname.endswith('_id') and fname|length > 3 %}
+        {% set fk = fname[:-3] + ".id" %}
+    {% endif %}
 
     {% if pk %}
-    {{ fname }} = Column(_sa_type("{{ t }}"), primary_key=True{% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ nullable|lower }}{% endif %})
+    {{ fname }} = Column(
+        _sa_type("{{ t }}"),
+        primary_key=True{% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %}
+    )
     {% set has_pk = True %}
     {% elif fk %}
     {% set parts = fk.split(".") %}
     {% set ref_table = parts[0] %}
     {% set ref_col = parts[1] if parts|length > 1 else "id" %}
-    {{ fname }} = Column(_sa_type("{{ t }}"), ForeignKey("{{ ref_table }}.{{ ref_col }}"){% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ nullable|lower }}{% endif %})
+    {{ fname }} = Column(
+        _sa_type("{{ t }}"),
+        ForeignKey("{{ ref_table }}.{{ ref_col }}"){% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %}
+    )
     {% else %}
-    {{ fname }} = Column(_sa_type("{{ t }}"){% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ nullable|lower }}{% endif %})
+    {{ fname }} = Column(
+        _sa_type("{{ t }}"){% if uniq %}, unique=True{% endif %}{% if nullable is not none %}, nullable={{ 'True' if nullable else 'False' }}{% endif %}
+    )
     {% endif %}
 
     {% endfor %}
     {% if not has_pk %}
+    # Surrogate PK because schema had no pk
     id = Column(String(32), primary_key=True)
     {% endif %}
 
+    {# ==== Unique Together ==== #}
     {% set ucs = cfg.get("unique_together") or [] %}
     {% if ucs %}
     __table_args__ = (
@@ -72,6 +87,20 @@ class {{ entity|replace('-', ' ')|replace('_', ' ')|title|replace(' ', '') }}(Ba
     {% endfor %}
     )
     {% endif %}
+
+    {# ==== Child -> Parent relationships for FK fields ==== #}
+    {% for fname, spec in fields.items() %}
+    {% set fk = (spec.get("fk") or spec.get("foreign_key")) %}
+    {% if not fk and fname.endswith('_id') and fname|length > 3 %}
+        {% set fk = fname[:-3] + ".id" %}
+    {% endif %}
+    {% if fk %}
+        {% set ref_table = fk.split(".")[0] %}
+        {% set target_cls = ref_table|replace('-', ' ')|replace('_',' ')|title|replace(' ','') %}
+        {% set rel_name = fname[:-3] if fname.endswith('_id') else fname + '_rel' %}
+    {{ rel_name }} = relationship("{{ target_cls }}", foreign_keys=[{{ fname }}])
+    {% endif %}
+    {% endfor %}
 """
 
 DEFAULT_HOOKS_J2 = r"""
@@ -80,17 +109,37 @@ from __future__ import annotations
 from typing import Any, Dict, List
 import datetime
 
+# Static defaults only (simple literals). Dynamic timestamps handled below.
 ENTITY_DEFAULTS: Dict[str, Dict[str, Any]] = {
 {% for name, cfg in entities.items() %}
     "{{ name }}": {
     {%- for fname, fcfg in (cfg.get("fields") or {}).items() %}
         {%- if fcfg.get("default") is not none %}
         "{{ fname }}": {{ fcfg.get("default")|tojson }},
-        {%- elif (fcfg.get("type") in ("date","datetime","timestamp")) and fcfg.get("auto_now") %}
-        "{{ fname }}": datetime.datetime.utcnow().isoformat() + "Z",
         {%- endif %}
     {%- endfor %}
     },
+{% endfor %}
+}
+
+# Which entities have special timestamp behavior
+ENTITY_TS_FLAGS: Dict[str, Dict[str, bool]] = {
+{% for name, cfg in entities.items() %}
+    "{{ name }}": {
+        "has_created": {{ 'True' if 'created_at' in (cfg.get('fields') or {}) else 'False' }},
+        "has_updated": {{ 'True' if 'updated_at' in (cfg.get('fields') or {}) else 'False' }},
+    },
+{% endfor %}
+}
+
+# auto_now fields per entity (set at request-time)
+AUTO_NOW_FIELDS: Dict[str, List[str]] = {
+{% for name, cfg in entities.items() %}
+    "{{ name }}": [
+    {%- for fname, fcfg in (cfg.get("fields") or {}).items() if (fcfg.get("type") in ("date","datetime","timestamp")) and fcfg.get("auto_now") %}
+        "{{ fname }}",
+    {%- endfor %}
+    ],
 {% endfor %}
 }
 
@@ -98,14 +147,25 @@ def options(entity: str, schema: str = "basic") -> Dict[str, Any]:
     return {"entity": entity, "schema": schema, "generated_for": "{{ client }}"}
 
 def apply_defaults(entity: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+    now = datetime.datetime.utcnow().isoformat() + "Z"
     defaults = ENTITY_DEFAULTS.get(entity) or {}
     out = dict(payload)
+
+    # static defaults
     for k, v in defaults.items():
         out.setdefault(k, v)
-    if "created_at" in out and not out.get("created_at"):
-        out["created_at"] = datetime.datetime.utcnow().isoformat() + "Z"
-    if "updated_at" in out:
-        out["updated_at"] = datetime.datetime.utcnow().isoformat() + "Z"
+
+    # dynamic auto_now fields
+    for k in AUTO_NOW_FIELDS.get(entity, []):
+        out.setdefault(k, now)
+
+    # timestamps
+    flags = ENTITY_TS_FLAGS.get(entity) or {}
+    if flags.get("has_created"):
+        out.setdefault("created_at", now)
+    if flags.get("has_updated"):
+        out["updated_at"] = now
+
     return out
 
 def validate(entity: str, payload: Dict[str, Any]) -> List[str]:
@@ -119,8 +179,10 @@ def after_insert(entity: str, record: Dict[str, Any]) -> Dict[str, Any]:
 
 def before_update(entity: str, payload: Dict[str, Any]) -> Dict[str, Any]:
     out = dict(payload)
-    if "updated_at" in out:
-        out["updated_at"] = datetime.datetime.utcnow().isoformat() + "Z"
+    # refresh updated_at if entity has it
+    if ENTITY_TS_FLAGS.get(entity, {}).get("has_updated"):
+        now = datetime.datetime.utcnow().isoformat() + "Z"
+        out["updated_at"] = now
     return out
 
 def after_update(entity: str, record: Dict[str, Any]) -> Dict[str, Any]:
@@ -206,7 +268,7 @@ def test_filter_eq(entity):
 def test_filter_gt_lt(entity):
     rows = _SAMPLE.get(entity) or []
     if not rows:
-        pytest.skip(f"no sample rows for {entity}")
+        pytest.skip(f"no numeric fields in {entity}")
     num_field = None
     for k, v in rows[0].items():
         if isinstance(v, (int, float)):
@@ -274,6 +336,9 @@ def _ensure_pkg(path_dir: str):
         if not os.path.exists(initp):
             open(initp, "a").close()
 
+def _class_name(name: str) -> str:
+    return "".join(p.capitalize() for p in re.split(r'[_\W]+', name) if p)
+
 def load_entities(client: str) -> Dict[str, Any]:
     mod = _import(f"clients.{client}.entities")
     entities = getattr(mod, "entities", None)
@@ -309,14 +374,27 @@ def generate_models(env: Environment, client: str, entities: Dict[str, Any]):
     _ensure_pkg(os.path.join("backend", "clients"))
     _ensure_pkg(os.path.join("backend", "clients", client))
     _ensure_pkg(pkg_dir)
+
     for name, cfg in entities.items():
         fields = cfg.get("fields") or {}
         has_pk = any((isinstance(v, dict) and v.get("pk")) for v in fields.values())
         safe_cfg = cfg if has_pk else {**cfg, "fields": {"id": {"type": "string", "pk": True}, **fields}}
+
+        rendered = tpl.render(
+            client=client,
+            entity=name,
+            cfg=safe_cfg,
+            entities=entities,
+            now=_now_iso(),
+        )
         out_path = os.path.join(pkg_dir, f"{name}.py")
-        rendered = tpl.render(client=client, entity=name, cfg=safe_cfg, entities=entities, now=_now_iso())
         _write_text(out_path, rendered)
         print(f"[codegen] wrote {out_path}")
+
+    # Ensure string relationships resolve by importing all classes
+    init_lines = [f"from .{n} import {_class_name(n)}" for n in entities.keys()]
+    _write_text(os.path.join(pkg_dir, "__init__.py"), "\n".join(init_lines) + "\n")
+    print(f"[codegen] wrote {os.path.join(pkg_dir, '__init__.py')}")
 
 def generate_hooks(env: Environment, client: str, entities: Dict[str, Any]):
     tpl = env.get_template("backend/hooks.py.j2")
@@ -329,10 +407,14 @@ def generate_hooks(env: Environment, client: str, entities: Dict[str, Any]):
 def generate_tests(env: Environment, client: str, entities: Dict[str, Any]):
     tpl_crud = env.get_template("backend/tests_crud.py.j2")
     tpl_filters = env.get_template("backend/tests_filters.py.j2")
-    out_dir = os.path.join("backend", "clients", client, "tests")
-    _ensure_pkg(os.path.join("backend", "clients", client, "tests"))
-    _write_text(os.path.join(out_dir, "test_crud.py"), tpl_crud.render(client=client, entities=entities, now=_now_iso()))
-    _write_text(os.path.join(out_dir, "test_filters.py"), tpl_filters.render(client=client, entities=entities, now=_now_iso()))
+    # match your pytest layout: backend/tests/<client>/
+    out_dir = os.path.join("backend", "tests", client)
+    _ensure_pkg(os.path.join("backend", "tests"))
+    _ensure_pkg(out_dir)
+    _write_text(os.path.join(out_dir, "test_crud.py"),
+                tpl_crud.render(client=client, entities=entities, now=_now_iso()))
+    _write_text(os.path.join(out_dir, "test_filters.py"),
+                tpl_filters.render(client=client, entities=entities, now=_now_iso()))
     print(f"[codegen] wrote {os.path.join(out_dir, 'test_crud.py')}")
     print(f"[codegen] wrote {os.path.join(out_dir, 'test_filters.py')}")
 

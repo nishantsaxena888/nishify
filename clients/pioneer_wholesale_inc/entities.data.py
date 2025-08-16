@@ -229,7 +229,7 @@ sample_data = {'cash_discount_group': [{'discount_percent': 100.0, 'id': 1, 'nam
              'state_id': 5}]}
 entities_data = sample_data
 
-__meta__ = {'checksum': 'f48ce71835afd7ca38d00b7263ca8b3c484fdad0',
+__meta__ = {'checksum': '9616ec22a05bc179b3f950f35fb910bee87112fc',
  'client': 'pioneer_wholesale_inc',
- 'generated_at': '2025-08-16T05:06:49Z',
+ 'generated_at': '2025-08-16T05:23:13Z',
  'seed': 1337}
