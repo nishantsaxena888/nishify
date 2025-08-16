@@ -34,6 +34,39 @@ flowchart TD
   end
 
 ```
+```
+flowchart LR
+  FE["Frontend (GenericTable, hooks, api)"]
+    --> |"/api/{entity}?filters,sort,limit,offset"| R["FastAPI Router: backend/routers/entity_router.py"]
+
+  %% Domain configs feeding router behavior
+  ENT["clients/&lt;client&gt;/entities.py — fields, defaults, validators, options schema"] --> R
+  ESE["clients/&lt;client&gt;/elastic_entities.py — indexing rules"] --> R
+
+  %% Router internals
+  subgraph ROUTER["Router"]
+    direction TB
+    R --> |"/options"| OPT["Options: basic or schema=full (fields + defaults + validators)"]
+    R --> |"GET list"| GETL["Query builder → SQL or ES + pagination"]
+    R --> |"GET one"| GET1["Select by primary key"]
+    R --> |"POST"| POST["Validate → apply defaults → insert → audit"]
+    R --> |"PUT"| PUT["Partial validate → update by PK → audit"]
+    R --> |"DELETE"| DEL["Delete by PK"]
+  end
+
+  %% Models + DB
+  R --> |"model resolution"| MDL["backend/clients/&lt;client&gt;/models/*.py — SQLAlchemy"]
+  MDL --> DB["DB (SQLite/Postgres)"]
+
+  %% Optional ES path
+  R -. "if indexed" .-> ES["Elasticsearch"]
+  ES -. "search results" .-> R
+
+  %% Response back to UI
+  R --> RESP["JSON: {items, count} or {item} or {error[]}"]
+  RESP --> FE
+```
+
 
 ```mermaid
 flowchart TD
